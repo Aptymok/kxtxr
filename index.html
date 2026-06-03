@@ -275,35 +275,6 @@
         const helperCanvas = document.getElementById("analysis-helper-canvas");
         const helperCtx = helperCanvas.getContext("2d");
         const ghostSignature = document.getElementById("kxtxr-ghost-signature");
-        const btn618 = document.getElementById("btn-618");
-
-        // --- Variables de Estado Globales (Ubicadas al inicio para evitar Temporal Dead Zone) ---
-        let isSystemDegraded = false;
-        let isDeadHour = false;
-        let isEasterEggActive = false;
-        let isReconstructed = localStorage.getItem("kxtxr_reconstructed") === "true";
-
-        let currentCoordsStr = "45.1092° N, 14.2001° E";
-        let targetDrift = 0;
-        let currentDrift = 0;
-        let noiseMultiplier = 0.25;
-        let activeRegNum = "008";
-
-        let environmentBrightness = 1.0; 
-        let environmentMotion = 0.0;     
-        let prevFrameData = null;
-
-        let cameraStream = null;
-        let localAnalysisInterval = null;
-
-        let easterEggSequence = null;
-        let easterEggOscillators = [];
-
-        let audioCtx = null;
-        let mainHum = null;
-        let lfo = null;
-        let masterGainNode = null;
-        let audioEnabled = false;
 
         // --- 1. Catálogo de Activos Reales de Señal ---
         const realRegistry = {
@@ -316,47 +287,34 @@
         let realAudioElement = new Audio();
         realAudioElement.loop = true;
 
-        // Modificar visualmente el botón 618 si ya fue resuelto en una sesión anterior
-        if (isReconstructed) {
-            btn618.innerText = "[ RECUPERADO ]";
-            btn618.className = "register-btn text-cyan-400/50 hover:text-cyan-400 transition-colors";
-            btn618.setAttribute("data-coords", "45.1092° N, 14.2001° E");
-            btn618.setAttribute("data-depth", "RES_Z // ESTABLE");
-            btn618.setAttribute("data-stamp", "STAMP_618: RECONSTRUCTED");
-        }
+        // Easter egg independiente. No pertenece a REM618 y no reemplaza los registros.
+        // Debe existir físicamente en: /assets/easter_egg.mpeg
+        const easterEggRegistry = {
+            id: "EASTER_EGG",
+            type: "audio",
+            src: "/assets/easter_egg.mpeg"
+        };
+        const EASTER_EGG_CONSUMED_KEY = "kxtxr_easter_egg_consumed";
+        let isEasterEggConsumed = localStorage.getItem(EASTER_EGG_CONSUMED_KEY) === "true";
+        let easterEggAudioElement = new Audio(easterEggRegistry.src);
+        easterEggAudioElement.loop = false;
+        easterEggAudioElement.preload = "auto";
 
-        // Audio real del Easter Egg. Debe existir físicamente en /assets/easter_egg.mpeg
-        const easterEggAudio = new Audio('/assets/easter_egg.mpeg');
-        easterEggAudio.loop = false;
-        easterEggAudio.preload = 'auto';
+        let cameraStream = null;
+        let localAnalysisInterval = null;
 
-        function applyReconstructedState({ makeActive = false } = {}) {
-            localStorage.setItem("kxtxr_reconstructed", "true");
-            isReconstructed = true;
+        // Variables de adaptación ambiental dinámicas
+        let environmentBrightness = 1.0; 
+        let environmentMotion = 0.0;     
+        let prevFrameData = null;
 
-            btn618.innerText = "[ RECUPERADO ]";
-            btn618.className = "register-btn text-cyan-400/50 hover:text-cyan-400 transition-colors";
-            btn618.setAttribute("data-coords", "45.1092° N, 14.2001° E");
-            btn618.setAttribute("data-depth", "RES_Z // ESTABLE");
-            btn618.setAttribute("data-stamp", "STAMP_618: RECONSTRUCTED");
+        // Variables del Easter Egg de señal pura
+        let isEasterEggActive = false;
+        let easterEggSequence = null;
+        let easterEggOscillators = [];
 
-            if (makeActive) {
-                isSystemDegraded = false;
-                activeRegNum = "618";
-                currentCoordsStr = "45.1092° N, 14.2001° E";
-                liveCoords.innerText = currentCoordsStr;
-                canvasDepth.innerText = "RES_Z // ESTABLE";
-                captureStamp.innerText = "STAMP_618: RECONSTRUCTED";
-                activeRegLabel.innerText = "RECORD_618 // ESTABLE";
-                liveStatusField.innerText = "ARCHIVO RECONSTRUIDO";
-                liveStatusField.className = "text-[9px] tracking-widest text-cyan-400 font-mono transition-colors";
-                statusPulse.className = "w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse";
-                visorContainer.style.opacity = "1";
-                visorContainer.style.borderColor = "rgba(34, 211, 238, 0.45)";
-                mainStatement.innerText = "El archivo no estaba perdido.";
-                subStatement.innerText = "La frecuencia correcta reconstruyó el registro 618.";
-            }
-        }
+        // El easter egg ya no se sintetiza con osciladores.
+        // Se reproduce desde archivo físico, una sola vez por navegador.
 
         // Limpieza completa de capas
         function resetMediaLayers() {
@@ -372,7 +330,6 @@
             try {
                 videoEl.pause();
                 realAudioElement.pause();
-                if (!isEasterEggActive) easterEggAudio.pause();
             } catch (err) {}
 
             // Apagar la cámara de forma segura
@@ -393,15 +350,7 @@
 
         function loadRealMaterial(regNum) {
             resetMediaLayers();
-            if (isEasterEggActive) return; 
-
-            // Si el registro 618 ya fue reconstruido, el archivo correcto es el Easter Egg real.
-            if (regNum === "618" && isReconstructed) {
-                easterEggAudio.currentTime = 0;
-                easterEggAudio.volume = 0.85;
-                if (audioEnabled) easterEggAudio.play().catch(() => {});
-                return;
-            }
+            if (isEasterEggActive) return; // Si la melodía pura está activa, bloquear estática de fondo
 
             const item = realRegistry[regNum];
             if (!item) return;
@@ -424,7 +373,7 @@
             }
         }
 
-        // --- 1.5. Analizador de Visión Local en Tiempo Real ---
+        // --- 1.5. Analizador de Visión Local en Tiempo Real (Reactividad Física) ---
         function runLocalEnvironmentAnalysis() {
             if (!cameraStream) return;
             
@@ -491,7 +440,7 @@
             }
         }
 
-        // --- Integrando análisis multimodal con la API de Gemini ---
+        // --- STREAMING_CHUNK: Integrando análisis multimodal con la API de Gemini ---
         const apiKey = ""; 
 
         async function analyzeEnvironmentWithGemini() {
@@ -560,22 +509,22 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
         });
 
         // --- 2. Persistencia y Memoria Local ---
-        let totalVisits = parseInt(localStorage.getItem('kxtxr_visits') || '0', 10);
+        let totalVisits = parseInt(localStorage.getItem('kxtxr_visits') || '0');
         totalVisits++;
-        localStorage.setItem('kxtxr_visits', String(totalVisits));
+        localStorage.setItem('kxtxr_visits', totalVisits);
 
         const lastVisitDate = localStorage.getItem('kxtxr_last_date');
         const todayStr = new Date().toDateString();
         let isConsecutive = false;
-
         if (lastVisitDate && lastVisitDate !== todayStr) {
-            const lastTime = new Date(lastVisitDate).getTime();
-            const nowTime = new Date(todayStr).getTime();
-            const diffDays = Math.round((nowTime - lastTime) / 86400000);
-            isConsecutive = diffDays === 1;
+            isConsecutive = true;
         }
-
         localStorage.setItem('kxtxr_last_date', todayStr);
+
+        if (isEasterEggConsumed) {
+            ghostSignature.innerText = "[ · ]";
+            ghostSignature.className = "font-mono text-[9px] text-kxtxr-residualDark/20 tracking-widest cursor-default select-none transition-all duration-500 py-1 px-2 border border-transparent rounded";
+        }
 
         if (totalVisits >= 3) {
             subStatement.innerText = "La sesión anterior no cerró correctamente.";
@@ -625,6 +574,10 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
         });
 
         // --- 3. Coordenadas y Reloj Corrupto ---
+        let currentCoordsStr = "45.1092° N, 14.2001° E";
+        let isSystemDegraded = false;
+        let isDeadHour = false;
+
         function checkDeadHours() {
             const now = new Date();
             const h = now.getHours();
@@ -680,70 +633,168 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
         }
         setInterval(updateTime, 14);
 
+        // --- STREAMING_CHUNK: Creando el sintetizador analógico de frecuencias bajas y el Easter Egg ---
         // --- 4. Audio de Residuos Físicos ---
-        // (startFrequencies se ha movido abajo para usar variables declaradas)
+        let audioCtx = null;
+        let mainHum = null;
+        let lfo = null;
+        let masterGainNode = null;
+        let audioEnabled = false;
 
-        // --- 4.5. Lógica Secreta del Easter Egg (Melodía Limpia Unica) ---
-        function playEasterEggMelody() {
-            if (isEasterEggActive || isReconstructed) return;
-            isEasterEggActive = true;
+        function startFrequencies() {
+            if (audioCtx) return;
+            try {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                
+                mainHum = audioCtx.createOscillator();
+                mainHum.type = 'triangle';
+                mainHum.frequency.value = isDeadHour ? 44.0 : 52.8; 
 
-            applyReconstructedState({ makeActive: true });
+                lfo = audioCtx.createOscillator();
+                lfo.frequency.value = 0.08; 
 
-            // Detener ruido de fondo y cualquier registro REM618 activo.
-            if (mainHum) { try { mainHum.disconnect(); } catch(e){} }
-            if (lfo) { try { lfo.disconnect(); } catch(e){} }
-            if (realAudioElement) realAudioElement.pause();
+                const lfoGain = audioCtx.createGain();
+                lfoGain.gain.value = 0.05; 
 
-            // Re-estilizar interfaz: señal recuperada desde archivo real.
-            document.body.style.backgroundColor = "#030712";
-            document.getElementById("header-title").innerText = "SIGNAL_RECOVERED // STEREO_STABLE";
+                masterGainNode = audioCtx.createGain();
+                masterGainNode.gain.value = isSystemDegraded ? 0.005 : 0.06; 
+
+                const lowpass = audioCtx.createBiquadFilter();
+                lowpass.type = 'lowpass';
+                lowpass.frequency.value = isDeadHour ? 70 : 100;
+
+                lfo.connect(lfoGain);
+                lfoGain.connect(masterGainNode.gain);
+
+                mainHum.connect(lowpass);
+                lowpass.connect(masterGainNode);
+                masterGainNode.connect(audioCtx.destination);
+
+                mainHum.start();
+                lfo.start();
+
+                audioEnabled = true;
+
+                const activeSaved = activeRegNum || localStorage.getItem('kxtxr_last_reg') || "008";
+                const currentItem = realRegistry[activeSaved];
+                if (currentItem && currentItem.type === "audio") {
+                    realAudioElement.volume = isSystemDegraded ? 0.15 : 0.6;
+                    realAudioElement.play().catch(() => {});
+                }
+
+                const prompt = document.getElementById('audio-prompt');
+                if (prompt) {
+                    prompt.classList.add('opacity-0');
+                    setTimeout(() => prompt.remove(), 500);
+                }
+            } catch (e) {
+                console.error("Audio inaccesible.", e);
+            }
+        }
+
+        document.body.addEventListener('click', () => {
+            if (!audioEnabled) {
+                startFrequencies();
+            }
+        });
+
+        // --- 4.5. Lógica Secreta del Easter Egg (archivo físico / una sola vez) ---
+        function setEasterEggVisualState(active) {
+            const headerTitle = document.getElementById("header-title");
+            if (active) {
+document.body.style.backgroundColor = "#030712";
+            document.getElementById("header-title").innerText = "TXR_KXTXR_KXTXR_KXTXR_KX // ONE_TIME_SIGNAL";
             document.getElementById("header-title").classList.add("text-cyan-400");
-            liveStatusField.innerText = "SEÑAL_LIMPIA // ARCHIVO";
+            liveStatusField.innerText = "ARCHIVO EXTERNO DE ÚNICA REPRODUCCIÓN // SEÑAL CONVERGENTE DISTINTO A REM618";
             liveStatusField.className = "text-[9px] tracking-widest text-cyan-400 font-mono transition-colors";
-            mainStatement.innerText = "El registro 618 fue reconstruido.";
-            subStatement.innerText = "Archivo recuperado desde /assets/easter_egg.mpeg.";
+            mainStatement.innerText = "ATENCIÓN: EMERGENTE DE SEÑAL NO PERSISTENTE. NO REM618.";
+            subStatement.innerText = "Fragmento de frecuencia sin reproducción persistente.";
             subStatement.className = "font-sans text-xs text-slate-300 leading-relaxed max-w-xs transition-opacity duration-500";
             statusPulse.className = "w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse";
             ghostSignature.innerText = "[ ¤ ]";
             ghostSignature.className = "font-mono text-[9px] text-cyan-400 tracking-widest cursor-default select-none transition-all duration-300 py-1 px-2 border border-cyan-400/20 bg-cyan-500/5 animate-pulse";
-
-            easterEggAudio.pause();
-            easterEggAudio.currentTime = 0;
-            easterEggAudio.volume = 0.88;
-            easterEggAudio.play().catch(() => {
-                liveStatusField.innerText = "AUDIO BLOQUEADO // TOCAR DE NUEVO";
-            });
+            } else {
+                document.body.style.backgroundColor = "";
+                headerTitle.innerText = "ARCHIVE_NODE // ACTIVE";
+                headerTitle.classList.remove("text-cyan-400");
+                liveStatusField.innerText = "SEÑAL NO RESUELTA";
+                liveStatusField.className = "text-[9px] tracking-widest text-kxtxr-residual/60 transition-colors duration-300";
+                statusPulse.className = "w-1 h-1 rounded-full bg-kxtxr-residual/40 animate-pulse";
+                ghostSignature.innerText = "[ x ]";
+                ghostSignature.className = "font-mono text-[9px] text-kxtxr-residualDark/10 tracking-widest cursor-default select-none transition-all duration-500 py-1 px-2 border border-transparent rounded";
+            }
         }
 
-        easterEggAudio.addEventListener('ended', () => {
+        function markEasterEggConsumed() {
+            isEasterEggConsumed = true;
+            localStorage.setItem(EASTER_EGG_CONSUMED_KEY, "true");
+            ghostSignature.innerText = "[ · ]";
+            ghostSignature.className = "font-mono text-[9px] text-kxtxr-residualDark/20 tracking-widest cursor-default select-none transition-all duration-500 py-1 px-2 border border-transparent rounded";
+        }
+
+        function playEasterEggMelody() {
+            if (isEasterEggActive || isEasterEggConsumed) return;
+
+            isEasterEggActive = true;
+            markEasterEggConsumed();
+
+            // Apagar REM618 / registros y frecuencia base. El easter egg es externo.
+            if (realAudioElement) {
+                try { realAudioElement.pause(); realAudioElement.currentTime = 0; } catch(e) {}
+            }
+            if (mainHum) { try { mainHum.disconnect(); } catch(e){} }
+            if (lfo) { try { lfo.disconnect(); } catch(e){} }
+            if (masterGainNode) { try { masterGainNode.disconnect(); } catch(e){} }
+
+            setEasterEggVisualState(true);
+
+            easterEggAudioElement.currentTime = 0;
+            easterEggAudioElement.volume = 0.9;
+            const playback = easterEggAudioElement.play();
+            if (playback && typeof playback.catch === "function") {
+                playback.catch(() => {
+                    isEasterEggActive = false;
+                    setEasterEggVisualState(false);
+                    liveStatusField.innerText = "AUDIO BLOQUEADO";
+                    subStatement.innerText = "El navegador bloqueó la reproducción. El intento quedó consumido.";
+                    if (audioEnabled) {
+                        audioCtx = null;
+                        startFrequencies();
+                    }
+                });
+            }
+        }
+
+        easterEggAudioElement.addEventListener("ended", () => {
             isEasterEggActive = false;
-            applyReconstructedState({ makeActive: true });
-            document.body.style.backgroundColor = "";
-            document.getElementById("header-title").innerText = "ARCHIVE_NODE // ACTIVE";
-            document.getElementById("header-title").classList.remove("text-cyan-400");
-            liveStatusField.innerText = "ARCHIVO RECONSTRUIDO";
-            liveStatusField.className = "text-[9px] tracking-widest text-cyan-400 font-mono transition-colors";
-            statusPulse.className = "w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse";
-            ghostSignature.innerText = "[ x ]";
-            ghostSignature.className = "font-mono text-[9px] text-kxtxr-residualDark/10 tracking-widest cursor-default select-none transition-all duration-500 py-1 px-2 border border-transparent rounded";
+            setEasterEggVisualState(false);
+            liveStatusField.innerText = "EASTER_EGG CONSUMIDO";
+            subStatement.innerText = "La señal externa ya no volverá a reproducirse en este navegador.";
+            if (audioEnabled) {
+                audioCtx = null;
+                startFrequencies();
+            }
         });
 
-
-        // --- 5. Render del Fenómeno ---
+        // --- STREAMING_CHUNK: Implementando bucle de animación de ondas de osciloscopio ---
+        // --- 5. Render del Fenómeno (Modulado por Analítica Ambiental) ---
         const canvas = document.getElementById('anomaly-canvas');
         const ctx = canvas.getContext('2d');
-        let t = 0;
-        let signatureTimer = 0;
+        
+        let targetDrift = 0;
+        let currentDrift = 0;
+        let noiseMultiplier = 0.25;
+        let activeRegNum = "008";
 
         function resizeCanvas() {
-            const parent = canvas.parentElement;
-            canvas.width = parent.clientWidth || 640;
-            canvas.height = parent.clientHeight || 220;
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight || 200;
         }
-
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
+
+        let t = 0;
+        let signatureTimer = 0;
 
         function drawAnomaly() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -753,12 +804,13 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
             
             const centerY = canvas.height / 2;
 
-            if (isEasterEggActive || (activeRegNum === "618" && isReconstructed)) {
-                // Modo Secreto o Registro Reconstruido: Onda pura, brillante y perfectamente sintonizada
-                ctx.strokeStyle = 'rgba(34, 211, 238, 0.8)'; 
+            if (isEasterEggActive) {
+                // Modo Secreto: Onda pura, brillante y perfectamente sintonizada
+                ctx.strokeStyle = 'rgba(34, 211, 238, 0.8)'; // Cyan neón limpio
                 ctx.beginPath();
                 for (let x = 0; x < canvas.width; x += 2) {
                     const progress = x / canvas.width;
+                    // Superposición matemática armónica perfecta (Gimnopedie visual)
                     const y = centerY + 
                         Math.sin(progress * 6 + t) * 20 + 
                         Math.sin(progress * 18 - t * 0.5) * 5;
@@ -766,7 +818,8 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
                 }
                 ctx.stroke();
 
-                ctx.strokeStyle = 'rgba(236, 72, 153, 0.25)'; 
+                // Un pulso secundario más delgado de armónico
+                ctx.strokeStyle = 'rgba(236, 72, 153, 0.25)'; // Rosa neón sutil
                 ctx.beginPath();
                 for (let x = 0; x < canvas.width; x += 3) {
                     const progress = x / canvas.width;
@@ -776,6 +829,7 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
                 ctx.stroke();
 
             } else if (isSystemDegraded) {
+                // Registro 618: Degradación estricta y sutil
                 ctx.strokeStyle = 'rgba(231, 232, 234, 0.1)'; 
                 ctx.beginPath();
                 for (let x = 0; x < canvas.width; x += 6) {
@@ -840,17 +894,18 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
             ctx.lineTo(canvas.width, centerY);
             ctx.stroke();
 
-            const timeStep = (isEasterEggActive || (activeRegNum === "618" && isReconstructed)) ? 0.02 : (0.008 + (environmentMotion * 0.005));
+            const timeStep = isEasterEggActive ? 0.02 : (0.008 + (environmentMotion * 0.005));
             t += isSystemDegraded ? 0.001 : timeStep; 
             requestAnimationFrame(drawAnomaly);
         }
         drawAnomaly();
 
+        // --- STREAMING_CHUNK: Creando el disparador de fallos eléctricos ---
         // --- 6. Glitches Asimétricos Esporádicos ---
         let anomalyTimeout;
         
         function triggerAnomaly() {
-            if (isSystemDegraded || isEasterEggActive || (activeRegNum === "618" && isReconstructed)) {
+            if (isSystemDegraded || isEasterEggActive) {
                 queueNextAnomaly();
                 return;
             }
@@ -901,13 +956,14 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
             }
         }, 1000);
 
-        // --- 8. Interacción de los Registros ---
+        // --- STREAMING_CHUNK: Escuchando eventos táctiles y de ratón para el sintonizador manual de arrastre ---
+        // --- 8. Interacción de los Registros (Procesamiento de Archivo) ---
         const regButtons = document.querySelectorAll('.register-btn');
 
         regButtons.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
-                if (isEasterEggActive) return; 
+                if (isEasterEggActive) return; // Bloquear cambios si la rola secreta ya se descubrió
 
                 regButtons.forEach(b => {
                     b.classList.remove('text-kxtxr-anomaly');
@@ -959,46 +1015,27 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
                 }
 
                 if (regNum === '618') {
-                    if (isReconstructed) {
-                        // --- ESTADO PERMANENTE POST-DECODIFICACIÓN ---
-                        isSystemDegraded = false;
-                        activeRegNum = regNum;
-                        
-                        liveStatusField.innerText = "ARCHIVO RECONSTRUIDO";
-                        liveStatusField.className = "text-[9px] tracking-widest text-cyan-400 font-mono transition-colors";
-                        statusPulse.className = "w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse";
-                        
-                        visorContainer.style.opacity = '1';
-                        visorContainer.style.borderColor = '';
+                    isSystemDegraded = true;
 
-                        currentCoordsStr = coords;
-                        liveCoords.innerText = coords;
-                        canvasDepth.innerText = depth;
-                        captureStamp.innerText = stamp;
-                        activeRegLabel.innerText = "RECORD_618 // ESTABLE";
-                    } else {
-                        // --- ESTADO ORIGINAL ANTES DE RESOLVER EL SECRETO ---
-                        isSystemDegraded = true;
+                    liveStatusField.innerText = "PÉRDIDA PARCIAL";
+                    liveStatusField.className = "text-[9px] tracking-widest text-kxtxr-anomaly/30 transition-colors duration-300";
+                    statusPulse.className = "w-1 h-1 rounded-full bg-kxtxr-anomaly/30 animate-ping";
 
-                        liveStatusField.innerText = "PÉRDIDA PARCIAL";
-                        liveStatusField.className = "text-[9px] tracking-widest text-kxtxr-anomaly/30 transition-colors duration-300";
-                        statusPulse.className = "w-1 h-1 rounded-full bg-kxtxr-anomaly/30 animate-ping";
-
-                        if (masterGainNode && audioCtx) {
-                            masterGainNode.gain.setValueAtTime(0.004, audioCtx.currentTime);
-                        }
-
-                        noiseMultiplier = 0.05; 
-                        targetDrift = -0.8;
-
-                        visorContainer.style.opacity = '0.25';
-                        visorContainer.style.borderColor = 'rgba(22, 25, 34, 0.9)';
-
-                        currentCoordsStr = "??.?????° ?, ??.?????° ?";
-                        canvasDepth.innerText = "RES_Z // CORRUPTO";
-                        captureStamp.innerText = "STAMP_618: NULL_POINT";
-                        activeRegLabel.innerText = "RECORD_618";
+                    if (masterGainNode && audioCtx) {
+                        masterGainNode.gain.setValueAtTime(0.004, audioCtx.currentTime);
                     }
+
+                    noiseMultiplier = 0.05; 
+                    targetDrift = -0.8;
+
+                    visorContainer.style.opacity = '0.25';
+                    visorContainer.style.borderColor = 'rgba(22, 25, 34, 0.9)';
+
+                    currentCoordsStr = "??.?????° ?, ??.?????° ?";
+                    canvasDepth.innerText = "RES_Z // CORRUPTO";
+                    captureStamp.innerText = "STAMP_618: NULL_POINT";
+                    activeRegLabel.innerText = "RECORD_618";
+
                 } else {
                     isSystemDegraded = false;
                     activeRegNum = regNum;
@@ -1040,7 +1077,7 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
             });
         });
 
-        // --- 8.5. Sintonizador Desfase Local con Comportamiento y Decodificación Progresiva ---
+        // --- 8.5. Sintonizador Desfase Local con Arrastre Continuo e Imperfecto (Soporte Táctil y Ratón) ---
         const signalTrack = document.getElementById('signal-track');
         const signalThumb = document.getElementById('signal-thumb');
         const mutationRatio = document.getElementById('mutation-ratio');
@@ -1052,44 +1089,25 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
 
             const rect = signalTrack.getBoundingClientRect();
             const percentage = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
-            const imperfectPercent = Math.max(0, Math.min(100, percentage + (Math.random() - 0.5) * 0.4));
             
+            // Añadir micro-desfase imperfecto
+            const imperfectPercent = Math.max(0, Math.min(100, percentage + (Math.random() - 0.5) * 0.4));
             signalThumb.style.left = `${imperfectPercent}%`;
+            
             const ratioValue = imperfectPercent * 0.1;
             mutationRatio.innerText = `${ratioValue.toFixed(3)}%`;
 
-            // 1. CAPA PROGRESIVA: La onda comienza a estabilizarse al superar el 5.5%
-            if (ratioValue > 5.5) {
-                const stepCoeff = Math.max(0, 1 - (ratioValue - 5.5) / (6.18 - 5.5));
-                noiseMultiplier = (0.1 + (imperfectPercent / 100) * 1.8) * stepCoeff;
-            } else {
-                noiseMultiplier = 0.1 + (imperfectPercent / 100) * 1.8;
-            }
-
-            // 2. CAPA PROGRESIVA: Desaparecen los micro-glitches automáticos al acercarse al 5.9%
-            if (ratioValue > 5.9) {
-                clearTimeout(anomalyTimeout);
-            } else {
-                queueNextAnomaly();
-            }
-
-            // 3. CAPA PROGRESIVA: El pulso del estado y la UI mutan al cyan puro de la señal recobrada
-            if (ratioValue > 6.1 && !isReconstructed) {
-                liveStatusField.innerText = "SINTONIZANDO ARMONÍA...";
-                liveStatusField.className = "text-[9px] tracking-widest text-cyan-400/80 font-mono transition-colors";
-                statusPulse.className = "w-1 h-1 rounded-full bg-cyan-400 animate-pulse";
-            } else if (!isReconstructed) {
-                liveStatusField.innerText = `SINC_REG_${activeRegNum}`;
-                liveStatusField.className = "text-[9px] tracking-widest text-kxtxr-anomaly transition-colors duration-300";
-                statusPulse.className = "w-1 h-1 rounded-full bg-kxtxr-residual/40 animate-pulse";
-            }
+            noiseMultiplier = 0.1 + (imperfectPercent / 100) * 1.8;
 
             if (audioCtx && lfo) {
                 lfo.frequency.setValueAtTime(0.04 + (imperfectPercent / 100) * 0.7, audioCtx.currentTime);
             }
 
-            // 4. CAPA PROGRESIVA: Si se alcanza exactamente el desfase 6.180% y NO se ha consumido antes la melodía
-            if (Math.abs(ratioValue - 6.180) < 0.02 && !isReconstructed) {
+            // EVALUAR EASTER EGG: 6.180% activa un archivo externo una sola vez.
+            if (isEasterEggConsumed) {
+                ghostSignature.innerText = "[ · ]";
+                ghostSignature.className = "font-mono text-[9px] text-kxtxr-residualDark/20 tracking-widest cursor-default select-none transition-all duration-500 py-1 px-2 border border-transparent rounded";
+            } else if (Math.abs(ratioValue - 6.180) < 0.02) {
                 ghostSignature.innerText = "[ ¤ ]";
                 ghostSignature.className = "font-mono text-[9px] text-cyan-400 tracking-widest cursor-pointer select-none transition-all duration-300 py-1 px-2 border border-cyan-400/20 bg-cyan-500/5 animate-pulse";
             } else {
@@ -1113,7 +1131,7 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
             isDraggingSignal = false;
         });
 
-        // Soporte de gestos móviles
+        // Soporte de gestos móviles para el sintonizador
         signalTrack.addEventListener('touchstart', (e) => {
             isDraggingSignal = true;
             updateSignalPosition(e.touches[0].clientX);
@@ -1129,10 +1147,10 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
             isDraggingSignal = false;
         });
 
-        // Disparador del Easter Egg
+        // Disparador del Easter Egg al presionar el glifo sintonizado
         ghostSignature.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (ghostSignature.innerText === "[ ¤ ]") {
+            if (ghostSignature.innerText === "[ ¤ ]" && !isEasterEggConsumed) {
                 startFrequencies();
                 playEasterEggMelody();
             }
@@ -1185,75 +1203,6 @@ END:VCALENDAR`;
                 navigator.serviceWorker.register('/sw.js').catch(() => {});
             });
         }
-
-        // --- 12. Audio de Residuos Físicos (Inicialización Segura de startFrequencies) ---
-        function startFrequencies() {
-            if (audioCtx) return;
-            try {
-                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                
-                mainHum = audioCtx.createOscillator();
-                mainHum.type = 'triangle';
-                mainHum.frequency.value = isDeadHour ? 44.0 : 52.8; 
-
-                lfo = audioCtx.createOscillator();
-                lfo.frequency.value = 0.08; 
-
-                const lfoGain = audioCtx.createGain();
-                lfoGain.gain.value = 0.05; 
-
-                masterGainNode = audioCtx.createGain();
-                masterGainNode.gain.value = isSystemDegraded ? 0.005 : 0.06; 
-
-                const lowpass = audioCtx.createBiquadFilter();
-                lowpass.type = 'lowpass';
-                lowpass.frequency.value = isDeadHour ? 70 : 100;
-
-                lfo.connect(lfoGain);
-                lfoGain.connect(masterGainNode.gain);
-
-                mainHum.connect(lowpass);
-                lowpass.connect(masterGainNode);
-                masterGainNode.connect(audioCtx.destination);
-
-                mainHum.start();
-                lfo.start();
-
-                audioEnabled = true;
-
-                const activeSaved = activeRegNum || localStorage.getItem('kxtxr_last_reg') || "008";
-                const currentItem = realRegistry[activeSaved];
-                if (currentItem && currentItem.type === "audio" && !(activeSaved === "618" && isReconstructed)) {
-                    realAudioElement.volume = isSystemDegraded ? 0.15 : 0.6;
-                    realAudioElement.play().catch(() => {});
-                }
-
-                const prompt = document.getElementById('audio-prompt');
-                if (prompt) {
-                    prompt.classList.add('opacity-0');
-                    setTimeout(() => prompt.remove(), 500);
-                }
-            } catch (e) {
-                console.error("Audio inaccesible.", e);
-            }
-        }
-
-        // Activación segura de audio por gesto del usuario.
-        // Browsers móviles bloquean AudioContext hasta que exista interacción explícita.
-        document.body.addEventListener('click', () => {
-            if (!audioEnabled) {
-                startFrequencies();
-            }
-        }, { passive: true });
-
-        // Tecla de mantenimiento local: Ctrl+Alt+R borra la reconstrucción del navegador actual.
-        window.addEventListener('keydown', (event) => {
-            if (event.ctrlKey && event.altKey && event.key.toLowerCase() === 'r') {
-                localStorage.removeItem("kxtxr_reconstructed");
-                localStorage.removeItem("kxtxr_last_reg");
-                location.reload();
-            }
-        });
     </script>
 </body>
 </html>
