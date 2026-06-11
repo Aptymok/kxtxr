@@ -1,8 +1,10 @@
 // Vercel Serverless Function: /api/edwing-registry-email
-// Env vars required:
-// - RESEND_API_KEY
-// - REGISTRY_TO_EMAIL=s115.kxtxr@proton.mx
-// - REGISTRY_FROM_EMAIL=KXTXR Registry <registro@tu-dominio-verificado.com>
+// NO VA EN /public.
+// Variables de entorno requeridas en Vercel:
+// - KXTXR_REGISTRY_TOKEN           token privado que Edwing escribe en el sitio
+// - RESEND_API_KEY                 API key de Resend
+// - REGISTRY_TO_EMAIL              s115.kxtxr@proton.mx
+// - REGISTRY_FROM_EMAIL            remitente verificado en Resend
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -11,6 +13,13 @@ export default async function handler(req, res) {
   }
 
   try {
+    const expectedToken = process.env.KXTXR_REGISTRY_TOKEN;
+    const incomingToken = req.headers["x-kxtxr-registry-token"];
+
+    if (!expectedToken || incomingToken !== expectedToken) {
+      return res.status(401).json({ ok: false, error: "registry_token_invalid" });
+    }
+
     const payload = req.body || {};
     const apiKey = process.env.RESEND_API_KEY;
     const to = process.env.REGISTRY_TO_EMAIL || "s115.kxtxr@proton.mx";
