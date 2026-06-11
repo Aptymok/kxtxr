@@ -75,6 +75,169 @@
             background-image: radial-gradient(#161922 1px, transparent 1px);
             background-size: 20px 20px;
         }
+
+        :root {
+    --sfi-density: 0.18;
+    --sfi-friction: 0.12;
+    --sfi-residue: 0.22;
+    --sfi-observability: 0.35;
+}
+
+body.sfi-registry-active {
+    background:
+        radial-gradient(circle at 74% 22%, rgba(185,142,163, calc(var(--sfi-residue) * 0.16)), transparent 34%),
+        radial-gradient(circle at 18% 78%, rgba(231,232,234, calc(var(--sfi-observability) * 0.07)), transparent 28%),
+        #090B10;
+}
+
+#visor-container.sfi-density-field::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 12;
+    pointer-events: none;
+    opacity: calc(0.12 + var(--sfi-density));
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(231,232,234,0.025) 0px,
+            rgba(231,232,234,0.025) 1px,
+            transparent 1px,
+            transparent 9px
+        ),
+        radial-gradient(circle at 50% 50%, rgba(185,142,163,0.08), transparent 55%);
+    mix-blend-mode: screen;
+}
+
+#sfi-operative-overlay {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: min(420px, calc(100vw - 32px));
+    max-height: 72vh;
+    overflow: hidden;
+    z-index: 35;
+    border: 1px solid rgba(185,142,163,0.22);
+    background: rgba(9,11,16,0.84);
+    backdrop-filter: blur(12px);
+    font-family: 'JetBrains Mono', monospace;
+    color: #D8C7D1;
+    box-shadow: 0 0 48px rgba(0,0,0,0.45);
+}
+
+#sfi-operative-overlay[data-collapsed="true"] {
+    height: 38px;
+}
+
+.sfi-overlay-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(185,142,163,0.12);
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.sfi-overlay-body {
+    padding: 14px;
+    display: grid;
+    gap: 12px;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+.sfi-state-row {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    gap: 10px;
+    border-bottom: 1px solid rgba(185,142,163,0.08);
+    padding-bottom: 8px;
+}
+
+.sfi-state-label {
+    color: rgba(185,142,163,0.45);
+}
+
+.sfi-state-value {
+    color: #E7E8EA;
+}
+
+.sfi-density-bar {
+    height: 4px;
+    background: rgba(22,25,34,0.9);
+    overflow: hidden;
+}
+
+.sfi-density-bar > span {
+    display: block;
+    height: 100%;
+    width: calc(var(--sfi-density) * 100%);
+    background: rgba(216,199,209,0.72);
+}
+
+.sfi-public-log {
+    max-height: 160px;
+    overflow: auto;
+    border: 1px solid rgba(185,142,163,0.10);
+    padding: 10px;
+    background: rgba(17,19,26,0.35);
+}
+
+.sfi-public-log article {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(185,142,163,0.08);
+}
+
+.sfi-public-log article:last-child {
+    border-bottom: none;
+}
+
+#sfi-control-form {
+    display: none;
+    gap: 8px;
+    border-top: 1px solid rgba(185,142,163,0.12);
+    padding-top: 10px;
+}
+
+#sfi-control-form[data-open="true"] {
+    display: grid;
+}
+
+#sfi-control-form input,
+#sfi-control-form textarea,
+#sfi-control-form select {
+    width: 100%;
+    background: rgba(17,19,26,0.8);
+    border: 1px solid rgba(185,142,163,0.16);
+    color: #D8C7D1;
+    padding: 8px;
+    font-size: 10px;
+    outline: none;
+}
+
+#sfi-control-form button {
+    border: 1px solid rgba(231,232,234,0.32);
+    color: #E7E8EA;
+    padding: 9px;
+    background: rgba(231,232,234,0.03);
+    letter-spacing: 0.16em;
+    font-size: 9px;
+}
+
+.sfi-ghost-node {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    z-index: 34;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: rgba(185,142,163,0.16);
+    letter-spacing: 0.18em;
+}
+        
     </style>
 </head>
 <body class="min-h-full h-full flex flex-col justify-between p-4 md:p-8 lg:p-12 relative overflow-y-auto lg:overflow-hidden">
@@ -248,6 +411,66 @@
         </footer>
     </div>
 
+<!-- SFI / KXTXR Registry Overlay -->
+<div id="sfi-operative-overlay" data-collapsed="false">
+    <div class="sfi-overlay-header" id="sfi-overlay-toggle">
+        <span>KXTXR.REGISTRY // E0-R</span>
+        <span id="sfi-window-state">SYNC</span>
+    </div>
+
+    <div class="sfi-overlay-body">
+        <div class="sfi-state-row">
+            <span class="sfi-state-label">VENTANA</span>
+            <span class="sfi-state-value" id="sfi-current-window">NO SINCRONIZADA</span>
+        </div>
+
+        <div class="sfi-state-row">
+            <span class="sfi-state-label">PREGUNTA</span>
+            <span class="sfi-state-value" id="sfi-current-question">Esperando registro.</span>
+        </div>
+
+        <div class="sfi-state-row">
+            <span class="sfi-state-label">DENSIDAD</span>
+            <span class="sfi-state-value">
+                <span id="sfi-density-label">0.18</span>
+                <div class="sfi-density-bar"><span></span></div>
+            </span>
+        </div>
+
+        <div class="sfi-state-row">
+            <span class="sfi-state-label">REGISTRO</span>
+            <span class="sfi-state-value" id="sfi-registry-status">PÚBLICO CURADO</span>
+        </div>
+
+        <div class="sfi-public-log" id="sfi-public-log">
+            <article>SIN EVENTOS VISIBLES.</article>
+        </div>
+
+        <form id="sfi-control-form" data-open="false">
+            <input id="sfi-operator-key" type="password" placeholder="LLAVE OPERATIVA" />
+            <input id="sfi-form-window" placeholder="VENTANA: T-24 / T-6 / T-0 / T+1" />
+            <textarea id="sfi-form-state" placeholder="ESTADO INTERNO"></textarea>
+            <textarea id="sfi-form-action" placeholder="ACCIÓN REALIZADA / EVITADA"></textarea>
+            <textarea id="sfi-form-residue" placeholder="RESIDUO: silencio, pregunta, retorno..."></textarea>
+            <textarea id="sfi-form-coherence" placeholder="COHERENCIA EDWING / KXTXR / REM618"></textarea>
+            <select id="sfi-form-perturbation">
+                <option value="mínima suficiente">mínima suficiente</option>
+                <option value="mínima insuficiente">mínima insuficiente</option>
+                <option value="correcta">correcta</option>
+                <option value="excesiva">excesiva</option>
+                <option value="ansiosa">ansiosa</option>
+                <option value="algorítmica">algorítmica</option>
+                <option value="señal sin exceso">señal sin exceso</option>
+            </select>
+            <textarea id="sfi-form-decision" placeholder="DECISIÓN: conservar / detener / observar"></textarea>
+            <button type="submit">INGESTAR</button>
+        </form>
+    </div>
+</div>
+
+<div class="sfi-ghost-node">SFI_OBSERVATORY // WITNESS_MODE</div>
+
+    
     <!-- Canvas Helper oculto para análisis de píxeles / Procesamiento Gemini -->
     <canvas id="analysis-helper-canvas" class="hidden" width="160" height="120"></canvas>
 
@@ -445,6 +668,13 @@
 
         async function analyzeEnvironmentWithGemini() {
             if (!cameraStream || !audioEnabled) return;
+            if (!apiKey) {
+                geminiBtnStatus.innerText = "[ NO CONFIGURADO ]";
+                geminiBtnText.innerText = "GEMINI REQUIERE BACKEND";
+                subStatement.innerText = "La integración multimodal debe ejecutarse desde backend. No expongas la llave en el HTML.";
+                triggerAnomaly();
+                return;
+            }
 
             geminiBtnText.innerText = "PROCESANDO SEÑAL...";
             geminiBtnStatus.innerText = "[ ANALIZANDO ]";
@@ -577,6 +807,7 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
         let currentCoordsStr = "45.1092° N, 14.2001° E";
         let isSystemDegraded = false;
         let isDeadHour = false;
+        let isSfiWindowOpen = false;
 
         function checkDeadHours() {
             const now = new Date();
@@ -592,7 +823,9 @@ No uses formalidades ni explicaciones. Debe sonar como un fragmento interceptado
             } else {
                 if (isDeadHour) {
                     isDeadHour = false;
-                    document.getElementById('node-clock-mod').classList.add('hidden');
+                    if (!isSfiWindowOpen) {
+                        document.getElementById('node-clock-mod').classList.add('hidden');
+                    }
                     currentCoordsStr = "45.1092° N, 14.2001° E";
                 }
             }
@@ -1164,11 +1397,11 @@ VERSION:2.0
 PRODID:-//KXTXR//REM618//ES
 BEGIN:VEVENT
 UID:rem618-window-0618@kxtxr
-DTSTAMP:20260601T061800Z
-DTSTART:20260618T061800
-DTEND:20260618T061900
-SUMMARY:REM618
-DESCRIPTION:VENTANA ABIERTA
+DTSTAMP:20260610T061800Z
+DTSTART:20260612T001800Z
+DTEND:20260612T001900Z
+SUMMARY:REM618 // KXTXR
+DESCRIPTION:VENTANA ABIERTA // KXTXR SIGNAL
 BEGIN:VALARM
 TRIGGER:-PT1M
 ACTION:DISPLAY
@@ -1203,6 +1436,269 @@ END:VCALENDAR`;
                 navigator.serviceWorker.register('/sw.js').catch(() => {});
             });
         }
+
+
+        // --- 12. KXTXR.REGISTRY / SFI OPERATIVE OVERLAY ---
+// Esta capa convierte el HTML existente en ventana pública + control temporal.
+
+const KXTXR_REGISTRY_READ_URL = "/api/kxtxr/registry";
+const KXTXR_REGISTRY_WRITE_URL = "/api/kxtxr/registry/entries";
+const KXTXR_REGISTRY_POLL_MS = 6180;
+
+const sfiOverlay = document.getElementById("sfi-operative-overlay");
+const sfiToggle = document.getElementById("sfi-overlay-toggle");
+const sfiWindowState = document.getElementById("sfi-window-state");
+const sfiCurrentWindow = document.getElementById("sfi-current-window");
+const sfiCurrentQuestion = document.getElementById("sfi-current-question");
+const sfiDensityLabel = document.getElementById("sfi-density-label");
+const sfiRegistryStatus = document.getElementById("sfi-registry-status");
+const sfiPublicLog = document.getElementById("sfi-public-log");
+const sfiControlForm = document.getElementById("sfi-control-form");
+const sfiOperatorKey = document.getElementById("sfi-operator-key");
+const sfiFormWindow = document.getElementById("sfi-form-window");
+
+let kxtxrRegistryState = null;
+let sfiLastEventCount = 0;
+
+function clamp01(value) {
+    return Math.max(0, Math.min(1, value));
+}
+
+function deriveSfiDensity(payload) {
+    const events = payload?.public_events || [];
+    const current = payload?.current_window;
+
+    const eventLoad = Math.min(events.length / 18, 1);
+    const openBonus = current ? 0.22 : 0.04;
+
+    const residueLoad = events.reduce((acc, ev) => {
+        const residue = ev.public_payload?.residue;
+        if (Array.isArray(residue)) return acc + residue.length;
+        return acc;
+    }, 0);
+
+    const residueScore = Math.min(residueLoad / 24, 1);
+    const hashPresence = payload?.session?.registry_hash ? 0.12 : 0;
+
+    return clamp01(0.12 + eventLoad * 0.28 + residueScore * 0.28 + openBonus + hashPresence);
+}
+
+function deriveSfiFriction(payload) {
+    const events = payload?.public_events || [];
+    const text = JSON.stringify(events).toLowerCase();
+
+    let score = 0.08;
+    if (text.includes("pregunta")) score += 0.16;
+    if (text.includes("silencio")) score += 0.12;
+    if (text.includes("ansiosa")) score += 0.18;
+    if (text.includes("retorno")) score += 0.18;
+    if (text.includes("rechazo")) score += 0.20;
+    if (text.includes("observar")) score += 0.08;
+
+    return clamp01(score);
+}
+
+function escapeHtml(value) {
+    return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function applySfiVisualState(payload) {
+    const density = deriveSfiDensity(payload);
+    const friction = deriveSfiFriction(payload);
+    const residue = clamp01((density + friction) / 2);
+
+    document.body.classList.add("sfi-registry-active");
+    document.documentElement.style.setProperty("--sfi-density", density.toFixed(3));
+    document.documentElement.style.setProperty("--sfi-friction", friction.toFixed(3));
+    document.documentElement.style.setProperty("--sfi-residue", residue.toFixed(3));
+    document.documentElement.style.setProperty("--sfi-observability", clamp01(density + 0.12).toFixed(3));
+
+    if (visorContainer) {
+        visorContainer.classList.add("sfi-density-field");
+        visorContainer.style.boxShadow = `0 0 ${Math.round(18 + density * 72)}px rgba(185,142,163,${0.04 + density * 0.10})`;
+    }
+
+    // El canvas existente también se densifica sin romperlo.
+    noiseMultiplier = 0.20 + density * 1.45;
+
+    sfiDensityLabel.innerText = density.toFixed(3);
+
+    if (density > 0.76) {
+        liveStatusField.innerText = "RÉGIMEN EN DENSIDAD";
+        statusPulse.className = "w-1.5 h-1.5 rounded-full bg-kxtxr-anomaly animate-ping";
+    } else if (density > 0.52) {
+        liveStatusField.innerText = "SEÑAL EN OBSERVACIÓN";
+    } else if (payload?.current_window) {
+        liveStatusField.innerText = "VENTANA ABIERTA";
+    }
+}
+
+function renderSfiRegistry(payload) {
+    kxtxrRegistryState = payload;
+
+    const current = payload?.current_window;
+    const events = payload?.public_events || [];
+
+    if (current) {
+        isSfiWindowOpen = true;
+        sfiWindowState.innerText = "ABIERTA";
+        sfiCurrentWindow.innerText = `${current.window_code} // ${current.window_label}`;
+        sfiCurrentQuestion.innerText = current.public_question || "La ventana solicita registro.";
+        sfiFormWindow.value = current.window_code;
+        sfiControlForm.dataset.open = "true";
+
+        document.getElementById("node-clock-mod").classList.remove("hidden");
+        document.getElementById("node-clock-mod").innerText = "[VENTANA ABIERTA]";
+    } else {
+        isSfiWindowOpen = false;
+        sfiWindowState.innerText = "BLOQUEADA";
+        sfiCurrentWindow.innerText = "SIN VENTANA ABIERTA";
+        sfiCurrentQuestion.innerText = "El público observa. El operador espera intervalo.";
+        sfiControlForm.dataset.open = "false";
+
+        if (!isDeadHour) {
+            document.getElementById("node-clock-mod").classList.add("hidden");
+        }
+    }
+
+    sfiRegistryStatus.innerText = payload?.session?.registry_hash
+        ? `HASH ${payload.session.registry_hash.slice(0, 10)}…`
+        : "HASH PENDIENTE";
+
+    if (!events.length) {
+        sfiPublicLog.innerHTML = "<article>SIN EVENTOS VISIBLES.</article>";
+    } else {
+        sfiPublicLog.innerHTML = events.slice(0, 8).map((ev) => {
+            const publicPayload = ev.public_payload || {};
+            const residue = Array.isArray(publicPayload.residue)
+                ? publicPayload.residue.join(", ")
+                : "sin residuo declarado";
+
+            const safeWindow = escapeHtml(ev.window_code || "REG");
+            const safeLabel = escapeHtml(ev.public_label || "SEÑAL");
+            const safeResidue = escapeHtml(residue);
+            const safeDecision = escapeHtml(publicPayload.decision || "observar sin intervenir");
+            const safeCreatedAt = escapeHtml(new Date(ev.created_at).toLocaleString("es-MX"));
+
+            return `
+                <article>
+                    <div style="color:#E7E8EA">${safeWindow} // ${safeLabel}</div>
+                    <div style="color:rgba(185,142,163,0.55); margin-top:2px;">
+                        ${safeCreatedAt}
+                    </div>
+                    <div style="margin-top:6px;">
+                        Residuo: ${safeResidue}
+                    </div>
+                    <div style="color:rgba(216,199,209,0.55); margin-top:3px;">
+                        Decisión: ${safeDecision}
+                    </div>
+                </article>
+            `;
+        }).join("");
+    }
+
+    if (events.length > sfiLastEventCount && sfiLastEventCount !== 0) {
+        triggerAnomaly();
+        mainStatement.innerText = "Registro operativo ingresado.";
+        subStatement.innerText = "La señal modificó su densidad sin cambiar de forma.";
+    }
+
+    sfiLastEventCount = events.length;
+    applySfiVisualState(payload);
+}
+
+async function syncKxtxrRegistry() {
+    try {
+        const response = await fetch(KXTXR_REGISTRY_READ_URL, { cache: "no-store" });
+        const payload = await response.json();
+
+        if (!payload.ok) {
+            sfiWindowState.innerText = "SIN API";
+            sfiCurrentWindow.innerText = "MODO LOCAL";
+            sfiCurrentQuestion.innerText = "El HTML opera en modo local. Registro remoto no disponible.";
+            sfiControlForm.dataset.open = "false";
+            return;
+        }
+
+        renderSfiRegistry(payload);
+    } catch (error) {
+        sfiWindowState.innerText = "LOCAL";
+        sfiCurrentWindow.innerText = "SIN VÍNCULO REMOTO";
+        sfiCurrentQuestion.innerText = "No hay vínculo remoto. El archivo conserva operación visual.";
+        sfiControlForm.dataset.open = "false";
+    }
+}
+
+async function submitSfiEntry(event) {
+    event.preventDefault();
+
+    const key = sfiOperatorKey.value.trim();
+    if (!key) {
+        sfiRegistryStatus.innerText = "LLAVE REQUERIDA";
+        triggerAnomaly();
+        return;
+    }
+
+    const body = {
+        window_code: document.getElementById("sfi-form-window").value.trim(),
+        actor: "edwing",
+        platform: "kxtxr.vercel.app",
+        internal_state: document.getElementById("sfi-form-state").value.trim(),
+        action_taken: document.getElementById("sfi-form-action").value.trim(),
+        qualitative_residue: document.getElementById("sfi-form-residue").value
+            .split(",")
+            .map(v => v.trim())
+            .filter(Boolean),
+        coherence_notes: document.getElementById("sfi-form-coherence").value.trim(),
+        minimal_perturbation_level: document.getElementById("sfi-form-perturbation").value,
+        decision_taken: document.getElementById("sfi-form-decision").value.trim() || "observar sin intervenir",
+        public_label: "RESPUESTA OPERATIVA",
+        algorithmic_metrics: {
+            hidden_by_design: true,
+            note: "métrica ambiental registrada fuera de vista pública"
+        }
+    };
+
+    try {
+        const response = await fetch(`${KXTXR_REGISTRY_WRITE_URL}?key=${encodeURIComponent(key)}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body)
+        });
+
+        const result = await response.json();
+
+        if (!result.ok) {
+            sfiRegistryStatus.innerText = result.error === "window_locked"
+                ? "VENTANA BLOQUEADA"
+                : "INGESTA FALLIDA";
+            triggerAnomaly();
+            return;
+        }
+
+        sfiRegistryStatus.innerText = "INGESTA COMPLETA";
+        sfiControlForm.reset();
+        sfiOperatorKey.value = key;
+        await syncKxtxrRegistry();
+    } catch (error) {
+        sfiRegistryStatus.innerText = "ERROR DE INGESTA";
+    }
+}
+
+sfiToggle.addEventListener("click", () => {
+    const collapsed = sfiOverlay.dataset.collapsed === "true";
+    sfiOverlay.dataset.collapsed = collapsed ? "false" : "true";
+});
+
+sfiControlForm.addEventListener("submit", submitSfiEntry);
+
+syncKxtxrRegistry();
+setInterval(syncKxtxrRegistry, KXTXR_REGISTRY_POLL_MS);
     </script>
 </body>
 </html>
