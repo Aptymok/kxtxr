@@ -1,0 +1,26 @@
+{
+  "ok": true,
+  "session": {
+    "registry_hash": "local-preview-618"
+  },
+  "current_window": {
+    "window_code": "T-3",
+    "window_label": "PRE-CIERRE",
+    "public_question": "¿Qué debe conservarse sin explicación?"
+  },
+  "public_events": [
+    {
+      "window_code": "T-6",
+      "public_label": "REGISTRO OPERATIVO",
+      "created_at": "2026-06-11T12:18:00-06:00",
+      "public_payload": {
+        "residue": [
+          "silencio",
+          "pregunta",
+          "retorno"
+        ],
+        "decision": "observar sin intervenir"
+      }
+    }
+  ]
+}
