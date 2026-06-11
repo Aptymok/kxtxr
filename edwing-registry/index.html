@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KXTXR | Registro Edwing T-18:18</title>
+  <meta name="theme-color" content="#07080c" />
+  <style>
+    :root {
+      --bg: #07080c;
+      --panel: rgba(17, 19, 26, 0.84);
+      --panel2: rgba(9, 11, 16, 0.92);
+      --line: rgba(185, 142, 163, 0.20);
+      --line2: rgba(231, 232, 234, 0.12);
+      --text: #e7e8ea;
+      --muted: rgba(216, 199, 209, 0.58);
+      --dim: rgba(185, 142, 163, 0.32);
+      --accent: #d8c7d1;
+      --warn: #b98ea3;
+      --ok: #9fd2b3;
+      --bad: #e7a0a0;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --density: .18;
+      --friction: .12;
+      --residue: .22;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background:
+        radial-gradient(circle at 78% 12%, rgba(185,142,163, calc(var(--density) * .22)), transparent 34%),
+        radial-gradient(circle at 16% 84%, rgba(231,232,234, calc(var(--friction) * .18)), transparent 28%),
+        linear-gradient(180deg, #07080c 0%, #0a0c12 58%, #05060a 100%);
+      color: var(--text);
+      font-family: var(--sans);
+    }
+
+    body {
+      padding: 18px;
+      overflow-x: hidden;
+    }
+
+    button, input, textarea, select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .shell {
+      max-width: 1440px;
+      min-height: calc(100vh - 36px);
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      background: rgba(7,8,12,0.74);
+      box-shadow: 0 0 70px rgba(0,0,0,.42);
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: calc(.12 + var(--density));
+      background-image:
+        radial-gradient(rgba(231,232,234,.06) 1px, transparent 1px),
+        repeating-linear-gradient(90deg, rgba(231,232,234,.018) 0, rgba(231,232,234,.018) 1px, transparent 1px, transparent 11px);
+      background-size: 22px 22px, auto;
+      mix-blend-mode: screen;
+    }
+
+    header, footer {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px;
+      border-bottom: 1px solid var(--line2);
+      font-family: var(--mono);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    footer {
+      border-bottom: 0;
+      border-top: 1px solid var(--line2);
+      align-items: center;
+    }
+
+    .live-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      margin-right: 8px;
+      border-radius: 999px;
+      background: var(--warn);
+      box-shadow: 0 0 12px rgba(185,142,163,.65);
+      animation: pulse 1.9s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: .35; transform: scale(.88); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 360px 1fr 420px;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      backdrop-filter: blur(14px);
+      min-height: 120px;
+    }
+
+    .panel-header {
+      padding: 14px;
+      border-bottom: 1px solid var(--line2);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .panel-body {
+      padding: 14px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(30px, 5.8vw, 82px);
+      line-height: .94;
+      letter-spacing: .18em;
+      font-weight: 300;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: .08em;
+    }
+
+    h3 {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .16em;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .hero {
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .hero-card {
+      min-height: 360px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% 35%, rgba(216,199,209, calc(var(--density) * .22)), transparent 34%),
+        rgba(17,19,26,.42);
+      position: relative;
+      overflow: hidden;
+      padding: 24px;
+      display: grid;
+      align-content: space-between;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      left: -20%;
+      right: -20%;
+      top: 48%;
+      height: 1px;
+      background: rgba(231,232,234,.38);
+      box-shadow:
+        0 0 18px rgba(231,232,234,.28),
+        0 calc(var(--density) * 84px) 1px rgba(185,142,163,.12),
+        0 calc(var(--friction) * -72px) 1px rgba(231,232,234,.10);
+      transform: rotate(-.6deg);
+    }
+
+    .hero-card canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .54;
+    }
+
+    .hero-title {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-sub {
+      position: relative;
+      z-index: 2;
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .12em;
+      line-height: 1.8;
+      max-width: 620px;
+    }
+
+    .window-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .window-item {
+      border: 1px solid rgba(185,142,163,.11);
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 58px 1fr auto;
+      gap: 9px;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      background: rgba(7,8,12,.22);
+    }
+
+    .window-item.active {
+      border-color: rgba(231,232,234,.34);
+      color: var(--text);
+      background: rgba(231,232,234,.035);
+    }
+
+    .window-item.done {
+      color: rgba(159,210,179,.72);
+    }
+
+    .status-pill {
+      border: 1px solid rgba(231,232,234,.18);
+      padding: 5px 7px;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .status-pill.open { color: var(--ok); border-color: rgba(159,210,179,.35); }
+    .status-pill.locked { color: var(--dim); }
+    .status-pill.done { color: rgba(159,210,179,.72); }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      background: rgba(7,8,12,.72);
+      color: var(--text);
+      border: 1px solid rgba(185,142,163,.18);
+      outline: none;
+      padding: 10px;
+      resize: vertical;
+      min-height: 40px;
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .02em;
+    }
+
+    textarea { min-height: 74px; }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(231,232,234,.42);
+      box-shadow: 0 0 0 3px rgba(216,199,209,.04);
+    }
+
+    .form-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .form-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn {
+      border: 1px solid rgba(231,232,234,.26);
+      color: var(--text);
+      background: rgba(231,232,234,.035);
+      padding: 11px 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .btn:hover {
+      background: rgba(231,232,234,.07);
+    }
+
+    .btn.primary {
+      border-color: rgba(216,199,209,.55);
+      background: rgba(185,142,163,.08);
+    }
+
+    .btn.bad {
+      border-color: rgba(231,160,160,.34);
+      color: #f0c0c0;
+    }
+
+    .btn:disabled {
+      opacity: .32;
+      cursor: not-allowed;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .log {
+      display: grid;
+      gap: 10px;
+      max-height: 520px;
+      overflow: auto;
+    }
+
+    .log-entry {
+      border: 1px solid rgba(185,142,163,.12);
+      background: rgba(7,8,12,.38);
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .log-entry .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .log-entry .decision {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .tiny {
+      font-family: var(--mono);
+      color: var(--dim);
+      font-size: 10px;
+      letter-spacing: .09em;
+      line-height: 1.6;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .score-card {
+      border: 1px solid rgba(185,142,163,.12);
+      padding: 10px;
+      background: rgba(7,8,12,.34);
+    }
+
+    .score-card b {
+      display: block;
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text);
+      margin-top: 4px;
+    }
+
+    .bar {
+      height: 5px;
+      background: rgba(22,25,34,.92);
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      width: calc(var(--density) * 100%);
+      background: rgba(216,199,209,.78);
+    }
+
+    .operator-locked {
+      opacity: .45;
+      filter: grayscale(.5);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .notice {
+      border: 1px solid rgba(185,142,163,.16);
+      background: rgba(185,142,163,.045);
+      padding: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .public-mode .operator-only {
+      display: none !important;
+    }
+
+    .operator-mode .witness-only {
+      display: none !important;
+    }
+
+    .stamp {
+      font-family: var(--mono);
+      color: var(--dim);
+      font-size: 9px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .route-box {
+      font-family: var(--mono);
+      border: 1px solid rgba(185,142,163,.16);
+      background: rgba(7,8,12,.38);
+      padding: 10px;
+      color: var(--muted);
+      line-height: 1.65;
+      user-select: text;
+    }
+
+    @media (max-width: 1180px) {
+      main { grid-template-columns: 1fr; }
+      .log { max-height: none; }
+    }
+
+    @media (max-width: 720px) {
+      body { padding: 8px; }
+      .shell { min-height: calc(100vh - 16px); }
+      header, footer { flex-direction: column; }
+      .metric-grid, .score-grid, .form-actions { grid-template-columns: 1fr; }
+      .window-item { grid-template-columns: 50px 1fr; }
+      .window-item .status-pill { grid-column: 1 / -1; width: fit-content; }
+    }
+  </style>
+</head>
+<body class="public-mode">
+  <div class="shell">
+    <header>
+      <div>
+        <span class="live-dot"></span>
+        <span id="top-state">KXTXR | REGISTRO EDWING</span>
+      </div>
+      <div id="clock">00:00:00</div>
+    </header>
+
+    <main>
+      <aside class="panel">
+        <div class="panel-header">
+          <span>Ventanas</span>
+          <span id="release-countdown">SYNC</span>
+        </div>
+        <div class="panel-body">
+          <div class="notice">
+            Este sitio no está enlazado públicamente. Opera como registro local de Edwing. Arranque operativo: T-18:18.
+            La métrica entra como ambiente. La coherencia decide.
+          </div>
+          <div style="height:12px"></div>
+          <div id="window-list" class="window-list"></div>
+          <div style="height:14px"></div>
+          <div class="route-box">
+            Modo testigo:<br>
+            <span id="witness-route"></span><br><br>
+            Modo operador:<br>
+            <span id="operator-route"></span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="hero">
+        <div class="hero-card">
+          <canvas id="signal-canvas"></canvas>
+          <div class="hero-title">
+            <div class="stamp">ARCHIVE_NODE // PRIVATE SURFACE</div>
+            <h1>EDWING<br>REGISTRY</h1>
+          </div>
+          <div class="hero-sub">
+            <div id="current-window-title">SIN VENTANA ACTIVA</div>
+            <div id="current-question">El campo permanece en observación.</div>
+            <div class="bar"><span></span></div>
+          </div>
+        </div>
+
+        <div class="panel operator-only">
+          <div class="panel-header">
+            <span>Ingesta operativa</span>
+            <span id="operator-state">BLOQUEADO</span>
+          </div>
+          <div class="panel-body">
+            <div class="notice" id="operator-notice">
+              Escribe la llave local para desbloquear. Este HTML guarda en el navegador y permite exportar JSON.
+              No es seguridad real de backend; es modo local para Edwing.
+            </div>
+
+            <div style="height:12px"></div>
+
+            <label>
+              Llave local
+              <input id="operator-key" type="password" placeholder="edwing-local-0618" autocomplete="off" />
+            </label>
+
+            <div style="height:12px"></div>
+
+            <form id="entry-form" class="form-grid operator-locked">
+              <label>
+                Ventana
+                <input id="field-window" readonly />
+              </label>
+
+              <label>
+                Estado interno
+                <textarea id="field-state" placeholder="Ejemplo: estoy nervioso, quiero revisar métricas, quiero corregir algo antes de tiempo."></textarea>
+              </label>
+
+              <label>
+                Acción realizada / evitada
+                <textarea id="field-action" placeholder="Ejemplo: no publiqué por ansiedad; revisé el sitio; esperé la ventana."></textarea>
+              </label>
+
+              <label>
+                Evidencia disponible
+                <textarea id="field-evidence" placeholder="Links, capturas, mensajes, silencio, DM, conversación, error, intuición."></textarea>
+              </label>
+
+              <label>
+                Residuo observado
+                <textarea id="field-residue" placeholder="Separar por comas: ansiedad, expectativa, silencio, pregunta, retorno..."></textarea>
+              </label>
+
+              <label>
+                Coherencia
+                <textarea id="field-coherence" placeholder="¿Esto sigue siendo Edwing? ¿KXTXR sigue siendo señal? ¿REM618 sigue siendo emisión?"></textarea>
+              </label>
+
+              <label>
+                Perturbación mínima
+                <select id="field-perturbation">
+                  <option value="mínima suficiente">mínima suficiente</option>
+                  <option value="mínima insuficiente">mínima insuficiente</option>
+                  <option value="correcta">correcta</option>
+                  <option value="excesiva">excesiva</option>
+                  <option value="ansiosa">ansiosa</option>
+                  <option value="algorítmica">algorítmica</option>
+                  <option value="señal sin exceso">señal sin exceso</option>
+                </select>
+              </label>
+
+              <label>
+                Decisión
+                <textarea id="field-decision" placeholder="Ejemplo: observar sin intervenir; no publicar; esperar siguiente ventana."></textarea>
+              </label>
+
+              <div class="metric-grid">
+                <label>Likes <input id="metric-likes" type="number" min="0" value="0"></label>
+                <label>Views <input id="metric-views" type="number" min="0" value="0"></label>
+                <label>Shares <input id="metric-shares" type="number" min="0" value="0"></label>
+                <label>Guardados <input id="metric-saves" type="number" min="0" value="0"></label>
+                <label>Comentarios <input id="metric-comments" type="number" min="0" value="0"></label>
+                <label>DMs <input id="metric-dms" type="number" min="0" value="0"></label>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn primary" type="submit" id="save-entry">Ingestar</button>
+                <button class="btn" type="button" id="fill-nervous">Llenar: nervioso</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="panel witness-only">
+          <div class="panel-header">
+            <span>Ventana pública</span>
+            <span>Testigo</span>
+          </div>
+          <div class="panel-body">
+            <div class="notice">
+              Aquí no se llena nada. Sólo se observa el registro curado.
+              El interior completo queda en la bitácora local.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <div class="panel-header">
+          <span>Registro curado</span>
+          <span id="entry-count">0</span>
+        </div>
+        <div class="panel-body">
+          <div class="score-grid">
+            <div class="score-card"><span class="tiny">LO</span><b id="score-lo">0</b></div>
+            <div class="score-card"><span class="tiny">PM</span><b id="score-pm">0</b></div>
+            <div class="score-card"><span class="tiny">CI</span><b id="score-ci">0</b></div>
+            <div class="score-card"><span class="tiny">RE</span><b id="score-re">0</b></div>
+            <div class="score-card"><span class="tiny">EV</span><b id="score-ev">0</b></div>
+            <div class="score-card"><span class="tiny">AA</span><b id="score-aa">0</b></div>
+          </div>
+          <div style="height:14px"></div>
+          <div class="log" id="log"></div>
+          <div style="height:14px"></div>
+          <div class="form-actions operator-only">
+            <button class="btn" type="button" id="export-json">Exportar JSON</button>
+            <button class="btn bad" type="button" id="clear-local">Vaciar local</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>NO OPTIMICES. REGISTRA.</div>
+      <div>KXTXR.SIGNAL // SFI_OBSERVATORY // LOCAL_MODE</div>
+    </footer>
+  </div>
+
+  <script>
+    const LOCAL_OPERATOR_KEY = "edwing-local-0618";
+    const RELEASE_AT = new Date("2026-06-11T18:18:00-06:00");
+
+    const windows = [
+      ["T-18:18", "Apertura del día de emisión", "2026-06-11T00:00:00-06:00", "2026-06-11T00:00:00-06:00", "2026-06-11T00:45:00-06:00", "¿Cómo entra Edwing al día de salida antes de mirar métricas?"],
+      ["T-12", "Arranque consciente", "2026-06-11T06:18:00-06:00", "2026-06-11T06:03:00-06:00", "2026-06-11T07:18:00-06:00", "¿La identidad se sostiene sin ansiedad?"],
+      ["T-9", "Primer control diurno", "2026-06-11T09:18:00-06:00", "2026-06-11T09:03:00-06:00", "2026-06-11T10:18:00-06:00", "¿Qué quiere intervenirse antes de tiempo?"],
+      ["T-6", "Mitad del día", "2026-06-11T12:18:00-06:00", "2026-06-11T12:03:00-06:00", "2026-06-11T13:18:00-06:00", "¿La intervención sigue siendo mínima?"],
+      ["T-3", "Pre-cierre", "2026-06-11T15:18:00-06:00", "2026-06-11T15:03:00-06:00", "2026-06-11T16:18:00-06:00", "¿Qué debe conservarse sin explicación?"],
+      ["T-1", "Última hora previa", "2026-06-11T17:18:00-06:00", "2026-06-11T17:03:00-06:00", "2026-06-11T18:10:00-06:00", "¿La señal llega intacta a la emisión?"],
+      ["T-0", "Emisión REM618", "2026-06-11T18:18:00-06:00", "2026-06-11T18:10:00-06:00", "2026-06-11T18:40:00-06:00", "La emisión ocurre. ¿Qué cambia en el campo?"],
+      ["T+1", "Primer residuo", "2026-06-11T19:18:00-06:00", "2026-06-11T19:03:00-06:00", "2026-06-11T20:18:00-06:00", "¿Qué quedó una hora después?"],
+      ["T+3", "Campo de interpretación", "2026-06-11T21:18:00-06:00", "2026-06-11T21:03:00-06:00", "2026-06-11T22:18:00-06:00", "¿La señal produjo lectura o sólo consumo?"],
+      ["T+6", "Persistencia nocturna", "2026-06-12T00:18:00-06:00", "2026-06-12T00:03:00-06:00", "2026-06-12T01:18:00-06:00", "¿Qué permaneció cuando bajó la presión?"],
+      ["T+12", "Observación posterior", "2026-06-12T06:18:00-06:00", "2026-06-12T06:03:00-06:00", "2026-06-12T07:18:00-06:00", "¿Qué sigue vivo sin euforia?"],
+      ["T+24", "Cierre primer día", "2026-06-12T18:18:00-06:00", "2026-06-12T18:03:00-06:00", "2026-06-12T19:18:00-06:00", "¿Qué sobrevivió al primer ciclo?"],
+      ["T+48", "Persistencia real", "2026-06-13T18:18:00-06:00", "2026-06-13T18:03:00-06:00", "2026-06-13T19:18:00-06:00", "¿Qué volvió sin ser llamado?"],
+      ["T+72", "Lectura longitudinal", "2026-06-14T18:18:00-06:00", "2026-06-14T18:03:00-06:00", "2026-06-14T19:18:00-06:00", "¿Qué permaneció después de la emisión?"]
+    ].map(([code, label, at, from, until, question]) => ({
+      code, label, at: new Date(at), from: new Date(from), until: new Date(until), question
+    }));
+
+    const $ = (id) => document.getElementById(id);
+    const entriesKey = "kxtxr_edwing_registry_entries_v1";
+
+    function getEntries() {
+      try { return JSON.parse(localStorage.getItem(entriesKey) || "[]"); }
+      catch { return []; }
+    }
+
+    function setEntries(entries) {
+      localStorage.setItem(entriesKey, JSON.stringify(entries));
+    }
+
+    function getMode() {
+      return new URLSearchParams(location.search).get("mode") === "operator" ? "operator" : "public";
+    }
+
+    function currentWindow() {
+      const now = new Date();
+      return windows.find(w => now >= w.from && now <= w.until) || null;
+    }
+
+    function nearestWindow() {
+      const now = new Date();
+      const future = windows.find(w => now < w.from);
+      return future || windows[windows.length - 1];
+    }
+
+    function completedCodes(entries) {
+      return new Set(entries.map(e => e.window_code));
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function classifyScores(entries) {
+      const text = JSON.stringify(entries).toLowerCase();
+      const count = entries.length;
+
+      const has = (words) => words.some(w => text.includes(w));
+      const n = (v) => Math.max(0, Math.min(5, v));
+
+      return {
+        LO: n(Math.ceil(count / 2) + (has(["retorno", "volvió", "persist"])?1:0)),
+        PM: n(3 + (has(["no publiqué", "esperé", "mínima", "sin exceso"])?1:0) - (has(["ansiosa", "excesiva"])?1:0)),
+        CI: n(2 + (has(["edwing", "kxtxr", "rem618"])?2:0) + (has(["emisión", "señal"])?1:0)),
+        RE: n((has(["pregunta", "confusión", "silencio", "ansiedad"])?3:1) + Math.min(2, count)),
+        EV: n(Math.min(5, count + (has(["screenshot", "captura", "link", "dm"])?1:0))),
+        AA: n(3 + (has(["no optim", "no publiqué", "observar", "esperar"])?1:0) - (has(["likes", "métrica baja", "perseguir"])?1:0))
+      };
+    }
+
+    function computeDensity(entries, win) {
+      const scores = classifyScores(entries);
+      const avg = Object.values(scores).reduce((a,b)=>a+b,0) / 30;
+      const openBonus = win ? .16 : .04;
+      const countBonus = Math.min(entries.length / 12, .24);
+      return Math.max(.12, Math.min(.92, avg * .52 + openBonus + countBonus));
+    }
+
+    function renderWindows() {
+      const entries = getEntries();
+      const done = completedCodes(entries);
+      const current = currentWindow();
+      const list = $("window-list");
+      list.innerHTML = windows.map(w => {
+        const isActive = current && w.code === current.code;
+        const isDone = done.has(w.code);
+        const cls = isActive ? "active" : isDone ? "done" : "";
+        const status = isActive ? "abierta" : isDone ? "completa" : "bloqueada";
+        const pill = isActive ? "open" : isDone ? "done" : "locked";
+        return `
+          <div class="window-item ${cls}">
+            <b>${escapeHtml(w.code)}</b>
+            <span>${escapeHtml(w.label)}<br><span style="opacity:.55">${w.at.toLocaleString("es-MX")}</span></span>
+            <span class="status-pill ${pill}">${status}</span>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function renderState() {
+      const mode = getMode();
+      document.body.className = mode === "operator" ? "operator-mode" : "public-mode";
+
+      $("witness-route").textContent = location.origin + location.pathname;
+      $("operator-route").textContent = location.origin + location.pathname + "?mode=operator";
+
+      const now = new Date();
+      $("clock").textContent = now.toLocaleTimeString("es-MX", { hour12: false });
+
+      const diff = RELEASE_AT.getTime() - now.getTime();
+      if (diff > 0) {
+        const h = Math.floor(diff / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        $("release-countdown").textContent = `T-${h}H ${m}M`;
+      } else {
+        const h = Math.floor(Math.abs(diff) / 3600000);
+        const m = Math.floor((Math.abs(diff) % 3600000) / 60000);
+        $("release-countdown").textContent = `T+${h}H ${m}M`;
+      }
+
+      const entries = getEntries();
+      const win = currentWindow();
+      const next = nearestWindow();
+
+      $("current-window-title").textContent = win
+        ? `${win.code} // ${win.label}`
+        : `CERRADO // SIGUIENTE ${next.code}`;
+      $("current-question").textContent = win ? win.question : "El operador espera el siguiente intervalo.";
+
+      $("field-window").value = win ? win.code : next.code;
+
+      const scores = classifyScores(entries);
+      $("score-lo").textContent = scores.LO;
+      $("score-pm").textContent = scores.PM;
+      $("score-ci").textContent = scores.CI;
+      $("score-re").textContent = scores.RE;
+      $("score-ev").textContent = scores.EV;
+      $("score-aa").textContent = scores.AA;
+
+      const density = computeDensity(entries, win);
+      document.documentElement.style.setProperty("--density", density.toFixed(3));
+      document.documentElement.style.setProperty("--friction", Math.min(.9, density + .08).toFixed(3));
+      document.documentElement.style.setProperty("--residue", Math.min(.9, density + .12).toFixed(3));
+
+      $("entry-count").textContent = entries.length;
+      $("top-state").textContent = win ? "KXTXR | VENTANA ABIERTA" : "KXTXR | REGISTRO EDWING";
+
+      renderWindows();
+      renderLog(entries);
+    }
+
+    function renderLog(entries) {
+      const log = $("log");
+      if (!entries.length) {
+        log.innerHTML = `<div class="notice">Sin registros todavía. Si Edwing está nervioso, eso ya es dato operativo.</div>`;
+        return;
+      }
+
+      log.innerHTML = entries.slice().reverse().map(entry => {
+        const residue = entry.residue.join(", ") || "sin residuo declarado";
+        return `
+          <article class="log-entry">
+            <div class="meta">
+              <span>${escapeHtml(entry.window_code)} // ${escapeHtml(entry.perturbation)}</span>
+              <span>${new Date(entry.created_at).toLocaleString("es-MX")}</span>
+            </div>
+            <div class="decision">${escapeHtml(entry.decision || "observar sin intervenir")}</div>
+            <div class="tiny">Residuo: ${escapeHtml(residue)}</div>
+            <div class="tiny">Evidencia: ${escapeHtml(entry.evidence || "sin evidencia adjunta")}</div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function setOperatorUnlocked(unlocked) {
+      const form = $("entry-form");
+      form.classList.toggle("operator-locked", !unlocked);
+      [...form.querySelectorAll("input, textarea, select, button")].forEach(el => {
+        if (el.id !== "field-window") el.disabled = !unlocked;
+      });
+      $("operator-state").textContent = unlocked ? "ABIERTO" : "BLOQUEADO";
+      $("operator-notice").textContent = unlocked
+        ? "Llave aceptada. Llena lo real. No intentes sonar bien."
+        : "Llave inválida o ausente. Modo local para Edwing.";
+    }
+
+    $("operator-key").addEventListener("input", (e) => {
+      setOperatorUnlocked(e.target.value.trim() === LOCAL_OPERATOR_KEY);
+    });
+
+    $("fill-nervous").addEventListener("click", () => {
+      $("field-state").value = "Estoy nervioso antes de la emisión. Hay presión por revisar métricas, publicar algo de más o corregir antes de tiempo.";
+      $("field-action").value = "No publiqué por ansiedad. Revisé el estado del registro y esperé la ventana correspondiente.";
+      $("field-evidence").value = "Estado interno declarado. Sin intervención adicional.";
+      $("field-residue").value = "ansiedad, expectativa, silencio, preparación";
+      $("field-coherence").value = "REM618 sigue siendo emisión. KXTXR sigue siendo señal. Edwing no modifica identidad por nervios.";
+      $("field-perturbation").value = "señal sin exceso";
+      $("field-decision").value = "Observar sin intervenir. No publicar para calmar ansiedad. Registrar el estado y esperar siguiente ventana.";
+    });
+
+    $("entry-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if ($("operator-key").value.trim() !== LOCAL_OPERATOR_KEY) {
+        setOperatorUnlocked(false);
+        return;
+      }
+
+      const win = currentWindow();
+      const selectedWindow = $("field-window").value.trim();
+
+      if (!win || selectedWindow !== win.code) {
+        const proceed = confirm("La ventana actual no coincide o está cerrada. ¿Registrar como desviación local?");
+        if (!proceed) return;
+      }
+
+      const entry = {
+        id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+        created_at: new Date().toISOString(),
+        window_code: selectedWindow,
+        state: $("field-state").value.trim(),
+        action: $("field-action").value.trim(),
+        evidence: $("field-evidence").value.trim(),
+        residue: $("field-residue").value.split(",").map(v => v.trim()).filter(Boolean),
+        coherence: $("field-coherence").value.trim(),
+        perturbation: $("field-perturbation").value,
+        decision: $("field-decision").value.trim(),
+        metrics: {
+          likes: Number($("metric-likes").value || 0),
+          views: Number($("metric-views").value || 0),
+          shares: Number($("metric-shares").value || 0),
+          saves: Number($("metric-saves").value || 0),
+          comments: Number($("metric-comments").value || 0),
+          dms: Number($("metric-dms").value || 0),
+          hidden_by_design: true
+        }
+      };
+
+      const entries = getEntries();
+      entries.push(entry);
+      setEntries(entries);
+
+      $("entry-form").reset();
+      $("field-window").value = win ? win.code : selectedWindow;
+      $("operator-key").value = LOCAL_OPERATOR_KEY;
+      setOperatorUnlocked(true);
+      renderState();
+    });
+
+    $("export-json").addEventListener("click", () => {
+      const payload = {
+        name: "kxtxr.edwing.registry",
+        mode: "local",
+        release: "REM618",
+        owner: "Edwing",
+        exported_at: new Date().toISOString(),
+        principle: "No optimices. Registra.",
+        entries: getEntries()
+      };
+
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `kxtxr-edwing-registry-${new Date().toISOString().slice(0,10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    $("clear-local").addEventListener("click", () => {
+      if (!confirm("Esto vacía la bitácora local de este navegador. ¿Continuar?")) return;
+      localStorage.removeItem(entriesKey);
+      renderState();
+    });
+
+    const canvas = $("signal-canvas");
+    const ctx = canvas.getContext("2d");
+    let t = 0;
+
+    function resizeCanvas() {
+      canvas.width = canvas.clientWidth * devicePixelRatio;
+      canvas.height = canvas.clientHeight * devicePixelRatio;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function draw() {
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0,0,w,h);
+      ctx.lineWidth = Math.max(1, devicePixelRatio);
+      const density = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--density")) || .18;
+      const center = h * .52;
+
+      for (let layer = 0; layer < 3; layer++) {
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(216,199,209,${.10 + density * (.18 - layer*.03)})`;
+        for (let x = 0; x < w; x += 6 * devicePixelRatio) {
+          const p = x / w;
+          const y = center
+            + Math.sin(p * (8 + layer * 7) + t * (1 + layer*.2)) * (20 + density * 48) * devicePixelRatio
+            + Math.cos(p * (22 + layer * 10) - t * .7) * (6 + density * 18) * devicePixelRatio
+            + (Math.random() - .5) * density * 26 * devicePixelRatio;
+          if (x === 0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        }
+        ctx.stroke();
+      }
+
+      ctx.strokeStyle = "rgba(231,232,234,.22)";
+      ctx.beginPath();
+      ctx.moveTo(0, center);
+      ctx.lineTo(w, center);
+      ctx.stroke();
+
+      t += .012 + density * .014;
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+    setOperatorUnlocked(false);
+    renderState();
+    setInterval(renderState, 1000);
+  </script>
+</body>
+</html>
