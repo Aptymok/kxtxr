@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KXTXR | Registro Edwing T-18:18</title>
+  <title>KXTXR | Registro Edwing</title>
   <meta name="theme-color" content="#07080c" />
   <style>
     :root {
@@ -540,15 +540,14 @@
           </div>
           <div class="panel-body">
             <div class="notice" id="operator-notice">
-              Escribe la llave local para desbloquear. Este HTML guarda en el navegador y permite exportar JSON.
-              No es seguridad real de backend; es modo local para Edwing.
+              Escribe el token operativo para habilitar ingesta. El token no está escrito en este HTML. Se valida en backend al enviar correo.
             </div>
 
             <div style="height:12px"></div>
 
             <label>
-              Llave local
-              <input id="operator-key" type="password" placeholder="edwing-local-0618" autocomplete="off" />
+              Token operativo
+              <input id="operator-key" type="password" placeholder="TOKEN PRIVADO — NO SE GUARDA" autocomplete="off" />
             </label>
 
             <div style="height:12px"></div>
@@ -561,12 +560,12 @@
 
               <label>
                 Estado interno
-                <textarea id="field-state" placeholder="Ejemplo: estoy nervioso, quiero revisar métricas, quiero corregir algo antes de tiempo."></textarea>
+                <textarea id="field-state" placeholder="Ejemplo: estado previo, presión, expectativa, impulso de intervenir o decisión de esperar."></textarea>
               </label>
 
               <label>
                 Acción realizada / evitada
-                <textarea id="field-action" placeholder="Ejemplo: no publiqué por ansiedad; revisé el sitio; esperé la ventana."></textarea>
+                <textarea id="field-action" placeholder="Ejemplo: no publiqué por presión; revisé el sitio; esperé la ventana."></textarea>
               </label>
 
               <label>
@@ -576,7 +575,7 @@
 
               <label>
                 Residuo observado
-                <textarea id="field-residue" placeholder="Separar por comas: ansiedad, expectativa, silencio, pregunta, retorno..."></textarea>
+                <textarea id="field-residue" placeholder="Separar por comas: presión, expectativa, silencio, pregunta, retorno..."></textarea>
               </label>
 
               <label>
@@ -591,7 +590,7 @@
                   <option value="mínima insuficiente">mínima insuficiente</option>
                   <option value="correcta">correcta</option>
                   <option value="excesiva">excesiva</option>
-                  <option value="ansiosa">ansiosa</option>
+                  <option value="reactiva">reactiva</option>
                   <option value="algorítmica">algorítmica</option>
                   <option value="señal sin exceso">señal sin exceso</option>
                 </select>
@@ -613,7 +612,7 @@
 
               <div class="form-actions">
                 <button class="btn primary" type="submit" id="save-entry">Ingestar</button>
-                <button class="btn" type="button" id="fill-nervous">Llenar: nervioso</button>
+                <button class="btn" type="button" id="fill-neutral">Llenar: estado inicial</button>
               </div>
             </form>
           </div>
@@ -665,12 +664,12 @@
   </div>
 
   <script>
-    const LOCAL_OPERATOR_KEY = "edwing-local-0618";
+    let operatorTokenInMemory = "";
     const RELEASE_AT = new Date("2026-06-11T18:18:00-06:00");
 
     const windows = [
       ["T-18:18", "Apertura del día de emisión", "2026-06-11T00:00:00-06:00", "2026-06-11T00:00:00-06:00", "2026-06-11T00:45:00-06:00", "¿Cómo entra Edwing al día de salida antes de mirar métricas?"],
-      ["T-12", "Arranque consciente", "2026-06-11T06:18:00-06:00", "2026-06-11T06:03:00-06:00", "2026-06-11T07:18:00-06:00", "¿La identidad se sostiene sin ansiedad?"],
+      ["T-12", "Arranque consciente", "2026-06-11T06:18:00-06:00", "2026-06-11T06:03:00-06:00", "2026-06-11T07:18:00-06:00", "¿La identidad se sostiene sin presión?"],
       ["T-9", "Primer control diurno", "2026-06-11T09:18:00-06:00", "2026-06-11T09:03:00-06:00", "2026-06-11T10:18:00-06:00", "¿Qué quiere intervenirse antes de tiempo?"],
       ["T-6", "Mitad del día", "2026-06-11T12:18:00-06:00", "2026-06-11T12:03:00-06:00", "2026-06-11T13:18:00-06:00", "¿La intervención sigue siendo mínima?"],
       ["T-3", "Pre-cierre", "2026-06-11T15:18:00-06:00", "2026-06-11T15:03:00-06:00", "2026-06-11T16:18:00-06:00", "¿Qué debe conservarse sin explicación?"],
@@ -689,6 +688,8 @@
 
     const $ = (id) => document.getElementById(id);
     const entriesKey = "kxtxr_edwing_registry_entries_v1";
+    const REGISTRY_EMAIL_ENDPOINT = "/api/edwing-registry-email";
+    const REGISTRY_TO_EMAIL = "s115.kxtxr@proton.mx";
 
     function getEntries() {
       try { return JSON.parse(localStorage.getItem(entriesKey) || "[]"); }
@@ -736,9 +737,9 @@
 
       return {
         LO: n(Math.ceil(count / 2) + (has(["retorno", "volvió", "persist"])?1:0)),
-        PM: n(3 + (has(["no publiqué", "esperé", "mínima", "sin exceso"])?1:0) - (has(["ansiosa", "excesiva"])?1:0)),
+        PM: n(3 + (has(["no publiqué", "esperé", "mínima", "sin exceso"])?1:0) - (has(["reactiva", "excesiva"])?1:0)),
         CI: n(2 + (has(["edwing", "kxtxr", "rem618"])?2:0) + (has(["emisión", "señal"])?1:0)),
-        RE: n((has(["pregunta", "confusión", "silencio", "ansiedad"])?3:1) + Math.min(2, count)),
+        RE: n((has(["pregunta", "confusión", "silencio", "presión"])?3:1) + Math.min(2, count)),
         EV: n(Math.min(5, count + (has(["screenshot", "captura", "link", "dm"])?1:0))),
         AA: n(3 + (has(["no optim", "no publiqué", "observar", "esperar"])?1:0) - (has(["likes", "métrica baja", "perseguir"])?1:0))
       };
@@ -828,7 +829,7 @@
     function renderLog(entries) {
       const log = $("log");
       if (!entries.length) {
-        log.innerHTML = `<div class="notice">Sin registros todavía. Si Edwing está nervioso, eso ya es dato operativo.</div>`;
+        log.innerHTML = `<div class="notice">Sin registros todavía. Si hay estado interno, eso entra como dato operativo.</div>`;
         return;
       }
 
@@ -856,28 +857,102 @@
       });
       $("operator-state").textContent = unlocked ? "ABIERTO" : "BLOQUEADO";
       $("operator-notice").textContent = unlocked
-        ? "Llave aceptada. Llena lo real. No intentes sonar bien."
-        : "Llave inválida o ausente. Modo local para Edwing.";
+        ? "Token capturado en memoria. Llena lo real. No intentes sonar bien."
+        : "Token ausente. Modo lectura/local.";
     }
 
     $("operator-key").addEventListener("input", (e) => {
-      setOperatorUnlocked(e.target.value.trim() === LOCAL_OPERATOR_KEY);
+      operatorTokenInMemory = e.target.value.trim();
+      setOperatorUnlocked(Boolean(operatorTokenInMemory));
     });
 
-    $("fill-nervous").addEventListener("click", () => {
-      $("field-state").value = "Estoy nervioso antes de la emisión. Hay presión por revisar métricas, publicar algo de más o corregir antes de tiempo.";
-      $("field-action").value = "No publiqué por ansiedad. Revisé el estado del registro y esperé la ventana correspondiente.";
-      $("field-evidence").value = "Estado interno declarado. Sin intervención adicional.";
-      $("field-residue").value = "ansiedad, expectativa, silencio, preparación";
-      $("field-coherence").value = "REM618 sigue siendo emisión. KXTXR sigue siendo señal. Edwing no modifica identidad por nervios.";
+    $("fill-neutral").addEventListener("click", () => {
+      $("field-state").value = "Estado previo a la emisión. Se registra la condición actual antes de mirar métricas o modificar la intervención.";
+      $("field-action").value = "Se abrió el registro. Se documenta la ventana activa sin cambiar identidad ni frecuencia por reacción inmediata.";
+      $("field-evidence").value = "Registro operativo declarado. Evidencia pendiente de adjuntar si aparece.";
+      $("field-residue").value = "expectativa, preparación, silencio, observación";
+      $("field-coherence").value = "REM618 sigue siendo emisión. KXTXR sigue siendo señal. Edwing conserva decisión propia.";
       $("field-perturbation").value = "señal sin exceso";
-      $("field-decision").value = "Observar sin intervenir. No publicar para calmar ansiedad. Registrar el estado y esperar siguiente ventana.";
+      $("field-decision").value = "Registrar la etapa. Conservar coherencia. No cambiar por métrica aislada.";
     });
 
-    $("entry-form").addEventListener("submit", (event) => {
+
+    function buildRegistryPayload(entries, latestEntry = null) {
+      const scores = classifyScores(entries);
+      const win = currentWindow();
+      const density = computeDensity(entries, win);
+
+      return {
+        name: "kxtxr.edwing.registry",
+        mode: "local-plus-email",
+        release: "REM618",
+        owner: "Edwing",
+        recipient: REGISTRY_TO_EMAIL,
+        exported_at: new Date().toISOString(),
+        current_window: win ? {
+          code: win.code,
+          label: win.label,
+          question: win.question,
+          from: win.from.toISOString(),
+          until: win.until.toISOString()
+        } : null,
+        latest_entry: latestEntry,
+        calculations: {
+          LO: scores.LO,
+          PM: scores.PM,
+          CI: scores.CI,
+          RE: scores.RE,
+          EV: scores.EV,
+          AA: scores.AA,
+          density: Number(density.toFixed(3)),
+          e0r_score: Number(((0.25*scores.LO + 0.20*scores.PM + 0.20*scores.CI + 0.15*scores.RE + 0.10*scores.EV + 0.10*scores.AA) * 20).toFixed(2))
+        },
+        principle: "No optimices. Registra.",
+        entries
+      };
+    }
+
+    function autoDownloadJson(payload, suffix = "entry") {
+      const safeWindow = payload.latest_entry?.window_code || "registry";
+      const filename = `kxtxr-edwing-${safeWindow}-${suffix}-${new Date().toISOString().replaceAll(":", "-").slice(0,19)}.json`;
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    async function sendRegistryEmail(payload) {
+      try {
+        const response = await fetch(REGISTRY_EMAIL_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-kxtxr-registry-token": operatorTokenInMemory
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error(`email_endpoint_${response.status}`);
+        }
+
+        const result = await response.json().catch(() => ({}));
+        return { ok: true, result };
+      } catch (error) {
+        return { ok: false, error: error.message || "email_failed" };
+      }
+    }
+
+    $("entry-form").addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      if ($("operator-key").value.trim() !== LOCAL_OPERATOR_KEY) {
+      operatorTokenInMemory = $("operator-key").value.trim();
+      if (!operatorTokenInMemory) {
         setOperatorUnlocked(false);
         return;
       }
@@ -916,33 +991,29 @@
       entries.push(entry);
       setEntries(entries);
 
+      const payload = buildRegistryPayload(entries, entry);
+
+      // Siempre se descarga el JSON al dar INGESTAR. No pide paso adicional.
+      autoDownloadJson(payload, "stage");
+
       $("entry-form").reset();
       $("field-window").value = win ? win.code : selectedWindow;
-      $("operator-key").value = LOCAL_OPERATOR_KEY;
+      $("operator-key").value = operatorTokenInMemory;
       setOperatorUnlocked(true);
       renderState();
+
+      // Además intenta enviarlo por correo mediante backend Vercel.
+      $("operator-state").textContent = "ENVIANDO";
+      const emailResult = await sendRegistryEmail(payload);
+      $("operator-state").textContent = emailResult.ok ? "ENVIADO" : "LOCAL + JSON";
+      $("operator-notice").textContent = emailResult.ok
+        ? `Registro guardado, JSON descargado y enviado a ${REGISTRY_TO_EMAIL}.`
+        : `Registro guardado y JSON descargado. Correo no enviado porque falta o falló /api/edwing-registry-email.`;
     });
 
     $("export-json").addEventListener("click", () => {
-      const payload = {
-        name: "kxtxr.edwing.registry",
-        mode: "local",
-        release: "REM618",
-        owner: "Edwing",
-        exported_at: new Date().toISOString(),
-        principle: "No optimices. Registra.",
-        entries: getEntries()
-      };
-
-      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `kxtxr-edwing-registry-${new Date().toISOString().slice(0,10)}.json`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
+      const payload = buildRegistryPayload(getEntries(), null);
+      autoDownloadJson(payload, "full");
     });
 
     $("clear-local").addEventListener("click", () => {
