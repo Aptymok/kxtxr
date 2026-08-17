@@ -1,0 +1,61 @@
+{
+  "schema": "KXTXR_RETROLONGITUDINAL_V1",
+  "generated_at": "2026-08-17T01:25:00-06:00",
+  "question": "What can be responsibly said now about the path REM618 → 111 → RETURN without rewriting the missing interval?",
+  "periods": [
+    {
+      "id": "PERIOD-A",
+      "label": "REM618 / OPENING",
+      "from": "2026-06-11T18:18:00-06:00",
+      "to": null,
+      "observed": [
+        "REM618 was emitted as the first identified KXTXR signal.",
+        "The original web surface is preserved as HistoricalEvent."
+      ],
+      "inferred": [
+        "The opening signal became the reference object against which later KXTXR artifacts were organized."
+      ],
+      "missing": [
+        "complete platform-by-platform manifestation history",
+        "complete longitudinal audience response"
+      ]
+    },
+    {
+      "id": "PERIOD-B",
+      "label": "111 / EMERGENCE",
+      "from": null,
+      "to": "2026-08-16T23:59:59-06:00",
+      "observed": [
+        "111 exists as an internally formalized KXTXR artifact with persisted provenance context."
+      ],
+      "inferred": [
+        "111 functions more coherently as a transformation node than as a conventional second single."
+      ],
+      "missing": [
+        "canonical public rollout chronology for 111",
+        "verified external return attributable to 111"
+      ]
+    },
+    {
+      "id": "PERIOD-C",
+      "label": "RETURN / CURRENT",
+      "from": "2026-08-17T01:11:00-06:00",
+      "to": null,
+      "observed": [],
+      "inferred": [],
+      "missing": [
+        "first platform permalink",
+        "post-publication response",
+        "post-platform watermark verification"
+      ]
+    }
+  ],
+  "current_reading": {
+    "class": "INFERRED",
+    "statement": "KXTXR currently has greater internal coherence and archival density than externally verified return. RETURN is therefore the next meaningful state, not another unobserved release.",
+    "alternatives": [
+      "The apparent interval may reflect incomplete archival capture rather than low external activity.",
+      "Some meaningful response may exist privately or on platforms but remain unregistered in the canonical ledger."
+    ]
+  }
+}

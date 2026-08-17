@@ -1,0 +1,36 @@
+{
+  "schema": "KXTXR_OPEN_QUESTIONS_V1",
+  "updated_at": "2026-08-17T01:25:00-06:00",
+  "questions": [
+    {
+      "id": "Q-001",
+      "state": "OPEN",
+      "question": "What, if anything, survived REM618 without active reinforcement?",
+      "would_change": "Whether the next perturbation should preserve, intensify or alter the existing signal grammar."
+    },
+    {
+      "id": "Q-002",
+      "state": "OPEN",
+      "question": "Can 111 function as recognition of a system rather than promotion of a second release?",
+      "would_change": "The role assigned to 111 in public distribution."
+    },
+    {
+      "id": "Q-003",
+      "state": "OPEN",
+      "question": "Does a persistent Grimoire produce return that short-lived platform posts do not?",
+      "would_change": "How strongly KXTXR routes future emissions back into its own canonical archive."
+    },
+    {
+      "id": "Q-004",
+      "state": "OPEN",
+      "question": "Which responses are cultural residue and which are merely platform distribution noise?",
+      "would_change": "The interpretation layer, not the raw record."
+    },
+    {
+      "id": "Q-005",
+      "state": "OPEN",
+      "question": "What would contradict the current belief that RETURN should precede the next major release?",
+      "would_change": "The current sequencing decision."
+    }
+  ]
+}

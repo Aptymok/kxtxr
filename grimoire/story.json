@@ -1,0 +1,41 @@
+{
+  "schema": "KXTXR_STORY_V1",
+  "title": "The signal that returned to its own archive",
+  "chapters": [
+    {
+      "id": "CH-I",
+      "label": "REM618",
+      "title": "Prima materia",
+      "state": "PAST / OBSERVED",
+      "text": "A signal enters the field before the system knows what it will become. The first web chamber remains preserved rather than overwritten."
+    },
+    {
+      "id": "CH-II",
+      "label": "INTERVAL",
+      "title": "The part that should not be invented",
+      "state": "PAST / INCOMPLETE",
+      "text": "Between emission and return there are records, artifacts and missing pieces. The Grimoire keeps the missing interval visible instead of converting absence into mythology."
+    },
+    {
+      "id": "CH-III",
+      "label": "111",
+      "title": "Coagula",
+      "state": "EMERGENCE",
+      "text": "The second object does not replace the first. It makes the first legible as part of a larger system and carries its own provenance forward."
+    },
+    {
+      "id": "CH-IV",
+      "label": "RETURN",
+      "title": "The experiment observes itself",
+      "state": "CURRENT / OPEN",
+      "text": "The system returns to the old signal and waits. What appears next is not yet known. That uncertainty is part of the work."
+    },
+    {
+      "id": "CH-V",
+      "label": "?",
+      "title": "Unresolved",
+      "state": "OPEN",
+      "text": "The next chapter is deliberately unwritten. It depends on what the return reveals, fails to reveal, or contradicts."
+    }
+  ]
+}

@@ -1,22 +1,4 @@
-const CACHE_NAME = 'kxtxr-archive-v1';
-const ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.webmanifest'
-];
-
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS);
-    })
-  );
-});
-
-self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((response) => {
-      return response || fetch(e.request);
-    })
-  );
-});
+// Legacy registration path retained for already-installed clients.
+// The active policy lives in /sw.js so historical cache behavior cannot mask
+// the current KXTXR Grimoire entry surface.
+importScripts('/sw.js');

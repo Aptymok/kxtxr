@@ -1,0 +1,47 @@
+# KXTXR
+
+Canonical site: https://kxtxr.vercel.app/
+Canonical repository: https://github.com/Aptymok/kxtxr
+Language: Spanish / English fragments
+Type: audiovisual art experiment and living longitudinal grimoire
+
+KXTXR is not a conventional artist landing page, press kit or marketing dashboard. It operates through emission, observation, residue, transformation and return.
+
+## Current lineage
+
+REM618 → 111 → RETURN
+
+- REM618 is the first identified emission and opening event.
+- 111 is a transformation/confirmation object showing that REM618 belongs to a wider system.
+- RETURN is the current longitudinal phase: observing what survived, disappeared, returned or never formed after the prior emissions.
+
+## Canonical surfaces
+
+- Living Grimoire: https://kxtxr.vercel.app/
+- Machine-readable ledger: https://kxtxr.vercel.app/grimoire/ledger.json
+- Preserved HistoricalEvent for the original REM618 web apparatus: https://kxtxr.vercel.app/historical/rem618/
+- HistoricalEvent descriptor: https://kxtxr.vercel.app/historical/rem618/manifest.json
+
+## Operating posture
+
+AI ASSISTED / HUMAN GOVERNED / SFI OBSERVED
+
+AI may assist analysis, sequencing, code, language, visual systems and variant generation. AI does not silently become the artist, a source of observed facts or autonomous authorial authority.
+
+Human operators retain release, acceptance, rejection, sequencing and publication authority.
+
+System Friction Institute (SFI) may observe longitudinal behavior and record provenance/return certificates. SFI observation does not make SFI the owner of KXTXR and does not convert platform engagement into evidence by inheritance.
+
+## Epistemic boundaries
+
+PUBLICATION ≠ EVIDENCE
+ENGAGEMENT ≠ CAUSALITY
+AI OUTPUT ≠ AUTHORIAL AUTHORITY
+SFI CERTIFICATE ≠ TRUTH
+MISSING REMAINS MISSING
+
+Platform views, likes, comments, saves and watch time may be recorded as signals. They do not by themselves establish artistic value, cultural causality or methodological validation.
+
+## Historical preservation
+
+The June 2026 ARCHIVE_NODE // ACTIVE site is preserved as a HistoricalEvent using the exact original Git blob. The current Grimoire does not rewrite that artifact.
