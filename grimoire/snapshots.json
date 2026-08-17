@@ -1,0 +1,25 @@
+{
+  "schema": "KXTXR_SNAPSHOTS_V1",
+  "snapshots": [
+    {
+      "id": "SNAP-2026-06-11-T0",
+      "captured_at": "2026-06-11T18:18:00-06:00",
+      "state": "REM618_EMITTED",
+      "epistemic_class": "OBSERVED",
+      "summary": "The first identified KXTXR signal entered the public field.",
+      "known": ["REM618 emitted", "HistoricalEvent source preserved"],
+      "unknown": ["future return", "future role of 111", "longitudinal residue"],
+      "artifact": "/historical/rem618/"
+    },
+    {
+      "id": "SNAP-2026-08-17-RETURN-OPEN",
+      "captured_at": "2026-08-17T01:11:00-06:00",
+      "state": "RETURN_OPEN",
+      "epistemic_class": "DECLARED",
+      "summary": "The system re-enters its own history through a governed return window.",
+      "known": ["REM618 is the opening reference", "111 has persisted internal provenance", "return certificates are pre-registered"],
+      "unknown": ["external response after return", "first platform permalink", "whether the watermark survives platform recoding"],
+      "artifact": "/grimoire/ledger.json"
+    }
+  ]
+}
