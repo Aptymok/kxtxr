@@ -1,9 +1,8 @@
-const CACHE_NAME = 'kxtxr-grimoire-v2';
+const CACHE_NAME = 'kxtxr-grimoire-v3';
 const STATIC_ASSETS = [
   '/manifest.webmanifest.json',
   '/grimoire/grimoire.css',
-  '/grimoire/grimoire.js',
-  '/grimoire/patch.js',
+  '/grimoire/runtime.js',
   '/grimoire/ledger.json',
   '/grimoire/experiment.json',
   '/grimoire/logbook.json',
