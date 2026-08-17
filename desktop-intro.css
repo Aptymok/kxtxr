@@ -1,0 +1,185 @@
+/* KXTXR DESKTOP INTRO — image-first entry gate. Desktop only. */
+.kx-intro{display:none}
+
+@media (min-width:1181px){
+  .kx-intro{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    background:#030201;
+    color:#f0ddc0;
+    isolation:isolate;
+  }
+  .kx-intro[hidden]{display:none!important}
+
+  .kx-intro-bg{
+    position:absolute;
+    inset:-1.5%;
+    z-index:-4;
+    background:url('/assets/kxtxr/kxtxr-bg-desktop.webp') center center / cover no-repeat;
+    filter:saturate(.88) contrast(1.08) brightness(.86);
+    transform:scale(1.025);
+    animation:kxIntroPlate 14s ease-in-out infinite alternate;
+    will-change:transform,filter;
+  }
+  .kx-intro::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-3;
+    pointer-events:none;
+    background:
+      radial-gradient(circle at 50% 48%,rgba(239,159,62,.06),transparent 24%),
+      linear-gradient(180deg,rgba(3,2,1,.10),rgba(3,2,1,.015) 42%,rgba(3,2,1,.32));
+  }
+  .kx-intro::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:4;
+    pointer-events:none;
+    box-shadow:inset 0 0 170px rgba(0,0,0,.48),inset 0 0 34px rgba(0,0,0,.22);
+  }
+  .kx-intro-film{
+    position:absolute;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+    opacity:.11;
+    mix-blend-mode:soft-light;
+    background:
+      repeating-linear-gradient(to bottom,transparent 0 3px,rgba(255,190,92,.022) 3px 4px),
+      radial-gradient(circle,rgba(255,255,255,.12) 0 1px,transparent 1px) 0 0/9px 9px;
+    animation:kxIntroFilm .28s steps(2,end) infinite;
+  }
+  .kx-intro-center{
+    position:relative;
+    z-index:2;
+    width:min(1160px,82vw);
+    min-height:46vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    pointer-events:none;
+  }
+  .kx-intro-logo{
+    margin-left:.22em;
+    font:500 clamp(78px,10.8vw,176px)/.84 ui-monospace,'SF Mono','IBM Plex Mono','Courier New',monospace;
+    letter-spacing:.22em;
+    color:#f8e5c5;
+    text-shadow:
+      0 0 10px rgba(255,222,174,.52),
+      0 0 28px rgba(239,151,49,.32),
+      0 0 78px rgba(198,81,9,.18);
+    opacity:0;
+    filter:blur(18px) brightness(1.8);
+    transform:scale(.94);
+    animation:kxLogoArrival 1.85s cubic-bezier(.15,.84,.18,1) .16s forwards;
+  }
+  .kx-intro-choices{
+    width:min(1040px,78vw);
+    margin-top:clamp(52px,8vh,92px);
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:stretch;
+    gap:28px;
+    opacity:0;
+    transform:translateY(20px);
+    animation:kxChoiceArrival .9s cubic-bezier(.16,.78,.22,1) 1.62s forwards;
+    pointer-events:auto;
+  }
+  .kx-intro-choice{
+    position:relative;
+    min-height:118px;
+    padding:25px 24px 22px;
+    display:grid;
+    align-content:center;
+    justify-items:center;
+    gap:10px;
+    color:rgba(239,215,180,.72);
+    border-top:1px solid rgba(233,151,55,.22);
+    border-bottom:1px solid rgba(233,151,55,.11);
+    background:linear-gradient(180deg,rgba(24,13,5,.08),rgba(10,5,2,.21));
+    backdrop-filter:blur(2px);
+    cursor:pointer;
+    transition:color .35s ease,background .35s ease,border-color .35s ease,transform .35s ease,filter .35s ease;
+  }
+  .kx-intro-choice::before{
+    content:"";
+    position:absolute;
+    left:12%;
+    right:12%;
+    top:-1px;
+    height:1px;
+    background:linear-gradient(90deg,transparent,rgba(255,179,80,.74),transparent);
+    transform:scaleX(.15);
+    opacity:.18;
+    transition:transform .4s ease,opacity .4s ease;
+  }
+  .kx-intro-choice:hover,.kx-intro-choice:focus-visible{
+    color:#ffe6bf;
+    border-color:rgba(242,157,56,.42);
+    background:linear-gradient(180deg,rgba(70,34,10,.13),rgba(9,4,1,.31));
+    filter:drop-shadow(0 0 20px rgba(206,92,13,.13));
+    transform:translateY(-2px);
+    outline:none;
+  }
+  .kx-intro-choice:hover::before,.kx-intro-choice:focus-visible::before{transform:scaleX(1);opacity:.86}
+  .kx-intro-index{
+    font:400 8px/1 ui-monospace,'SF Mono','IBM Plex Mono',monospace;
+    letter-spacing:.28em;
+    color:rgba(218,142,54,.55);
+  }
+  .kx-intro-label{
+    max-width:390px;
+    font:400 clamp(12px,1vw,15px)/1.65 ui-monospace,'SF Mono','IBM Plex Mono',monospace;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+  }
+  .kx-intro-or{
+    align-self:center;
+    font:400 8px/1 ui-monospace,'SF Mono','IBM Plex Mono',monospace;
+    letter-spacing:.28em;
+    color:rgba(221,163,91,.31);
+  }
+
+  .kx-intro[data-state="exit"] .kx-intro-logo{
+    animation:none;
+    opacity:1;
+    filter:blur(0);
+    transform:scale(1.035);
+    transition:opacity .62s ease,filter .62s ease,transform .82s cubic-bezier(.2,.7,.2,1);
+  }
+  .kx-intro[data-state="exit"] .kx-intro-choices{
+    animation:none;
+    opacity:0;
+    transform:translateY(9px);
+    transition:opacity .32s ease,transform .32s ease;
+    pointer-events:none;
+  }
+  .kx-intro.is-leaving{
+    opacity:0;
+    filter:blur(4px);
+    transition:opacity .72s ease .18s,filter .72s ease .18s;
+  }
+
+  @keyframes kxLogoArrival{
+    0%{opacity:0;filter:blur(20px) brightness(2.1);transform:scale(.93);letter-spacing:.38em}
+    38%{opacity:.36;filter:blur(7px) brightness(1.45)}
+    72%{opacity:1;filter:blur(.8px) brightness(1.08);transform:scale(1.012)}
+    100%{opacity:1;filter:blur(0) brightness(1);transform:scale(1);letter-spacing:.22em}
+  }
+  @keyframes kxChoiceArrival{to{opacity:1;transform:none}}
+  @keyframes kxIntroPlate{from{transform:scale(1.025) translate3d(-.15%,0,0);filter:saturate(.84) contrast(1.07) brightness(.83)}to{transform:scale(1.045) translate3d(.18%,-.18%,0);filter:saturate(.93) contrast(1.1) brightness(.90)}}
+  @keyframes kxIntroFilm{0%{transform:translate(0,0)}50%{transform:translate(1px,-1px)}100%{transform:translate(-1px,1px)}}
+}
+
+@media (prefers-reduced-motion:reduce) and (min-width:1181px){
+  .kx-intro-bg,.kx-intro-film{animation:none!important}
+  .kx-intro-logo,.kx-intro-choices{animation:none!important;opacity:1!important;filter:none!important;transform:none!important}
+}
