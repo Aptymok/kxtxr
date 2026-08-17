@@ -1,0 +1,27 @@
+{
+  "schema": "KXTXR_OPERATIONAL_NOTES_V1",
+  "updated_at": "2026-08-17T01:25:00-06:00",
+  "notes": [
+    {
+      "id": "NOTE-001",
+      "at": "2026-08-17T01:11:00-06:00",
+      "class": "DECLARED",
+      "title": "Do not explain the return before observing it",
+      "body": "The first return publication is a perturbation, not a conclusion. Do not publish a success interpretation from early views, likes or comments."
+    },
+    {
+      "id": "NOTE-002",
+      "at": "2026-08-17T01:12:00-06:00",
+      "class": "DECLARED",
+      "title": "Keep the Grimoire canonical",
+      "body": "Platform posts may disappear or be recoded. The Grimoire retains the lineage, state, missing fields and later return reading."
+    },
+    {
+      "id": "NOTE-003",
+      "at": "2026-08-17T01:13:00-06:00",
+      "class": "DECLARED",
+      "title": "Contradiction remains publishable",
+      "body": "A return that contradicts the working hypothesis remains useful. Do not visually punish a negative or indeterminate result."
+    }
+  ]
+}
