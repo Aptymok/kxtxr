@@ -18,7 +18,7 @@ function leaveIntro(intro,mode){
     intro.hidden=true;
     intro.setAttribute('aria-hidden','true');
     if(mode==='notes')clickWhenReady('.rune-node[data-layer="notes"]');
-    if(mode==='artist')clickWhenReady('#artistRune');
+    if(mode==='artist')window.location.assign('/artist/');
   },940);
 }
 
