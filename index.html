@@ -21,8 +21,28 @@
   <link rel="stylesheet" href="/rune-constellation.css">
   <link rel="stylesheet" href="/responsive-background.css">
   <link rel="stylesheet" href="/kxtxr-control-room.css">
+  <link rel="stylesheet" href="/desktop-intro.css">
 </head>
 <body>
+<div class="kx-intro" id="kxIntro" data-state="logo" aria-label="Choose KXTXR entry path">
+  <div class="kx-intro-bg" aria-hidden="true"></div>
+  <div class="kx-intro-film" aria-hidden="true"></div>
+  <main class="kx-intro-center">
+    <div class="kx-intro-logo" aria-label="KXTXR">KXTXR</div>
+    <div class="kx-intro-choices" aria-label="KXTXR entrance choice">
+      <button class="kx-intro-choice" type="button" data-kx-entry="notes">
+        <span class="kx-intro-index">01</span>
+        <span class="kx-intro-label">KXTXR LONGITUDINAL NOTES<br>AND EVIDENCE GATHERING</span>
+      </button>
+      <span class="kx-intro-or" aria-hidden="true">OR</span>
+      <button class="kx-intro-choice" type="button" data-kx-entry="artist">
+        <span class="kx-intro-index">02</span>
+        <span class="kx-intro-label">KXTXR THE ARTIST TO BE<br>THAT ALREADY WAS</span>
+      </button>
+    </div>
+  </main>
+</div>
+
 <div class="kxtxr-scene" id="scene">
   <div class="scene-bg" aria-hidden="true"></div>
 
@@ -88,5 +108,6 @@
 <script src="/app.js"></script>
 <script src="/rune-constellation.js"></script>
 <script src="/runic-neural-graph.js"></script>
+<script src="/desktop-intro.js"></script>
 </body>
 </html>
