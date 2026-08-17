@@ -1,0 +1,106 @@
+{
+  "schema": "KXTXR_GRIMOIRE_LEDGER_V1",
+  "updated_at": "2026-08-17T00:00:00-06:00",
+  "posture": "AI_ASSISTED_HUMAN_GOVERNED",
+  "current_state": "RETURN_OPEN",
+  "axiom": "NO OPTIMICES. REGISTRA.",
+  "lineage": [
+    {
+      "id": "KXTXR-REM618",
+      "emblem": "I",
+      "label": "REM618",
+      "state": "EMITTED",
+      "epistemic_class": "OBSERVED",
+      "opened_at": "2026-06-11T18:18:00-06:00",
+      "function": "Opening emission / prima materia",
+      "historical_event": "/historical/rem618/",
+      "external_manifestations": []
+    },
+    {
+      "id": "KXTXR-111",
+      "emblem": "II",
+      "label": "111",
+      "state": "EMERGENCE",
+      "epistemic_class": "DECLARED",
+      "function": "Transformation / confirmation that REM618 belongs to a larger system",
+      "payload_sha256": "07880af81b1588ed43bcbf335feef72c7b530f3e2209d641722b3f7f18dc38c2",
+      "external_manifestations": []
+    },
+    {
+      "id": "SFI-KXTXR-RETURN-001",
+      "emblem": "III",
+      "label": "RETURN",
+      "state": "OPEN",
+      "epistemic_class": "DECLARED",
+      "function": "Observe what survived, disappeared, returned or never formed",
+      "external_manifestations": [
+        {
+          "trace_id": "SFI-KXTXR-RET-000",
+          "platform": "instagram",
+          "scheduled_at": "2026-08-17T01:11:00-06:00",
+          "external_url": null,
+          "certificate_url": "https://systemfriction.org/return/SFI-KXTXR-RET-000-IG",
+          "state": "PREPARED"
+        },
+        {
+          "trace_id": "SFI-KXTXR-RET-000",
+          "platform": "tiktok",
+          "scheduled_at": "2026-08-17T15:11:00-06:00",
+          "external_url": null,
+          "certificate_url": "https://systemfriction.org/return/SFI-KXTXR-RET-000-TT",
+          "state": "PREPARED"
+        },
+        {
+          "trace_id": "SFI-KXTXR-RET-001",
+          "platform": "instagram",
+          "scheduled_at": "2026-08-18T14:11:00-06:00",
+          "external_url": null,
+          "certificate_url": "https://systemfriction.org/return/SFI-KXTXR-RET-001-IG",
+          "state": "PREPARED"
+        },
+        {
+          "trace_id": "SFI-KXTXR-RET-001",
+          "platform": "tiktok",
+          "scheduled_at": "2026-08-18T16:11:00-06:00",
+          "external_url": null,
+          "certificate_url": "https://systemfriction.org/return/SFI-KXTXR-RET-001-TT",
+          "state": "PREPARED"
+        },
+        {
+          "trace_id": "SFI-KXTXR-RET-002",
+          "platform": "instagram",
+          "scheduled_at": "2026-08-19T20:11:00-06:00",
+          "external_url": null,
+          "certificate_url": "https://systemfriction.org/return/SFI-KXTXR-RET-002-IG",
+          "state": "PREPARED"
+        },
+        {
+          "trace_id": "SFI-KXTXR-RET-002",
+          "platform": "tiktok",
+          "scheduled_at": "2026-08-20T17:11:00-06:00",
+          "external_url": null,
+          "certificate_url": "https://systemfriction.org/return/SFI-KXTXR-RET-002-TT",
+          "state": "PREPARED"
+        }
+      ]
+    }
+  ],
+  "daily_folio": [
+    {
+      "id": "FOLIO-2026-08-17",
+      "date": "2026-08-17",
+      "state": "OPEN",
+      "title": "The old signal is permitted to return without being explained.",
+      "observed": [],
+      "inferred": [],
+      "missing": ["post-publication external response", "platform permalink", "post-platform watermark verification"]
+    }
+  ],
+  "boundaries": [
+    "PUBLICATION ≠ EVIDENCE",
+    "ENGAGEMENT ≠ CAUSALITY",
+    "AI OUTPUT ≠ AUTHORIAL AUTHORITY",
+    "SFI CERTIFICATE ≠ TRUTH",
+    "MISSING REMAINS MISSING"
+  ]
+}
