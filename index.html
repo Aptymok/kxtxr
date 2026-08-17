@@ -1,205 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>KXTXR · GRIMOIRE / REM618 → 111 → RETURN</title>
-  <meta name="description" content="KXTXR is a living audiovisual grimoire: emission, residue, transformation and return. REM618 → 111 → RETURN. AI assisted, human governed, observed through SFI." />
+  <title>KXTXR · GRIMOIRE 4.0 / Living Experiment</title>
+  <meta name="description" content="KXTXR is a living audiovisual Grimoire: REM618 → 111 → RETURN. A persistent artistic experiment in emission, residue, retrolongitudinal observation and return." />
+  <meta name="theme-color" content="#020608" />
   <link rel="canonical" href="https://kxtxr.vercel.app/" />
-  <meta name="theme-color" content="#090705" />
-  <meta property="og:title" content="KXTXR · GRIMOIRE" />
-  <meta property="og:description" content="REM618 → 111 → RETURN. A living book of emission, residue and transformation." />
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="KXTXR · GRIMOIRE 4.0" />
+  <meta property="og:description" content="The experiment observes itself. REM618 → 111 → RETURN." />
   <meta property="og:url" content="https://kxtxr.vercel.app/" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="manifest" href="/manifest.webmanifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/grimoire/grimoire.css" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"MusicGroup",
-    "name":"KXTXR",
-    "url":"https://kxtxr.vercel.app/",
-    "sameAs":["https://github.com/Aptymok/kxtxr"],
-    "description":"A living audiovisual experiment in emission, observation, residue and return.",
-    "subjectOf":{
-      "@type":"CreativeWork",
-      "name":"KXTXR GRIMOIRE · REM618 → 111 → RETURN",
-      "url":"https://kxtxr.vercel.app/"
-    }
+    "@graph":[
+      {
+        "@type":"MusicGroup",
+        "@id":"https://kxtxr.vercel.app/#kxtxr",
+        "name":"KXTXR",
+        "url":"https://kxtxr.vercel.app/",
+        "sameAs":["https://github.com/Aptymok/kxtxr"],
+        "description":"A living audiovisual experiment in emission, observation, residue, transformation and return."
+      },
+      {
+        "@type":"CreativeWork",
+        "@id":"https://kxtxr.vercel.app/#grimoire",
+        "name":"KXTXR GRIMOIRE 4.0",
+        "isPartOf":{"@id":"https://kxtxr.vercel.app/#kxtxr"},
+        "about":["REM618","111","RETURN","retrolongitudinal observation","artificial intelligence assisted practice"],
+        "description":"A persistent digital grimoire and operational archive that preserves KXTXR's evolving experiment."
+      },
+      {
+        "@type":"CreativeWork",
+        "@id":"https://kxtxr.vercel.app/historical/rem618/#event",
+        "name":"ARCHIVE_NODE // ACTIVE · REM618 HistoricalEvent",
+        "url":"https://kxtxr.vercel.app/historical/rem618/",
+        "isPartOf":{"@id":"https://kxtxr.vercel.app/#grimoire"}
+      }
+    ]
   }
   </script>
-  <style>
-    :root{
-      --ink:#090705;--ink2:#0f0c09;--paper:#d9cfb8;--paper2:#a99d86;--copper:#a86b45;--verdigris:#6b8f87;--violet:#796579;--ash:#5b544a;--line:rgba(217,207,184,.18);--glow:rgba(168,107,69,.18);--mx:50%;--my:35%;
-    }
-    *{box-sizing:border-box} html{scroll-behavior:smooth;background:var(--ink)} body{margin:0;background:radial-gradient(circle at var(--mx) var(--my),rgba(121,101,121,.10),transparent 28%),radial-gradient(circle at 75% 12%,rgba(107,143,135,.07),transparent 26%),var(--ink);color:var(--paper);font-family:"IBM Plex Mono",monospace;overflow-x:hidden}
-    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");mix-blend-mode:screen}
-    a{color:inherit}.serif{font-family:"Cormorant Garamond",serif}.mono{font-family:"IBM Plex Mono",monospace}.eyebrow{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--paper2)}.state{color:var(--verdigris)}.missing{color:#876e61}.copper{color:#c78b63}.muted{color:var(--paper2)}
-    .shell{width:min(1440px,calc(100% - 32px));margin:auto}.topbar{position:fixed;top:0;left:0;right:0;z-index:40;padding:16px 0;background:linear-gradient(#090705ee,#09070588,transparent)}.topbar .shell{display:flex;justify-content:space-between;align-items:center;gap:20px}.mark{font-size:12px;letter-spacing:.38em}.nav{display:flex;gap:22px;align-items:center}.nav a{font-size:8px;letter-spacing:.16em;text-decoration:none;color:var(--paper2);text-transform:uppercase}.nav a:hover{color:var(--paper)}
-    .hero{min-height:100svh;padding:100px 0 52px;position:relative;display:grid;align-items:end}.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:6vw;align-items:end}.hero h1{margin:0;font-size:clamp(88px,15vw,230px);font-weight:400;line-height:.7;letter-spacing:-.07em}.hero .sub{font-family:"Cormorant Garamond",serif;font-size:clamp(24px,3vw,45px);line-height:1.05;max-width:780px;margin:34px 0 0;color:#e4dbc6}.hero .axiom{margin-top:36px;border-left:1px solid var(--copper);padding-left:18px;color:var(--paper2);font-size:10px;line-height:1.8;max-width:560px}.seal-wrap{position:relative;min-height:570px;display:grid;place-items:center}.seal{width:min(520px,78vw);aspect-ratio:1;border:1px solid rgba(217,207,184,.2);border-radius:50%;position:relative;display:grid;place-items:center;animation:turn 48s linear infinite}.seal:before,.seal:after{content:"";position:absolute;border-radius:50%;inset:8%;border:1px solid rgba(168,107,69,.34)}.seal:after{inset:23%;border-color:rgba(107,143,135,.28);animation:turnR 32s linear infinite}.seal .triangle{width:45%;aspect-ratio:1;clip-path:polygon(50% 0,100% 100%,0 100%);background:linear-gradient(145deg,transparent 35%,rgba(217,207,184,.3));opacity:.7;position:relative}.seal-core{position:absolute;text-align:center}.seal-core strong{display:block;font-family:"Cormorant Garamond",serif;font-weight:400;font-size:80px;line-height:.7}.seal-core span{font-size:8px;letter-spacing:.25em;color:var(--paper2)}.orbit{position:absolute;inset:2%;animation:turnR 70s linear infinite}.orbit i{position:absolute;width:6px;height:6px;border:1px solid var(--copper);transform:rotate(45deg)}.orbit i:nth-child(1){left:50%;top:0}.orbit i:nth-child(2){right:5%;top:42%}.orbit i:nth-child(3){left:10%;bottom:12%}
-    @keyframes turn{to{transform:rotate(360deg)}}@keyframes turnR{to{transform:rotate(-360deg)}}
-    .threshold{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);margin-top:30px}.threshold div{padding:16px;border-right:1px solid var(--line);min-height:76px}.threshold div:last-child{border:0}.threshold small{display:block;font-size:7px;color:var(--ash);letter-spacing:.14em}.threshold b{display:block;font-weight:400;font-size:9px;margin-top:14px;color:var(--paper2)}
-    section{padding:110px 0}.section-head{display:grid;grid-template-columns:.4fr 1fr;gap:30px;border-top:1px solid var(--line);padding-top:18px;margin-bottom:60px}.section-head h2{margin:0;font-size:clamp(42px,7vw,100px);font-weight:400;line-height:.86;letter-spacing:-.045em}.section-head p{max-width:680px;margin:0 0 0 auto;font-family:"Cormorant Garamond",serif;font-size:21px;line-height:1.4;color:var(--paper2)}
-    .emblems{display:grid;gap:70px}.emblem{display:grid;grid-template-columns:.8fr 1.2fr;gap:6vw;align-items:center;min-height:570px;border-top:1px solid var(--line);padding-top:40px}.emblem:nth-child(even){grid-template-columns:1.2fr .8fr}.emblem:nth-child(even) .plate{order:2}.plate{position:relative;aspect-ratio:1;display:grid;place-items:center;max-width:580px;margin:auto}.plate:before{content:"";position:absolute;inset:0;border:1px solid var(--line);border-radius:50%;box-shadow:0 0 120px rgba(168,107,69,.05) inset}.plate svg{width:78%;height:78%;overflow:visible}.emblem-copy .roman{font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--copper)}.emblem-copy h3{font-family:"Cormorant Garamond",serif;font-size:clamp(58px,8vw,128px);line-height:.72;font-weight:400;letter-spacing:-.05em;margin:10px 0 28px}.emblem-copy .epigram{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:25px;line-height:1.35;max-width:620px}.emblem-meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:38px}.emblem-meta div{background:var(--ink);padding:14px}.emblem-meta small{display:block;font-size:7px;letter-spacing:.15em;color:var(--ash)}.emblem-meta span{display:block;font-size:9px;margin-top:8px;color:var(--paper2)}
-    .audio-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.audio-btn,.ghost-btn{appearance:none;border:1px solid rgba(217,207,184,.22);background:transparent;color:var(--paper);padding:12px 15px;font:8px "IBM Plex Mono",monospace;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;text-decoration:none}.audio-btn:hover,.ghost-btn:hover{border-color:var(--copper);color:#e7c0a5}.audio-btn[data-playing="true"]{border-color:var(--verdigris);color:#a9cec4}
-    .lab{background:linear-gradient(180deg,rgba(107,143,135,.03),rgba(121,101,121,.025));border:1px solid var(--line);padding:0}.lab-head{display:flex;justify-content:space-between;gap:20px;padding:15px 18px;border-bottom:1px solid var(--line)}.lab-grid{display:grid;grid-template-columns:1.15fr .85fr}.lab-screen{min-height:500px;padding:35px;position:relative;overflow:hidden;border-right:1px solid var(--line)}.field-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.55}.lab-content{position:relative;z-index:2;display:grid;height:100%;align-content:space-between}.lab-content h3{font-family:"Cormorant Garamond",serif;font-size:clamp(45px,7vw,96px);font-weight:400;line-height:.8;margin:0}.lab-clock{font-size:11px;letter-spacing:.18em}.lab-panel{display:grid;grid-template-columns:1fr 1fr}.lab-panel div{padding:20px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:120px}.lab-panel div:nth-child(2n){border-right:0}.lab-panel small{display:block;font-size:7px;color:var(--ash);letter-spacing:.15em}.lab-panel strong{display:block;margin-top:14px;font-weight:400;font-size:10px;line-height:1.5}.boundary{grid-column:1/-1!important;border-bottom:0!important;min-height:auto!important;color:var(--paper2)}
-    .route{position:relative}.route-line{height:1px;background:linear-gradient(90deg,transparent,var(--copper),var(--verdigris),var(--violet),transparent);margin:60px 0}.route-nodes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}.route-node{background:var(--ink);padding:24px;min-height:200px;position:relative}.route-node:before{content:"";position:absolute;left:24px;top:-64px;width:9px;height:9px;border:1px solid var(--paper2);background:var(--ink);transform:rotate(45deg)}.route-node b{font-family:"Cormorant Garamond",serif;font-size:38px;font-weight:400}.route-node p{font-size:9px;line-height:1.7;color:var(--paper2)}.route-node a{font-size:8px;color:#c6916d;text-underline-offset:4px}.route-node .prepared{color:#8c776c}.route-node .observed{color:#83a49c}
-    .folio{display:grid;grid-template-columns:.7fr 1.3fr;gap:5vw;border-top:1px solid var(--line);padding:35px 0}.folio-date{font-family:"Cormorant Garamond",serif;font-size:50px;color:var(--paper2)}.folio h4{font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:400;margin:0 0 22px}.folio-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}.folio-columns div{background:var(--ink);padding:16px}.folio-columns small{font-size:7px;color:var(--ash);letter-spacing:.15em}.folio-columns p{font-size:9px;line-height:1.7;color:var(--paper2)}
-    .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.trust article{background:var(--ink2);padding:30px;min-height:270px}.trust .num{font-family:"Cormorant Garamond",serif;font-size:58px;color:var(--copper)}.trust h3{font-family:"Cormorant Garamond",serif;font-size:29px;font-weight:400}.trust p{font-size:9px;line-height:1.8;color:var(--paper2)}
-    .historical{border:1px solid rgba(217,207,184,.18);position:relative;overflow:hidden;min-height:520px;display:grid;place-items:center;background:radial-gradient(circle at center,rgba(185,142,163,.08),transparent 44%)}.historical:before{content:"";position:absolute;inset:20px;border:1px solid rgba(217,207,184,.08)}.historical-inner{text-align:center;position:relative;z-index:2;padding:30px}.historical h3{font-family:"Cormorant Garamond",serif;font-size:clamp(56px,9vw,130px);font-weight:400;margin:8px 0 24px;line-height:.75}.historical p{max-width:620px;margin:0 auto 32px;font-family:"Cormorant Garamond",serif;font-size:21px;color:var(--paper2);line-height:1.4}
-    footer{padding:50px 0 80px;border-top:1px solid var(--line)}.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px}.footer-grid p{font-size:8px;line-height:1.8;color:var(--ash)}.footer-grid a{color:var(--paper2)}
-    @media(max-width:900px){.hero-grid,.section-head,.emblem,.emblem:nth-child(even),.lab-grid,.folio{grid-template-columns:1fr}.emblem:nth-child(even) .plate{order:0}.seal-wrap{min-height:400px}.threshold{grid-template-columns:1fr 1fr}.threshold div{border-bottom:1px solid var(--line)}.route-nodes{grid-template-columns:1fr 1fr}.route-node:before{display:none}.trust{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.lab-screen{border-right:0;border-bottom:1px solid var(--line)}}
-    @media(max-width:560px){.shell{width:min(100% - 22px,1440px)}.nav a:not(:last-child){display:none}.hero h1{font-size:88px}.hero .sub{font-size:28px}.threshold{grid-template-columns:1fr}.plate{max-width:340px}.emblem{min-height:0}.emblem-meta,.folio-columns,.route-nodes,.lab-panel{grid-template-columns:1fr}.lab-panel div{border-right:0}.section-head h2{font-size:56px}.topbar{padding-top:max(14px,env(safe-area-inset-top))}}
-    @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
-  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="shell">
-      <div class="mark">KXTXR</div>
-      <nav class="nav" aria-label="Primary">
-        <a href="#emblems">Emblems</a><a href="#laboratory">Laboratory</a><a href="#route">Route</a><a href="#historical">HistoricalEvent</a>
-      </nav>
+  <div class="noise"></div><div class="scan"></div><div class="vignette"></div>
+
+  <div class="bg-media" aria-hidden="true">
+    <video src="/assets/traffic-white-112.mp4" muted autoplay loop playsinline></video>
+  </div>
+
+  <section id="opening" aria-label="KXTXR Grimoire initialization">
+    <video id="openingVideo" class="opening-media" src="/assets/stairwell-shadow-021.mp4" muted loop playsinline preload="metadata"></video>
+    <div class="opening-shade"></div>
+    <div class="opening-ui">
+      <div class="opening-top">
+        <span>KXTXR / GRIMOIRE INITIALIZATION</span>
+        <button id="skipOpening" class="skip">SKIP [ESC]</button>
+      </div>
+      <div class="opening-center">
+        <div class="cover-stage" id="coverStage">
+          <div class="opening-orbit"></div><div class="opening-orbit o2"></div><div class="opening-orbit o3"></div>
+          <div class="opening-book-holo"></div>
+          <div class="cover">
+            <div class="cover-runes"></div>
+            <svg class="sigil" viewBox="0 0 240 300" role="img" aria-label="KXTXR signature">
+              <circle cx="120" cy="150" r="112"/><circle cx="120" cy="150" r="91" stroke-dasharray="5 12"/>
+              <path d="M52 32 L52 174 L108 112 L144 112 L91 170 L130 211 L98 244 L52 196 L52 268"/>
+              <path d="M185 54 L185 268 L131 210 L157 181 L185 209"/>
+              <path d="M106 137 L152 184 M152 137 L106 184"/>
+            </svg>
+          </div>
+          <div class="opening-label">
+            <b id="openingTitle">DORMANCIA</b>
+            <span id="openingSub">THE GRIMOIRE HOLDS THE INTERVAL</span>
+          </div>
+        </div>
+      </div>
+      <div class="opening-bottom"><span>AI ASSISTED / HUMAN GOVERNED / SFI OBSERVED</span><span>RETURN / 001</span></div>
     </div>
-  </header>
+    <div id="openingProgress" class="progress"><i></i></div>
+  </section>
 
-  <main>
-    <section class="hero shell" id="threshold">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">KXTXR · GRIMOIRE / FOLIO ACTIVE · 2026</div>
-          <h1 class="serif">RETURN</h1>
-          <p class="sub">A signal was emitted. A second object appeared. The work now observes what survives the interval between them.</p>
-          <div class="axiom">REM618 → 111 → RETURN<br><span class="copper">NO OPTIMICES. REGISTRA.</span><br><br>This is not a press kit. It is the persistent body left behind by emissions that otherwise disappear inside feeds.</div>
-        </div>
-        <div class="seal-wrap" aria-hidden="true">
-          <div class="seal"><div class="orbit"><i></i><i></i><i></i></div><div class="triangle"></div><div class="seal-core"><strong>111</strong><span>EMERGENCE → RETURN</span></div></div>
-        </div>
+  <main id="app">
+    <header class="topbar">
+      <div class="brand">KXTXR <small>GRIMOIRE 4.0 · LIVING EXPERIMENT</small></div>
+      <div class="posture">
+        <span><b>AI ASSISTED</b>composition / analysis / code</span>
+        <span><b>HUMAN GOVERNED</b>authorship / release / decision</span>
+        <span><b>SFI OBSERVED</b>provenance / return / audit</span>
+        <span><b id="liveClock">00:00:00</b>AMERICA / MEXICO CITY</span>
       </div>
-      <div class="threshold">
-        <div><small>CURRENT STATE</small><b id="current-state">RETURN_OPEN</b></div>
-        <div><small>POSTURE</small><b>AI ASSISTED / HUMAN GOVERNED</b></div>
-        <div><small>OBSERVATION</small><b>SFI · LONGITUDINAL</b></div>
-        <div><small>CANON</small><b>GRIMOIRE / LEDGER</b></div>
-        <div><small>LAST SYNC</small><b id="last-sync">READING…</b></div>
-      </div>
-    </section>
+    </header>
 
-    <section class="shell" id="emblems">
-      <div class="section-head"><div class="eyebrow">LIBER I · THREE OPERATIONS</div><div><h2 class="serif">The work does not explain itself all at once.</h2><p>Like an emblem book, each operation contains an image, a phrase and a material consequence. The visual language borrows the discipline of alchemical books without pretending chemistry is magic or metaphor is measurement.</p></div></div>
+    <section class="book-zone" aria-label="Open operational Grimoire">
+      <div class="book-wrap">
+        <nav class="tab-rail left-tabs" aria-label="Artifact chapters">
+          <button class="tab" data-view="rem">REM618</button>
+          <button class="tab" data-view="111">111</button>
+          <button class="tab active" data-view="return">RETURN</button>
+          <button class="tab" data-view="story">STORY</button>
+        </nav>
 
-      <div class="emblems">
-        <article class="emblem">
-          <div class="plate" aria-label="Emblem I: REM618">
-            <svg viewBox="0 0 500 500" role="img"><title>REM618 alchemical vessel</title><circle cx="250" cy="250" r="190" fill="none" stroke="#a86b45" stroke-opacity=".4"/><circle cx="250" cy="250" r="112" fill="none" stroke="#d9cfb8" stroke-opacity=".22"/><path d="M250 70v90M195 185c0 80 18 119 55 151 37-32 55-71 55-151" fill="none" stroke="#d9cfb8" stroke-opacity=".72"/><path d="M175 185h150M220 336h60M210 355h80" fill="none" stroke="#6b8f87" stroke-opacity=".55"/><path d="M115 250h270M250 115v270" stroke="#d9cfb8" stroke-opacity=".07"/><text x="250" y="430" text-anchor="middle" fill="#a99d86" font-family="monospace" font-size="10" letter-spacing="4">PRIMA MATERIA / 618</text></svg>
-          </div>
-          <div class="emblem-copy"><div class="roman">I</div><h3>REM618</h3><p class="epigram">The vessel was opened before anyone knew what it contained.</p><p class="muted" style="font-size:10px;line-height:1.8">First identified emission. The important fact is not that it existed as a track, but that it established a before and an after that can still be inspected.</p><div class="emblem-meta"><div><small>STATE</small><span>EMITTED</span></div><div><small>FUNCTION</small><span>OPENING / PRIMA MATERIA</span></div><div><small>T0</small><span>2026.06.11 · 18:18</span></div><div><small>CLASS</small><span>OBSERVED / ARCHIVED</span></div></div><div class="audio-row"><button class="audio-btn" data-src="/assets/rem618-fragment-008.mp3.mpeg">HEAR FRAGMENT 008</button><a class="ghost-btn" href="/historical/rem618/">ENTER HISTORICAL EVENT</a></div></div>
+        <article class="page left">
+          <div class="page-content" id="leftPage"><span class="loader">LOADING CANONICAL STATE…</span></div>
+          <span class="page-number">KXTXR / LEFT FOLIO</span>
         </article>
 
-        <article class="emblem">
-          <div class="plate" aria-label="Emblem II: 111">
-            <svg viewBox="0 0 500 500" role="img"><title>111 transformation prism</title><circle cx="250" cy="250" r="194" fill="none" stroke="#796579" stroke-opacity=".35"/><path d="M250 75 402 340H98Z" fill="none" stroke="#d9cfb8" stroke-opacity=".55"/><path d="M250 120 363 320H137Z" fill="none" stroke="#6b8f87" stroke-opacity=".4"/><path d="M250 75v265M98 340l304-265M402 340 98 75" stroke="#d9cfb8" stroke-opacity=".09"/><circle cx="250" cy="250" r="35" fill="none" stroke="#a86b45" stroke-opacity=".8"/><text x="250" y="263" text-anchor="middle" fill="#d9cfb8" font-family="serif" font-size="42">111</text><text x="250" y="430" text-anchor="middle" fill="#a99d86" font-family="monospace" font-size="10" letter-spacing="4">COAGULA / EMERGENCE</text></svg>
-          </div>
-          <div class="emblem-copy"><div class="roman">II</div><h3>111</h3><p class="epigram">The second object does not replace the first. It reveals that the first had a system around it.</p><p class="muted" style="font-size:10px;line-height:1.8">111 functions as confirmation, transformation and visual memory. Its internal lineage exists before its external distribution is considered complete.</p><div class="emblem-meta"><div><small>STATE</small><span>EMERGENCE</span></div><div><small>FUNCTION</small><span>TRANSFORMATION / CONFIRMATION</span></div><div><small>PAYLOAD</small><span>SHA-256 PRESERVED</span></div><div><small>CLASS</small><span>DECLARED / TRACEABLE</span></div></div><div class="audio-row"><button class="audio-btn" data-src="/assets/easter_egg.mpeg">OPEN ANOTHER RESIDUE</button></div></div>
+        <article class="page right">
+          <div class="page-content" id="rightPage"><span class="loader">OPENING RETURN FOLIO…</span></div>
+          <span class="page-number">KXTXR / OPERATIVE FOLIO</span>
         </article>
 
-        <article class="emblem">
-          <div class="plate" aria-label="Emblem III: Return">
-            <svg viewBox="0 0 500 500" role="img"><title>Return circular path</title><circle cx="250" cy="250" r="190" fill="none" stroke="#6b8f87" stroke-opacity=".4" stroke-dasharray="2 10"/><path d="M362 110c95 83 74 238-35 302-104 61-237 13-279-101-42-115 23-241 141-276 98-29 207 20 250 112" fill="none" stroke="#d9cfb8" stroke-opacity=".55"/><path d="m440 147-49-8 31-38" fill="none" stroke="#a86b45" stroke-opacity=".8"/><circle cx="250" cy="250" r="76" fill="none" stroke="#796579" stroke-opacity=".45"/><path d="M174 250h152M250 174v152" stroke="#d9cfb8" stroke-opacity=".15"/><text x="250" y="260" text-anchor="middle" fill="#d9cfb8" font-family="serif" font-size="31">RETURN</text><text x="250" y="430" text-anchor="middle" fill="#a99d86" font-family="monospace" font-size="10" letter-spacing="4">SOLVE ↔ COAGULA / AGAIN</text></svg>
-          </div>
-          <div class="emblem-copy"><div class="roman">III</div><h3>RETURN</h3><p class="epigram">What returns is not necessarily what was sent.</p><p class="muted" style="font-size:10px;line-height:1.8">The present operation records survival, disappearance, recognition, silence and mutation. A platform reaction is a trace. It is not automatically evidence of meaning, causality or value.</p><div class="emblem-meta"><div><small>STATE</small><span class="state">OPEN</span></div><div><small>FUNCTION</small><span>OBSERVE THE INTERVAL</span></div><div><small>WINDOW</small><span>2026.08.17 → OPEN</span></div><div><small>CLASS</small><span>DECLARED → OBSERVED</span></div></div></div>
-        </article>
+        <nav class="tab-rail right-tabs" aria-label="Operational chambers">
+          <button class="tab" data-view="lab">LAB</button>
+          <button class="tab" data-view="logbook">LOGBOOK</button>
+          <button class="tab" data-view="snapshots">SNAPSHOTS</button>
+          <button class="tab" data-view="retro">RETRO</button>
+          <button class="tab" data-view="questions">QUESTIONS</button>
+          <button class="tab" data-view="notes">NOTES</button>
+          <button class="tab" data-view="history">HISTORICAL</button>
+        </nav>
       </div>
     </section>
 
-    <section class="shell" id="laboratory">
-      <div class="section-head"><div class="eyebrow">LIBER II · OBSERVABLE LABORATORY</div><div><h2 class="serif">No black box is required to preserve mystery.</h2><p>The system can expose its procedure without flattening the work into documentation. What is known is shown as known; what has not happened remains missing.</p></div></div>
-      <div class="lab">
-        <div class="lab-head"><span class="eyebrow">KXTXR.LAB / GRIMOIRE LEDGER</span><span class="eyebrow state" id="lab-state">SYNCING</span></div>
-        <div class="lab-grid">
-          <div class="lab-screen"><canvas class="field-canvas" id="field-canvas"></canvas><div class="lab-content"><div><div class="eyebrow">LIVE LOCAL FIELD / NON-MEASURING VISUALIZATION</div><h3>Observe<br>without<br>inventing.</h3></div><div class="lab-clock" id="lab-clock">--:--:--</div></div></div>
-          <div class="lab-panel">
-            <div><small>LEDGER</small><strong id="ledger-schema">MISSING</strong></div>
-            <div><small>CURRENT</small><strong id="ledger-state">MISSING</strong></div>
-            <div><small>AI ROLE</small><strong>ASSISTED COMPOSITION / ANALYSIS</strong></div>
-            <div><small>HUMAN ROLE</small><strong>AUTHORSHIP / RELEASE / GOVERNANCE</strong></div>
-            <div><small>SFI ROLE</small><strong>OBSERVATION / PROVENANCE / RETURN</strong></div>
-            <div><small>AUTOMATIC TRUTH</small><strong>NONE</strong></div>
-            <div class="boundary"><small>BOUNDARY</small><strong>AI OUTPUT ≠ AUTHORIAL AUTHORITY · PUBLICATION ≠ EVIDENCE · ENGAGEMENT ≠ CAUSALITY · MISSING REMAINS MISSING</strong></div>
-          </div>
-        </div>
+    <footer class="routebar">
+      <div class="route-copy"><b>TIKTOK</b> → emission · <b>INSTAGRAM</b> → residue · <b>GRIMOIRE</b> → persistence · <b>SFI</b> → provenance / return<br>CANONICAL MEMORY = GIT-BACKED · LOCAL NOTEBOOK ≠ CANON</div>
+      <div class="route-actions">
+        <button class="route-btn" data-view="rem">REM618</button>
+        <button class="route-btn" data-view="111">111</button>
+        <button class="route-btn" data-view="return">RETURN</button>
+        <button class="route-btn" data-view="story">STORY</button>
+        <button class="route-btn" data-view="ledger">RAW LEDGER</button>
+        <button class="route-btn" id="replayOpening">REPLAY OPENING</button>
       </div>
-    </section>
-
-    <section class="shell route" id="route">
-      <div class="section-head"><div class="eyebrow">LIBER III · ROUTE OF MANIFESTATIONS</div><div><h2 class="serif">The feed is not the archive.</h2><p>TikTok and Instagram are volatile manifestations. The grimoire is the persistent return surface. SFI records provenance after the external permalink actually exists.</p></div></div>
-      <div class="route-line"></div>
-      <div class="route-nodes">
-        <article class="route-node"><div class="eyebrow">01 · EMISSION</div><b>TikTok</b><p>Short-form perturbation. Watch-time and repetition can be observed, but neither determines artistic truth.</p><span class="prepared" id="tiktok-state">PREPARED</span></article>
-        <article class="route-node"><div class="eyebrow">02 · RESIDUE</div><b>Instagram</b><p>Visual memory and re-entry. Static and motion manifestations remain distinct records.</p><span class="prepared" id="instagram-state">PREPARED</span></article>
-        <article class="route-node"><div class="eyebrow">03 · PERSISTENCE</div><b>Grimoire</b><p>The canonical narrative retains lineage, dates, missing values, daily folios and old events after feeds move on.</p><a href="/grimoire/ledger.json">OPEN MACHINE LEDGER ↗</a></article>
-        <article class="route-node"><div class="eyebrow">04 · PROVENANCE</div><b>SFI</b><p>Return certificates bind external URL, asset hash and observation state after publication. Certification records provenance; it does not grant truth.</p><a href="https://systemfriction.org" rel="noreferrer">SYSTEM FRICTION INSTITUTE ↗</a></article>
-      </div>
-    </section>
-
-    <section class="shell" id="folio">
-      <div class="section-head"><div class="eyebrow">LIBER IV · DAILY FOLIO</div><div><h2 class="serif">The book can grow one page at a time.</h2><p>Each day may add one durable folio: what was observed, what was inferred and what remains unavailable. No need to manufacture a post to keep the book alive.</p></div></div>
-      <div id="folio-list"><article class="folio"><div><div class="eyebrow">FOLIO</div><div class="folio-date">READING…</div></div><div><h4>Loading living ledger.</h4></div></article></div>
-    </section>
-
-    <section class="shell" id="trust">
-      <div class="section-head"><div class="eyebrow">LIBER V · TRUST WITHOUT SANITIZATION</div><div><h2 class="serif">The machinery is allowed to be visible.</h2><p>Transparency here is not a corporate disclaimer. It is part of the aesthetic: material, transformation, operator, instrument and uncertainty remain separable.</p></div></div>
-      <div class="trust">
-        <article><div class="num">01</div><h3>AI assisted.</h3><p>AI may assist analysis, sequencing, code, visual systems, language or variant generation. It does not silently become the artist, an autonomous authority or a source of observed facts.</p></article>
-        <article><div class="num">02</div><h3>Human governed.</h3><p>Release, acceptance, rejection, sequencing and public execution remain human decisions. The system can propose; it does not inherit authorship by automation.</p></article>
-        <article><div class="num">03</div><h3>SFI observed.</h3><p>System Friction Institute can retain provenance, longitudinal return and epistemic distinctions. Observation does not make SFI the artistic owner of KXTXR.</p></article>
-      </div>
-    </section>
-
-    <section class="shell" id="historical">
-      <div class="section-head"><div class="eyebrow">LIBER VI · HISTORICAL EVENT</div><div><h2 class="serif">June is not redesigned.</h2><p>The first web apparatus remains available as it actually existed. The present site does not overwrite its aesthetic, assumptions or interfaces.</p></div></div>
-      <div class="historical"><div class="historical-inner"><div class="eyebrow">HistoricalEvent · KXTXR / REM618 · 2026.06</div><h3>ARCHIVE_NODE<br>// ACTIVE</h3><p>The original signal surface is preserved verbatim as an archaeological room inside the current work.</p><a class="ghost-btn" href="/historical/rem618/">ENTER ORIGINAL SURFACE ↗</a></div></div>
-    </section>
+    </footer>
   </main>
 
-  <footer><div class="shell footer-grid"><div><div class="mark">KXTXR</div><p>EMISSION → RESIDUE → TRANSFORMATION → RETURN</p></div><div><p>GRIMOIRE LEDGER<br><a href="/grimoire/ledger.json">machine-readable state</a><br><a href="https://github.com/Aptymok/kxtxr">public source repository</a></p></div><div><p>AI ASSISTED / HUMAN GOVERNED<br>SFI OBSERVED<br><span class="missing">PUBLICATION ≠ EVIDENCE</span></p></div></div></footer>
-
-  <audio id="player" preload="none"></audio>
-  <script>
-    const root=document.documentElement;
-    addEventListener('pointermove',e=>{root.style.setProperty('--mx',(e.clientX/innerWidth*100)+'%');root.style.setProperty('--my',(e.clientY/innerHeight*100)+'%')},{passive:true});
-
-    const player=document.getElementById('player');
-    document.querySelectorAll('.audio-btn').forEach(btn=>btn.addEventListener('click',()=>{
-      const src=btn.dataset.src;
-      document.querySelectorAll('.audio-btn').forEach(b=>b.dataset.playing='false');
-      if(player.src.endsWith(src) && !player.paused){player.pause();btn.dataset.playing='false';return}
-      player.src=src;player.play().then(()=>btn.dataset.playing='true').catch(()=>btn.dataset.playing='false');
-    }));
-    player.addEventListener('ended',()=>document.querySelectorAll('.audio-btn').forEach(b=>b.dataset.playing='false'));
-
-    const clock=()=>{const d=new Date();document.getElementById('lab-clock').textContent=new Intl.DateTimeFormat('en-GB',{timeZone:'America/Mexico_City',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).format(d)+' / AMERICA-MEXICO_CITY'};clock();setInterval(clock,1000);
-
-    async function syncLedger(){
-      try{
-        const res=await fetch('/grimoire/ledger.json?ts='+Date.now(),{cache:'no-store'});if(!res.ok)throw new Error('ledger unavailable');const data=await res.json();
-        document.getElementById('current-state').textContent=data.current_state||'MISSING';document.getElementById('last-sync').textContent=data.updated_at||'MISSING';document.getElementById('lab-state').textContent='LEDGER / READ';document.getElementById('ledger-schema').textContent=data.schema||'MISSING';document.getElementById('ledger-state').textContent=data.current_state||'MISSING';
-        const manifestations=(data.lineage||[]).flatMap(x=>x.external_manifestations||[]);
-        const latest=(p)=>manifestations.filter(x=>x.platform===p).sort((a,b)=>String(b.scheduled_at).localeCompare(String(a.scheduled_at)))[0];
-        ['tiktok','instagram'].forEach(p=>{const x=latest(p),el=document.getElementById(p+'-state');if(x&&el){el.textContent=(x.state||'MISSING')+(x.external_url?' / URL OBSERVED':' / URL MISSING');el.className=x.external_url?'observed':'prepared'}});
-        const folios=data.daily_folio||[];document.getElementById('folio-list').innerHTML=folios.map(f=>`<article class="folio"><div><div class="eyebrow">${escapeHtml(f.id||'FOLIO')}</div><div class="folio-date">${escapeHtml(f.date||'MISSING')}</div></div><div><h4>${escapeHtml(f.title||'Untitled folio')}</h4><div class="folio-columns"><div><small>OBSERVED</small><p>${listOrMissing(f.observed)}</p></div><div><small>INFERRED</small><p>${listOrMissing(f.inferred)}</p></div><div><small>MISSING</small><p>${listOrMissing(f.missing)}</p></div></div></div></article>`).join('')||'<p class="missing">NO FOLIO</p>';
-      }catch(err){document.getElementById('lab-state').textContent='LEDGER / MISSING';document.getElementById('last-sync').textContent='MISSING';document.getElementById('folio-list').innerHTML='<p class="missing">LEDGER UNAVAILABLE. NO STATE INVENTED.</p>'}
-    }
-    function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-    function listOrMissing(v){return Array.isArray(v)&&v.length?v.map(escapeHtml).join('<br>'):'MISSING / NONE RECORDED'}
-    syncLedger();setInterval(syncLedger,60000);
-
-    const canvas=document.getElementById('field-canvas'),ctx=canvas.getContext('2d');let pts=[];
-    function resize(){const r=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2);canvas.width=r.width*d;canvas.height=r.height*d;ctx.setTransform(d,0,0,d,0,0);pts=Array.from({length:42},(_,i)=>({x:Math.random()*r.width,y:Math.random()*r.height,vx:(Math.random()-.5)*.08,vy:(Math.random()-.5)*.08,r:i%11===0?2:1}))}resize();addEventListener('resize',resize);
-    function draw(){const w=canvas.clientWidth,h=canvas.clientHeight;ctx.clearRect(0,0,w,h);pts.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.fillStyle=i%9===0?'rgba(168,107,69,.55)':'rgba(217,207,184,.22)';ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();for(let j=i+1;j<pts.length;j++){const q=pts[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<92){ctx.strokeStyle=`rgba(107,143,135,${.10*(1-d/92)})`;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke()}}});requestAnimationFrame(draw)}draw();
-  </script>
+  <script src="/grimoire/grimoire.js" defer></script>
 </body>
 </html>
