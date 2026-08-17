@@ -1,0 +1,58 @@
+{
+  "id": "KXTXR-ARTIST-PRESENCE-001",
+  "state": "ACTIVE",
+  "epistemic_class": "DECLARED",
+  "artist": "KXTXR",
+  "voice": {
+    "mode": "FIRST_PERSON_ARTIST",
+    "statement": "I am KXTXR. I compose signals to observe what survives contact with time, platforms, memory and return. REM618 was not released to explain itself. It was released to be observed. 111 is transformation. RETURN is the evidence-bearing passage back through the system.",
+    "invitation": "Do not arrive only to listen. Enter the active carriers and observe the experiment while it changes.",
+    "boundary": "The artist voice is declared authorship. Measurements, platform outcomes and provenance remain separate evidence layers."
+  },
+  "network_gateways": [
+    {
+      "id": "SITE",
+      "label": "KXTXR / GRIMOIRE",
+      "url": "https://kxtxr.vercel.app/",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "GITHUB",
+      "label": "GITHUB / SOURCE TRACE",
+      "url": "https://github.com/Aptymok/kxtxr",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "YOUTUBE",
+      "label": "YOUTUBE / FIND THE SIGNAL",
+      "url": "https://www.youtube.com/results?search_query=KXTXR+REM+618",
+      "status": "DISCOVERY_GATEWAY"
+    },
+    {
+      "id": "SPOTIFY",
+      "label": "SPOTIFY / FIND REM 618",
+      "url": "https://open.spotify.com/search/KXTXR%20REM%20618",
+      "status": "DISCOVERY_GATEWAY"
+    },
+    {
+      "id": "APPLE_MUSIC",
+      "label": "APPLE MUSIC / FIND REM 618",
+      "url": "https://music.apple.com/us/search?term=KXTXR%20REM%20618",
+      "status": "DISCOVERY_GATEWAY"
+    },
+    {
+      "id": "AMAZON_MUSIC",
+      "label": "AMAZON MUSIC / KXTXR",
+      "url": "https://music.amazon.co.jp/artists/B0H2WWMK54/kxtxr",
+      "status": "OBSERVED_ARTIST_PAGE"
+    }
+  ],
+  "unresolved_networks": [
+    "Instagram canonical artist URL",
+    "TikTok canonical artist URL",
+    "Direct YouTube artist/channel URL",
+    "Direct Spotify artist URL",
+    "Direct Apple Music artist URL"
+  ],
+  "rule": "Never convert a discovery result into a canonical artist identity without direct verification."
+}
