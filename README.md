@@ -1,14 +1,63 @@
 # KXTXR
 
-**KXTXR** es un experimento de emisión, observación y registro operativo.
+**KXTXR** es un experimento audiovisual de emisión, observación, residuo, transformación y retorno.
 
-No funciona como sitio promocional.
+No funciona como sitio promocional convencional.
 No funciona como campaña musical tradicional.
 No funciona como archivo cerrado.
 
 KXTXR opera como una señal: aparece, se registra, deja residuo y modifica su densidad a partir de lo que ocurre alrededor de una emisión.
 
----
+```txt
+NO OPTIMICES. REGISTRA.
+```
+
+## Estado actual
+
+```txt
+REM618
+  ↓
+111
+  ↓
+RETURN
+```
+
+La fase activa es **RETURN**: observar qué sobrevivió, qué desapareció, qué regresó y qué nunca llegó a formarse entre las emisiones anteriores.
+
+## Arquitectura pública
+
+### `/` · Living Grimoire
+
+La raíz actual es el cuerpo persistente de KXTXR.
+
+No es un press kit ni un dashboard. Está construida como un libro/emblemario vivo con:
+
+- REM618 como primera materia / emisión inicial;
+- 111 como transformación y confirmación del sistema;
+- RETURN como operación longitudinal activa;
+- laboratorio observable;
+- ruta de manifestaciones TikTok → Instagram → Grimoire → SFI;
+- folios diarios;
+- disclosure `AI ASSISTED / HUMAN GOVERNED / SFI OBSERVED`;
+- separación visible entre OBSERVED, DECLARED, INFERRED y MISSING.
+
+### `/grimoire/ledger.json` · Living ledger
+
+Estado legible por máquina del grimorio.
+
+Contiene lineage, ventanas, manifestaciones externas, URLs cuando existan, estados de publicación, folios y límites epistémicos.
+
+Una URL de plataforma permanece `null` hasta que la publicación exista realmente.
+
+### `/historical/rem618/` · HistoricalEvent
+
+El antiguo `ARCHIVE_NODE // ACTIVE` de junio de 2026 no fue rediseñado.
+
+Está preservado usando **exactamente el mismo Git blob** del `index.html` original y funciona como cámara arqueológica de REM618.
+
+Descriptor:
+
+`/historical/rem618/manifest.json`
 
 ## REM618
 
@@ -20,93 +69,51 @@ No es únicamente una pieza sonora.
 
 REM618 funciona como evento de apertura: una emisión colocada en una ventana temporal precisa para observar qué permanece antes, durante y después de su salida.
 
-**Fecha de emisión:** 11/06/2026
-**Hora de emisión:** 06:18 PM
+**Fecha de emisión:** 11/06/2026  
+**Hora de emisión:** 18:18
 
----
+## 111
+
+111 no se trata como “el siguiente single” por defecto.
+
+Su función longitudinal es confirmar que REM618 pertenecía a un sistema mayor y operar como nodo de transformación, memoria visual y lineage.
+
+El payload persistido de 111 permanece separado de la manifestación pública y de cualquier métrica de plataforma.
+
+## RETURN
+
+RETURN no significa relanzar todo el catálogo ni compensar silencios anteriores con sobrepublicación.
+
+Significa:
+
+```txt
+EMISSION
+→ WAIT
+→ OBSERVE
+→ REGISTER
+→ RETURN
+→ AUDIT
+```
+
+La primera secuencia de RETURN reconstruye REM618 → 111 y utiliza publicaciones externas como manifestaciones efímeras que regresan al Grimoire como registros persistentes.
 
 ## Propósito del experimento
 
-El propósito de KXTXR no es optimizar métricas algorítmicas.
-
 El objetivo es observar:
 
-* si una señal puede sostener identidad antes de ser explicada;
-* si una emisión puede producir residuo sin saturación;
-* si la audiencia observa, pregunta, regresa o abandona;
-* si la métrica puede registrarse sin gobernar la decisión;
-* si una intervención mínima puede producir densidad suficiente;
-* si el registro operativo puede convertirse en evidencia.
-
-La regla central es:
-
-```txt
-NO OPTIMICES. REGISTRA.
-```
-
----
-
-## Hipótesis
-
-Una emisión no necesita explicarse completamente para existir como fenómeno.
-
-Si la señal tiene coherencia, puede producir observación incluso cuando la respuesta pública sea mínima, tardía, silenciosa o ambigua.
-
-La métrica visible no agota el fenómeno.
+- si una señal puede sostener identidad antes de ser explicada;
+- si una emisión puede producir residuo sin saturación;
+- si la audiencia observa, pregunta, regresa o abandona;
+- si la métrica puede registrarse sin gobernar la decisión;
+- si una intervención mínima puede producir densidad suficiente;
+- si un registro operativo puede adquirir valor longitudinal sin fabricar narrativa.
 
 Likes, views, shares y comentarios son rastros ambientales.
-No son, por sí solos, criterio de éxito.
-
----
-
-## Método
-
-KXTXR utiliza ventanas de observación alrededor de REM618.
-
-Cada ventana solicita registrar el estado operativo del campo:
-
-* qué ocurrió;
-* qué se evitó;
-* qué evidencia existe;
-* qué residuo apareció;
-* qué decisión se conserva;
-* qué no debe modificarse por ansiedad algorítmica.
-
-El registro no busca embellecer el resultado.
-Busca preservar trazabilidad.
-
----
-
-## Ventanas de observación
-
-El ciclo principal inicia en **T-18:18** y continúa hasta **T+72**.
-
-```txt
-T-18:18  Apertura del día de emisión
-T-12     Arranque consciente
-T-9      Primer control diurno
-T-6      Mitad del día
-T-3      Pre-cierre
-T-1      Última hora previa
-T-0      Emisión REM618
-T+1      Primer residuo
-T+3      Campo de interpretación
-T+6      Persistencia nocturna
-T+12     Observación posterior
-T+24     Cierre del primer día
-T+48     Persistencia real
-T+72     Lectura longitudinal
-```
-
-Cada ventana produce una entrada de registro.
-
----
+No son, por sí solos, criterio de éxito, causalidad o valor artístico.
 
 ## Instrumento E0-R
 
-El instrumento de lectura se denomina **E0-R — Régimen de Emisión Propia**.
-
-Evalúa seis dimensiones:
+El instrumento de lectura histórico se denomina **E0-R — Régimen de Emisión Propia**.
 
 ```txt
 LO — Longevidad Observacional
@@ -118,121 +125,54 @@ AA — Autonomía Algorítmica
 ```
 
 El instrumento no pregunta si algo “gustó”.
-Pregunta si algo permaneció, si produjo residuo y si sostuvo coherencia.
+Pregunta si algo permaneció, produjo residuo y sostuvo coherencia.
 
----
+## IA
 
-## Principio de autonomía algorítmica
+Postura pública:
 
-KXTXR registra métricas, pero no se somete a ellas.
+```txt
+AI ASSISTED
+HUMAN GOVERNED
+SFI OBSERVED
+```
 
-Una métrica alta no confirma verdad.
-Una métrica baja no confirma fracaso.
+La IA puede asistir análisis, secuenciación, código, lenguaje, sistemas visuales y generación de variantes.
 
-El sistema registra el dato y observa si existe:
+La IA no se convierte silenciosamente en:
 
-* retorno;
-* silencio significativo;
-* pregunta;
-* captura;
-* desplazamiento;
-* residuo;
-* desviación;
-* coherencia persistente.
+- artista;
+- autoridad autoral;
+- fuente de hechos observados;
+- decisión de lanzamiento;
+- evidencia por herencia.
 
-La decisión no se toma por reacción inmediata.
+Las decisiones de aceptar, rechazar, publicar, secuenciar o detener permanecen bajo gobierno humano.
 
----
+## Relación con System Friction Institute
 
-## Registro Edwing
+KXTXR mantiene identidad artística propia.
 
-El experimento incluye un registro operativo separado para Edwing.
+**System Friction Institute (SFI)** puede funcionar como marco externo de observación, provenance y retorno:
 
-Ese registro no forma parte pública del flujo principal.
-No sustituye la identidad de KXTXR.
-No convierte REM618 en campaña.
+- observación longitudinal;
+- perturbación mínima;
+- evidencia operativa;
+- trazabilidad;
+- residuo;
+- separación entre record, evidencia, inferencia y decisión;
+- certificados de retorno vinculados a URLs externas reales.
 
-Su función es capturar etapas de observación alrededor de la emisión.
+SFI no funciona como dueño artístico de KXTXR.
 
-Cada entrada puede producir:
-
-* guardado local;
-* cálculo del instrumento;
-* exportación JSON;
-* envío del registro a archivo operativo.
-
-El registro existe para preservar evidencia, no para fabricar narrativa.
-
----
-
-## Qué se observa públicamente
-
-El público no ve un panel de marketing.
-
-El público puede encontrar una superficie de señal:
-
-* estado de ventana;
-* densidad visual;
-* archivo parcial;
-* registro curado;
-* presencia no completamente explicada;
-* señal en transformación.
-
-La experiencia pública no busca resolver todo.
-Busca permitir observación.
-
----
-
-## Qué no es KXTXR
-
-KXTXR no es una landing page.
-KXTXR no es un press kit.
-KXTXR no es un dashboard de métricas.
-KXTXR no es una estrategia de viralidad.
-KXTXR no es un sitio para explicar una canción.
-
-KXTXR es un dispositivo de emisión y observación.
-
----
-
-## Relación con SFI
-
-KXTXR toma elementos metodológicos del **System Friction Institute** como régimen de registro:
-
-* observación longitudinal;
-* perturbación mínima;
-* evidencia operativa;
-* trazabilidad;
-* residuo;
-* atractores;
-* separación entre dato, inferencia y decisión.
-
-SFI no funciona aquí como marca decorativa.
-Funciona como marco de observación.
-
----
-
-## Atractores
-
-Un atractor no se inventa por ansiedad.
-
-Un atractor aparece cuando una señal deja suficiente evidencia para modificar el siguiente acto.
-
-Puede surgir de:
-
-* una pregunta repetida;
-* un silencio persistente;
-* un retorno inesperado;
-* una reacción privada;
-* una captura;
-* una desviación métrica;
-* una frase accidental;
-* un error útil;
-* una asociación no planeada.
-
-El siguiente movimiento debe salir del registro, no del impulso.
-
----
+```txt
+RECORD ≠ EVIDENCE
+PUBLICATION ≠ VALIDATION
+ENGAGEMENT ≠ CAUSALITY
+AI OUTPUT ≠ AUTHORIAL AUTHORITY
+SFI CERTIFICATE ≠ TRUTH
+MISSING REMAINS MISSING
+```
 
 ## Declaración
 
@@ -247,5 +187,7 @@ El residuo decide si existe siguiente acto.
 
 ```txt
 REM618 fue detectado.
+111 apareció.
+RETURN está abierto.
 KXTXR permanece.
 ```
