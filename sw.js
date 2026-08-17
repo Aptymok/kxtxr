@@ -3,6 +3,7 @@ const STATIC_ASSETS = [
   '/manifest.webmanifest.json',
   '/grimoire/grimoire.css',
   '/grimoire/grimoire.js',
+  '/grimoire/patch.js',
   '/grimoire/ledger.json',
   '/grimoire/experiment.json',
   '/grimoire/logbook.json',
