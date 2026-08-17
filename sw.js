@@ -1,7 +1,16 @@
-const CACHE_NAME = 'kxtxr-grimoire-v1';
+const CACHE_NAME = 'kxtxr-grimoire-v2';
 const STATIC_ASSETS = [
   '/manifest.webmanifest.json',
+  '/grimoire/grimoire.css',
+  '/grimoire/grimoire.js',
   '/grimoire/ledger.json',
+  '/grimoire/experiment.json',
+  '/grimoire/logbook.json',
+  '/grimoire/retrolongitudinal.json',
+  '/grimoire/questions.json',
+  '/grimoire/snapshots.json',
+  '/grimoire/notes.json',
+  '/grimoire/story.json',
   '/historical/rem618/'
 ];
 
@@ -21,13 +30,15 @@ self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const requestUrl = new URL(event.request.url);
   const isNavigation = event.request.mode === 'navigate';
-  const isLedger = requestUrl.pathname === '/grimoire/ledger.json';
+  const isCanonicalGrimoireData = requestUrl.pathname.startsWith('/grimoire/') && requestUrl.pathname.endsWith('.json');
 
-  if (isNavigation || isLedger) {
+  if (isNavigation || isCanonicalGrimoireData) {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
-          if (response.ok) caches.open(CACHE_NAME).then((cache) => cache.put(event.request, response.clone()));
+          if (response.ok && requestUrl.origin === self.location.origin) {
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, response.clone()));
+          }
           return response;
         })
         .catch(() => caches.match(event.request).then((cached) => cached || caches.match('/historical/rem618/')))
