@@ -2,11 +2,11 @@
 
 **KXTXR** es un experimento audiovisual de emisión, observación, residuo, transformación y retorno.
 
-No funciona como sitio promocional convencional.
-No funciona como campaña musical tradicional.
+No funciona como sitio promocional convencional.  
+No funciona como campaña musical tradicional.  
 No funciona como archivo cerrado.
 
-KXTXR opera como una señal: aparece, se registra, deja residuo y modifica su densidad a partir de lo que ocurre alrededor de una emisión.
+KXTXR opera como una señal: aparece, se registra, deja residuo y modifica su siguiente acto a partir de lo que puede observarse responsablemente.
 
 ```txt
 NO OPTIMICES. REGISTRA.
@@ -17,43 +17,146 @@ NO OPTIMICES. REGISTRA.
 ```txt
 REM618
   ↓
+INTERVAL
+  ↓
 111
   ↓
 RETURN
+  ↓
+?
 ```
 
-La fase activa es **RETURN**: observar qué sobrevivió, qué desapareció, qué regresó y qué nunca llegó a formarse entre las emisiones anteriores.
+La fase activa es **RETURN**.
 
-## Arquitectura pública
+La pregunta operativa actual es:
 
-### `/` · Living Grimoire
+> What survives when the signal stops asking to be seen?
 
-La raíz actual es el cuerpo persistente de KXTXR.
+## `/` · GRIMOIRE 4.0
 
-No es un press kit ni un dashboard. Está construida como un libro/emblemario vivo con:
+La raíz de KXTXR es ahora un **Grimorio digital abierto y navegable**.
 
-- REM618 como primera materia / emisión inicial;
-- 111 como transformación y confirmación del sistema;
-- RETURN como operación longitudinal activa;
-- laboratorio observable;
-- ruta de manifestaciones TikTok → Instagram → Grimoire → SFI;
-- folios diarios;
-- disclosure `AI ASSISTED / HUMAN GOVERNED / SFI OBSERVED`;
-- separación visible entre OBSERVED, DECLARED, INFERRED y MISSING.
+La entrada tiene una inicialización cinematográfica que sólo ocurre una vez por sesión —con `ESC`/skip y replay explícito— y desemboca en el libro operativo.
 
-### `/grimoire/ledger.json` · Living ledger
+El libro es la interfaz principal. Desde ahí se navega a:
 
-Estado legible por máquina del grimorio.
+- `REM618` · prima materia / opening signal;
+- `111` · coagula / transformation node;
+- `RETURN` · ventana longitudinal actual;
+- `STORY` · narrativa canónica;
+- `LAB` · laboratorio observable;
+- `LOGBOOK` · bitácora persistente;
+- `SNAPSHOTS` · cortes de estado;
+- `RETRO` · lectura retrolongitudinal;
+- `QUESTIONS` · preguntas abiertas;
+- `NOTES` · notas operativas públicas;
+- `HISTORICAL` · acceso al sitio original preservado;
+- `LEDGER` · estado legible por máquina.
 
-Contiene lineage, ventanas, manifestaciones externas, URLs cuando existan, estados de publicación, folios y límites epistémicos.
+El lenguaje visual puede ser alquímico, tecnológico, mágico o especulativo. Los datos no.
 
-Una URL de plataforma permanece `null` hasta que la publicación exista realmente.
+```txt
+VISUALIZATION ≠ MEASUREMENT
+PUBLICATION ≠ EVIDENCE
+ENGAGEMENT ≠ CAUSALITY
+AI OUTPUT ≠ AUTHORIAL AUTHORITY
+SFI CERTIFICATE ≠ TRUTH
+MISSING REMAINS MISSING
+```
 
-### `/historical/rem618/` · HistoricalEvent
+## Memoria canónica persistente
 
-El antiguo `ARCHIVE_NODE // ACTIVE` de junio de 2026 no fue rediseñado.
+La memoria pública de KXTXR es **Git-backed**. No depende del estado del navegador.
 
-Está preservado usando **exactamente el mismo Git blob** del `index.html` original y funciona como cámara arqueológica de REM618.
+```txt
+grimoire/
+├── ledger.json
+├── experiment.json
+├── logbook.json
+├── snapshots.json
+├── retrolongitudinal.json
+├── questions.json
+├── notes.json
+└── story.json
+```
+
+### `ledger.json`
+
+Estado público principal: lineage, fase actual, manifestaciones externas y URLs sólo cuando existen realmente.
+
+### `experiment.json`
+
+Declara que KXTXR se sabe experimento: objetivo, pregunta primaria, fase, método, instrumentos, roles y límites.
+
+### `logbook.json`
+
+Bitácora operativa persistente. Una entrada registra una operación u observación; escribirla no la convierte por sí misma en evidencia.
+
+### `snapshots.json`
+
+Cortes de estado que preservan qué se sabía y qué seguía siendo desconocido en cada punto.
+
+### `retrolongitudinal.json`
+
+Lectura hacia atrás de la trayectoria. Mantiene separadas tres columnas:
+
+```txt
+OBSERVED
+INFERRED
+MISSING
+```
+
+El intervalo incompleto no se rellena con ficción retrospectiva.
+
+### `questions.json`
+
+Preguntas que permanecen abiertas y qué decisión cambiaría su resolución.
+
+### `notes.json`
+
+Notas operativas públicas: qué hacer, qué evitar y qué no interpretar prematuramente.
+
+### `story.json`
+
+Espina narrativa del Grimorio. Cuenta una historia sin cerrar el siguiente capítulo antes de observarlo.
+
+## Libreta local
+
+`LOGBOOK` también ofrece una libreta local en `localStorage`.
+
+Es deliberadamente **no canónica**.
+
+El visitante/operador puede:
+
+- escribir una observación privada;
+- conservarla en ese navegador;
+- exportarla como JSON;
+- posteriormente decidir si merece ser admitida al logbook canónico mediante un commit gobernado.
+
+```txt
+LOCAL NOTE ≠ CANONICAL LOGBOOK
+```
+
+## Laboratorio observable
+
+El `LAB` muestra un campo visual vivo y las funciones declaradas de IA, humano y SFI.
+
+La animación es representación, no sensor.
+
+```txt
+AI      → assisted composition / analysis / code / representation
+HUMAN   → authorship / release / governance
+SFI     → external observation / provenance / return
+TRUTH   → none automatically
+```
+
+## HistoricalEvent
+
+`/historical/rem618/`
+
+El antiguo `ARCHIVE_NODE // ACTIVE` de junio de 2026 está preservado como una cámara arqueológica de REM618.
+
+No se rediseñó ni se reconstruyó “parecido”: el HistoricalEvent reutiliza el blob original del sitio anterior.
 
 Descriptor:
 
@@ -61,133 +164,105 @@ Descriptor:
 
 ## REM618
 
-**REM618** es la primera emisión identificada dentro del sistema KXTXR.
-
-No es la totalidad del proyecto.
-No es sólo un sencillo.
-No es únicamente una pieza sonora.
-
-REM618 funciona como evento de apertura: una emisión colocada en una ventana temporal precisa para observar qué permanece antes, durante y después de su salida.
+REM618 es la primera emisión identificada dentro del sistema KXTXR.
 
 **Fecha de emisión:** 11/06/2026  
-**Hora de emisión:** 18:18
+**Hora:** 18:18
+
+Función actual dentro del Grimorio:
+
+```txt
+OPENING SIGNAL
+PRIMA MATERIA
+HISTORICAL REFERENCE
+```
 
 ## 111
 
-111 no se trata como “el siguiente single” por defecto.
+111 no se trata automáticamente como “el siguiente single”.
 
-Su función longitudinal es confirmar que REM618 pertenecía a un sistema mayor y operar como nodo de transformación, memoria visual y lineage.
+Su función longitudinal es confirmar que REM618 pertenecía a un sistema mayor y operar como nodo de transformación, memoria y provenance.
 
-El payload persistido de 111 permanece separado de la manifestación pública y de cualquier métrica de plataforma.
+```txt
+REM618 → 111
+EMISSION → TRANSFORMATION
+```
 
 ## RETURN
 
-RETURN no significa relanzar todo el catálogo ni compensar silencios anteriores con sobrepublicación.
+RETURN observa qué sobrevivió, desapareció, regresó o nunca llegó a formarse.
 
-Significa:
+Las manifestaciones se preregistran. La URL permanece `null` hasta que Instagram/TikTok produzcan un permalink real.
 
 ```txt
-EMISSION
-→ WAIT
-→ OBSERVE
-→ REGISTER
-→ RETURN
-→ AUDIT
+PREPARED
+  ↓
+PUBLISHED
+  ↓
+POST-PLATFORM QA
+  ↓
+VERIFIED
 ```
 
-La primera secuencia de RETURN reconstruye REM618 → 111 y utiliza publicaciones externas como manifestaciones efímeras que regresan al Grimoire como registros persistentes.
+`VERIFIED` significa provenance QA, no validación artística, causalidad ni verdad.
 
-## Propósito del experimento
-
-El objetivo es observar:
-
-- si una señal puede sostener identidad antes de ser explicada;
-- si una emisión puede producir residuo sin saturación;
-- si la audiencia observa, pregunta, regresa o abandona;
-- si la métrica puede registrarse sin gobernar la decisión;
-- si una intervención mínima puede producir densidad suficiente;
-- si un registro operativo puede adquirir valor longitudinal sin fabricar narrativa.
-
-Likes, views, shares y comentarios son rastros ambientales.
-No son, por sí solos, criterio de éxito, causalidad o valor artístico.
-
-## Instrumento E0-R
-
-El instrumento de lectura histórico se denomina **E0-R — Régimen de Emisión Propia**.
+## Ruta cultural
 
 ```txt
-LO — Longevidad Observacional
-PM — Perturbación Mínima
-CI — Coherencia Identitaria
-RE — Residuo Epistémico
-EV — Evidencia
-AA — Autonomía Algorítmica
+TikTok
+  ↓ emission
+Instagram
+  ↓ residue
+KXTXR GRIMOIRE
+  ↓ persistence
+SFI
+  ↓ provenance / return
+NEXT EMISSION
+  ↺ only after observation
 ```
 
-El instrumento no pregunta si algo “gustó”.
-Pregunta si algo permaneció, produjo residuo y sostuvo coherencia.
+Las plataformas son superficies de manifestación.
 
-## IA
+El Grimorio es la memoria canónica.
 
-Postura pública:
+## Ritmo diario
+
+No existe obligación de inventar contenido cada día.
+
+Un día puede producir solamente:
 
 ```txt
-AI ASSISTED
-HUMAN GOVERNED
-SFI OBSERVED
+OBSERVED  → none recorded
+INFERRED  → none recorded
+MISSING   → remains visible
+QUESTION  → remains open
 ```
 
-La IA puede asistir análisis, secuenciación, código, lenguaje, sistemas visuales y generación de variantes.
+Eso también es un estado válido.
 
-La IA no se convierte silenciosamente en:
-
-- artista;
-- autoridad autoral;
-- fuente de hechos observados;
-- decisión de lanzamiento;
-- evidencia por herencia.
-
-Las decisiones de aceptar, rechazar, publicar, secuenciar o detener permanecen bajo gobierno humano.
-
-## Relación con System Friction Institute
-
-KXTXR mantiene identidad artística propia.
-
-**System Friction Institute (SFI)** puede funcionar como marco externo de observación, provenance y retorno:
-
-- observación longitudinal;
-- perturbación mínima;
-- evidencia operativa;
-- trazabilidad;
-- residuo;
-- separación entre record, evidencia, inferencia y decisión;
-- certificados de retorno vinculados a URLs externas reales.
-
-SFI no funciona como dueño artístico de KXTXR.
+Cuando exista un cambio real, el ciclo recomendado es:
 
 ```txt
-RECORD ≠ EVIDENCE
-PUBLICATION ≠ VALIDATION
-ENGAGEMENT ≠ CAUSALITY
-AI OUTPUT ≠ AUTHORIAL AUTHORITY
-SFI CERTIFICATE ≠ TRUTH
-MISSING REMAINS MISSING
+1. update canonical JSON
+2. preserve lineage
+3. create snapshot when state changes materially
+4. record operational note if a decision changed
+5. update retrolongitudinal reading only when warranted
+6. keep unresolved questions open
+7. commit
 ```
 
-## Declaración
+## Relación con SFI
 
-KXTXR no busca explicar la señal antes de tiempo.
+KXTXR conserva su propia identidad artística y su propio repositorio.
 
-La emisión ocurre.
-El campo responde o no responde.
-El sistema registra.
-La evidencia se conserva.
-La densidad cambia.
-El residuo decide si existe siguiente acto.
+SFI funciona como capa externa de observación/provenance/return. No absorbe la autoría de KXTXR y no convierte una publicación en evidencia por certificación.
+
+---
 
 ```txt
-REM618 fue detectado.
-111 apareció.
-RETURN está abierto.
-KXTXR permanece.
+REM618 was detected.
+111 transformed the archive.
+RETURN is open.
+The next page remains unwritten.
 ```
