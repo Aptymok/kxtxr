@@ -1,0 +1,44 @@
+{
+  "schema": "KXTXR_EXPERIMENT_V1",
+  "id": "KXTXR-EXP-001",
+  "title": "KXTXR / Living Grimoire",
+  "state": "RETURN_OPEN",
+  "self_description": "KXTXR knows itself as an artistic experiment in emission, observation, residue, transformation and return.",
+  "objective": "Observe whether an artistic signal can preserve identity and accumulate meaningful residue without allowing platform metrics to govern the next act.",
+  "primary_question": "What survives when the signal stops asking to be seen?",
+  "current_phase": {
+    "name": "RETURN",
+    "opened_at": "2026-08-17T01:11:00-06:00",
+    "purpose": "Re-enter the REM618 → 111 trajectory and observe what persisted, disappeared, returned or never formed."
+  },
+  "method": [
+    "emit a bounded signal",
+    "preserve provenance",
+    "wait without filling the interval",
+    "record observed residue",
+    "separate observation from inference",
+    "return to the object",
+    "publish divergence and unresolved questions"
+  ],
+  "instruments": [
+    "E0-R / emission regime",
+    "public Grimoire ledger",
+    "operational logbook",
+    "state snapshots",
+    "retrolongitudinal reading",
+    "SFI return certificates"
+  ],
+  "boundaries": [
+    "PUBLICATION ≠ EVIDENCE",
+    "ENGAGEMENT ≠ CAUSALITY",
+    "AI OUTPUT ≠ AUTHORIAL AUTHORITY",
+    "SFI CERTIFICATE ≠ TRUTH",
+    "VISUALIZATION ≠ MEASUREMENT",
+    "MISSING REMAINS MISSING"
+  ],
+  "roles": {
+    "human": "authorship / release / governance",
+    "ai": "assisted composition / analysis / code / representation",
+    "sfi": "external observation / provenance / return"
+  }
+}
