@@ -1,0 +1,59 @@
+{
+  "schema": "KXTXR_GRIMOIRE_LONGITUDINAL_CANON_V3",
+  "version": "3.0.0",
+  "updated_at": "2026-08-17T04:41:00-06:00",
+  "identity": {
+    "id": "KXTXR",
+    "form": "living artistic system",
+    "current_stage": "RETURN",
+    "canon_title": "THE WOUND THAT LEARNED TO RETURN",
+    "core_sentence": "A signal persists long enough to remember what it was, transform without disappearing, and return carrying evidence of its own passage.",
+    "axiom": "NO OPTIMICES. REGISTRA."
+  },
+  "persistent_attractor": {
+    "name": "IDENTITY_THROUGH_TRANSFORMATION",
+    "statement": "KXTXR remains recognizable while each object changes state, medium, density and meaning.",
+    "observed_persistent_signals": [
+      "signal before explanation",
+      "transformation without complete identity rupture",
+      "memory embedded in the object",
+      "visual evolution tied to state",
+      "noise as material rather than defect",
+      "continuity across audio, image and time",
+      "silence and interval as part of the work",
+      "the object exceeds the audio file",
+      "return before forced continuation",
+      "archive as active material, not storage"
+    ],
+    "anti_attractor": [
+      "constant promotional output",
+      "explaining every symbol",
+      "forcing the next release before the prior signal returns",
+      "turning KXTXR into a generic artist brand",
+      "making every artifact perform the same role"
+    ]
+  },
+  "signal_grammar": {
+    "sequence": ["EMISSION","RESIDUE","INTERVAL","MEMORY","TRANSFORMATION","RETURN","NEXT FORM"],
+    "canonical_formula": "SIGNAL -> SILENCE -> TRACE -> MEMORY -> RETURN -> NEW SIGNAL",
+    "meaning": "KXTXR does not advance by replacing objects. It advances by letting one object leave something inside the next."
+  },
+  "lore_spine": [
+    {"node":"1347","title":"THE FIRST WOUND","state":"WOUND","canon":"Something enters the world that cannot yet become language. It persists as pressure, absence and unfinished form.","inherits_into_next":["pain","persistence","unfinished form"],"visual_motifs":["black material","sealed surface","unlit sigil","scar geometry"],"sonic_motifs":["low pressure","absence","distant pulse"],"function_in_return":"RETURN eventually asks whether the original wound still exists inside the present signal."},
+    {"node":"THE MANUSCRIPT AGE","title":"THE WOUND LEARNS INSCRIPTION","state":"INSCRIPTION","canon":"The wound stops being only sensation and learns to leave marks. The mark becomes repeatable even when its maker disappears.","inherits_into_next":["mark","symbol","repeatability"],"visual_motifs":["marginalia","runes","diagrams","palimpsest","sealed folios"],"sonic_motifs":["repetition","ritual cadence"],"function_in_return":"The contemporary Grimorio is not a decorative medieval reference; it is the final form of this persistent inscription."},
+    {"node":"THE RITUAL AGE","title":"THE MARK LEARNS RHYTHM","state":"RHYTHM","canon":"A mark repeated in time becomes ritual. Repetition begins to change the observer as much as the object.","inherits_into_next":["rhythm","recurrence","observer"],"visual_motifs":["circular diagrams","cycles","repeated glyphs"],"sonic_motifs":["pulse","loop","syncopation","returning frequencies"],"function_in_return":"The later social loops and repeated fragments are descendants of the same grammar."},
+    {"node":"THE TRANSMISSION AGE","title":"THE RITUAL LEAVES THE ROOM","state":"SIGNAL","canon":"The ritual becomes transmissible. The signal can travel without its source and still alter the field in which it arrives.","inherits_into_next":["signal","distance","receiver","field"],"visual_motifs":["antenna geometry","field maps","waveforms","nodes"],"sonic_motifs":["carrier","noise","interference","echo"],"function_in_return":"KXTXR eventually treats platforms, rooms, listeners and archives as different receivers of the same signal."},
+    {"node":"THE NETWORK AGE","title":"THE SIGNAL LEARNS MEMORY","state":"NETWORK","canon":"Signals stop arriving alone. They form relations. A fragment can point backward, sideways and forward. The wound becomes navigable.","inherits_into_next":["network","lineage","relation","reconstruction"],"visual_motifs":["graphs","links","maps","layered archives"],"sonic_motifs":["cross-reference","sample memory","recurring residues"],"function_in_return":"This is the conceptual ancestor of ATLAS, the Grimoire, the sigil system and retrolongitudinal reconstruction."},
+    {"node":"2026.06.11 / REM618","title":"THE WOUND ENTERS THE FIELD","state":"EMISSION","canon":"REM618 is the first contemporary object in which the old grammar becomes visible as KXTXR.","role":"opening / detection / prima materia","inherits_from":["wound","signal","field","noise","persistence"],"leaves_behind":["first public residue","HistoricalEvent","field reference","opening state"],"visual_motifs":["dark room","glitch","ordinary space disturbed by signal","minimal explanation"],"function_in_return":"RETURN must look for what REM618 left behind without pretending that every later object was already predetermined."},
+    {"node":"INTERVAL","title":"THE SIGNAL STOPS ASKING TO BE SEEN","state":"SILENCE","canon":"The silence after REM618 is not empty campaign time. It becomes material. The absence tests whether the signal can exist without reinforcement.","role":"decay / memory test / field exposure","leaves_behind":["uncertainty","unmeasured residue","need for reconstruction"],"function_in_return":"The interval is the reason RETURN exists."},
+    {"node":"2026.08 / 111","title":"THE SIGNAL DISCOVERS ITS OWN GENEALOGY","state":"EMERGENCE","canon":"111 does not replace REM618. It reveals that REM618 belonged to a system. The object now carries lineage, visual memory, payload and sigil.","role":"archive / visual node / transformation / coagula","inherits_from":["REM618 residue","sigil","memory","network"],"leaves_behind":["explicit lineage","complete sigil","provenance","ATLAS relation","return_pending"],"function_in_return":"111 is the object that makes RETURN structurally possible because it can point backward."},
+    {"node":"2026.08 / RETURN","title":"THE SYSTEM TURNS AROUND","state":"RETURN","canon":"KXTXR stops producing forward for a moment and looks backward. Not to verify whether the myth is true, but to discover what the signal became after leaving its source.","role":"return / reconstruction / audience residue / field reading","inherits_from":["REM618","interval","111","ATLAS","sigil","archive"],"asks":["What survived REM618?","What changed while nobody was looking?","What did 111 inherit without being explicitly told to inherit it?","Which residues belong to culture and which belong to distribution machinery?","What deserves to enter the next object?","What must be allowed to disappear?"],"outputs":["return folios","retrolongitudinal notes","field residues","public manifestations","new sigil states","objects","reconstructions","the next unresolved node"]},
+    {"node":"[ ? ]","title":"THE NEXT FORM","state":"UNWRITTEN","canon":"The next form is not empty. It is being constrained by everything that survived the return.","candidate_lineage":["easter_egg / hidden connector","LUGAR LUNAR / nocturnal permanence","KYRIE / emotional center","QUE NO / bridge","ESPINAS / friction","BLVCK / rupture","E.D. / threshold"],"selection_rule":"The next node should inherit the strongest surviving signal from RETURN rather than merely follow a release calendar."}
+  ],
+  "catalogue_roles": {"REM618":"opening / detection / first field event","111":"visual archive / genealogy / transformation node","easter_egg":"hidden connector / secret archive","LUGAR LUNAR":"nocturnal permanence","KYRIE":"emotional center","QUE NO":"bridge / expansion","ESPINAS":"friction / tension","ODIO DECIRTELO":"heavy archive","YNLPC":"lateral extension","AELUDE":"rupture precursor","BLVCK":"rupture","E.D.":"threshold / closure"},
+  "return_design": {"stage":"ACTIVE","objective":"Use the present Grimoire to reconstruct what KXTXR has actually been becoming, then feed the surviving signals into the next artistic form.","return_layers":[{"id":"R1","name":"REM618 residue","collect":["old site","audio fragments","visual residue","late reactions","remembered motifs"]},{"id":"R2","name":"111 inheritance","collect":["sigil evolution","payload","visual state","provenance","what clearly came from REM618"]},{"id":"R3","name":"field echo","collect":["platform response","silence","unexpected associations","human messages","search residue","algorithmic noise"]},{"id":"R4","name":"grimoire reconstruction","collect":["notes","snapshots","maps","questions","objects","reconstructions"]},{"id":"R5","name":"next inheritance","collect":["the subset of signals strong enough to enter the next object"]}],"rule":"RETURN is not a report. It is the transmutation chamber between what KXTXR was and what KXTXR is allowed to become next."},
+  "notes_architecture": {"title":"THE BOOK REMEMBERS","principle":"Notes are the longitudinal consciousness of the artwork.","note_types":["ORIGIN","OBSESSION","DECISION","CHANGE","PERSISTENCE","DISCARDED_PATH","FIELD_ECHO","IMAGE","SOUND","DREAM","OBJECT","RETURN","FUTURE_FRAGMENT"],"required_fields":["id","date_or_epoch","type","title","body","what_entered","what_changed","what_persisted","what_it_points_to"],"continuity_rule":"A note does not exist only to document a fact. It exists to show how one state became capable of producing another."},
+  "visual_language": {"persistent":["mineral black","cyan activation","glitch/noise residue","runes and encoded writing","dark room / ordinary technology transformed by signal","sigil evolution","laboratory / alchemical apparatus","maps, fields, graphs and hidden connections","book / archive / folio"],"state_logic":{"dormant":"almost black, symbol barely visible","signal":"single cyan core","emergence":"runes and connective filaments activate","return":"book opens, lineage becomes visible","next":"new visual mutation inherits only selected residues"}},
+  "grimoire_sections": {"Creation":"The canonical myth and the formation of the wound into KXTXR.","Field":"REM618 HistoricalEvent, field residues and places where the signal has appeared.","Frecuency":"The sonic law, catalogue roles, recurring motifs and signal grammar.","Alchemical Lab":"Connect every artifact, note, signal, sigil, residue and hypothesis into transformations.","Notes":"The longitudinal notebook from 1347 to the present and beyond.","Objects":"Relics, carriers, editions, physical/digital artifacts and future store objects.","Reconstructions":"Possible futures and alternative continuations generated from surviving signals.","[ T - 0.00001 ]":"The chamber before visible creation: motives, bio, early systems, atlas, steganography, MIHM links, campaigns, algorithms and pre-KXTXR fragments."},
+  "external_relationships": {"SFI":{"role":"trusted external observer / optional analytical instrument","relationship":"KXTXR may lend objects to SFI for observation, MIHM, provenance or longitudinal study.","boundary":"SFI does not author KXTXR canon."}}
+}
