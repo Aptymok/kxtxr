@@ -1,69 +1,244 @@
-/* KXTXR — app.js
-   Runtime: rune field, JSON hydration, projection states. */
-const RUNE_PATHS={creation:"M-18,-30 L-18,30 M-18,-18 L18,-28 M-18,0 L14,-10",field:"M-18,30 L-18,-30 M-18,-30 L18,-30 M18,-30 L18,18 M18,18 L0,30 M0,30 L-18,30",frecuency:"M-18,-30 L-18,30 M-18,-18 L18,-18 M-18,-18 L14,6",lab:"M-18,-30 L-18,30 M-18,-18 L18,-28 M-18,0 L14,-10 M-18,0 L12,22",notes:"M-18,-30 L-18,30 M-18,-22 L16,-22 M16,-22 L16,0 M16,0 L-18,0 M-18,0 L18,30",objects:"M-18,-30 L-18,30 M-18,0 L18,-22 M-18,0 L18,22",reconstructions:"M0,-30 L0,30 M0,-10 L-18,-28 M0,-10 L18,-28",tminus:"M-18,0 L0,-24 L18,0 L0,24 Z M-18,0 L-18,30 M18,0 L18,30"};
-const AMBIENT_PATHS=[RUNE_PATHS.creation,RUNE_PATHS.field,RUNE_PATHS.frecuency,RUNE_PATHS.lab,RUNE_PATHS.notes,RUNE_PATHS.objects,RUNE_PATHS.reconstructions,RUNE_PATHS.tminus,"M-22,-22 L22,22 M22,-22 L-22,22","M0,-30 L0,30","M14,-30 L-10,-6 L10,-6 L-14,30","M-18,-30 L-18,30 M14,-30 L-10,30"];
+(function(){
+'use strict';
+let C=null;
+
+const LAYER_ORDER=['creation','field','frecuency','lab','notes','objects','reconstructions','tminus'];
+const SECTION_MAP={creation:'Creation',field:'Field',frecuency:'Frecuency',lab:'Alchemical Lab',notes:'Notes',objects:'Objects',reconstructions:'Reconstructions',tminus:'[ T - 0.00001 ]'};
+const META={
+ creation:{subtitle:'Origin Codex',status:'GENESIS ACTIVE',source:'Lore Archive',mode:'Foundational',integrity:'0.94'},
+ field:{subtitle:'Signal Observatory',status:'REM618 TRACE ACTIVE',source:'REM618',mode:'Observed',integrity:'0.91'},
+ frecuency:{subtitle:'Signal Grammar',status:'CHAIN ONLINE',source:'Sequence Core',mode:'Linked',integrity:'0.96'},
+ lab:{subtitle:'Reaction Matrix',status:'REACTION OPEN',source:'Return Design',mode:'Reactive',integrity:'0.89'},
+ notes:{subtitle:'Memory Ledger',status:'LEDGER AVAILABLE',source:'Persistent Notes',mode:'Longitudinal',integrity:'0.97'},
+ objects:{subtitle:'Artifact Vault',status:'VAULT READY',source:'Catalogue Roles',mode:'Material',integrity:'0.92'},
+ reconstructions:{subtitle:'Future Branches',status:'EMERGENCE PENDING',source:'Projection Engine',mode:'Prospective',integrity:'0.83'},
+ tminus:{subtitle:'Precursor Archive',status:'PRECURSOR ACCESS',source:'Precursor Archive',mode:'Archaeological',integrity:'0.88'}
+};
+const RUNE_PATHS={
+ creation:'M-18,-30 L-18,30 M-18,-18 L18,-28 M-18,0 L14,-10',
+ field:'M-18,30 L-18,-30 M-18,-30 L18,-30 M18,-30 L18,18 M18,18 L0,30 M0,30 L-18,30',
+ frecuency:'M-18,-30 L-18,30 M-18,-18 L18,-18 M-18,-18 L14,6',
+ lab:'M-18,-30 L-18,30 M-18,-18 L18,-28 M-18,0 L14,-10 M-18,0 L12,22',
+ notes:'M-18,-30 L-18,30 M-18,-22 L16,-22 M16,-22 L16,0 M16,0 L-18,0 M-18,0 L18,30',
+ objects:'M-18,-30 L-18,30 M-18,0 L18,-22 M-18,0 L18,22',
+ reconstructions:'M0,-30 L0,30 M0,-10 L-18,-28 M0,-10 L18,-28',
+ tminus:'M-18,0 L0,-24 L18,0 L0,24 Z M-18,0 L-18,30 M18,0 L18,30'
+};
+const AMBIENT_EXTRA=[
+ 'M-22,-22 L22,22 M22,-22 L-22,22',
+ 'M0,-30 L0,30',
+ 'M14,-30 L-10,-6 L10,-6 L-14,30',
+ 'M-18,-30 L-18,30 M14,-30 L-10,30',
+ 'M-8,-28 L18,-8 L-8,12 M8,28 L-18,8 L8,-12',
+ 'M0,-30 L0,30 M0,-10 L-18,-28 M0,-10 L18,-28',
+ 'M-22,0 L0,-24 L22,0 L0,24 Z',
+ 'M-18,-30 L-18,30 M-18,-30 L12,-4'
+];
 const NS='http://www.w3.org/2000/svg';
-const screen=document.getElementById('projectionScreen'),beam=document.getElementById('projectionBeam'),core=document.getElementById('coreSystem'),coreRune=document.getElementById('coreActiveRune');
-const pName=document.getElementById('pLayerName'),pSub=document.getElementById('pLayerSubtitle'),pStatus=document.getElementById('pStatus'),pMain=document.getElementById('pMain'),pSecondary=document.getElementById('pSecondary'),pL=document.getElementById('pFragLeft'),pR=document.getElementById('pFragRight'),pSource=document.getElementById('pMetaSource'),pMode=document.getElementById('pMetaMode'),pIntegrity=document.getElementById('pMetaIntegrity');
-let activeLayer=null,projectionOpen=false;
-function runeSvg(path,ambient=false){const c=ambient?'ambient':'rune';return `<svg viewBox="-44 -44 88 88" aria-hidden="true"><path class="${c}-main" d="${path}"/><path class="${c}-frag ${c}-frag-a" d="${path}"/><path class="${c}-frag ${c}-frag-b" d="${path}"/><path class="${c}-scan" d="${path}"/><path class="${c}-ghost ${c}-ghost-a" d="${path}"/><path class="${c}-ghost ${c}-ghost-b" d="${path}"/></svg>`}
+
+const runeOrbit=document.getElementById('runeOrbit');
+const ghostRunes=document.getElementById('ghostRunes');
+const core=document.getElementById('coreSystem');
+const coreRune=document.getElementById('coreActiveRune');
+const coreState=document.getElementById('coreState');
+const screen=document.getElementById('projectionScreen');
+const beam=document.getElementById('projectionBeam');
+const pName=document.getElementById('pLayerName');
+const pSub=document.getElementById('pLayerSubtitle');
+const pStatus=document.getElementById('pStatus');
+const pMain=document.getElementById('pMain');
+const pSecondary=document.getElementById('pSecondary');
+const pL=document.getElementById('pFragLeft');
+const pR=document.getElementById('pFragRight');
+const pSource=document.getElementById('pMetaSource');
+const pMode=document.getElementById('pMetaMode');
+const pIntegrity=document.getElementById('pMetaIntegrity');
+
+let current=null, transitioning=false, open=false;
+
+function runeSvg(path,prefix='rune'){
+ return `<svg viewBox="-44 -44 88 88" aria-hidden="true">
+  <path class="${prefix}-main" d="${path}"/>
+  <path class="${prefix}-frag ${prefix}-frag-a" d="${path}"/>
+  <path class="${prefix}-frag ${prefix}-frag-b" d="${path}"/>
+  <path class="${prefix}-scan" d="${path}"/>
+  <path class="${prefix}-ghost ${prefix}-ghost-a" d="${path}"/>
+  <path class="${prefix}-ghost ${prefix}-ghost-b" d="${path}"/>
+ </svg>`;
+}
 function setupRunes(){
-  const nodes=[...document.querySelectorAll('.rune-node')];
-  const pos=[[0,-1],[.72,-.72],[1,0],[.72,.72],[0,1],[-.72,.72],[-1,0],[-.72,-.72]];
-  nodes.forEach((b,i)=>{
-    const key=b.dataset.layer;
-    b.innerHTML=runeSvg(RUNE_PATHS[key]);
-    b.addEventListener('click',()=>setLayer(key));
+ runeOrbit.innerHTML='';
+ LAYER_ORDER.forEach((key)=>{
+  const b=document.createElement('button');
+  b.className='rune-node';
+  b.dataset.layer=key;
+  b.setAttribute('aria-label',SECTION_MAP[key]);
+  b.innerHTML=runeSvg(RUNE_PATHS[key]);
+  b.addEventListener('click',()=>activate(key));
+  runeOrbit.appendChild(b);
+ });
+ placeRunes();
+ addEventListener('resize',placeRunes,{passive:true});
+}
+function placeRunes(){
+ const nodes=[...runeOrbit.querySelectorAll('.rune-node')];
+ const radius=Math.min(innerWidth*.34,innerHeight*.34,300);
+ const start=-Math.PI/2,step=(Math.PI*2)/nodes.length;
+ nodes.forEach((b,i)=>{
+  const a=start+i*step;
+  b.style.left=(Math.cos(a)*radius)+'px';
+  b.style.top=(Math.sin(a)*radius)+'px';
+ });
+}
+function setupAmbient(){
+ const base=[...Object.values(RUNE_PATHS),...AMBIENT_EXTRA];
+ const pts=[[120,175,.42],[490,135,.32],[810,190,.46],[205,400,.34],[790,430,.30],[100,690,.44],[875,720,.36],[235,1030,.33],[770,1050,.42],[150,1310,.30],[860,1320,.35],[335,1510,.28],[655,1520,.33],[470,320,.26],[575,955,.24],[425,1210,.28]];
+ pts.forEach((p,i)=>{
+  const g=document.createElementNS(NS,'g');
+  g.setAttribute('class','ambient-rune'+([1,4,7,10,14].includes(i)?' glitch':''));
+  g.setAttribute('transform',`translate(${p[0]} ${p[1]}) scale(${p[2]})`);
+  g.style.setProperty('--dur',`${12+(i%5)*1.8}s`);
+  g.style.setProperty('--delay',`${-i*.81}s`);
+  const d=base[i%base.length];
+  ['ambient-main','ambient-frag','ambient-scan','ambient-ghost'].forEach((cl)=>{
+   const q=document.createElementNS(NS,'path');
+   q.setAttribute('class',cl+(cl==='ambient-frag'?' ambient-frag-a':'')+(cl==='ambient-ghost'?' ambient-ghost-a':''));
+   q.setAttribute('d',d);g.appendChild(q);
   });
-  const place=()=>{
-    const radius=Math.min(innerWidth*.34,innerHeight*.34,300);
-    nodes.forEach((b,i)=>{b.style.left=(pos[i][0]*radius)+'px';b.style.top=(pos[i][1]*radius)+'px';});
-  };
-  place();
-  addEventListener('resize',place,{passive:true});
+  ghostRunes.appendChild(g);
+ });
 }
-function setupAmbient(){const svg=document.getElementById('ghostRunes');const pts=[[120,180,.42],[490,145,.32],[805,190,.48],[210,420,.36],[770,450,.30],[105,710,.46],[860,725,.38],[245,1040,.34],[760,1055,.44],[155,1320,.31],[850,1325,.36],[340,1510,.28],[650,1525,.34],[470,330,.27],[575,960,.25],[425,1210,.29]];pts.forEach((p,i)=>{const g=document.createElementNS(NS,'g');g.setAttribute('class','ambient-rune'+([1,4,7,10,14].includes(i)?' glitch':''));g.setAttribute('transform',`translate(${p[0]} ${p[1]}) scale(${p[2]})`);g.style.setProperty('--dur',`${12+(i%5)*1.7}s`);g.style.setProperty('--delay',`${-i*.77}s`);const d=AMBIENT_PATHS[i%AMBIENT_PATHS.length];['ambient-main','ambient-frag','ambient-scan','ambient-ghost'].forEach((cl,j)=>{const path=document.createElementNS(NS,'path');path.setAttribute('class',cl+(cl==='ambient-frag'?' ambient-frag-a':'')+(cl==='ambient-ghost'?' ambient-ghost-a':''));path.setAttribute('d',d);g.appendChild(path)});svg.appendChild(g)})}
-function setCoreRune(key){coreRune.innerHTML=runeSvg(RUNE_PATHS[key]);core.classList.remove('is-glitching');void core.offsetWidth;core.classList.add('is-glitching');setTimeout(()=>core.classList.remove('is-glitching'),360)}
-function fragmentColumns(items=[]){const arr=items.filter(Boolean);const mid=Math.ceil(arr.length/2);pL.innerHTML=arr.slice(0,mid).map(x=>`<div class="frag-line">${x}</div>`).join('');pR.innerHTML=arr.slice(mid).map(x=>`<div class="frag-line">${x}</div>`).join('')}
-function bars(){return Array.from({length:28},(_,i)=>`<span style="height:${8+Math.abs(Math.sin(i*.73))*25}px"></span>`).join('')}
-function renderVisual(layer){
-  pMain.innerHTML='';
-  pSecondary.innerHTML='';
-  switch(layer.visualType){
-    case 'origin-codex':
-      pMain.innerHTML=`<div><div class="origin-column">${layer.origin||''}</div><div class="micro-timeline">${(layer.timeline||[]).map(x=>`<div class="tl-node"><b>${x.when}</b>${x.label}</div>`).join('')}</div></div>`;
-      break;
-    case 'timeline-signal':
-      pMain.innerHTML=`<div style="width:100%"><div class="signal-wave"><svg viewBox="0 0 500 80"><path d="M0 40 ${Array.from({length:50},(_,i)=>`L${i*10} ${40+Math.sin(i*.7)*18+Math.sin(i*.21)*9}`).join(' ')}"/></svg></div><div class="event-timeline">${(layer.events||[]).map(x=>`<div class="ev"><b>${x.when}</b>${x.label}</div>`).join('')}</div></div>`;
-      break;
-    case 'sequence-map':
-      pMain.innerHTML=`<div style="width:100%"><div class="sequence-nodes">${(layer.sequence||[]).map((x,i,a)=>`<div class="seq-node">${x}</div>${i<a.length-1?'<div class="seq-line"></div>':''}`).join('')}</div><div class="frequency-spectrum">${bars()}</div></div>`;
-      pSecondary.textContent=layer.formula||'';
-      break;
-    case 'network-matrix': {
-      const n=layer.nodes||[];
-      const pts=[[80,70],[250,50],[420,80],[120,170],[310,165],[460,185]];
-      const links=layer.links||[];
-      pMain.innerHTML=`<div class="lab-network"><svg viewBox="0 0 540 230">${links.map(([a,b])=>`<line x1="${pts[a][0]}" y1="${pts[a][1]}" x2="${pts[b][0]}" y2="${pts[b][1]}"/>`).join('')}${n.map((x,i)=>`<circle cx="${pts[i][0]}" cy="${pts[i][1]}" r="9"/><text x="${pts[i][0]+12}" y="${pts[i][1]+3}">${x}</text>`).join('')}</svg></div>`;
-      break;
-    }
-    case 'ledger-stack':
-      pMain.innerHTML=`<div class="ledger-entries">${(layer.noteTypes||[]).slice(0,7).map((x,i)=>`<div class="entry">${String(i+1).padStart(2,'0')} · ${x}</div>`).join('')}</div>`;
-      break;
-    case 'artifact-grid':
-      pMain.innerHTML=`<div class="artifact-grid">${Object.entries(layer.catalogue||{}).slice(0,10).map(([k,v])=>`<div class="obj"><b>${k}</b>${v}</div>`).join('')}</div>`;
-      break;
-    case 'branch-tree': {
-      const br=layer.branches||[];
-      pMain.innerHTML=`<div class="future-branches"><svg viewBox="0 0 540 230"><circle cx="270" cy="35" r="8" class="branch-emerging"/>${br.map((b,i)=>{const x=55+i*(430/Math.max(1,br.length-1)),y=175;return `<line x1="270" y1="43" x2="${x}" y2="${y-8}"/><circle cx="${x}" cy="${y}" r="7" class="branch-${b.state}"/><text x="${x-25}" y="${y+24}">${b.label}</text>`}).join('')}</svg></div>`;
-      pSecondary.textContent=layer.rule||'';
-      break;
-    }
-    case 'deep-archive':
-      pMain.innerHTML=`<div class="archive-dossier">${(layer.dossier||[]).map(x=>`<div class="d-row"><span>${x.k}</span><span>${x.v}</span></div>`).join('')}</div>`;
-      break;
-  }
+
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const list=(arr)=>`<div class="canon-list">${(arr||[]).map(v=>`<div class="canon-row">${esc(v)}</div>`).join('')}</div>`;
+const rows=(obj)=>`<div class="dossier">${Object.entries(obj||{}).map(([k,v])=>`<div class="dossier-row"><div class="k">${esc(k)}</div><div class="v">${Array.isArray(v)?esc(v.join(' · ')):esc(v)}</div></div>`).join('')}</div>`;
+const title=t=>`<div class="canon-title">${esc(t)}</div>`;
+
+function sectionDescription(key){return C.grimoire_sections?.[SECTION_MAP[key]]||''}
+
+function renderCreation(){
+ const spine=C.lore_spine||[];
+ const pre=spine.filter(n=>!String(n.node).includes('2026')&&n.node!=='INTERVAL'&&n.node!=='[ ? ]');
+ return `${title(C.identity?.canon_title||'CREATION')}
+ <div class="canon-copy">${esc(C.identity?.core_sentence||'')}</div>
+ <div class="signal-formula">${esc(C.identity?.axiom||'')}</div>
+ ${title('Persistent attractor')}
+ <div class="canon-copy">${esc(C.persistent_attractor?.statement||'')}</div>
+ ${list(C.persistent_attractor?.observed_persistent_signals)}
+ ${title('Lore spine / formation')}
+ <div class="micro-timeline">${pre.map(n=>`<div class="tl-node"><b>${esc(n.node)} · ${esc(n.title)}</b><div class="state">${esc(n.state)}</div><div class="body">${esc(n.canon)}</div><div class="inline-values">${esc((n.inherits_into_next||[]).join(' · '))}</div></div>`).join('')}</div>
+ ${title('Anti-attractor')}${list(C.persistent_attractor?.anti_attractor)}`;
 }
-function setLayer(key){const layer=layers[key];if(!layer)return;document.querySelectorAll('.rune-node').forEach(b=>b.classList.toggle('is-active',b.dataset.layer===key));setCoreRune(key);if(!projectionOpen){projectionOpen=true;beam.classList.add('is-open');screen.classList.add('is-open');screen.setAttribute('aria-hidden','false')}else{screen.classList.remove('is-transitioning');void screen.offsetWidth;screen.classList.add('is-transitioning')}setTimeout(()=>{pName.textContent=layer.title;pSub.textContent=layer.subtitle;pStatus.textContent=layer.status;fragmentColumns(layer.fragments||[]);renderVisual(layer);pSource.textContent=layer.meta?.source||'';pMode.textContent=layer.meta?.mode||'';pIntegrity.textContent=layer.meta?.integrity||'';activeLayer=key},projectionOpen&&activeLayer===null?220:140);setTimeout(()=>screen.classList.remove('is-transitioning'),500)}
-function recovery(){let v=0;const a=document.getElementById('recoveryAscii'),p=document.getElementById('recoveryPct');setInterval(()=>{v=v>=100?0:Math.min(100,v+(Math.random()<.18?2:1));const n=20,f=Math.round(v/100*n);a.textContent='['+'█'.repeat(f)+'░'.repeat(n-f)+']';p.textContent=String(v).padStart(2,'0')+'%'},180)}
-(async function boot(){setupRunes();setupAmbient();recovery();await loadKxtxrLayers();requestAnimationFrame(()=>setTimeout(()=>setLayer('creation'),650))})();
+function renderField(){
+ const spine=C.lore_spine||[];
+ const nodes=spine.filter(n=>String(n.node).includes('REM618')||n.node==='INTERVAL'||String(n.node).includes('/ RETURN'));
+ const r1=(C.return_design?.return_layers||[]).find(x=>x.id==='R1');
+ const r3=(C.return_design?.return_layers||[]).find(x=>x.id==='R3');
+ return `${title('Field / residue')}
+ ${nodes.map(n=>`<div class="return-layer"><b>${esc(n.node)} · ${esc(n.title)}</b><small>${esc(n.state)}${n.role?' · '+esc(n.role):''}</small><div class="canon-copy">${esc(n.canon)}</div>${n.leaves_behind?list(n.leaves_behind):''}${n.asks?list(n.asks):''}</div>`).join('')}
+ ${title('R1 / REM618 residue')}${list(r1?.collect)}
+ ${title('R3 / field echo')}${list(r3?.collect)}`;
+}
+function renderFrecuency(){
+ return `${title('Signal grammar')}<div class="signal-formula">${esc(C.signal_grammar?.canonical_formula||'')}</div>
+ <div class="sequence">${(C.signal_grammar?.sequence||[]).map((x,i,a)=>`<span>${esc(x)}</span>${i<a.length-1?'<i>→</i>':''}`).join('')}</div>
+ <div class="canon-copy">${esc(C.signal_grammar?.meaning||'')}</div>
+ ${title('Catalogue roles')}${rows(C.catalogue_roles)}`;
+}
+function renderLab(){
+ return `${title('RETURN / transmutation chamber')}
+ <div class="canon-copy">${esc(C.return_design?.objective||'')}</div>
+ <div class="signal-formula">${esc(C.return_design?.rule||'')}</div>
+ ${(C.return_design?.return_layers||[]).map(l=>`<div class="return-layer"><b>${esc(l.id)} · ${esc(l.name)}</b>${list(l.collect)}</div>`).join('')}`;
+}
+function renderNotes(){
+ const n=C.notes_architecture||{};
+ return `${title(n.title||'THE BOOK REMEMBERS')}
+ <div class="canon-copy">${esc(n.principle||'')}</div>
+ <div class="canon-copy">${esc(n.continuity_rule||'')}</div>
+ ${title('Note types')}${list(n.note_types)}
+ ${title('Required fields')}${list(n.required_fields)}`;
+}
+function renderObjects(){
+ return `${title('Catalogue / role of each carrier')}${rows(C.catalogue_roles)}
+ ${title('Visual persistence')}${list(C.visual_language?.persistent)}`;
+}
+function renderReconstructions(){
+ const nxt=(C.lore_spine||[]).find(n=>n.node==='[ ? ]')||{};
+ const r5=(C.return_design?.return_layers||[]).find(x=>x.id==='R5');
+ return `${title(nxt.title||'THE NEXT FORM')}
+ <div class="canon-copy">${esc(nxt.canon||'')}</div>
+ ${title('Candidate lineage')}${list(nxt.candidate_lineage)}
+ ${title('Selection rule')}<div class="canon-copy">${esc(nxt.selection_rule||C.return_design?.rule||'')}</div>
+ ${title('R5 / next inheritance')}${list(r5?.collect)}`;
+}
+function renderTminus(){
+ const sfi=C.external_relationships?.SFI||{};
+ return `${title('Before visible creation')}
+ <div class="canon-copy">${esc(sectionDescription('tminus'))}</div>
+ ${title('Identity')}${rows(C.identity)}
+ ${title('Visual state logic')}${rows(C.visual_language?.state_logic)}
+ ${title('External relationship / SFI')}${rows(sfi)}`;
+}
+const RENDER={creation:renderCreation,field:renderField,frecuency:renderFrecuency,lab:renderLab,notes:renderNotes,objects:renderObjects,reconstructions:renderReconstructions,tminus:renderTminus};
+
+function fragmentsFor(key){
+ const spine=C.lore_spine||[];
+ const idx=LAYER_ORDER.indexOf(key);
+ const coreSentence=C.identity?.core_sentence;
+ const vals=[];
+ if(coreSentence) vals.push(coreSentence);
+ for(let i=0;i<4;i++){
+  const n=spine[(idx*2+i)%Math.max(spine.length,1)];
+  if(n) vals.push(`${n.node} — ${n.title}`);
+ }
+ return vals;
+}
+function renderFragments(key){
+ const a=fragmentsFor(key),mid=Math.ceil(a.length/2);
+ pL.innerHTML=a.slice(0,mid).map(x=>`<div class="frag-line">${esc(x)}</div>`).join('');
+ pR.innerHTML=a.slice(mid).map(x=>`<div class="frag-line">${esc(x)}</div>`).join('');
+}
+function setCore(key){
+ coreRune.innerHTML=runeSvg(RUNE_PATHS[key]);
+ core.classList.remove('is-glitching');void core.offsetWidth;core.classList.add('is-glitching');
+ setTimeout(()=>core.classList.remove('is-glitching'),360);
+ coreState.textContent=META[key].status;
+}
+function render(key){
+ const m=META[key];
+ pName.textContent=SECTION_MAP[key];
+ pSub.textContent=m.subtitle;
+ pStatus.textContent=m.status;
+ pSource.textContent=m.source;
+ pMode.textContent=m.mode;
+ pIntegrity.textContent='INTEGRITY '+m.integrity;
+ pMain.innerHTML=`<div class="section-description">${esc(sectionDescription(key))}</div>${RENDER[key]()}`;
+ pSecondary.textContent=C.return_design?.rule||C.signal_grammar?.meaning||'';
+ renderFragments(key);
+}
+function activate(key){
+ if(transitioning||!META[key])return;
+ transitioning=true;
+ [...runeOrbit.querySelectorAll('.rune-node')].forEach(b=>b.classList.toggle('is-active',b.dataset.layer===key));
+ setCore(key);
+ if(!open){
+  open=true;beam.classList.add('is-open');screen.classList.add('is-open');screen.setAttribute('aria-hidden','false');
+ }else{
+  screen.classList.remove('is-transitioning');void screen.offsetWidth;screen.classList.add('is-transitioning');
+ }
+ setTimeout(()=>{render(key);current=key;},open&&current===null?230:145);
+ setTimeout(()=>{screen.classList.remove('is-transitioning');transitioning=false;},520);
+}
+async function init(){
+ try{
+  C = window.CANON || await window.CANON_READY;
+ }catch(error){
+  coreState.textContent='CANON · OFFLINE';
+  return;
+ }
+ setupRunes();setupAmbient();
+ coreState.textContent=(C.identity?.current_stage||'RETURN')+' · ACTIVE';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{init();},{once:true});else init();
+})();
