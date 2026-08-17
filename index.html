@@ -1,36 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>KXTXR · GRIMOIRE</title>
-<meta name="description" content="A signal persists long enough to remember what it was, transform without disappearing, and return carrying evidence of its own passage.">
-<meta property="og:title" content="KXTXR · GRIMOIRE">
-<meta property="og:description" content="A signal persists long enough to remember what it was, transform without disappearing, and return carrying evidence of its own passage.">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"KXTXR — THE WOUND THAT LEARNED TO RETURN","creator":{"@type":"Person","name":"KXTXR"},"description":"A signal persists long enough to remember what it was, transform without disappearing, and return carrying evidence of its own passage."}</script>
-<link rel="stylesheet" href="./styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>KXTXR · GRIMOIRE</title>
+  <meta name="description" content="A signal persists long enough to remember what it was, transform without disappearing, and return carrying evidence of its own passage.">
+  <meta property="og:title" content="KXTXR · GRIMOIRE">
+  <meta property="og:description" content="A signal persists long enough to remember what it was, transform without disappearing, and return carrying evidence of its own passage.">
+  <meta name="theme-color" content="#040608">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "KXTXR — THE WOUND THAT LEARNED TO RETURN",
+    "creator": { "@type": "Organization", "name": "KXTXR" },
+    "description": "A signal persists long enough to remember what it was, transform without disappearing, and return carrying evidence of its own passage."
+  }
+  </script>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <div class="kxtxr-scene" id="scene">
-  <div class="scene-bg"></div>
-  <div class="hud" aria-hidden="true"><div class="hud-title">KXTXR</div><div class="hud-recovery"><span id="recoveryAscii">[░░░░░░░░░░░░░░░░░░░░]</span> <span id="recoveryPct">00%</span></div></div>
-  <div class="ambient-hologram" aria-hidden="true"><div class="scanlines"></div><div class="noise"></div><svg class="ghost-runes" id="ghostRunes" viewBox="0 0 1000 1800" preserveAspectRatio="none"></svg></div>
+  <div class="scene-bg" aria-hidden="true"></div>
+
+  <div class="ambient-hologram" aria-hidden="true">
+    <div class="scanlines"></div>
+    <div class="noise"></div>
+    <svg class="ghost-runes" id="ghostRunes" viewBox="0 0 1000 1800" preserveAspectRatio="none"></svg>
+  </div>
+
+  <div class="hud" aria-hidden="true">
+    <div class="hud-title">KXTXR</div>
+    <div class="hud-recovery">BARRA DE RECOVERY TOTAL&nbsp;&nbsp;[████████████████████]</div>
+  </div>
+
   <div class="operative-field">
     <div class="projection-beam" id="projectionBeam" aria-hidden="true"></div>
-    <div class="core-system" id="coreSystem"><div class="core-circle"><div class="core-ring core-ring-1"></div><div class="core-ring core-ring-2"></div><div class="core-ring core-ring-3"></div><div class="core-crosshair"></div><div class="core-active-rune" id="coreActiveRune"></div></div><div class="core-state" id="coreState">RETURN · ACTIVE</div></div>
-    <nav class="rune-orbit" id="runeOrbit" aria-label="KXTXR layers">
-      <button class="rune-node" data-layer="creation" aria-label="Creation"></button>
-      <button class="rune-node" data-layer="field" aria-label="Field"></button>
-      <button class="rune-node" data-layer="frecuency" aria-label="Frecuency"></button>
-      <button class="rune-node" data-layer="lab" aria-label="Alchemical Lab"></button>
-      <button class="rune-node" data-layer="notes" aria-label="Notes"></button>
-      <button class="rune-node" data-layer="objects" aria-label="Objects"></button>
-      <button class="rune-node" data-layer="reconstructions" aria-label="Reconstructions"></button>
-      <button class="rune-node" data-layer="tminus" aria-label="T minus 0.00001"></button>
-    </nav>
-    <section class="projection-screen" id="projectionScreen" aria-hidden="true"><div class="projection-frame"></div><header class="projection-header"><div><div class="projection-layer-name" id="pLayerName"></div><div class="projection-layer-subtitle" id="pLayerSubtitle"></div></div><div class="projection-status" id="pStatus"></div></header><main class="projection-body"><div class="projection-fragments-left" id="pFragLeft"></div><div class="projection-visual-main" id="pMain"></div><div class="projection-fragments-right" id="pFragRight"></div><div class="projection-visual-secondary" id="pSecondary"></div></main><footer class="projection-footer"><div id="pMetaSource"></div><div id="pMetaMode"></div><div id="pMetaIntegrity"></div></footer></section>
+
+    <div class="core-system" id="coreSystem">
+      <div class="core-circle">
+        <div class="core-ring core-ring-1"></div>
+        <div class="core-ring core-ring-2"></div>
+        <div class="core-ring core-ring-3"></div>
+        <div class="core-crosshair"></div>
+        <div class="core-active-rune" id="coreActiveRune"></div>
+      </div>
+      <div class="core-state" id="coreState">RETURN · ACTIVE</div>
+    </div>
+
+    <nav class="rune-orbit" id="runeOrbit" aria-label="KXTXR layers"></nav>
+
+    <section class="projection-screen" id="projectionScreen" aria-hidden="true">
+      <div class="projection-frame" aria-hidden="true"></div>
+      <header class="projection-header">
+        <div>
+          <div class="projection-layer-name" id="pLayerName"></div>
+          <div class="projection-layer-subtitle" id="pLayerSubtitle"></div>
+        </div>
+        <div class="projection-status" id="pStatus"></div>
+      </header>
+
+      <main class="projection-body">
+        <aside class="projection-fragments-left" id="pFragLeft"></aside>
+        <div class="projection-visual-main" id="pMain"></div>
+        <aside class="projection-fragments-right" id="pFragRight"></aside>
+        <div class="projection-visual-secondary" id="pSecondary"></div>
+      </main>
+
+      <footer class="projection-footer">
+        <div id="pMetaSource"></div>
+        <div id="pMetaMode"></div>
+        <div id="pMetaIntegrity"></div>
+      </footer>
+    </section>
   </div>
-  <div class="crt-noise" aria-hidden="true"></div><div class="crt-roll" aria-hidden="true"></div><div class="crt-jitter" aria-hidden="true"></div><div class="vignette" aria-hidden="true"></div>
+
+  <div class="crt-noise" aria-hidden="true"></div>
+  <div class="crt-roll" aria-hidden="true"></div>
+  <div class="crt-jitter" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
 </div>
-<script src="./layers.js"></script><script src="./app.js"></script>
-</body></html>
+
+<script src="/canon.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
