@@ -1,9 +1,18 @@
 {
-  "schema": "KXTXR_GRIMOIRE_LEDGER_V1",
-  "updated_at": "2026-08-17T00:00:00-06:00",
-  "posture": "AI_ASSISTED_HUMAN_GOVERNED",
+  "schema": "KXTXR_GRIMOIRE_LEDGER_V2",
+  "updated_at": "2026-08-17T01:25:00-06:00",
+  "posture": "AI_ASSISTED_HUMAN_GOVERNED_SFI_OBSERVED",
   "current_state": "RETURN_OPEN",
   "axiom": "NO OPTIMICES. REGISTRA.",
+  "experiment": "/grimoire/experiment.json",
+  "memory_layers": {
+    "logbook": "/grimoire/logbook.json",
+    "snapshots": "/grimoire/snapshots.json",
+    "retrolongitudinal": "/grimoire/retrolongitudinal.json",
+    "questions": "/grimoire/questions.json",
+    "operational_notes": "/grimoire/notes.json",
+    "story": "/grimoire/story.json"
+  },
   "lineage": [
     {
       "id": "KXTXR-REM618",
@@ -93,7 +102,11 @@
       "title": "The old signal is permitted to return without being explained.",
       "observed": [],
       "inferred": [],
-      "missing": ["post-publication external response", "platform permalink", "post-platform watermark verification"]
+      "missing": [
+        "post-publication external response",
+        "platform permalink",
+        "post-platform watermark verification"
+      ]
     }
   ],
   "boundaries": [
@@ -101,6 +114,7 @@
     "ENGAGEMENT ≠ CAUSALITY",
     "AI OUTPUT ≠ AUTHORIAL AUTHORITY",
     "SFI CERTIFICATE ≠ TRUTH",
+    "VISUALIZATION ≠ MEASUREMENT",
     "MISSING REMAINS MISSING"
   ]
 }
