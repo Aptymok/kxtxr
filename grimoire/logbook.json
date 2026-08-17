@@ -1,0 +1,37 @@
+{
+  "schema": "KXTXR_LOGBOOK_V1",
+  "updated_at": "2026-08-17T01:25:00-06:00",
+  "rule": "A log entry records an operation or observation. It does not become evidence merely by being written here.",
+  "entries": [
+    {
+      "id": "LOG-2026-06-11-REM618",
+      "at": "2026-06-11T18:18:00-06:00",
+      "node": "REM618",
+      "class": "OBSERVED",
+      "title": "Opening emission",
+      "body": "REM618 entered the public field as the first identified KXTXR emission.",
+      "decision": "Preserve the signal and its interval rather than immediately replacing it with another release.",
+      "refs": ["/historical/rem618/"]
+    },
+    {
+      "id": "LOG-INTERVAL-001",
+      "at": null,
+      "node": "INTERVAL",
+      "class": "MISSING",
+      "title": "Unresolved interval",
+      "body": "The public record does not yet contain a complete canonical account of every social manifestation between REM618 and RETURN.",
+      "decision": "Do not reconstruct missing distribution as if it had been observed.",
+      "refs": []
+    },
+    {
+      "id": "LOG-2026-08-17-RETURN",
+      "at": "2026-08-17T01:11:00-06:00",
+      "node": "RETURN",
+      "class": "DECLARED",
+      "title": "Return window opened",
+      "body": "KXTXR re-enters the REM618 → 111 trajectory as a bounded return experiment.",
+      "decision": "Observe external response before interpretation. Preserve missing values as missing.",
+      "refs": ["/grimoire/ledger.json", "https://systemfriction.org/return/SFI-KXTXR-RET-000-IG"]
+    }
+  ]
+}
