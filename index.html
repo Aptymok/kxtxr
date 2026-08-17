@@ -1,147 +1,64 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>KXTXR · GRIMOIRE 4.0 / Living Experiment</title>
-  <meta name="description" content="KXTXR is a living audiovisual Grimoire: REM618 → 111 → RETURN. A persistent artistic experiment in emission, residue, retrolongitudinal observation and return." />
-  <meta name="theme-color" content="#020608" />
-  <link rel="canonical" href="https://kxtxr.vercel.app/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="KXTXR · GRIMOIRE 4.0" />
-  <meta property="og:description" content="The experiment observes itself. REM618 → 111 → RETURN." />
-  <meta property="og:url" content="https://kxtxr.vercel.app/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="manifest" href="/manifest.webmanifest.json" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/grimoire/grimoire.css" />
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"MusicGroup",
-        "@id":"https://kxtxr.vercel.app/#kxtxr",
-        "name":"KXTXR",
-        "url":"https://kxtxr.vercel.app/",
-        "sameAs":["https://github.com/Aptymok/kxtxr"],
-        "description":"A living audiovisual experiment in emission, observation, residue, transformation and return."
-      },
-      {
-        "@type":"CreativeWork",
-        "@id":"https://kxtxr.vercel.app/#grimoire",
-        "name":"KXTXR GRIMOIRE 4.0",
-        "isPartOf":{"@id":"https://kxtxr.vercel.app/#kxtxr"},
-        "about":["REM618","111","RETURN","retrolongitudinal observation","artificial intelligence assisted practice"],
-        "description":"A persistent digital grimoire and operational archive that preserves KXTXR's evolving experiment."
-      },
-      {
-        "@type":"CreativeWork",
-        "@id":"https://kxtxr.vercel.app/historical/rem618/#event",
-        "name":"ARCHIVE_NODE // ACTIVE · REM618 HistoricalEvent",
-        "url":"https://kxtxr.vercel.app/historical/rem618/",
-        "isPartOf":{"@id":"https://kxtxr.vercel.app/#grimoire"}
-      }
-    ]
-  }
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>KXTXR · REM618 // 111 · Living Signal</title>
+<meta name="description" content="KXTXR is a persistent audiovisual signal experiment. Enter the Grimoire: REM618 → 111 → RETURN." />
+<meta name="theme-color" content="#060504" />
+<link rel="canonical" href="https://kxtxr.vercel.app/" />
+<link rel="manifest" href="/manifest.webmanifest.json" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/grimoire/cinematic.css" />
 </head>
 <body>
-  <div class="noise"></div><div class="scan"></div><div class="vignette"></div>
-
-  <div class="bg-media" aria-hidden="true">
-    <video src="/assets/traffic-white-112.mp4" muted autoplay loop playsinline></video>
+<div id="boot" class="boot" aria-label="KXTXR initialization">
+  <div class="boot-noise"></div><div class="boot-ring r1"></div><div class="boot-ring r2"></div>
+  <div class="boot-center">
+    <span class="eyebrow">KXTXR / SIGNAL ORIGIN</span>
+    <div class="boot-mark">KXTXR</div>
+    <p>REM618 // 111 // RETURN</p>
+    <button id="enterSignal">ENTER SIGNAL</button>
+    <small>scroll / click / listen</small>
   </div>
-
-  <section id="opening" aria-label="KXTXR Grimoire initialization">
-    <video id="openingVideo" class="opening-media" src="/assets/stairwell-shadow-021.mp4" muted loop playsinline preload="metadata"></video>
-    <div class="opening-shade"></div>
-    <div class="opening-ui">
-      <div class="opening-top">
-        <span>KXTXR / GRIMOIRE INITIALIZATION</span>
-        <button id="skipOpening" class="skip">SKIP [ESC]</button>
-      </div>
-      <div class="opening-center">
-        <div class="cover-stage" id="coverStage">
-          <div class="opening-orbit"></div><div class="opening-orbit o2"></div><div class="opening-orbit o3"></div>
-          <div class="opening-book-holo"></div>
-          <div class="cover">
-            <div class="cover-runes"></div>
-            <svg class="sigil" viewBox="0 0 240 300" role="img" aria-label="KXTXR signature">
-              <circle cx="120" cy="150" r="112"/><circle cx="120" cy="150" r="91" stroke-dasharray="5 12"/>
-              <path d="M52 32 L52 174 L108 112 L144 112 L91 170 L130 211 L98 244 L52 196 L52 268"/>
-              <path d="M185 54 L185 268 L131 210 L157 181 L185 209"/>
-              <path d="M106 137 L152 184 M152 137 L106 184"/>
-            </svg>
-          </div>
-          <div class="opening-label">
-            <b id="openingTitle">DORMANCIA</b>
-            <span id="openingSub">THE GRIMOIRE HOLDS THE INTERVAL</span>
-          </div>
-        </div>
-      </div>
-      <div class="opening-bottom"><span>AI ASSISTED / HUMAN GOVERNED / SFI OBSERVED</span><span>RETURN / 001</span></div>
+  <button id="skipBoot" class="skip">SKIP [ESC]</button>
+</div>
+<header id="topbar" class="topbar">
+  <button class="brand" data-jump="0">KXTXR <small>REM618 // 111</small></button>
+  <nav><button data-panel="archive">ARCHIVE</button><button data-panel="signals">SIGNALS</button><button data-panel="memory">MEMORY</button><button data-panel="lab">LAB</button><button data-panel="about">ABOUT</button></nav>
+  <div class="top-actions"><span id="memoryState">MEMORY · LOCAL</span><button id="soundToggle" aria-label="Toggle sound">◉</button></div>
+</header>
+<div id="experience" class="experience">
+  <div class="sticky-stage">
+    <div id="sceneStack" class="scene-stack" aria-hidden="true">
+      <div class="scene s1" style="background-image:url('/assets/cinematic/scene-01-awake.webp')"></div>
+      <div class="scene s2" style="background-image:url('/assets/cinematic/scene-01-awake.webp')"></div>
+      <div class="scene s3" style="background-image:url('/assets/cinematic/scene-03-lift.webp')"></div>
+      <div class="scene s4" style="background-image:url('/assets/cinematic/scene-04-open.webp')"></div>
+      <div class="scene s5" style="background-image:url('/assets/cinematic/scene-04-open.webp')"></div>
+      <div class="scene s6" style="background-image:url('/assets/cinematic/scene-04-open.webp')"></div>
+      <div class="scene s7" style="background-image:url('/assets/cinematic/scene-04-open.webp')"></div>
     </div>
-    <div id="openingProgress" class="progress"><i></i></div>
-  </section>
-
-  <main id="app">
-    <header class="topbar">
-      <div class="brand">KXTXR <small>GRIMOIRE 4.0 · LIVING EXPERIMENT</small></div>
-      <div class="posture">
-        <span><b>AI ASSISTED</b>composition / analysis / code</span>
-        <span><b>HUMAN GOVERNED</b>authorship / release / decision</span>
-        <span><b>SFI OBSERVED</b>provenance / return / audit</span>
-        <span><b id="liveClock">00:00:00</b>VIEWER LOCAL TIME</span>
-      </div>
-    </header>
-
-    <section class="book-zone" aria-label="Open operational Grimoire">
-      <div class="book-wrap">
-        <nav class="tab-rail left-tabs" aria-label="Artifact chapters">
-          <button class="tab" data-view="rem">REM618</button>
-          <button class="tab" data-view="111">111</button>
-          <button class="tab active" data-view="return">RETURN</button>
-          <button class="tab" data-view="story">STORY</button>
-        </nav>
-
-        <article class="page left">
-          <div class="page-content" id="leftPage"><span class="loader">LOADING CANONICAL STATE…</span></div>
-          <span class="page-number">KXTXR / LEFT FOLIO</span>
-        </article>
-
-        <article class="page right">
-          <div class="page-content" id="rightPage"><span class="loader">OPENING RETURN FOLIO…</span></div>
-          <span class="page-number">KXTXR / OPERATIVE FOLIO</span>
-        </article>
-
-        <nav class="tab-rail right-tabs" aria-label="Operational chambers">
-          <button class="tab" data-view="lab">LAB</button>
-          <button class="tab" data-view="logbook">LOGBOOK</button>
-          <button class="tab" data-view="snapshots">SNAPSHOTS</button>
-          <button class="tab" data-view="retro">RETRO</button>
-          <button class="tab" data-view="questions">QUESTIONS</button>
-          <button class="tab" data-view="notes">NOTES</button>
-          <button class="tab" data-view="history">HISTORICAL</button>
-        </nav>
-      </div>
+    <canvas id="signalCanvas"></canvas><canvas id="nodeCanvas"></canvas><div id="runeField" class="rune-field" aria-hidden="true"></div>
+    <div class="grain"></div><div class="vignette"></div><div class="scanline"></div>
+    <aside class="scene-rail" aria-label="Scene navigation"><button data-jump="0"><i></i><span>01</span></button><button data-jump="1"><i></i><span>02</span></button><button data-jump="2"><i></i><span>03</span></button><button data-jump="3"><i></i><span>04</span></button><button data-jump="4"><i></i><span>05</span></button><button data-jump="5"><i></i><span>06</span></button><button data-jump="6"><i></i><span>07</span></button></aside>
+    <div id="sceneHud" class="scene-hud"><span id="sceneIndex">01 / 07</span><span id="sceneState">OBJECT</span><span id="sceneTelemetry">SIGNAL 18%</span></div>
+    <div id="narrativeCard" class="narrative-card"><span id="narrativeKicker">01 · THE OBJECT</span><h1 id="narrativeTitle">The signal has a body.</h1><p id="narrativeCopy">Before it becomes interface, it exists as an object: sealed, indexed, persistent.</p><button id="narrativeAction" data-panel="signals">READ SIGNAL →</button></div>
+    <section id="dashboardLayer" class="dashboard-layer" aria-label="Interactive signal dashboard">
+      <button class="hotspot h1" data-panel="signals"><span>SIGNAL ANALYSIS</span><b id="hotSignal">98.7%</b></button>
+      <button class="hotspot h2" data-panel="memory"><span>MEMORY NODES</span><b id="hotNodes">143</b></button>
+      <button class="hotspot h3" data-panel="archive"><span>ORIGIN TRACE</span><b>REM618</b></button>
+      <button class="hotspot h4" data-panel="lab"><span>LAB / MIHM</span><b>0.236</b></button>
+      <button class="hotspot h5" data-panel="about"><span>RETURN</span><b>OPEN</b></button>
     </section>
-
-    <footer class="routebar">
-      <div class="route-copy"><b>TIKTOK</b> → emission · <b>INSTAGRAM</b> → residue · <b>GRIMOIRE</b> → persistence · <b>SFI</b> → provenance / return<br>CANONICAL MEMORY = GIT-BACKED · LOCAL NOTEBOOK ≠ CANON</div>
-      <div class="route-actions">
-        <button class="route-btn" data-view="rem">REM618</button>
-        <button class="route-btn" data-view="111">111</button>
-        <button class="route-btn" data-view="return">RETURN</button>
-        <button class="route-btn" data-view="story">STORY</button>
-        <button class="route-btn" data-view="ledger">RAW LEDGER</button>
-        <button class="route-btn" id="replayOpening">REPLAY OPENING</button>
-      </div>
-    </footer>
-  </main>
-
-  <script src="/grimoire/runtime.js" defer></script>
+  </div>
+  <div class="scroll-track" aria-hidden="true"><section class="beat" data-scene="0"></section><section class="beat" data-scene="1"></section><section class="beat" data-scene="2"></section><section class="beat" data-scene="3"></section><section class="beat" data-scene="4"></section><section class="beat" data-scene="5"></section><section class="beat" data-scene="6"></section></div>
+</div>
+<section id="epilogue" class="epilogue"><div><span class="eyebrow">RETURN / RESIDUAL STATE</span><h2>The experiment does not end. It leaves a trace.</h2><p>What you opened is remembered locally first. Canonical state remains Git-backed; optional server durability activates when the configured persistence endpoint is available.</p></div><div class="epilogue-actions"><button data-panel="archive">OPEN ARCHIVE</button><button data-jump="0">REPLAY SIGNAL</button><a href="/grimoire/ledger.json">RAW LEDGER</a></div></section>
+<aside id="drawer" class="drawer" aria-hidden="true"><div class="drawer-head"><div><span id="drawerKicker">KXTXR / CHAMBER</span><h2 id="drawerTitle">SIGNALS</h2></div><button id="closeDrawer">CLOSE ×</button></div><div id="drawerBody" class="drawer-body"><span class="loader">FETCHING CANONICAL STATE…</span></div></aside><div id="scrim" class="scrim"></div>
+<div id="memoryToast" class="memory-toast" aria-live="polite"></div>
+<script src="/grimoire/cinematic.js" defer></script>
 </body>
 </html>
