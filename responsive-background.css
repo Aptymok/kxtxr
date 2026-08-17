@@ -1,0 +1,10 @@
+/* KXTXR responsive background policy: cinematic environmental image is desktop-only. */
+@media (max-width:1180px){
+  .scene-bg{
+    background:var(--void)!important;
+    background-image:none!important;
+  }
+  .scene-bg::after{
+    background:radial-gradient(circle at 50% 54%,rgba(125,238,255,.018),transparent 25%),radial-gradient(ellipse at 50% 100%,rgba(120,60,30,.025),transparent 60%)!important;
+  }
+}
