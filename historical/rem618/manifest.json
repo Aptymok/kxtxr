@@ -1,0 +1,21 @@
+{
+  "schema": "KXTXR_HISTORICAL_EVENT_V1",
+  "id": "KXTXR-HIST-REM618-WEB-001",
+  "type": "HistoricalEvent",
+  "label": "ARCHIVE_NODE // ACTIVE",
+  "object": "REM618",
+  "period": "2026-06",
+  "preservation": {
+    "mode": "EXACT_GIT_BLOB_REUSE",
+    "source_path": "/index.html",
+    "source_blob_sha": "a87b467fd79abc42d5314c052f9388efecfd10bf",
+    "preserved_path": "/historical/rem618/index.html",
+    "rewritten": false
+  },
+  "relation": {
+    "current_surface": "/",
+    "role": "PRECEDENT",
+    "lineage": "REM618 → 111 → RETURN"
+  },
+  "boundary": "Historical preservation does not imply that every statement or simulated interface state inside the archived surface is current observation."
+}
