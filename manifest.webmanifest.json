@@ -1,10 +1,12 @@
 {
-  "name": "ARCHIVE_NODE",
-  "short_name": "ARCHIVE",
+  "name": "KXTXR · GRIMOIRE",
+  "short_name": "KXTXR",
+  "description": "A living audiovisual grimoire of emission, residue, transformation and return.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#090B10",
-  "theme_color": "#090B10",
+  "background_color": "#090705",
+  "theme_color": "#090705",
   "icons": [
     {
       "src": "/icon-192.png",
