@@ -2,6 +2,14 @@
 .kx-intro{display:none}
 
 @media (min-width:1181px){
+  /* The requested desktop carrier remains materially visible after the gate. */
+  .scene-bg{
+    filter:saturate(.82) sepia(.07) contrast(1.08) brightness(.84)!important;
+  }
+  .scene-bg::before{
+    background:linear-gradient(116deg,rgba(8,2,0,.30),transparent 34%,rgba(72,34,8,.035) 60%,rgba(0,0,0,.31))!important;
+  }
+
   .kx-intro{
     position:fixed;
     inset:0;
