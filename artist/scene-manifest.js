@@ -1,35 +1,101 @@
 (function(){
 'use strict';
+const base='../assets/kxtxr-video/corpus/';
+const plateBase='../assets/kxtxr-video/plates/';
+const V={a:'../assets/stairwell-shadow-021.mp4',b:'../assets/traffic-white-112.mp4',c:'../assets/easter_egg.mpeg'};
+const I=file=>file?base+file.replace(/\.webp$/,'.svg'):'';
+const P=file=>'';
 const chapters=[
-{id:'entry',code:'00',label:'ENTRY',title:'KXTXR',kicker:'THE ARTIST TO BE THAT ALREADY WAS',copy:'Scroll does not open pages. It changes the state of the same world.',span:170,align:'center'},
-{id:'origin',code:'01',label:'ORIGIN',title:'BEFORE THE NAME',kicker:'A ROOM / A BODY / A SIGNAL NOT YET DECLARED',copy:'The environment is ordinary. The persistence is not.',span:230,align:'left'},
-{id:'signal',code:'02',label:'SIGNAL',title:'REM 618',kicker:'THE FIRST CARRIER',copy:'A fragment survives contact with time and becomes observable.',span:260,align:'right'},
-{id:'assembly',code:'03',label:'ASSEMBLY',title:'THE PARTS BEGIN TO RETURN',kicker:'INSTRUMENT / MEMORY / RESIDUE / ROUTE',copy:'Nothing resets. Previous objects remain available to the next state.',span:280,align:'left'},
-{id:'kxtxr',code:'04',label:'KXTXR',title:'THE NAME ARRIVES LATE',kicker:'IDENTITY AS A PERSISTENT CONFIGURATION',copy:'KXTXR is not an introduction. It is the visible state of what was already operating.',span:300,align:'right'},
-{id:'111',code:'05',label:'111',title:'TRANSFORMATION',kicker:'THE SIGNAL CHANGES WITHOUT DISAPPEARING',copy:'111 conducts the passage. The world reorganizes around the same carrier.',span:330,align:'center'},
-{id:'performance',code:'06',label:'PERFORMANCE',title:'CONTACT',kicker:'THE ROOM BECOMES A STAGE',copy:'The performer persists while architecture, scale and audience replace the room.',span:330,align:'left'},
-{id:'field',code:'07',label:'FIELD',title:'PROPAGATION',kicker:'THE SIGNAL LEAVES THE SOURCE',copy:'Distribution is treated as part of the work: carriers, traces, platforms and return paths.',span:300,align:'right'},
-{id:'return',code:'08',label:'RETURN',title:'WHAT SURVIVES COMES BACK CHANGED',kicker:'EVIDENCE-BEARING PASSAGE',copy:'Earlier states re-enter the frame as residue instead of nostalgia.',span:280,align:'left'},
-{id:'resolution',code:'09',label:'RESOLUTION',title:'KXTXR',kicker:'ENTER THE ACTIVE CARRIERS',copy:'The narrative resolves into routes: listen, observe, return.',span:230,align:'center'}
+  {
+    id:'entry',code:'00',label:'ENTRY',title:'KXTXR',kicker:'THE ARTIST TO BE THAT ALREADY WAS',copy:'Scroll does not open pages. It changes the state of the same world.',span:140,align:'center',plate:'kxtxr-title.png',
+    shots:[
+      {at:[0,.45],bg:I('image-gen-1-20260818-015745.webp'),plate:P('kxtxr-title.png'),kaiju:I('image-gen-8-20260818-014852.webp'),footage:'a'},
+      {at:[.45,1],bg:I('image-gen-1-20260818-014840.webp'),plate:P('kxtxr-title.png'),actor:I('image-gen-3-20260818-015747.webp'),propA:I('image-gen-3-20260818-022740.webp'),footage:'a'}
+    ]
+  },
+  {
+    id:'origin',code:'01',label:'ORIGIN',title:'BEFORE THE NAME',kicker:'A ROOM / A BODY / A SIGNAL NOT YET DECLARED',copy:'The environment is ordinary. The persistence is not.',span:210,align:'left',plate:'before-the-name.png',
+    shots:[
+      {at:[0,.33],bg:I('image-gen-1-20260818-014840.webp'),plate:P('before-the-name.png'),actor:I('image-gen-2-20260818-020524.webp'),propA:I('image-gen-2-20260818-023737.webp')},
+      {at:[.33,.66],bg:I('image-gen-1-20260818-015745.webp'),plate:P('before-the-name.png'),actor:I('image-gen-4-20260818-014845.webp'),propA:I('image-gen-3-20260818-015236.webp')},
+      {at:[.66,1],bg:I('image-gen-1-20260818-015745.webp'),actor:I('image-gen-3-20260818-022357.webp'),propA:I('image-gen-4-20260818-015237.webp'),propB:I('image-gen-5-20260818-015240.webp')}
+    ]
+  },
+  {
+    id:'signal',code:'02',label:'REM618',title:'REM 618',kicker:'THE FIRST CARRIER',copy:'A fragment survives contact with time and becomes observable.',span:230,align:'right',plate:'rem618.png',
+    shots:[
+      {at:[0,.34],bg:I('image-gen-2-20260818-014842.webp'),plate:P('rem618.png'),propA:I('image-gen-3-20260818-022740.webp'),propB:I('image-gen-8-20260818-015249.webp'),footage:'c'},
+      {at:[.34,.68],bg:I('image-gen-2-20260818-014842.webp'),plate:P('rem618.png'),propA:I('image-gen-6-20260818-022401.webp'),propB:I('image-gen-4-20260818-022741.webp'),actor:I('image-gen-4-20260818-015748.webp')},
+      {at:[.68,1],bg:I('image-gen-1-20260818-015234.webp'),propA:I('image-gen-6-20260818-022744.webp'),propB:I('image-gen-10-20260818-022410.webp'),footage:'c'}
+    ]
+  },
+  {
+    id:'assembly',code:'03',label:'ASSEMBLY',title:'THE PARTS BEGIN TO RETURN',kicker:'INSTRUMENT / MEMORY / RESIDUE / ROUTE',copy:'Nothing resets. Previous objects remain available to the next state.',span:255,align:'left',plate:'parts-begin-to-return.png',
+    shots:[
+      {at:[0,.25],bg:I('image-gen-1-20260818-015745.webp'),plate:P('parts-begin-to-return.png'),actor:I('image-gen-4-20260818-015748.webp'),propA:I('image-gen-3-20260818-015236.webp'),propB:I('image-gen-4-20260818-015237.webp')},
+      {at:[.25,.5],bg:I('image-gen-1-20260818-015745.webp'),plate:P('parts-begin-to-return.png'),actor:I('image-gen-5-20260818-020527.webp'),propA:I('image-gen-5-20260818-015240.webp'),propB:I('image-gen-6-20260818-015243.webp')},
+      {at:[.5,.75],bg:I('image-gen-1-20260818-023736.webp'),actor:I('image-gen-7-20260818-020529.webp'),propA:I('image-gen-7-20260818-015245.webp'),propB:I('image-gen-8-20260818-022406.webp')},
+      {at:[.75,1],bg:I('image-gen-1-20260818-022738.webp'),actor:I('image-gen-9-20260818-020531.webp'),propA:I('image-gen-2-20260818-022739.webp'),propB:I('image-gen-7-20260818-022745.webp')}
+    ]
+  },
+  {
+    id:'kxtxr',code:'04',label:'IDENTITY',title:'THE NAME ARRIVES LATE',kicker:'IDENTITY AS A PERSISTENT CONFIGURATION',copy:'KXTXR is not an introduction. It is the visible state of what was already operating.',span:250,align:'right',plate:'name-arrives-late.png',
+    shots:[
+      {at:[0,.25],bg:I('image-gen-5-20260818-022400.webp'),plate:P('name-arrives-late.png'),actor:I('image-gen-1-20260818-020522.webp'),propA:I('image-gen-2-20260818-023737.webp')},
+      {at:[.25,.5],bg:I('image-gen-5-20260818-022400.webp'),plate:P('name-arrives-late.png'),actor:I('image-gen-10-20260818-020532.webp'),propA:I('image-gen-10-20260818-022410.webp')},
+      {at:[.5,.75],bg:I('image-gen-1-20260818-015234.webp'),actor:I('image-gen-4-20260818-022359.webp'),propA:I('image-gen-3-20260818-015236.webp')},
+      {at:[.75,1],bg:I('image-gen-3-20260818-014843.webp'),actor:I('image-gen-7-20260818-014849.webp'),propA:I('image-gen-2-20260818-023737.webp')}
+    ]
+  },
+  {
+    id:'one11',code:'05',label:'111',title:'TRANSFORMATION',kicker:'THE SIGNAL CHANGES WITHOUT DISAPPEARING',copy:'111 conducts the passage. The world reorganizes around the same carrier.',span:290,align:'center',plate:'transformation.png',
+    shots:[
+      {at:[0,.33],bg:I('image-gen-5-20260818-022400.webp'),plate:P('transformation.png'),actor:I('image-gen-5-20260818-015750.webp'),propA:I('image-gen-5-20260818-022743.webp')},
+      {at:[.33,.66],bg:I('image-gen-1-20260818-015234.webp'),plate:P('transformation.png'),actor:I('image-gen-6-20260818-014848.webp'),propA:I('image-gen-6-20260818-022744.webp'),propB:I('image-gen-8-20260818-022746.webp'),footage:'b'},
+      {at:[.66,1],bg:I('image-gen-1-20260818-015234.webp'),actor:I('image-gen-5-20260818-014846.webp'),propA:I('image-gen-5-20260818-022743.webp'),propB:I('image-gen-9-20260818-015755.webp')}
+    ]
+  },
+  {
+    id:'propagation',code:'06',label:'PROPAGATION',title:'PROPAGATION',kicker:'THE SIGNAL LEAVES THE SOURCE',copy:'Distribution is treated as part of the work: carriers, traces, platforms and return paths.',span:250,align:'right',plate:'propagation.png',
+    shots:[
+      {at:[0,.34],bg:I('image-gen-1-20260818-015234.webp'),plate:P('propagation.png'),propA:I('image-gen-6-20260818-022744.webp'),propB:I('image-gen-7-20260818-022745.webp'),footage:'b'},
+      {at:[.34,.67],bg:I('image-gen-2-20260818-015235.webp'),plate:P('propagation.png'),actor:I('image-gen-6-20260818-020528.webp'),propA:I('image-gen-6-20260818-022401.webp'),propB:I('image-gen-9-20260818-022408.webp')},
+      {at:[.67,1],bg:I('image-gen-3-20260818-014843.webp'),actor:I('image-gen-7-20260818-014849.webp'),propA:I('image-gen-8-20260818-015249.webp'),footage:'b'}
+    ]
+  },
+  {
+    id:'performance',code:'07',label:'CONTACT',title:'THE ROOM BECOMES A STAGE',kicker:'ONE BODY / MANY ROLES / ONE SIGNAL',copy:'The performer persists while architecture, scale and audience replace the room.',span:280,align:'left',
+    shots:[
+      {at:[0,.34],bg:I('image-gen-3-20260818-014843.webp'),actor:I('image-gen-3-20260818-020525.webp'),propA:I('image-gen-2-20260818-023737.webp')},
+      {at:[.34,.67],bg:I('image-gen-3-20260818-014843.webp'),actor:I('image-gen-7-20260818-014849.webp'),propA:I('image-gen-2-20260818-015235.webp')},
+      {at:[.67,1],bg:I('image-gen-2-20260818-015235.webp'),actor:I('image-gen-6-20260818-020528.webp'),propA:I('image-gen-7-20260818-015245.webp')}
+    ]
+  },
+  {
+    id:'firstshow',code:'08',label:'FIRST SHOW',title:'GODZILLA + KXTXR',kicker:'THE OBSERVER ENTERS THE SAME FRAME AS THE SIGNAL',copy:'The first show is the first public contact between the carrier, the creature and the field.',span:320,align:'center',
+    shots:[
+      {at:[0,.2],bg:I('image-gen-3-20260818-014843.webp'),actor:I('image-gen-7-20260818-014849.webp'),kaiju:I('image-gen-8-20260818-014852.webp')},
+      {at:[.2,.4],bg:I('image-gen-3-20260818-014843.webp'),actor:I('image-gen-7-20260818-014849.webp'),kaiju:I('image-gen-7-20260818-015752.webp')},
+      {at:[.4,.6],bg:I('image-gen-3-20260818-014843.webp'),actor:I('image-gen-7-20260818-014849.webp'),kaiju:I('image-gen-8-20260818-015754.webp'),sfx:I('image-gen-9-20260818-015755.webp')},
+      {at:[.6,.8],bg:I('image-gen-2-20260818-015235.webp'),duet:I('image-gen-6-20260818-015751.webp'),kaiju:I('image-gen-9-10.webp'),sfx:I('image-gen-10-20260818-015757.webp')},
+      {at:[.8,1],bg:I('image-gen-2-20260818-015235.webp'),duet:I('image-gen-6-20260818-015751.webp'),kaiju:I('image-gen-9-9.webp')}
+    ]
+  },
+  {
+    id:'return',code:'09',label:'RETURN',title:'WHAT SURVIVES COMES BACK CHANGED',kicker:'EVIDENCE-BEARING PASSAGE',copy:'Earlier states re-enter the frame as residue instead of nostalgia.',span:245,align:'left',plate:'what-survives.png',
+    shots:[
+      {at:[0,.34],bg:I('image-gen-1-20260818-015745.webp'),plate:P('what-survives.png'),propA:I('image-gen-3-20260818-022740.webp'),propB:I('image-gen-2-20260818-023737.webp')},
+      {at:[.34,.67],bg:I('image-gen-5-20260818-022400.webp'),plate:P('what-survives.png'),propA:I('image-gen-8-20260818-022746.webp'),propB:I('image-gen-9-20260818-022747.webp')},
+      {at:[.67,1],bg:I('image-gen-1-20260818-014840.webp'),actor:I('image-gen-3-20260818-015747.webp'),propA:I('image-gen-8-20260818-015249.webp')}
+    ]
+  },
+  {
+    id:'resolution',code:'10',label:'RESOLUTION',title:'THE STORY BECOMES A ROUTE',kicker:'SIGNAL / STORY / RETURN',copy:'Nothing disappears. The room, REM618, 111, the first show and every object remain addressable in the next state.',span:205,align:'center',plate:'kxtxr-title.png',
+    shots:[
+      {at:[0,.5],bg:I('image-gen-1-20260818-015234.webp'),plate:P('kxtxr-title.png'),propA:I('image-gen-3-20260818-022740.webp'),propB:I('image-gen-5-20260818-022743.webp')},
+      {at:[.5,1],bg:I('image-gen-1-20260818-023736.webp'),plate:P('kxtxr-title.png'),propA:I('image-gen-2-20260818-023737.webp'),footage:'a'}
+    ]
+  }
 ];
-const assets={roomDesktop:'/assets/kxtxr/kxtxr-bg-desktop.webp',roomMobile:'/assets/kxtxr/kxtxr-bg-mobile.webp',roomTabletPortrait:'/assets/kxtxr/kxtxr-bg-tablet-portrait.webp',roomTabletLandscape:'/assets/kxtxr/kxtxr-bg-tablet-landscape.webp',awake:'/assets/cinematic/scene-01-awake.webp',lift:'/assets/cinematic/scene-03-lift.webp',open:'/assets/cinematic/scene-04-open.webp',dashboard:'/assets/cinematic/scene-05-dashboard.webp',rug:'/artist/assets/performance-rug.svg',fieldA:'/assets/stairwell-shadow-021.mp4',fieldB:'/assets/traffic-white-112.mp4'};
-const K=(at,x,y,scale,rotate,opacity,extra={})=>({at,x,y,scale,rotate,opacity,...extra});
-const tracks={
-room:[K('entry:0',0,0,1.08,0,1,{blur:0,brightness:.78}),K('origin:.65',-1.8,-.8,1.13,-.15,1,{blur:0,brightness:.72}),K('signal:.72',2.4,-1.2,1.18,.2,.48,{blur:1.2,brightness:.58}),K('assembly:.65',-4,-2,1.24,-.3,.16,{blur:3.5,brightness:.48}),K('kxtxr:.25',0,0,1.28,0,0,{blur:6,brightness:.4}),K('return:.12',3,1,1.2,.2,.28,{blur:4,brightness:.42}),K('return:.82',0,0,1.1,0,.66,{blur:1,brightness:.56}),K('resolution:1',0,0,1.04,0,.2,{blur:5,brightness:.35})],
-awakePlate:[K('entry:.12',0,6,1.12,0,0,{blur:7,brightness:.45}),K('entry:.82',0,0,1.04,0,.38,{blur:2,brightness:.68}),K('origin:.45',-2,-1,1.08,-.15,.92,{blur:0,brightness:.84}),K('signal:.28',-6,-2,1.13,-.25,.42,{blur:1.5,brightness:.58}),K('signal:.9',-8,-3,1.2,-.4,0,{blur:5,brightness:.4}),K('return:.18',4,2,1.16,.2,0,{blur:5,brightness:.35}),K('return:.72',0,0,1.08,0,.34,{blur:1.5,brightness:.62}),K('resolution:.72',0,0,1.04,0,0,{blur:4,brightness:.4})],
-signalPlate:[K('origin:.55',8,2,1.2,.3,0,{blur:8,brightness:.4}),K('signal:.12',3,0,1.12,.15,.36,{blur:2.5,brightness:.68}),K('signal:.58',0,-1,1.04,0,.94,{blur:0,brightness:.9}),K('assembly:.4',-4,-2,1.1,-.15,.52,{blur:1.4,brightness:.62}),K('assembly:.95',-7,-3,1.16,-.3,0,{blur:5,brightness:.4})],
-assemblyPlate:[K('signal:.5',-10,5,1.22,-.4,0,{blur:8,brightness:.38}),K('assembly:.1',-4,1,1.13,-.2,.32,{blur:2.8,brightness:.62}),K('assembly:.62',0,0,1.04,0,.9,{blur:0,brightness:.88}),K('kxtxr:.3',3,-2,1.12,.15,.48,{blur:1.2,brightness:.6}),K('kxtxr:.85',6,-4,1.2,.3,0,{blur:5,brightness:.4})],
-producerPlate:[K('assembly:.55',10,5,1.25,.4,0,{blur:9,brightness:.35}),K('kxtxr:.12',4,1,1.14,.2,.28,{blur:3,brightness:.62}),K('kxtxr:.72',0,0,1.04,0,.9,{blur:0,brightness:.84}),K('111:.5',-3,-2,1.08,-.15,.74,{blur:.4,brightness:.76}),K('performance:.24',-6,-2,1.16,-.3,.24,{blur:2.2,brightness:.5}),K('performance:.84',-8,-3,1.2,-.4,0,{blur:5,brightness:.4}),K('return:.3',5,3,1.2,.2,0,{blur:5,brightness:.4}),K('return:.88',0,0,1.08,0,.26,{blur:2,brightness:.58}),K('resolution:.85',0,0,1.06,0,0,{blur:5,brightness:.35})],
-actorOrigin:[K('entry:.25',-9,14,.88,-1,0,{blur:2,brightness:.72}),K('origin:.2',-8,7,.96,-.5,.52,{blur:.4,brightness:.9}),K('origin:.75',-7,4,1.04,0,.96,{blur:0,brightness:1}),K('signal:.5',-10,1,1.08,-.2,.42,{blur:1.2,brightness:.72}),K('assembly:.1',-13,-1,1.12,-.35,0,{blur:4,brightness:.5})],
-actorSignal:[K('origin:.65',7,10,.86,1,0,{blur:3,brightness:.6}),K('signal:.18',6,5,.94,.4,.4,{blur:1,brightness:.84}),K('signal:.75',5,2,1.03,0,.96,{blur:0,brightness:1}),K('assembly:.58',2,0,1.05,-.1,.42,{blur:1,brightness:.72}),K('kxtxr:.08',0,-2,1.08,-.2,0,{blur:4,brightness:.5})],
-actorKxtxr:[K('assembly:.35',-6,12,.82,-1,0,{blur:3,brightness:.6}),K('assembly:.85',-4,5,.94,-.4,.4,{blur:1,brightness:.82}),K('kxtxr:.55',-2,1,1.04,0,.98,{blur:0,brightness:1}),K('111:.55',0,-1,1.09,.2,.88,{blur:0,brightness:1.06}),K('performance:.4',2,-3,1.12,.3,.34,{blur:1.4,brightness:.7}),K('performance:.9',4,-5,1.16,.4,0,{blur:4,brightness:.5})],
-actorPerformance:[K('111:.5',7,15,.78,1.4,0,{blur:4,brightness:.55}),K('performance:.14',5,7,.9,.7,.34,{blur:1.4,brightness:.78}),K('performance:.66',3,1,1.06,0,.98,{blur:0,brightness:1.05}),K('field:.34',-3,-1,1.1,-.2,.7,{blur:.5,brightness:.86}),K('field:.82',-7,-3,1.15,-.4,.18,{blur:2,brightness:.6}),K('return:.55',-3,0,1.08,-.2,.34,{blur:1.2,brightness:.72}),K('resolution:.35',0,0,1.04,0,.16,{blur:2.5,brightness:.58}),K('resolution:.95',0,0,1.02,0,0,{blur:4,brightness:.45})],
-rug:[K('entry:0',0,52,.45,0,0,{blur:1,brightness:.7}),K('assembly:.18',0,34,.62,0,.12,{blur:.5,brightness:.82}),K('kxtxr:.6',0,27,.78,0,.38,{blur:0,brightness:.95}),K('111:.55',0,23,.95,0,.72,{blur:0,brightness:1.08}),K('performance:.52',0,25,1.12,0,1,{blur:0,brightness:1}),K('field:.58',0,31,1.06,0,.64,{blur:.5,brightness:.82}),K('return:.58',0,27,.88,0,.46,{blur:.2,brightness:.9}),K('resolution:.8',0,35,.68,0,0,{blur:2,brightness:.6})],
-rem618:[K('entry:0',32,34,.4,8,0,{blur:4,brightness:.5}),K('signal:.08',28,24,.72,4,.24,{blur:1.5,brightness:.75}),K('signal:.65',20,10,.98,0,1,{blur:0,brightness:1.1}),K('assembly:.52',26,4,1.08,-3,.72,{blur:.2,brightness:1}),K('kxtxr:.6',31,-3,.92,-6,.3,{blur:1,brightness:.8}),K('111:.65',18,-9,1.18,-10,.66,{blur:0,brightness:1.12}),K('performance:.25',28,-12,.72,-12,.18,{blur:1.5,brightness:.7}),K('field:.2',35,-15,.55,-14,0,{blur:3,brightness:.5}),K('return:.2',-27,-13,.56,9,0,{blur:3,brightness:.5}),K('return:.72',-19,-6,.86,4,.64,{blur:.4,brightness:.92}),K('resolution:.75',-14,-10,.7,0,.16,{blur:1.5,brightness:.7}),K('resolution:1',-10,-12,.55,0,0,{blur:3,brightness:.5})],
-mark:[K('entry:0',0,0,.3,0,0,{blur:10,brightness:.5}),K('kxtxr:.08',0,0,.55,0,.08,{blur:5,brightness:.75}),K('kxtxr:.62',0,-2,.92,0,.78,{blur:.5,brightness:1}),K('111:.55',0,-3,1.2,0,.38,{blur:2,brightness:1.1}),K('performance:.3',0,-5,1.4,0,.06,{blur:5,brightness:.7}),K('resolution:.2',0,2,.75,0,.04,{blur:5,brightness:.7}),K('resolution:.72',0,0,1,0,1,{blur:0,brightness:1.1})],
-oneEleven:[K('entry:0',0,24,.2,0,0,{blur:10,brightness:.4}),K('111:.12',0,12,.6,-2,.2,{blur:4,brightness:.8}),K('111:.54',0,2,1.08,0,1,{blur:0,brightness:1.2}),K('performance:.14',0,-3,1.26,2,.52,{blur:1,brightness:1}),K('performance:.65',0,-10,1.45,4,.08,{blur:4,brightness:.7}),K('field:.1',0,-12,1.5,5,0,{blur:6,brightness:.5}),K('return:.45',0,4,.58,0,.1,{blur:4,brightness:.7}),K('return:.82',0,0,.72,0,.36,{blur:1.5,brightness:.88}),K('resolution:.6',0,6,.52,0,0,{blur:4,brightness:.6})],
-fieldA:[K('performance:.55',-2,2,1.1,0,0,{blur:6,brightness:.42}),K('field:.16',-1,0,1.06,0,.26,{blur:2,brightness:.58}),K('field:.62',1,-1,1.02,0,.58,{blur:.8,brightness:.7}),K('return:.12',2,-2,1.05,0,.18,{blur:2,brightness:.5}),K('return:.48',2,-2,1.08,0,0,{blur:5,brightness:.4})],
-fieldB:[K('field:.2',2,2,1.1,0,0,{blur:6,brightness:.4}),K('field:.58',1,0,1.04,0,.38,{blur:1.5,brightness:.62}),K('return:.08',0,-1,1.02,0,.42,{blur:1,brightness:.64}),K('return:.55',-1,-2,1.06,0,.08,{blur:3,brightness:.46}),K('return:.82',-2,-2,1.08,0,0,{blur:5,brightness:.4})]
-};
-window.KXTXR_SCENE_MANIFEST={version:'2.0.0',chapters,assets,tracks};
+window.KXTXR_SIGNAL_FILM={chapters,videos:V};
 })();
