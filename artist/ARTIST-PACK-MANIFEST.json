@@ -1,0 +1,29 @@
+{
+  "id": "KXTXR-ARTIST-111-IMMERSIVE-FINAL",
+  "version": "2026-08-17",
+  "pack": {
+    "path": "/artist/assets/kxtxr-artist-pack.bin",
+    "bytes": 1458883,
+    "sha256": "fa6cbe81fad3b1fe066d63f9cb3113726ad1c2950c9b1a50b4962af0a46e7b90"
+  },
+  "entries": [
+    {"name":"sprites.avif","bytes":343724,"sha256":"cbed0bbcbfe51d79e09f543efdeb4c7f16a10a0f88e342c5837d4eed2860e065"},
+    {"name":"backgrounds.avif","bytes":75725,"sha256":"185f2f19c8a5a04f0fd166d4ee9d794fdb4e8b8ff4683767d41a1230281cc7ec"},
+    {"name":"111.mp3","bytes":1038953,"sha256":"08d42f0f5c4208591d44bf2d6ba19a33647279bc6d0d2972281f8b9050e3855d"}
+  ],
+  "archiveMaster": {
+    "name": "KXTXR_111_TRUEPEAK_CORRECTED_48K24_SFI_ARCHIVAL.wav",
+    "sampleRate": 48000,
+    "bitDepth": 24,
+    "durationSeconds": 173.078,
+    "sha256": "0af9cd7f4dd45f39ea72d15d89b78681e4f6a58015056c887349b5338fbd1594"
+  },
+  "runtime": {
+    "interactive": "/artist/",
+    "officialVideoCapture": "/artist/?capture=1",
+    "narrativeText": false,
+    "onomatopoeia": true,
+    "rugPersistentUnderEdwing": true,
+    "finalNetworkTextOnly": true
+  }
+}
