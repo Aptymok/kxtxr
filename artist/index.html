@@ -1,62 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#050306">
-  <meta name="color-scheme" content="dark">
-  <title>KXTXR · THE ARTIST</title>
-  <meta name="description" content="KXTXR · a scroll-directed cinematic narrative. The scene persists while the signal transforms.">
-  <link rel="stylesheet" href="/artist/artist-cinematic.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#050306" />
+  <meta name="description" content="KXTXR · EDWING → KXTXR · 111 timed scroll film." />
+  <title>KXTXR · A SIGNAL PICTURE</title>
+  <link rel="stylesheet" href="story.css" />
 </head>
 <body>
-  <main class="kx-cinema" id="kxCinema" aria-label="KXTXR cinematic artist narrative">
-    <section class="kx-stage" id="kxStage" data-chapter="entry">
-      <div class="kx-world" aria-hidden="true">
-        <picture class="kx-layer kx-plate kx-room" data-layer="room">
-          <source media="(max-width:600px)" srcset="/assets/kxtxr/kxtxr-bg-mobile.webp">
-          <source media="(min-width:601px) and (max-width:1180px) and (orientation:portrait)" srcset="/assets/kxtxr/kxtxr-bg-tablet-portrait.webp">
-          <source media="(min-width:601px) and (max-width:1180px) and (orientation:landscape)" srcset="/assets/kxtxr/kxtxr-bg-tablet-landscape.webp">
-          <img src="/assets/kxtxr/kxtxr-bg-desktop.webp" alt="">
-        </picture>
-        <div class="kx-layer kx-plate kx-plate-awake" data-layer="awakePlate"><img src="/assets/cinematic/scene-01-awake.webp" alt=""></div>
-        <div class="kx-layer kx-plate kx-plate-signal" data-layer="signalPlate"><img src="/assets/cinematic/scene-03-lift.webp" alt=""></div>
-        <div class="kx-layer kx-plate kx-plate-assembly" data-layer="assemblyPlate"><img src="/assets/cinematic/scene-04-open.webp" alt=""></div>
-        <div class="kx-layer kx-plate kx-plate-producer" data-layer="producerPlate"><img src="/assets/cinematic/scene-05-dashboard.webp" alt=""></div>
-        <video class="kx-layer kx-field-video" data-layer="fieldA" src="/assets/stairwell-shadow-021.mp4" muted loop playsinline preload="metadata"></video>
-        <video class="kx-layer kx-field-video" data-layer="fieldB" src="/assets/traffic-white-112.mp4" muted loop playsinline preload="metadata"></video>
-        <div class="kx-layer kx-character kx-character-origin" data-layer="actorOrigin"><img src="/assets/cinematic/scene-01-awake.webp" alt=""></div>
-        <div class="kx-layer kx-character kx-character-signal" data-layer="actorSignal"><img src="/assets/cinematic/scene-03-lift.webp" alt=""></div>
-        <div class="kx-layer kx-character kx-character-kxtxr" data-layer="actorKxtxr"><img src="/assets/cinematic/scene-05-dashboard.webp" alt=""></div>
-        <div class="kx-layer kx-character kx-character-performance" data-layer="actorPerformance"><img src="/assets/cinematic/scene-04-open.webp" alt=""></div>
-        <div class="kx-layer kx-rug" data-layer="rug"><img src="/artist/assets/performance-rug.svg" alt=""></div>
-        <div class="kx-layer kx-rem618" data-layer="rem618"><span class="kx-rem-index">618</span><span class="kx-rem-name">REM</span><i></i><i></i><i></i><small>persistent carrier</small></div>
-        <div class="kx-layer kx-mark" data-layer="mark">KXTXR</div>
-        <div class="kx-layer kx-111" data-layer="oneEleven">111</div>
-        <div class="kx-depth-grid"></div><div class="kx-scan"></div><div class="kx-grain"></div><div class="kx-vignette"></div>
-      </div>
-      <header class="kx-chrome">
-        <a class="kx-back" href="/" aria-label="Return to KXTXR Grimoire">KXTXR / GRIMOIRE</a>
-        <div class="kx-system-state"><span id="kxChapterCode">00</span><i></i><span id="kxChapterLabel">ENTRY</span></div>
-        <button class="kx-sound is-muted" id="kxSound" type="button" aria-label="Play or pause 111"><span></span><span></span><span></span><span></span></button>
-      </header>
-      <div class="kx-narrative" id="kxNarrative" data-align="center">
-        <p class="kx-kicker" id="kxKicker">THE ARTIST TO BE THAT ALREADY WAS</p>
-        <h1 id="kxTitle">KXTXR</h1>
-        <p class="kx-copy" id="kxCopy">Scroll does not open pages. It changes the state of the same world.</p>
-      </div>
-      <div class="kx-side-index" aria-hidden="true" id="kxSideIndex"></div>
-      <div class="kx-scroll-cue" id="kxScrollCue" aria-hidden="true"><span>SCROLL TO TRANSFORM</span><i></i></div>
-      <nav class="kx-network" id="kxNetwork" aria-label="KXTXR active carriers">
-        <a href="#" data-network="SPOTIFY">SPOTIFY</a><a href="#" data-network="YOUTUBE">YOUTUBE</a><a href="#" data-network="INSTAGRAM">INSTAGRAM</a><a href="#" data-network="TIKTOK">TIKTOK</a><a href="/" data-network="WEBSITE">GRIMOIRE</a>
-      </nav>
-      <div class="kx-progress" aria-hidden="true"><i id="kxProgress"></i></div>
-    </section>
-    <div class="kx-track" id="kxTrack" aria-hidden="true">
-      <section data-chapter="entry" style="--span:170"></section><section data-chapter="origin" style="--span:230"></section><section data-chapter="signal" style="--span:260"></section><section data-chapter="assembly" style="--span:280"></section><section data-chapter="kxtxr" style="--span:300"></section><section data-chapter="111" style="--span:330"></section><section data-chapter="performance" style="--span:330"></section><section data-chapter="field" style="--span:300"></section><section data-chapter="return" style="--span:280"></section><section data-chapter="resolution" style="--span:230"></section>
+  <div id="gate" class="gate" aria-label="Start KXTXR signal film">
+    <div class="gate-noise"></div>
+    <div class="gate-inner">
+      <div class="gate-code">KXTXR // FILM UNIT // 111</div>
+      <h1>ENTER<br>THE SIGNAL</h1>
+      <p>The first interaction arms 111. From that point, music becomes clock, scroll becomes camera, and the page can move by itself.</p>
+      <button id="enter" type="button">ARM 111 / PLAY</button>
+      <small>CLICK · TAP · SPACE · OR SCROLL</small>
     </div>
+  </div>
+
+  <div id="leader" class="leader" aria-hidden="true">
+    <div class="leader-ring"></div><div class="leader-cross"></div>
+    <b id="count">5</b><small>KXTXR FILM LEADER</small>
+  </div>
+
+  <div id="ident" class="ident" aria-hidden="true">
+    <div class="ident-orbit"><i></i><i></i><i></i><strong>KXTXR</strong></div>
+    <div class="ident-copy"><b>A SIGNAL PICTURE</b><span>NO LION WAS REQUIRED.</span></div>
+  </div>
+
+  <main id="film" class="film">
+    <div id="stage" class="stage">
+      <div class="backgrounds" aria-hidden="true">
+        <div class="bg sprite-bg bg-room" data-bg="room"></div>
+        <div class="bg sprite-bg bg-studio" data-bg="studio"></div>
+        <div class="bg sprite-bg bg-city" data-bg="city"></div>
+        <div class="bg sprite-bg bg-stage" data-bg="stage"></div>
+      </div>
+
+      <video id="footageA" class="footage footage-a" muted loop playsinline preload="metadata" src="../assets/stairwell-shadow-021.mp4"></video>
+      <video id="footageB" class="footage footage-b" muted loop playsinline preload="metadata" src="../assets/traffic-white-112.mp4"></video>
+      <video id="footageC" class="footage footage-c" muted loop playsinline preload="metadata" src="../assets/easter_egg.mpeg"></video>
+
+      <div id="halftone" class="halftone"></div>
+
+      <div class="cutout sprite-cut cut-edwing" data-cutout="edwing" aria-label="Edwing"></div>
+      <div class="cutout sprite-cut cut-signal" data-cutout="signal" aria-label="KXTXR signal"></div>
+      <div class="cutout sprite-cut cut-edit" data-cutout="edit" aria-label="Edwing editing"></div>
+      <div class="cutout sprite-cut cut-perform" data-cutout="perform" aria-label="KXTXR performing"></div>
+      <div class="cutout sprite-cut cut-rug rug" data-cutout="rug" aria-label="Performance rug"></div>
+      <div class="cutout sprite-cut cut-crowd crowd" data-cutout="crowd" aria-label="Audience"></div>
+      <div class="cutout sprite-cut cut-show show" data-cutout="show" aria-label="KXTXR at first show"></div>
+      <div class="cutout sprite-cut cut-godzilla godzilla" data-cutout="godzilla" aria-label="Godzilla"></div>
+      <div class="cutout sprite-cut cut-remcassette cassette" data-cutout="remcassette" aria-label="REM618 cassette"></div>
+      <div class="cutout sprite-cut cut-oneeleven oneeleven" data-cutout="oneeleven" aria-label="111"></div>
+      <div class="cutout sprite-cut cut-smoke smoke" data-cutout="smoke" aria-hidden="true"></div>
+
+      <canvas id="fx" aria-hidden="true"></canvas>
+
+      <div id="chapter" class="chapter">
+        <span id="kicker"></span><h2 id="headline"></h2><p id="copy"></p>
+      </div>
+      <div id="micro" class="micro"></div>
+
+      <div class="hud">
+        <div id="timecode">00:00.000</div>
+        <div id="status">111 // ARMED</div>
+        <button id="sound" type="button">SOUND ON</button>
+      </div>
+      <div class="progress"><i id="progress"></i></div>
+
+      <div id="endRings" class="end-rings" aria-hidden="true">
+        <i></i><i></i><i></i><i></i>
+        <div><b>ESTO ES TO—</b><strong>ESTO ES TODO, AMIGOS.</strong><small>KXTXR // RETURN</small></div>
+      </div>
+
+      <div id="broadcast" class="broadcast" aria-hidden="true">
+        <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="broadcast-copy"><b>SIGNAL ENDED</b><span>REM618 remains in the carrier network.</span></div>
+        <a id="cassetteLink" class="cassette-link" href="https://www.youtube.com/results?search_query=KXTXR+REM+618" target="_blank" rel="noopener noreferrer">
+          <span class="sprite-cut cut-remcassette cassette-card" aria-hidden="true"></span>
+          <em>OPEN REM618 / YOUTUBE</em>
+        </a>
+        <nav>
+          <a href="https://open.spotify.com/search/KXTXR%20REM%20618" target="_blank" rel="noopener noreferrer">SPOTIFY</a>
+          <a href="https://music.amazon.co.jp/artists/B0H2WWMK54/kxtxr" target="_blank" rel="noopener noreferrer">AMAZON</a>
+          <a href="https://github.com/Aptymok/kxtxr" target="_blank" rel="noopener noreferrer">SOURCE</a>
+          <a href="../">GRIMOIRE</a>
+        </nav>
+      </div>
+
+      <div class="grain"></div><div class="scan"></div><div class="vignette"></div>
+    </div>
+    <section class="scroll-track" id="scrollTrack" aria-hidden="true"></section>
   </main>
-  <audio id="kx111Audio" preload="metadata" playsinline></audio>
-  <script src="/artist/111-cues.js"></script><script src="/artist/scene-manifest.js"></script><script src="/artist/artist-cinematic.js" defer></script>
+
+  <audio id="audio" preload="auto" src="assets/111-web.mp3"></audio>
+  <script src="111-cues.js"></script>
+  <script src="story.js"></script>
 </body>
 </html>
