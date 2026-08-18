@@ -1,0 +1,11 @@
+.kx-layer.kx-sprite{
+  background-image:url('/artist/assets/props-atlas.png');
+  background-repeat:no-repeat;
+  background-size:1448px 1086px;
+  max-height:none;
+  object-fit:initial;
+}
+.kx-layer.kx-sprite.prop,
+.kx-layer.kx-sprite.micro{
+  width:auto!important;
+}
