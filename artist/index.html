@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#050409">
   <title>KXTXR · THE ARTIST</title>
-  <meta name="description" content="KXTXR · The Artist. Scroll does not navigate the signal; scroll assembles it.">
+  <meta name="description" content="KXTXR · The Artist. Scroll assembles the signal; 111 conducts it.">
   <link rel="stylesheet" href="/artist/artist-scroll.css">
   <link rel="stylesheet" href="/artist/artist-sprites.css">
   <link rel="stylesheet" href="/artist/artist-runtime.css">
+  <link rel="stylesheet" href="/artist/artist-final.css">
 </head>
 <body>
-  <main class="kx-artist" id="kxArtist" aria-label="KXTXR artist scroll experience">
-    <div class="kx-stage" id="kxStage">
+  <main class="kx-artist" id="kxArtist" aria-label="KXTXR artist immersive experience">
+    <div class="kx-stage" id="kxStage" data-scene="wake">
       <div class="kx-bg kx-bg-room" data-bg="room" aria-hidden="true"></div>
       <div class="kx-bg kx-bg-studio" data-bg="studio" aria-hidden="true"></div>
       <div class="kx-bg kx-bg-stage" data-bg="stage" aria-hidden="true"></div>
@@ -22,14 +23,10 @@
       <div class="kx-speedlines" id="kxSpeedlines" aria-hidden="true"></div>
       <div class="kx-layerfield" id="kxLayerfield" aria-hidden="true"></div>
       <div class="kx-fxfield" id="kxFxfield" aria-hidden="true"></div>
-
-      <button class="kx-sound" id="kxSound" type="button" aria-label="Play or pause 111 soundtrack" title="111 soundtrack">
-        <span></span><span></span><span></span><span></span>
-      </button>
+      <button class="kx-sound" id="kxSound" type="button" aria-label="Play or pause 111 soundtrack" title="111 soundtrack"><span></span><span></span><span></span><span></span></button>
       <a class="kx-return" href="/" aria-label="Return to KXTXR Grimoire">×</a>
       <div class="kx-progress" id="kxProgress" aria-hidden="true"><i></i></div>
     </div>
-
     <div class="kx-track" id="kxTrack" aria-hidden="true">
       <section data-scene="wake"></section>
       <section data-scene="signal"></section>
@@ -42,7 +39,9 @@
       <section data-scene="network"></section>
     </div>
   </main>
-  <audio id="kx111" preload="metadata" loop playsinline></audio>
+  <audio id="kx111" preload="metadata" playsinline></audio>
+  <script src="/artist/111-cues.js"></script>
   <script src="/artist/artist-runtime.js" defer></script>
+  <script src="/artist/111-director.js" defer></script>
 </body>
 </html>
