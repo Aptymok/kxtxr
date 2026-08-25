@@ -7,7 +7,7 @@
   <meta name="color-scheme" content="dark">
   <title>KXTXR · 111 / RETURN SEQUENCE</title>
   <meta name="description" content="KXTXR 111 live return sequence. A persistent cycle clock resolving at 01:11.">
-  <link rel="stylesheet" href="/artist/111/live/live.css?v=20260824-2011">
+  <link rel="stylesheet" href="/artist/111/live/live.css?v=20260824-2011b">
 </head>
 <body>
   <main class="kx-live" id="kxLive" data-state="standby" data-engine="booting">
@@ -20,7 +20,7 @@
     <header class="kx-live__chrome">
       <a class="kx-live__back" href="/artist">KXTXR / ARTIST</a>
       <div class="kx-live__state"><span id="kxStateCode">PRE</span><i></i><span id="kxStateLabel">STANDBY</span></div>
-      <div class="kx-live__mode" id="kxViewMode">LIVE SIGNAL</div>
+      <div class="kx-live__mode" id="kxViewMode">KXTXR</div>
     </header>
 
     <section class="kx-live__stage" aria-labelledby="kxSignalValue">
@@ -95,13 +95,11 @@
     const clockEl = document.getElementById('kxClock');
     const stateCodeEl = document.getElementById('kxStateCode');
     const stateLabelEl = document.getElementById('kxStateLabel');
-    const viewModeEl = document.getElementById('kxViewMode');
     const engineEl = document.getElementById('kxEngine');
 
     const params = new URLSearchParams(location.search);
     const view = params.get('view');
     if (view === 'obs' || view === 'clean') document.body.dataset.view = view;
-    if (viewModeEl && view) viewModeEl.textContent = `${view.toUpperCase()} FEED`;
 
     const canonicalClock = new Intl.DateTimeFormat('en-GB', {
       timeZone: SCHEDULE.timezone,
