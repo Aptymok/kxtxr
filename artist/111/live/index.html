@@ -8,6 +8,19 @@
   <title>KXTXR · 111 / LIVE RETURN</title>
   <meta name="description" content="KXTXR 111 persistent live countdown transmission.">
   <link rel="stylesheet" href="/artist/111/live/live.css?v=20260824-bg1">
+  <style>
+    .release-video{position:absolute;inset:0;z-index:14;background:#000;opacity:0;visibility:hidden;transition:opacity .75s cubic-bezier(.2,.7,.1,1),visibility 0s linear .75s;overflow:hidden}
+    .release-video[hidden]{display:none}
+    .release-video__player,.release-video__player iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+    .release-video::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.12;background:repeating-linear-gradient(180deg,transparent 0 4px,rgba(226,199,158,.05) 4px 5px,transparent 5px 9px);mix-blend-mode:screen}
+    .release-video__mark{position:absolute;z-index:4;left:3.2%;bottom:3%;font-size:clamp(5px,.62vw,12px);letter-spacing:.18em;color:rgba(226,199,158,.48);text-transform:uppercase;pointer-events:none;text-shadow:0 0 8px #000}
+    .kx-live.is-video-release .release-video{opacity:1;visibility:visible;transition-delay:0s}
+    .kx-live.is-video-release .count-stage{opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+    .kx-live.is-video-release .screen-static,.kx-live.is-video-release .screen-lines,.kx-live.is-video-release .screen-sweep,.kx-live.is-video-release .screen-wave{opacity:0;transition:opacity .45s ease}
+    .release-video[data-final="held"] iframe{pointer-events:none}
+    .release-video[data-final="held"]::after{opacity:.17}
+    .release-video[data-final="held"] .release-video__mark{color:rgba(226,199,158,.62)}
+  </style>
 </head>
 <body>
   <main class="kx-live" id="kxLive" data-state="booting">
@@ -56,6 +69,11 @@
             <span id="targetValue">25 AUG 2026 · 01:11</span>
           </div>
         </div>
+
+        <div class="release-video" id="releaseVideo" hidden aria-label="KXTXR 111 official video">
+          <div class="release-video__player" id="youtubePlayer"></div>
+          <div class="release-video__mark" id="releaseMark">111 / RETURN</div>
+        </div>
       </section>
 
       <section class="archive-data" aria-label="Archive live data">
@@ -81,7 +99,8 @@
       activationAt: '2026-08-24T20:11:00-06:00',
       releaseAt: '2026-08-25T01:11:00-06:00',
       cycleMs: 60 * 60 * 1000,
-      unitsPerCycle: 111
+      unitsPerCycle: 111,
+      youtubeVideoId: 'HFO5jd4HcqM'
     });
 
     const activationMs = Date.parse(SCHEDULE.activationAt);
@@ -105,6 +124,8 @@
     const archiveTime = document.getElementById('archiveTime');
     const archiveDuration = document.getElementById('archiveDuration');
     const archiveNotes = document.getElementById('archiveNotes');
+    const releaseVideo = document.getElementById('releaseVideo');
+    const releaseMark = document.getElementById('releaseMark');
 
     const params = new URLSearchParams(location.search);
     const view = params.get('view');
@@ -165,6 +186,11 @@
     let lastCycle = null;
     let lastValue = null;
     let pulseTimer = null;
+    let releaseActivated = false;
+    let playerMounted = false;
+    let player = null;
+    let finalHoldRequested = false;
+    let youtubeApiRequested = false;
 
     function pulse(type) {
       root.classList.remove('is-step','is-cycle');
@@ -172,6 +198,86 @@
       root.classList.add(type === 'cycle' ? 'is-cycle' : 'is-step');
       clearTimeout(pulseTimer);
       pulseTimer = setTimeout(() => root.classList.remove('is-step','is-cycle'), type === 'cycle' ? 900 : 360);
+    }
+
+    function requestYouTubeApi() {
+      if (window.YT && window.YT.Player) {
+        mountYouTube();
+        return;
+      }
+      if (youtubeApiRequested) return;
+      youtubeApiRequested = true;
+      const script = document.createElement('script');
+      script.src = 'https://www.youtube.com/iframe_api';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    window.onYouTubeIframeAPIReady = () => {
+      if (releaseActivated) mountYouTube();
+    };
+
+    function holdFinalFrame(target) {
+      if (finalHoldRequested || !target) return;
+      finalHoldRequested = true;
+      const videoDuration = Number(target.getDuration?.() || 0);
+      const holdAt = Math.max(0, videoDuration - 0.12);
+      releaseVideo.dataset.final = 'seeking';
+      releaseMark.textContent = '111 / RETURN COMPLETE';
+      try {
+        target.seekTo(holdAt, true);
+        setTimeout(() => {
+          try { target.pauseVideo(); } catch (_) {}
+          releaseVideo.dataset.final = 'held';
+          root.dataset.state = 'held';
+        }, 80);
+      } catch (_) {
+        releaseVideo.dataset.final = 'held';
+        root.dataset.state = 'held';
+      }
+    }
+
+    function mountYouTube() {
+      if (!releaseActivated || playerMounted || !window.YT || !window.YT.Player) return;
+      playerMounted = true;
+      player = new window.YT.Player('youtubePlayer', {
+        width: '100%',
+        height: '100%',
+        videoId: SCHEDULE.youtubeVideoId,
+        playerVars: {
+          autoplay: 1,
+          controls: 1,
+          rel: 0,
+          playsinline: 1,
+          iv_load_policy: 3,
+          fs: 1,
+          origin: location.origin
+        },
+        events: {
+          onReady: (event) => {
+            releaseVideo.dataset.ready = 'true';
+            try { event.target.playVideo(); } catch (_) {}
+          },
+          onStateChange: (event) => {
+            if (window.YT && event.data === window.YT.PlayerState.ENDED) holdFinalFrame(event.target);
+          },
+          onError: () => {
+            releaseVideo.dataset.error = 'true';
+            releaseMark.textContent = '111 / OPEN SIGNAL';
+          }
+        }
+      });
+    }
+
+    function activateRelease() {
+      if (releaseActivated) return;
+      releaseActivated = true;
+      releaseVideo.hidden = false;
+      releaseVideo.removeAttribute('hidden');
+      root.classList.remove('is-step','is-cycle');
+      root.classList.add('is-video-release');
+      releaseMark.textContent = '111 / RETURN';
+      requestYouTubeApi();
     }
 
     function render() {
@@ -182,7 +288,7 @@
       const remainingText = duration(frame.remaining);
       const clockText = clockFormatter.format(new Date(now));
 
-      root.dataset.state = frame.state;
+      if (root.dataset.state !== 'held') root.dataset.state = frame.state;
       countValue.textContent = valueText;
       countValue.dataset.value = valueText;
       cycleValue.textContent = cycleText;
@@ -198,8 +304,12 @@
       archiveDuration.textContent = remainingText;
       archiveNotes.textContent = `CYCLE ${cycleText} / ${frame.label}`;
 
-      if (lastCycle !== null && lastCycle !== frame.cycle) pulse('cycle');
-      else if (lastValue !== null && lastValue !== frame.value) pulse('step');
+      if (frame.state === 'released') activateRelease();
+
+      if (!releaseActivated) {
+        if (lastCycle !== null && lastCycle !== frame.cycle) pulse('cycle');
+        else if (lastValue !== null && lastValue !== frame.value) pulse('step');
+      }
 
       lastCycle = frame.cycle;
       lastValue = frame.value;
