@@ -3,160 +3,71 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#050306">
+  <meta name="theme-color" content="#000000">
   <meta name="color-scheme" content="dark">
-  <title>KXTXR · 111 / RETURN SEQUENCE</title>
-  <meta name="description" content="KXTXR 111 live return sequence. A persistent cycle clock resolving at 01:11.">
-  <link rel="stylesheet" href="/artist/111/live/live.css?v=20260824-2039">
+  <title>KXTXR · 111 / LIVE RETURN</title>
+  <meta name="description" content="KXTXR 111 persistent live countdown transmission.">
+  <link rel="stylesheet" href="/artist/111/live/live.css?v=20260824-bg1">
 </head>
 <body>
-  <main class="kx-live" id="kxLive" data-state="standby" data-engine="booting">
-    <div class="kx-live__grain" aria-hidden="true"></div>
-    <div class="kx-live__scan" aria-hidden="true"></div>
-    <div class="kx-live__vignette" aria-hidden="true"></div>
-    <div class="kx-live__flash" aria-hidden="true"></div>
+  <main class="kx-live" id="kxLive" data-state="booting">
+    <div class="ambient ambient--noise" aria-hidden="true"></div>
+    <div class="ambient ambient--lines" aria-hidden="true"></div>
+    <div class="ambient ambient--beam" aria-hidden="true"></div>
+    <div class="ambient ambient--glitch" aria-hidden="true"></div>
 
-    <header class="kx-live__chrome">
-      <a class="kx-live__back" href="/artist">KXTXR / ARTIST</a>
-      <div class="kx-live__state"><span id="kxStateCode">PRE</span><i></i><span id="kxStateLabel">STANDBY</span></div>
-      <div class="kx-live__mode" id="kxViewMode">KXTXR</div>
-    </header>
+    <section class="artboard" id="artboard" aria-label="KXTXR 111 live transmission">
+      <img class="artboard__image" src="/assets/countdown_111.png" alt="KXTXR 111 live transmission panel">
+      <div class="artboard__glitch artboard__glitch--a" aria-hidden="true"></div>
+      <div class="artboard__glitch artboard__glitch--b" aria-hidden="true"></div>
+      <div class="artboard__scan" aria-hidden="true"></div>
 
-    <section class="kx-live__stage" aria-label="KXTXR 111 live poster">
-      <svg class="kx-live__poster" viewBox="0 0 1080 1920" role="img" aria-labelledby="kxSvgValueBig kxSvgPhase">
-        <defs>
-          <linearGradient id="paperFade" x1="0" x2="1">
-            <stop offset="0%" stop-color="#f0e0bf"/>
-            <stop offset="100%" stop-color="#d9c097"/>
-          </linearGradient>
-          <linearGradient id="redFade" x1="0" x2="1">
-            <stop offset="0%" stop-color="#ab4b3a"/>
-            <stop offset="100%" stop-color="#8f382d"/>
-          </linearGradient>
-          <clipPath id="countClip">
-            <rect x="208" y="768" width="664" height="424" rx="20"/>
-          </clipPath>
-        </defs>
+      <section class="cycle-panel" aria-label="Cycle and state">
+        <div class="cycle-panel__primary">
+          <span class="micro-label">CYCLE</span>
+          <strong id="cycleValue">005</strong>
+        </div>
+        <div class="cycle-panel__state">
+          <span class="micro-label">STATE</span>
+          <strong id="stateValue">PRE-RELEASE</strong>
+        </div>
+        <div class="cycle-panel__trace">
+          <span id="traceValue">005 / 111</span>
+          <span id="engineValue">SYNCED</span>
+        </div>
+      </section>
 
-        <rect class="poster-bg" x="36" y="36" width="1008" height="1848" rx="30"/>
-        <rect class="poster-border" x="36" y="36" width="1008" height="1848" rx="30"/>
-        <rect class="poster-leftbar" x="62" y="64" width="12" height="1792" rx="6"/>
+      <section class="signal-window" aria-label="Primary live countdown">
+        <div class="screen-static" aria-hidden="true"></div>
+        <div class="screen-lines" aria-hidden="true"></div>
+        <div class="screen-sweep" aria-hidden="true"></div>
+        <div class="screen-wave" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
 
-        <g class="poster-radar" transform="translate(110 178)">
-          <circle r="70" class="poster-radar-ring"/>
-          <circle r="50" class="poster-radar-ring"/>
-          <circle r="30" class="poster-radar-ring"/>
-          <line x1="-80" y1="0" x2="80" y2="0" class="poster-radar-line"/>
-          <line x1="0" y1="-80" x2="0" y2="80" class="poster-radar-line"/>
-          <line x1="0" y1="0" x2="66" y2="-22" class="poster-radar-sweep"/>
-          <circle r="7" cx="0" cy="0" class="poster-radar-dot"/>
-        </g>
+        <div class="count-stage">
+          <div class="count-cycle"><span>CYCLE</span><b id="windowCycle">005</b></div>
+          <div class="count-value" id="countValue" data-value="111">111</div>
+          <div class="count-caption" id="phaseValue">COUNTDOWN ACTIVE</div>
+          <div class="count-remaining" id="remainingValue">05:00:00</div>
+          <div class="unit-track"><i id="unitProgress"></i></div>
+          <div class="count-meta">
+            <span id="clockValue">20:11:00</span>
+            <span id="targetValue">25 AUG 2026 · 01:11</span>
+          </div>
+        </div>
+      </section>
 
-        <g class="poster-ref">
-          <rect x="262" y="74" width="428" height="36" rx="7" class="poster-chip"/>
-          <text x="290" y="98" class="poster-chip-text">ARCHIVE REF.</text>
-          <text x="534" y="98" class="poster-chip-text poster-chip-text--value" text-anchor="middle">KXTXR-111-A</text>
-        </g>
+      <section class="archive-data" aria-label="Archive live data">
+        <span class="archive-value archive-value--date" id="archiveDate">25.08.26</span>
+        <span class="archive-value archive-value--time" id="archiveTime">20:11:00</span>
+        <span class="archive-value archive-value--duration" id="archiveDuration">05:00:00</span>
+        <span class="archive-value archive-value--source">KXTXR / LIVE</span>
+        <span class="archive-value archive-value--content">111</span>
+        <span class="archive-value archive-value--notes" id="archiveNotes">CYCLE 005 / PRE-RELEASE</span>
+      </section>
 
-        <text x="150" y="282" class="poster-brand">KXTXR</text>
-        <text x="540" y="430" class="poster-hero-sub" id="kxSvgPhase" text-anchor="middle">RETURN // CYCLE 005</text>
-        <rect x="405" y="450" width="270" height="50" rx="10" class="poster-tag"/>
-        <text x="540" y="483" class="poster-tag-text" id="kxSvgState">PRE-RELEASE</text>
-
-        <g class="poster-quote left">
-          <text x="108" y="470" class="poster-copy-line">THE SIGNAL DOES</text>
-          <text x="108" y="514" class="poster-copy-line">NOT RETURN</text>
-          <text x="108" y="558" class="poster-copy-line poster-copy-line--red">UNCHANGED.</text>
-          <text x="108" y="640" class="poster-copy-line">THE SIGNAL IS</text>
-          <text x="108" y="684" class="poster-copy-line">ALREADY</text>
-          <text x="250" y="684" class="poster-copy-line poster-copy-line--red">WAITING.</text>
-        </g>
-
-        <g class="poster-card" transform="translate(820 420) rotate(-7)">
-          <rect x="0" y="0" width="190" height="345" rx="18" class="poster-card-bg"/>
-          <rect x="0" y="0" width="190" height="345" rx="18" class="poster-card-border"/>
-          <text x="95" y="52" text-anchor="middle" class="poster-card-title">KXTXR // 111</text>
-          <text x="95" y="134" text-anchor="middle" class="poster-card-number" id="kxSvgHeroValue">111</text>
-          <g class="poster-card-radar" transform="translate(95 245)">
-            <circle r="60" class="poster-radar-ring"/>
-            <circle r="38" class="poster-radar-ring"/>
-            <circle r="18" class="poster-radar-ring"/>
-            <line x1="0" y1="0" x2="0" y2="-60" class="poster-radar-sweep"/>
-          </g>
-        </g>
-
-        <g class="poster-module" id="kxCountModule">
-          <rect x="120" y="724" width="840" height="548" rx="28" class="poster-module-bg"/>
-          <rect x="120" y="724" width="840" height="548" rx="28" class="poster-module-border"/>
-          <rect x="156" y="760" width="768" height="476" rx="24" class="poster-window-bg"/>
-          <rect x="208" y="768" width="664" height="424" rx="20" class="poster-window-inner"/>
-
-          <text x="202" y="812" class="poster-module-type">A</text>
-          <text x="540" y="812" text-anchor="middle" class="poster-module-name">KXTXR // LIVE COUNTDOWN</text>
-          <text x="874" y="812" text-anchor="end" class="poster-module-name poster-module-name--right">OBJECT 111</text>
-
-          <g class="poster-wave-strip poster-wave-strip--top">
-            <line x1="184" y1="852" x2="360" y2="852" class="poster-hline"/>
-            <path d="M384 852 C398 824 414 878 430 852 S462 826 478 852 510 876 526 852 558 826 574 852 606 878 622 852 654 826 670 852 702 878 718 852" class="poster-wave"/>
-            <line x1="742" y1="852" x2="896" y2="852" class="poster-hline"/>
-          </g>
-
-          <g clip-path="url(#countClip)">
-            <rect x="208" y="768" width="664" height="424" class="poster-count-shade"/>
-            <rect x="208" y="768" width="664" height="424" class="poster-count-scan"/>
-            <path d="M240 1094 C280 1088 305 1112 330 1096 C350 1082 372 1078 396 1098 C420 1118 448 1110 472 1092 C498 1074 528 1076 552 1095 C575 1114 610 1112 632 1090 C658 1064 686 1072 712 1090 C738 1108 764 1114 792 1094 C818 1076 840 1074 872 1094" class="poster-wave poster-wave--count"/>
-            <text x="540" y="1048" text-anchor="middle" class="poster-count-value" id="kxSvgValueBig">111</text>
-            <text x="540" y="1142" text-anchor="middle" class="poster-count-caption">COUNTDOWN ACTIVE</text>
-            <text x="540" y="1184" text-anchor="middle" class="poster-count-remaining" id="kxSvgRemaining">05:00:00</text>
-          </g>
-
-          <text x="194" y="1236" class="poster-module-foot">STEPPING UNIT / 111 → 001</text>
-          <text x="886" y="1236" text-anchor="end" class="poster-module-foot" id="kxSvgClock">20:11:00</text>
-        </g>
-
-        <g class="poster-note poster-note--left">
-          <rect x="112" y="1328" width="274" height="244" rx="18" class="poster-note-bg"/>
-          <rect x="112" y="1328" width="274" height="244" rx="18" class="poster-note-border"/>
-          <text x="138" y="1372" class="poster-note-title">SIGNAL STATUS</text>
-          <text x="138" y="1418" class="poster-note-value" id="kxSvgSignalState">ACTIVE</text>
-          <text x="138" y="1476" class="poster-note-label">TRACE</text>
-          <text x="138" y="1518" class="poster-note-small" id="kxSvgTrace">005 / 111</text>
-          <text x="138" y="1568" class="poster-note-label">ENGINE</text>
-          <text x="138" y="1608" class="poster-note-small" id="kxSvgEngine">BOOTING</text>
-        </g>
-
-        <g class="poster-note poster-note--center">
-          <rect x="410" y="1356" width="260" height="278" rx="16" class="poster-paper-bg"/>
-          <rect x="410" y="1356" width="260" height="278" rx="16" class="poster-paper-border"/>
-          <text x="438" y="1400" class="poster-paper-kicker">ARCHIVE CARD</text>
-          <text x="438" y="1444" class="poster-paper-title">KXTXR-111-A</text>
-          <text x="438" y="1494" class="poster-paper-line">CYCLE:</text>
-          <text x="598" y="1494" text-anchor="end" class="poster-paper-line poster-paper-line--value" id="kxSvgCycleMeta">005</text>
-          <text x="438" y="1542" class="poster-paper-line">STATE:</text>
-          <text x="598" y="1542" text-anchor="end" class="poster-paper-line poster-paper-line--value" id="kxSvgStateMeta">PRE-RELEASE</text>
-          <text x="438" y="1590" class="poster-paper-line">SIGNAL:</text>
-          <text x="598" y="1590" text-anchor="end" class="poster-paper-line poster-paper-line--value">111</text>
-          <text x="438" y="1626" class="poster-paper-line">RETURN / RECORD / REPEAT</text>
-        </g>
-
-        <g class="poster-note poster-note--right">
-          <rect x="712" y="1328" width="254" height="322" rx="18" class="poster-note-bg"/>
-          <rect x="712" y="1328" width="254" height="322" rx="18" class="poster-note-border"/>
-          <text x="738" y="1372" class="poster-note-title">STEGANOGRAPHIC</text>
-          <text x="738" y="1410" class="poster-note-title poster-note-title--red">TRACE EMBEDDED</text>
-          <path d="M742 1478 C760 1470 774 1494 792 1478 S826 1460 844 1478 878 1496 896 1478 930 1460 948 1478" class="poster-wave"/>
-          <text x="738" y="1548" class="poster-note-label">TARGET</text>
-          <text x="738" y="1590" class="poster-note-small" id="kxSvgTarget">25 AUG 2026 · 01:11</text>
-          <text x="738" y="1638" class="poster-note-label">LOCAL CLOCK</text>
-          <text x="738" y="1678" class="poster-note-small" id="kxSvgClockSecondary">20:11:00</text>
-        </g>
-
-        <g class="poster-bottom-copy">
-          <text x="540" y="1768" text-anchor="middle" class="poster-bottom-line">THE RETURN IS A MIRROR WITH STATIC.</text>
-          <path d="M376 1794 C394 1782 406 1806 424 1794 442 1782 458 1782 476 1794 494 1806 508 1806 526 1794 544 1782 560 1782 578 1794 596 1806 610 1806 628 1794 646 1782 662 1782 680 1794 698 1806 712 1806 730 1794" class="poster-wave poster-wave--bottom"/>
-          <text x="540" y="1844" text-anchor="middle" class="poster-footer-copy">KXTXR // PERSIST</text>
-        </g>
-      </svg>
+      <div class="pulse-flash" aria-hidden="true"></div>
     </section>
   </main>
 
@@ -175,133 +86,127 @@
 
     const activationMs = Date.parse(SCHEDULE.activationAt);
     const releaseMs = Date.parse(SCHEDULE.releaseAt);
-    const totalDurationMs = releaseMs - activationMs;
-    const totalCycles = Math.round(totalDurationMs / SCHEDULE.cycleMs);
+    const totalCycles = Math.round((releaseMs - activationMs) / SCHEDULE.cycleMs);
     const unitMs = SCHEDULE.cycleMs / SCHEDULE.unitsPerCycle;
 
     const root = document.getElementById('kxLive');
+    const countValue = document.getElementById('countValue');
+    const cycleValue = document.getElementById('cycleValue');
+    const windowCycle = document.getElementById('windowCycle');
+    const stateValue = document.getElementById('stateValue');
+    const traceValue = document.getElementById('traceValue');
+    const engineValue = document.getElementById('engineValue');
+    const phaseValue = document.getElementById('phaseValue');
+    const remainingValue = document.getElementById('remainingValue');
+    const unitProgress = document.getElementById('unitProgress');
+    const clockValue = document.getElementById('clockValue');
+    const targetValue = document.getElementById('targetValue');
+    const archiveDate = document.getElementById('archiveDate');
+    const archiveTime = document.getElementById('archiveTime');
+    const archiveDuration = document.getElementById('archiveDuration');
+    const archiveNotes = document.getElementById('archiveNotes');
+
     const params = new URLSearchParams(location.search);
     const view = params.get('view');
     if (view === 'obs' || view === 'clean') document.body.dataset.view = view;
-    const viewMode = document.getElementById('kxViewMode');
-    if (viewMode) viewMode.textContent = view ? `${view.toUpperCase()} FEED` : 'KXTXR';
 
-    const targetLabel = new Intl.DateTimeFormat('en-GB', {
-      timeZone: SCHEDULE.timezone,
-      day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false
-    }).format(new Date(releaseMs)).toUpperCase().replace(',', ' ·');
+    const pad = (value, width = 3) => String(Math.max(0, value)).padStart(width, '0');
 
     const clockFormatter = new Intl.DateTimeFormat('en-GB', {
       timeZone: SCHEDULE.timezone,
       hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
     });
 
-    const els = {
-      stateCode: document.getElementById('kxStateCode'),
-      stateLabel: document.getElementById('kxStateLabel'),
-      svgPhase: document.getElementById('kxSvgPhase'),
-      svgState: document.getElementById('kxSvgState'),
-      svgValueBig: document.getElementById('kxSvgValueBig'),
-      svgHeroValue: document.getElementById('kxSvgHeroValue'),
-      svgRemaining: document.getElementById('kxSvgRemaining'),
-      svgSignalState: document.getElementById('kxSvgSignalState'),
-      svgTrace: document.getElementById('kxSvgTrace'),
-      svgEngine: document.getElementById('kxSvgEngine'),
-      svgCycleMeta: document.getElementById('kxSvgCycleMeta'),
-      svgStateMeta: document.getElementById('kxSvgStateMeta'),
-      svgTarget: document.getElementById('kxSvgTarget'),
-      svgClock: document.getElementById('kxSvgClock'),
-      svgClockSecondary: document.getElementById('kxSvgClockSecondary')
-    };
+    const targetFormatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: SCHEDULE.timezone,
+      day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false
+    });
 
-    root.dataset.engine = 'synced';
-    if (els.svgEngine) els.svgEngine.textContent = 'SYNCED';
-    if (els.svgTarget) els.svgTarget.textContent = targetLabel;
+    const archiveDateFormatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: SCHEDULE.timezone,
+      day: '2-digit', month: '2-digit', year: '2-digit'
+    });
 
-    const pad = (value, width = 3) => String(Math.max(0, value)).padStart(width, '0');
-
-    function formatDuration(ms) {
-      const safe = Math.max(0, ms);
-      const totalSeconds = Math.ceil(safe / 1000);
-      const hours = Math.floor(totalSeconds / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-      return `${pad(hours, 2)}:${pad(minutes, 2)}:${pad(seconds, 2)}`;
-    }
-
-    let pulseTimer = null;
-    function pulse(kind) {
-      root.classList.remove('is-step', 'is-cycle');
-      void root.offsetWidth;
-      root.classList.add(kind === 'cycle' ? 'is-cycle' : 'is-step');
-      clearTimeout(pulseTimer);
-      pulseTimer = setTimeout(() => root.classList.remove('is-step', 'is-cycle'), kind === 'cycle' ? 900 : 320);
+    function duration(ms) {
+      const total = Math.ceil(Math.max(0, ms) / 1000);
+      const h = Math.floor(total / 3600);
+      const m = Math.floor((total % 3600) / 60);
+      const s = total % 60;
+      return `${pad(h, 2)}:${pad(m, 2)}:${pad(s, 2)}`;
     }
 
     function derive(now) {
       if (now < activationMs) {
-        return {state:'standby',code:'PRE',label:'STANDBY',cycle:totalCycles,value:111,stateText:'PRE-RELEASE',signalState:'STANDBY',phase:`RETURN // CYCLE ${pad(totalCycles)}`,remaining:activationMs-now};
+        return {state:'standby', cycle:totalCycles, value:111, label:'STANDBY', phase:'SIGNAL STANDBY', remaining:activationMs-now};
       }
       if (now >= releaseMs) {
-        return {state:'released',code:'000',label:'RELEASED',cycle:0,value:111,stateText:'RELEASED',signalState:'RETURNED',phase:'RETURN COMPLETE',remaining:0};
+        return {state:'released', cycle:0, value:111, label:'RELEASED', phase:'RETURN COMPLETE', remaining:0};
       }
 
       const elapsed = now - activationMs;
       const completedCycles = Math.floor(elapsed / SCHEDULE.cycleMs);
       const cycle = Math.max(1, totalCycles - completedCycles);
       const withinCycle = elapsed % SCHEDULE.cycleMs;
-      const completedUnits = Math.min(SCHEDULE.unitsPerCycle - 1, Math.floor(withinCycle / unitMs));
-      const value = SCHEDULE.unitsPerCycle - completedUnits;
+      const completedUnits = Math.min(110, Math.floor(withinCycle / unitMs));
+      const value = 111 - completedUnits;
       const final = cycle === 1;
 
       return {
         state: final ? 'final' : 'active',
-        code: pad(cycle),
-        label: final ? 'FINAL CYCLE' : 'ACTIVE',
         cycle,
         value,
-        stateText: final ? 'FINAL CYCLE' : 'PRE-RELEASE',
-        signalState: 'ACTIVE',
-        phase: final ? 'RETURN // FINAL CYCLE' : `RETURN // CYCLE ${pad(cycle)}`,
-        remaining: releaseMs - now
+        label: final ? 'FINAL CYCLE' : 'PRE-RELEASE',
+        phase: final ? 'FINAL RETURN SEQUENCE' : 'COUNTDOWN ACTIVE',
+        remaining: releaseMs-now,
+        unitProgress: Math.max(0, Math.min(1, (withinCycle % unitMs) / unitMs))
       };
     }
 
     let lastCycle = null;
     let lastValue = null;
+    let pulseTimer = null;
+
+    function pulse(type) {
+      root.classList.remove('is-step','is-cycle');
+      void root.offsetWidth;
+      root.classList.add(type === 'cycle' ? 'is-cycle' : 'is-step');
+      clearTimeout(pulseTimer);
+      pulseTimer = setTimeout(() => root.classList.remove('is-step','is-cycle'), type === 'cycle' ? 900 : 360);
+    }
 
     function render() {
       const now = Date.now();
       const frame = derive(now);
       const cycleText = pad(frame.cycle);
       const valueText = pad(frame.value);
+      const remainingText = duration(frame.remaining);
       const clockText = clockFormatter.format(new Date(now));
 
       root.dataset.state = frame.state;
-      if (els.stateCode) els.stateCode.textContent = frame.code;
-      if (els.stateLabel) els.stateLabel.textContent = frame.label;
-      if (els.svgPhase) els.svgPhase.textContent = frame.phase;
-      if (els.svgState) els.svgState.textContent = frame.stateText;
-      if (els.svgValueBig) els.svgValueBig.textContent = valueText;
-      if (els.svgHeroValue) els.svgHeroValue.textContent = valueText;
-      if (els.svgRemaining) els.svgRemaining.textContent = formatDuration(frame.remaining);
-      if (els.svgSignalState) els.svgSignalState.textContent = frame.signalState;
-      if (els.svgTrace) els.svgTrace.textContent = `${cycleText} / ${valueText}`;
-      if (els.svgCycleMeta) els.svgCycleMeta.textContent = cycleText;
-      if (els.svgStateMeta) els.svgStateMeta.textContent = frame.stateText;
-      if (els.svgClock) els.svgClock.textContent = clockText;
-      if (els.svgClockSecondary) els.svgClockSecondary.textContent = clockText;
+      countValue.textContent = valueText;
+      countValue.dataset.value = valueText;
+      cycleValue.textContent = cycleText;
+      windowCycle.textContent = cycleText;
+      stateValue.textContent = frame.label;
+      traceValue.textContent = `${cycleText} / ${valueText}`;
+      engineValue.textContent = 'SYNCED';
+      phaseValue.textContent = frame.phase;
+      remainingValue.textContent = remainingText;
+      unitProgress.style.transform = `scaleX(${frame.unitProgress ?? 0})`;
+      clockValue.textContent = clockText;
+      archiveTime.textContent = clockText;
+      archiveDuration.textContent = remainingText;
+      archiveNotes.textContent = `CYCLE ${cycleText} / ${frame.label}`;
 
-      const withinCycle = Math.max(0, (now - activationMs) % SCHEDULE.cycleMs);
-      const withinUnit = Math.max(0, withinCycle % unitMs);
-      root.style.setProperty('--unit-progress', String(Math.min(1, withinUnit / unitMs)));
+      if (lastCycle !== null && lastCycle !== frame.cycle) pulse('cycle');
+      else if (lastValue !== null && lastValue !== frame.value) pulse('step');
 
-      if (lastCycle !== null && frame.cycle !== lastCycle) pulse('cycle');
-      else if (lastValue !== null && frame.value !== lastValue) pulse('step');
       lastCycle = frame.cycle;
       lastValue = frame.value;
     }
 
+    targetValue.textContent = targetFormatter.format(new Date(releaseMs)).toUpperCase().replace(',', ' ·');
+    archiveDate.textContent = archiveDateFormatter.format(new Date(releaseMs)).replaceAll('/', '.');
     render();
     setInterval(render, 200);
   })();
