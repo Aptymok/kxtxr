@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050306">
+  <meta name="color-scheme" content="dark">
+  <title>KXTXR · 111 / RETURN SEQUENCE</title>
+  <meta name="description" content="KXTXR 111 live return sequence. A persistent cycle clock resolving at 01:11.">
+  <link rel="stylesheet" href="/artist/111/live/live.css">
+</head>
+<body>
+  <main class="kx-live" id="kxLive" data-state="standby">
+    <div class="kx-live__grid" aria-hidden="true"></div>
+    <div class="kx-live__scan" aria-hidden="true"></div>
+    <div class="kx-live__grain" aria-hidden="true"></div>
+    <div class="kx-live__vignette" aria-hidden="true"></div>
+    <div class="kx-live__flash" id="kxFlash" aria-hidden="true"></div>
+
+    <header class="kx-live__chrome">
+      <a class="kx-live__back" href="/artist">KXTXR / ARTIST</a>
+      <div class="kx-live__state"><span id="kxStateCode">PRE</span><i></i><span id="kxStateLabel">STANDBY</span></div>
+      <div class="kx-live__mode" id="kxViewMode">LIVE SIGNAL</div>
+    </header>
+
+    <section class="kx-live__stage" aria-labelledby="kxSignalValue">
+      <p class="kx-live__micro">KXTXR PICTURES · SIGNAL HOUSE · 111</p>
+
+      <div class="kx-live__cycle-block">
+        <span>CYCLE</span>
+        <b id="kxCycle">005</b>
+      </div>
+
+      <div class="kx-live__leader" id="kxLeader" aria-label="111 countdown">
+        <div class="kx-live__leader-ring">
+          <i></i><i></i><i></i>
+          <b id="kxSignalValue">111</b>
+        </div>
+      </div>
+
+      <div class="kx-live__copy">
+        <p id="kxPhase">RETURN SEQUENCE</p>
+        <strong id="kxTarget">25 AUG 2026 · 01:11</strong>
+      </div>
+    </section>
+
+    <aside class="kx-live__trace" aria-label="Signal trace">
+      <div><span>SIGNAL</span><b id="kxSignalState">STANDBY</b></div>
+      <div><span>STATE</span><b id="kxState">PRE-RELEASE</b></div>
+      <div><span>TRACE</span><b id="kxTrace">005 / 111</b></div>
+      <div><span>REMAINING</span><b id="kxRemaining">05:00:00</b></div>
+      <div><span>TARGET</span><b>2026.08.25 / 01:11:00</b></div>
+    </aside>
+
+    <div class="kx-live__ticks" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <footer class="kx-live__footer">
+      <span>RETURN TRANSMISSION</span>
+      <span id="kxClock">--:--:--</span>
+      <span>PRINT 618 / OBJECT 111</span>
+    </footer>
+  </main>
+
+  <script src="/artist/111/live/live.js" defer></script>
+</body>
+</html>
