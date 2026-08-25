@@ -190,6 +190,7 @@
     let playerMounted = false;
     let player = null;
     let finalHoldRequested = false;
+    let finalMonitor = null;
     let youtubeApiRequested = false;
 
     function pulse(type) {
@@ -217,23 +218,48 @@
       if (releaseActivated) mountYouTube();
     };
 
+    function markFinalHeld(target) {
+      if (finalMonitor) {
+        clearInterval(finalMonitor);
+        finalMonitor = null;
+      }
+      finalHoldRequested = true;
+      try { target?.pauseVideo?.(); } catch (_) {}
+      releaseVideo.dataset.final = 'held';
+      releaseMark.textContent = '111 / RETURN COMPLETE';
+      root.dataset.state = 'held';
+    }
+
+    function monitorFinalImage(target) {
+      if (!target || finalHoldRequested) return;
+      if (finalMonitor) clearInterval(finalMonitor);
+      finalMonitor = setInterval(() => {
+        if (finalHoldRequested) {
+          clearInterval(finalMonitor);
+          finalMonitor = null;
+          return;
+        }
+        try {
+          const videoDuration = Number(target.getDuration?.() || 0);
+          const currentTime = Number(target.getCurrentTime?.() || 0);
+          if (videoDuration > 0 && currentTime >= Math.max(0, videoDuration - 0.16)) {
+            markFinalHeld(target);
+          }
+        } catch (_) {}
+      }, 60);
+    }
+
     function holdFinalFrame(target) {
       if (finalHoldRequested || !target) return;
-      finalHoldRequested = true;
       const videoDuration = Number(target.getDuration?.() || 0);
-      const holdAt = Math.max(0, videoDuration - 0.12);
+      const holdAt = Math.max(0, videoDuration - 0.16);
       releaseVideo.dataset.final = 'seeking';
       releaseMark.textContent = '111 / RETURN COMPLETE';
       try {
         target.seekTo(holdAt, true);
-        setTimeout(() => {
-          try { target.pauseVideo(); } catch (_) {}
-          releaseVideo.dataset.final = 'held';
-          root.dataset.state = 'held';
-        }, 80);
+        setTimeout(() => markFinalHeld(target), 70);
       } catch (_) {
-        releaseVideo.dataset.final = 'held';
-        root.dataset.state = 'held';
+        markFinalHeld(target);
       }
     }
 
@@ -259,7 +285,9 @@
             try { event.target.playVideo(); } catch (_) {}
           },
           onStateChange: (event) => {
-            if (window.YT && event.data === window.YT.PlayerState.ENDED) holdFinalFrame(event.target);
+            if (!window.YT) return;
+            if (event.data === window.YT.PlayerState.PLAYING) monitorFinalImage(event.target);
+            if (event.data === window.YT.PlayerState.ENDED) holdFinalFrame(event.target);
           },
           onError: () => {
             releaseVideo.dataset.error = 'true';
