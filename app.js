@@ -1,21 +1,12 @@
 (()=>{'use strict';
-const $=s=>document.querySelector(s);
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const safe=v=>typeof v==='string'?v:'';
 async function json(path){const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw new Error(path);return r.json()}
-async function hydrate(){
-  const state=$('#buildState'),phase=$('#phase'),lineage=$('#lineageData'),field=$('#fieldData');
-  try{
-    const [ledger,experiment,logbook]=await Promise.all([json('/grimoire/ledger.json'),json('/grimoire/experiment.json'),json('/grimoire/logbook.json')]);
-    const p=safe(ledger.phase||experiment.phase||ledger.current_phase).toUpperCase(); if(p)phase.textContent=p+' / ACTIVE';
-    const nodes=ledger.lineage||ledger.nodes||ledger.releases;
-    if(Array.isArray(nodes)&&nodes.length){lineage.textContent=nodes.map(x=>safe(x.name||x.id||x.title||x)).filter(Boolean).join('  →  ')}
-    const entries=Array.isArray(logbook)?logbook:(logbook.entries||logbook.logbook||[]);
-    if(entries.length){field.innerHTML='';entries.slice(-5).reverse().forEach(e=>{const a=document.createElement('article');const title=safe(e.title||e.event||e.type||e.id||'RETURN');const date=safe(e.date||e.timestamp||e.at||'');a.innerHTML=`<b>${title}</b><p>${date}</p>`;field.appendChild(a)})}
-    else field.innerHTML='<p>Persistent ledger loaded. No public RETURN entries are promoted here without canonical data.</p>';
-    state.textContent='CANON: PERSISTENT / GIT-BACKED';
-  }catch(e){state.textContent='CANON: SOURCE UNAVAILABLE';field.innerHTML='<p>Persistent source unavailable. The interface will not invent replacement data.</p>'}
-}
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){document.body.dataset.state=e.target.dataset.state||''}}),{threshold:.55});
-document.querySelectorAll('.view').forEach(v=>io.observe(v));
-hydrate();
+function makeWave(){const w=$('#wave');for(let i=0;i<54;i++){const b=document.createElement('i');b.style.height=(7+Math.abs(Math.sin(i*.71))*29)+'px';b.style.animationDelay=(-i*.035)+'s';w.appendChild(b)}}
+function makeScratches(){const root=$('#scratches');for(let i=0;i<17;i++){const s=document.createElement('i');const diag=i%3===0;s.className='scratch'+(diag?' diag':'')+(i%8===0?' red':'');s.style.left=(3+Math.random()*94)+'vw';s.style.top=(-20+Math.random()*80)+'vh';s.style.setProperty('--dur',(4.8+Math.random()*10)+'s');s.style.setProperty('--delay',(-Math.random()*14)+'s');s.style.setProperty('--rot',(diag?(-18+Math.random()*32):(-4+Math.random()*8))+'deg');root.appendChild(s)}}
+async function hydrate(){const phase=$('#phase'),field=$('#fieldData'),canon=$('#canon');try{const [ledger,experiment,logbook]=await Promise.all([json('/grimoire/ledger.json'),json('/grimoire/experiment.json'),json('/grimoire/logbook.json')]);const p=safe(ledger.phase||experiment.phase||ledger.current_phase).toUpperCase();if(p)phase.textContent=p;const entries=Array.isArray(logbook)?logbook:(logbook.entries||logbook.logbook||[]);field.innerHTML='';if(entries.length)entries.slice(-6).reverse().forEach(e=>{const a=document.createElement('article');const title=safe(e.title||e.event||e.type||e.id||'RETURN'),date=safe(e.date||e.timestamp||e.at||'');a.innerHTML=`<b>${title}</b><p>${date}</p>`;field.appendChild(a)});else field.innerHTML='<p>NO PUBLIC RETURN PROMOTED WITHOUT CANONICAL DATA.</p>';canon.textContent='CANON / PERSISTENT / GIT-BACKED'}catch(e){field.innerHTML='<p>SOURCE UNAVAILABLE · NOTHING SYNTHETIC INSERTED.</p>';canon.textContent='CANON / SOURCE UNAVAILABLE'}}
+const nav=$$('.nav nav a');const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const key=e.target.dataset.nav;nav.forEach(a=>a.classList.toggle('active',a.textContent.trim()===key));document.body.dataset.scene=key}),{threshold:.48});$$('.scene').forEach(s=>io.observe(s));
+let playing=false;$('#play').addEventListener('click',()=>{playing=!playing;$('#play span').textContent=playing?'Ⅱ':'▶';$('#wave').style.opacity=playing?'1':'.45'});
+let tx=0,ty=0,cx=0,cy=0;addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*8;ty=(e.clientY/innerHeight-.5)*5},{passive:true});function drift(){cx+=(tx-cx)*.035;cy+=(ty-cy)*.035;document.documentElement.style.setProperty('--mx',cx+'px');document.documentElement.style.setProperty('--my',cy+'px');requestAnimationFrame(drift)}
+makeWave();makeScratches();hydrate();if(!matchMedia('(prefers-reduced-motion: reduce)').matches)drift();
 })();
