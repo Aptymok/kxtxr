@@ -34,13 +34,13 @@ export default async function handler(req, res) {
     }
 
     const latest = payload.latest_entry || {};
-    const subject = `[KXTXR.REGISTRY] ${latest.window_code || "REGISTRO"} // REM618 // Edwing`;
+    const subject = `[KXTXR.REGISTRY] ${latest.piece || latest.window_code || "REGISTRO"} // QUE NO // Edwing`;
 
     const jsonText = JSON.stringify(payload, null, 2);
     const attachmentBase64 = Buffer.from(jsonText, "utf8").toString("base64");
 
     const summary = [
-      "KXTXR.REGISTRY // EDWING",
+      "KXTXR.REGISTRY // QUE NO // EDWING",
       "",
       `Ventana: ${latest.window_code || "N/A"}`,
       `Perturbación: ${latest.perturbation || "N/A"}`,
