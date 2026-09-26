@@ -1,0 +1,9 @@
+{
+  "schema": "KXTXR_RIDER_STATE_V1",
+  "updated_at": "2026-09-26T16:21:00-06:00",
+  "status": "NOT_PUBLISHED",
+  "verified_input_list": false,
+  "verified_backline": false,
+  "verified_stage_plot": false,
+  "rule": "Do not infer or publish technical requirements without a canonical rider."
+}
