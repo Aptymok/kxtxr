@@ -1,7 +1,7 @@
 {
   "id": "KXTXR-ARTIST-PRESENCE-001",
   "state": "ACTIVE",
-  "epistemic_class": "DECLARED",
+  "epistemic_class": "DECLARED_WITH_VERIFIED_DIRECT_IDENTITY_EDGES",
   "artist": "KXTXR",
   "voice": {
     "mode": "FIRST_PERSON_ARTIST",
@@ -24,21 +24,21 @@
     },
     {
       "id": "YOUTUBE",
-      "label": "YOUTUBE / FIND THE SIGNAL",
-      "url": "https://www.youtube.com/results?search_query=KXTXR+REM+618",
-      "status": "DISCOVERY_GATEWAY"
+      "label": "YOUTUBE / KXTXR",
+      "url": "https://www.youtube.com/@kxtxrsignal",
+      "status": "CANONICAL"
     },
     {
       "id": "SPOTIFY",
-      "label": "SPOTIFY / FIND REM 618",
-      "url": "https://open.spotify.com/search/KXTXR%20REM%20618",
-      "status": "DISCOVERY_GATEWAY"
+      "label": "SPOTIFY / KXTXR",
+      "url": "https://open.spotify.com/artist/5Iwk9h7kNRB8GPNGeiRKGh",
+      "status": "CANONICAL"
     },
     {
       "id": "APPLE_MUSIC",
-      "label": "APPLE MUSIC / FIND REM 618",
-      "url": "https://music.apple.com/us/search?term=KXTXR%20REM%20618",
-      "status": "DISCOVERY_GATEWAY"
+      "label": "APPLE MUSIC / KXTXR",
+      "url": "https://music.apple.com/mx/artist/kxtxr/6772383279",
+      "status": "CANONICAL"
     },
     {
       "id": "AMAZON_MUSIC",
@@ -49,10 +49,7 @@
   ],
   "unresolved_networks": [
     "Instagram canonical artist URL",
-    "TikTok canonical artist URL",
-    "Direct YouTube artist/channel URL",
-    "Direct Spotify artist URL",
-    "Direct Apple Music artist URL"
+    "TikTok canonical artist URL"
   ],
   "rule": "Never convert a discovery result into a canonical artist identity without direct verification."
 }
