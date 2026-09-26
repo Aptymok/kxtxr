@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_DISCOVERY_MESH_V2",
   "version": "2.0.0",
-  "updated_at": "2026-09-26T16:21:00-06:00",
+  "updated_at": "2026-09-26T17:39:00-06:00",
   "purpose": "Resolve KXTXR consistently across human search, web crawlers, AI search and multi-agent systems by publishing explicit identity, state, source and authority edges. This improves reconstructibility; it does not guarantee ranking or recommendation.",
   "entity": {
     "id": "https://kxtxr.vercel.app/#kxtxr",
@@ -132,6 +132,10 @@
     {
       "url": "https://kxtxr.vercel.app/data/site-manifest.json",
       "function": "public site source map"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/system-map.json",
+      "function": "section → source → technology → authority → fallback map"
     },
     {
       "url": "https://kxtxr.vercel.app/data/releases.json",
