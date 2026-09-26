@@ -42,9 +42,9 @@ export default async function handler(req, res) {
     const summary = [
       "KXTXR.REGISTRY // QUE NO // EDWING",
       "",
-      `Ventana: ${latest.window_code || "N/A"}`,
-      `Perturbación: ${latest.perturbation || "N/A"}`,
-      `Decisión: ${latest.decision || "N/A"}`,
+      `Pieza: ${latest.piece || latest.window_code || "N/A"}`,
+      `Plataforma: ${latest.platform || "N/A"}`,
+      `Siguiente cambio: ${latest.next_change || "N/A"}`,
       "",
       "Cálculos:",
       JSON.stringify(payload.calculations || {}, null, 2),
@@ -65,7 +65,7 @@ export default async function handler(req, res) {
         text: summary,
         attachments: [
           {
-            filename: `kxtxr-edwing-${latest.window_code || "registry"}.json`,
+            filename: `kxtxr-que-no-${latest.piece || latest.window_code || "registry"}.json`,
             content: attachmentBase64
           }
         ]
