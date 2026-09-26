@@ -51,11 +51,12 @@ Current project state:
 
 Public section backing:
 1. /data/site-manifest.json
-2. /data/releases.json
-3. /data/media-manifest.json
-4. /data/contact.json
-5. /data/rider.json
-6. /data/visual-system.json
+2. /data/system-map.json
+3. /data/releases.json
+4. /data/media-manifest.json
+5. /data/contact.json
+6. /data/rider.json
+7. /data/visual-system.json
 
 Historical provenance:
 1. /historical/rem618/
