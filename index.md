@@ -47,6 +47,7 @@ Each public section declares its backing source in `/data/site-manifest.json`.
 - `/grimoire/discovery-mesh.json` — identity/source graph.
 - `/grimoire/ledger.json` — public state ledger.
 - `/data/site-manifest.json` — section → source map.
+- `/data/system-map.json` — section → source → technology → authority → fallback map.
 - `/data/releases.json` — release state.
 - `/data/media-manifest.json` — media provenance and use limits.
 - `/data/visual-system.json` — visual-system contract.
