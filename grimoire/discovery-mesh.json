@@ -1,0 +1,91 @@
+{
+  "schema": "KXTXR_DISCOVERY_MESH_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-26T02:16:00-06:00",
+  "purpose": "Resolve KXTXR consistently across human search, web crawlers and multi-agent AI systems without collapsing artistic sovereignty into platform metrics.",
+  "entity": {
+    "id": "https://kxtxr.vercel.app/#kxtxr",
+    "type": "MusicGroup",
+    "name": "KXTXR",
+    "canonical_url": "https://kxtxr.vercel.app/",
+    "human_operator": {
+      "name": "Edwing",
+      "role": "operator / performer"
+    },
+    "external_observer": {
+      "name": "System Friction Institute",
+      "role": "provenance / observation",
+      "identity_boundary": "not the artist"
+    }
+  },
+  "same_as": [
+    {
+      "platform": "Spotify",
+      "url": "https://open.spotify.com/artist/5Iwk9h7kNRB8GPNGeiRKGh",
+      "status": "SOURCE_INDEXED"
+    },
+    {
+      "platform": "Apple Music",
+      "url": "https://music.apple.com/mx/artist/kxtxr/6772383279",
+      "status": "SOURCE_INDEXED"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://www.youtube.com/@kxtxrsignal",
+      "status": "SOURCE_INDEXED"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/Aptymok/kxtxr",
+      "status": "OBSERVED_REPOSITORY"
+    }
+  ],
+  "unresolved_identity_edges": [
+    {
+      "platform": "Instagram",
+      "known_reference": "https://share.google/9AaQgIcFvreyPVZ7Z",
+      "status": "UNRESOLVED_REDIRECT",
+      "action": "resolve direct profile URL before sameAs"
+    },
+    {
+      "platform": "TikTok",
+      "known_reference": "https://share.google/KJV1ZmkaPeUR6z435",
+      "status": "UNRESOLVED_REDIRECT",
+      "action": "resolve direct profile URL before sameAs"
+    }
+  ],
+  "machine_surfaces": [
+    {
+      "url": "https://kxtxr.vercel.app/llms.txt",
+      "function": "agent orientation"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/index.md",
+      "function": "compact markdown identity representation"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/grimoire/ledger.json",
+      "function": "public state ledger"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/grimoire/kxtxr-grimoire-longitudinal-canon-v3.json",
+      "function": "longitudinal canon"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/historical/rem618/manifest.json",
+      "function": "historical provenance"
+    }
+  ],
+  "discovery_policy": {
+    "crawl": "public surfaces intentionally crawlable",
+    "ai_search": "OAI-SearchBot explicitly allowed",
+    "training": "GPTBot explicitly allowed by current project policy",
+    "identity_rule": "sameAs is reserved for URLs that unambiguously identify KXTXR",
+    "evidence_rule": "discovery and citation do not establish artistic value or causal impact"
+  },
+  "deployment_status": {
+    "canonical_url": "DECLARED_IN_REPOSITORY_AND_DRIVE",
+    "vercel_team_observation": "NOT_OBSERVED_IN_CONNECTED_SFI_TEAM",
+    "rule": "Do not treat deployment as verified until independently observed."
+  }
+}
