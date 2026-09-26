@@ -1,49 +1,64 @@
 # KXTXR
 
-KXTXR is a musical and audiovisual identity operated as a living longitudinal system rather than a conventional promotional landing page.
+KXTXR is a musical and audiovisual identity operated as a living longitudinal system. The public website is a representation surface backed by explicit state, media and identity manifests.
 
 Canonical identity URI: https://kxtxr.vercel.app/#kxtxr
 
-## Human / system relation
+## Identity
 
 - KXTXR: artist/system identity.
-- Edwing: human operator and performer named by the project record.
+- Edwing: human operator and performer; human authorial authority in the project record.
 - System Friction Institute (SFI): external observation/provenance layer; not the artist identity.
+- AI: assisted analysis, code and representation; not autonomous authorial authority.
 
 ## Canonical external profiles
 
 - Spotify: https://open.spotify.com/artist/5Iwk9h7kNRB8GPNGeiRKGh
 - Apple Music: https://music.apple.com/mx/artist/kxtxr/6772383279
 - YouTube: https://www.youtube.com/@kxtxrsignal
-- GitHub/source trace: https://github.com/Aptymok/kxtxr
+- GitHub/source: https://github.com/Aptymok/kxtxr
 
-Instagram and TikTok remain unresolved in the current source record because only redirect/share URLs are available. They are excluded from canonical sameAs until direct profile URLs are verified.
+Instagram and TikTok are excluded from canonical sameAs until direct profile URLs are verified.
 
-## Current state
+## Current lineage and state
 
-Lineage: REM618 → 111 → RETURN → QUE NO
+REM618 → 111 → RETURN → QUE NO
 
-Current stage: QUE NO / PRECAMPAIGN.
+- REM618: emitted 2026-06-11 18:18 -06:00; opening signal.
+- 111: memory / calibration / transformation; QA-locked; publication date recorded as 2026-11-21.
+- QUE NO: current pre-campaign representation field.
+- Sequence: 07/12 MEMORY → 08/12 RETURN → 09/12 EMITTER → 10/12 EMBODIMENT → 11/12 INVOCATION → 12/12 APERTURA.
+
+Piece numbers are sequence identifiers, not calendar dates.
 
 Persistent attractor: IDENTITY THROUGH TRANSFORMATION.
 
-Signal grammar: EMISSION → RESIDUE → INTERVAL → MEMORY → TRANSFORMATION → RETURN → NEXT FORM.
+## Public architecture
 
-## Machine-readable resources
+- `/` — public identity / signal / press surface.
+- `/artist/` — cinematic artist experience.
+- `/historical/rem618/` — preserved REM618 HistoricalEvent.
+- `/edwing-registry/` — local-first operator field; intentionally noindex.
 
-- /llms.txt
-- /grimoire/discovery-mesh.json
-- /grimoire/ledger.json
-- /grimoire/kxtxr-grimoire-longitudinal-canon-v3.json
-- /historical/rem618/manifest.json
+Each public section declares its backing source in `/data/site-manifest.json`.
 
-## Evidence boundary
+## Machine-readable sources
 
-Publication is not evidence. Engagement is not causality. AI output is not authorial authority. Missing information remains missing.
+- `/grimoire/discovery-mesh.json` — identity/source graph.
+- `/grimoire/ledger.json` — public state ledger.
+- `/data/site-manifest.json` — section → source map.
+- `/data/releases.json` — release state.
+- `/data/media-manifest.json` — media provenance and use limits.
+- `/data/visual-system.json` — visual-system contract.
+- `/campaigns/que-no/representation-engine.json` — current campaign state.
+- `/.well-known/kxtxr.json` — stable compact identity manifest.
+- `/llms.txt` — compact AI/search orientation.
+- `/llms-full.txt` — expanded AI/search context.
 
+## Visual system
 
-## QUE NO current field
+The public root uses a bounded high-resolution 07/12 raster portrait (1080×1350). The deprecated 600×400 hero is not used as a viewport-scale identity image. Full-screen depth is produced by SVG architecture, CSS compositing, a custom WebGL signal field, Web Audio input and a human/digital echo layer.
 
-- Representation definition: https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json
-- Series: 07/12 MEMORY → 08/12 RETURN → 09/12 EMITTER → 10/12 EMBODIMENT → 11/12 INVOCATION → 12/12 APERTURA
-- KRY is an internal comparison heuristic; it is not a platform recommendation algorithm.
+## Evidence and discovery boundaries
+
+Publication is not evidence. Engagement is not causality. Discovery infrastructure improves reconstructibility but does not guarantee search ranking, platform recommendation, cultural value or artistic validation. Missing information remains missing.
