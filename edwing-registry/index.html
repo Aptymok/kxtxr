@@ -16,11 +16,21 @@ main{display:grid;grid-template-columns:300px 1fr 390px;gap:14px;padding:14px}.p
 label{display:grid;gap:6px;font:10px var(--mono);letter-spacing:.10em;text-transform:uppercase;color:var(--muted)}input,textarea,select{width:100%;background:rgba(7,8,12,.72);color:var(--text);border:1px solid rgba(185,142,163,.19);padding:9px;outline:none;font:12px var(--mono)}textarea{min-height:72px;resize:vertical}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.form{display:grid;gap:11px}.btns{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px}.btn{border:1px solid rgba(231,232,234,.25);background:rgba(231,232,234,.035);color:var(--text);padding:10px;font:10px var(--mono);letter-spacing:.13em;text-transform:uppercase}.btn.primary{border-color:rgba(216,199,209,.55);background:rgba(185,142,163,.09)}.btn.bad{border-color:rgba(231,160,160,.34);color:#f0c0c0}
 .notice{border:1px solid rgba(185,142,163,.16);background:rgba(185,142,163,.045);padding:11px;color:var(--muted);font-size:12px;line-height:1.6}.score{display:grid;grid-template-columns:1fr 1fr;gap:8px}.card{border:1px solid rgba(185,142,163,.12);padding:10px;background:rgba(7,8,12,.34)}.card b{display:block;font:400 22px var(--mono);margin-top:5px}.log{display:grid;gap:9px;max-height:570px;overflow:auto}.entry{border:1px solid rgba(185,142,163,.12);padding:10px;background:rgba(7,8,12,.34);display:grid;gap:7px}.entry .meta{display:flex;justify-content:space-between;gap:8px;font:9px var(--mono);color:var(--dim);text-transform:uppercase}.entry .body{font:12px var(--mono);line-height:1.5}.hidden{display:none!important}.public-mode .operator-only{display:none!important}.operator-mode .witness-only{display:none!important}a{color:var(--accent);text-decoration:none}.sep{height:12px}.kry-note{font:10px var(--mono);color:var(--dim);line-height:1.5}
 @media(max-width:1100px){main{grid-template-columns:1fr}.log{max-height:none}}@media(max-width:700px){body{padding:6px}.grid2,.grid3,.btns{grid-template-columns:1fr}.piece{grid-template-columns:54px 1fr}.piece .pill{grid-column:1/-1;width:max-content}}
+.shell{position:relative}.shell:before{content:"QUE NO";position:fixed;right:-.035em;bottom:-.12em;z-index:-1;font:700 min(43vw,720px)/.72 Georgia,'Times New Roman',serif;letter-spacing:-.08em;color:rgba(255,255,255,.018);pointer-events:none}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(5,5,5,.96) 0 28%,rgba(5,5,5,.64) 55%,rgba(5,5,5,.96)),url('/assets/kxtxr/kxtxr-hero-generated.webp') 68% 42%/cover no-repeat;filter:grayscale(1) contrast(1.15) brightness(.36)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0 119px,rgba(255,255,255,.018) 120px),radial-gradient(circle at 76% 30%,rgba(184,45,50,.10),transparent 20%)}
+header{background:rgba(5,5,5,.54);backdrop-filter:blur(14px)}header a{color:var(--text);text-decoration:none}header a:hover{color:#fff}
+.panel,.hero{box-shadow:0 18px 60px rgba(0,0,0,.24);backdrop-filter:blur(18px)}.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(216,199,209,.07),rgba(184,45,50,.035) 54%,transparent)}.hero:after{content:"07/12";position:absolute;right:-.03em;top:-.11em;font:700 min(18vw,260px)/1 Georgia,'Times New Roman',serif;letter-spacing:-.06em;color:rgba(255,255,255,.025);pointer-events:none}
+.hero h1{font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:-.035em}.hero h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(26px,3vw,46px);font-weight:400}.piece{appearance:none;width:100%;text-align:left;cursor:pointer;background:rgba(7,8,12,.22);color:inherit;font:inherit}.piece:hover{border-color:rgba(231,232,234,.34);background:rgba(231,232,234,.035)}.piece.active{box-shadow:inset 2px 0 #b82d32;background:linear-gradient(90deg,rgba(184,45,50,.12),rgba(231,232,234,.025))}
+.card{position:relative;overflow:hidden}.card:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,#b82d32,transparent);opacity:.7}.card b{font-family:Georgia,'Times New Roman',serif;font-size:30px}
+input:focus,textarea:focus,select:focus{border-color:rgba(231,232,234,.48);box-shadow:0 0 0 3px rgba(184,45,50,.06)}.btn{transition:background .22s ease,border-color .22s ease,transform .22s ease}.btn:hover{border-color:rgba(231,232,234,.5);background:rgba(231,232,234,.065);transform:translateY(-1px)}.btn.primary:hover{border-color:#b82d32;background:rgba(184,45,50,.16)}
+.entry{transition:border-color .25s ease,background .25s ease}.entry:hover{border-color:rgba(231,232,234,.28);background:rgba(231,232,234,.025)}
+@media(max-width:700px){body:before{background-position:62% 35%;opacity:.58}.shell:before{font-size:76vw}.hero:after{font-size:34vw}}
 </style>
 </head>
 <body class="public-mode">
 <div class="shell">
-<header><span>KXTXR · QUE NO · REPRESENTATION FIELD</span><span id="clock">--:--:--</span></header>
+<header><span><a href="/">KXTXR</a> · QUE NO · REPRESENTATION FIELD</span><span>CONTROL SURFACE · <b id="clock">--:--:--</b></span></header>
 <main>
 <aside class="panel">
   <div class="ph"><span>Serie</span><span id="cfgState">CARGANDO</span></div>
@@ -147,7 +157,7 @@ async function send(payload){
  }catch(e){return {ok:false,error:e.message||"email_failed"}}
 }
 function renderPieces(){
- const ap=activePiece();$("pieces").innerHTML=cfg.pieces.map(p=>'<div class="piece '+(p.piece===ap?"active":"")+'"><b>'+esc(p.piece)+'</b><span>'+esc(p.state)+'<br><span style="opacity:.55">'+esc(p.objective)+'</span></span><span class="pill">'+esc(p.status)+'</span></div>').join("");
+ const ap=activePiece();$("pieces").innerHTML=cfg.pieces.map(p=>'<button type="button" class="piece '+(p.piece===ap?"active":"")+'" data-piece="'+esc(p.piece)+'"><b>'+esc(p.piece)+'</b><span>'+esc(p.state)+'<br><span style="opacity:.55">'+esc(p.objective)+'</span></span><span class="pill">'+esc(p.status)+'</span></button>').join("");
  const hit=cfg.pieces.find(p=>p.piece===ap)||cfg.pieces[0];
  $("currentTitle").textContent=hit.piece+" · "+hit.state;
  $("currentObjective").textContent=hit.objective+".";
@@ -168,6 +178,7 @@ function render(){
 }
 $("token").addEventListener("input",e=>{tokenInMemory=e.target.value.trim();$("operatorState").textContent=tokenInMemory?"ABIERTO":"BLOQUEADO";$("operatorNotice").textContent=tokenInMemory?"Token sólo en memoria. Registra lo observado; no intentes mejorar el relato.":"Introduce el token operativo. El backend lo valida al intentar enviar el registro."});
 $("piece").addEventListener("change",e=>setPiece(e.target.value));
+$("pieces").addEventListener("click",e=>{const b=e.target.closest("[data-piece]");if(b)setPiece(b.dataset.piece)});
 $("form").addEventListener("submit",async e=>{
  e.preventDefault();
  tokenInMemory=$("token").value.trim();
