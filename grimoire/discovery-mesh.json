@@ -1,40 +1,49 @@
 {
-  "schema": "KXTXR_DISCOVERY_MESH_V1",
-  "version": "1.0.0",
-  "updated_at": "2026-09-26T05:45:00-06:00",
-  "purpose": "Resolve KXTXR consistently across human search, web crawlers and multi-agent AI systems without collapsing artistic sovereignty into platform metrics.",
+  "schema": "KXTXR_DISCOVERY_MESH_V2",
+  "version": "2.0.0",
+  "updated_at": "2026-09-26T16:21:00-06:00",
+  "purpose": "Resolve KXTXR consistently across human search, web crawlers, AI search and multi-agent systems by publishing explicit identity, state, source and authority edges. This improves reconstructibility; it does not guarantee ranking or recommendation.",
   "entity": {
     "id": "https://kxtxr.vercel.app/#kxtxr",
-    "type": "MusicGroup",
+    "schema_type": "MusicGroup",
     "name": "KXTXR",
     "canonical_url": "https://kxtxr.vercel.app/",
+    "description": "Musical and audiovisual identity organized around signal, memory, transformation and return.",
     "human_operator": {
       "name": "Edwing",
-      "role": "operator / performer"
+      "role": "operator / performer / human authorial authority"
     },
     "external_observer": {
       "name": "System Friction Institute",
       "role": "provenance / observation",
       "identity_boundary": "not the artist"
+    },
+    "current_phase": {
+      "name": "QUE NO / PRECAMPAIGN",
+      "source": "https://kxtxr.vercel.app/grimoire/ledger.json"
     }
   },
-  "same_as": [
+  "identity_edges": [
     {
+      "relation": "sameAs",
       "platform": "Spotify",
       "url": "https://open.spotify.com/artist/5Iwk9h7kNRB8GPNGeiRKGh",
-      "status": "SOURCE_INDEXED"
+      "status": "VERIFIED_CANONICAL"
     },
     {
+      "relation": "sameAs",
       "platform": "Apple Music",
       "url": "https://music.apple.com/mx/artist/kxtxr/6772383279",
-      "status": "SOURCE_INDEXED"
+      "status": "VERIFIED_CANONICAL"
     },
     {
+      "relation": "sameAs",
       "platform": "YouTube",
       "url": "https://www.youtube.com/@kxtxrsignal",
-      "status": "SOURCE_INDEXED"
+      "status": "VERIFIED_CANONICAL"
     },
     {
+      "relation": "source",
       "platform": "GitHub",
       "url": "https://github.com/Aptymok/kxtxr",
       "status": "OBSERVED_REPOSITORY"
@@ -43,25 +52,98 @@
   "unresolved_identity_edges": [
     {
       "platform": "Instagram",
-      "known_reference": "https://share.google/9AaQgIcFvreyPVZ7Z",
-      "status": "UNRESOLVED_REDIRECT",
-      "action": "resolve direct profile URL before sameAs"
+      "status": "DIRECT_PROFILE_URL_NOT_VERIFIED",
+      "rule": "exclude from sameAs until resolved"
     },
     {
       "platform": "TikTok",
-      "known_reference": "https://share.google/KJV1ZmkaPeUR6z435",
-      "status": "UNRESOLVED_REDIRECT",
-      "action": "resolve direct profile URL before sameAs"
+      "status": "DIRECT_PROFILE_URL_NOT_VERIFIED",
+      "rule": "exclude from sameAs until resolved"
+    }
+  ],
+  "content_nodes": [
+    {
+      "id": "REM618",
+      "relation": "release_lineage",
+      "state": "EMITTED",
+      "url": "https://kxtxr.vercel.app/historical/rem618/",
+      "source": "https://kxtxr.vercel.app/data/releases.json"
+    },
+    {
+      "id": "111",
+      "relation": "release_lineage",
+      "state": "QA_LOCK",
+      "url": "https://kxtxr.vercel.app/artist/",
+      "source": "https://kxtxr.vercel.app/data/releases.json"
+    },
+    {
+      "id": "QUE_NO",
+      "relation": "current_release_field",
+      "state": "PRECAMPAIGN",
+      "url": "https://kxtxr.vercel.app/#queno",
+      "source": "https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json"
+    },
+    {
+      "id": "QUE_NO_07_12",
+      "relation": "current_representation",
+      "state": "MEMORY",
+      "source": "https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json"
+    }
+  ],
+  "canonical_surfaces": [
+    {
+      "url": "https://kxtxr.vercel.app/",
+      "class": "PUBLIC_IDENTITY",
+      "index": true
+    },
+    {
+      "url": "https://kxtxr.vercel.app/artist/",
+      "class": "PUBLIC_ARTIST_EXPERIENCE",
+      "index": true
+    },
+    {
+      "url": "https://kxtxr.vercel.app/historical/rem618/",
+      "class": "HISTORICAL_EVENT",
+      "index": true
+    },
+    {
+      "url": "https://kxtxr.vercel.app/edwing-registry/",
+      "class": "OPERATOR_FIELD",
+      "index": false
     }
   ],
   "machine_surfaces": [
     {
       "url": "https://kxtxr.vercel.app/llms.txt",
-      "function": "agent orientation"
+      "function": "compact AI/search orientation"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/llms-full.txt",
+      "function": "expanded machine-readable project context"
     },
     {
       "url": "https://kxtxr.vercel.app/index.md",
-      "function": "compact markdown identity representation"
+      "function": "markdown canonical overview"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/.well-known/kxtxr.json",
+      "function": "stable identity manifest"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/site-manifest.json",
+      "function": "public site source map"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/releases.json",
+      "function": "release lineage state"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/media-manifest.json",
+      "function": "media provenance and usage boundaries"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/visual-system.json",
+      "function": "visual-system contract"
     },
     {
       "url": "https://kxtxr.vercel.app/grimoire/ledger.json",
@@ -72,24 +154,44 @@
       "function": "longitudinal canon"
     },
     {
-      "url": "https://kxtxr.vercel.app/historical/rem618/manifest.json",
-      "function": "historical provenance"
-    },
-    {
       "url": "https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json",
       "function": "current QUE NO representation definition"
     }
   ],
-  "discovery_policy": {
-    "crawl": "public surfaces intentionally crawlable",
-    "ai_search": "OAI-SearchBot explicitly allowed",
-    "training": "NOT_SEPARATELY_CONFIGURED; general robots rule currently allows crawling unless a bot-specific rule overrides it",
-    "identity_rule": "sameAs is reserved for URLs that unambiguously identify KXTXR",
-    "evidence_rule": "discovery and citation do not establish artistic value or causal impact"
+  "indexing": {
+    "html": "Static semantic text remains available without JavaScript.",
+    "json_ld": "MusicGroup + WebSite + WebPage graph on canonical root.",
+    "sitemap": "https://kxtxr.vercel.app/sitemap.xml",
+    "robots": "public surfaces crawlable; operator field noindex",
+    "llm_orientation": [
+      "/llms.txt",
+      "/llms-full.txt",
+      "/index.md"
+    ],
+    "image_policy": "large preview allowed on public root; canonical current image is high-resolution 07/12 asset",
+    "rule": "Discovery infrastructure clarifies identity and sources; it does not imply search-engine ranking, cultural value or platform recommendation."
   },
-  "deployment_status": {
-    "canonical_url": "DECLARED_IN_REPOSITORY_AND_DRIVE",
-    "vercel_team_observation": "NOT_OBSERVED_IN_CONNECTED_SFI_TEAM",
-    "rule": "Do not treat deployment as verified until independently observed."
+  "authority_and_boundaries": [
+    "KXTXR = artist/system identity",
+    "Edwing = human operator/performer and authorial authority",
+    "SFI = external provenance/observation layer, not the artist",
+    "AI = assisted analysis/code/representation, not autonomous authorial authority",
+    "PUBLICATION ≠ EVIDENCE",
+    "ENGAGEMENT ≠ CAUSALITY",
+    "DISCOVERY ≠ RANKING",
+    "MISSING REMAINS MISSING"
+  ],
+  "do_not_infer": [
+    "unverified booking email",
+    "unverified Instagram profile URL",
+    "unverified TikTok profile URL",
+    "unverified technical rider",
+    "artistic value from engagement metrics"
+  ],
+  "deployment": {
+    "pipeline": "GITHUB_TO_VERCEL_OBSERVED_OPERATIONAL",
+    "canonical_host": "https://kxtxr.vercel.app/",
+    "last_pipeline_observation_date": "2026-09-26",
+    "revision_rule": "Production revision is verified from GitHub/Vercel status before it is reported as deployed."
   }
 }
