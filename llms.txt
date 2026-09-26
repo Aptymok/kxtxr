@@ -58,3 +58,10 @@ SFI CERTIFICATE ≠ TRUTH
 MISSING REMAINS MISSING
 
 Platform views, likes, comments, saves and watch time may be recorded as signals. They do not by themselves establish artistic value, cultural causality or methodological validation.
+
+
+## QUE NO current field
+
+- Representation definition: https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json
+- Series: 07/12 MEMORY → 08/12 RETURN → 09/12 EMITTER → 10/12 EMBODIMENT → 11/12 INVOCATION → 12/12 APERTURA
+- KRY is an internal comparison heuristic; it is not a platform recommendation algorithm.
