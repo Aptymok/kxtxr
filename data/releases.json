@@ -1,0 +1,31 @@
+{
+  "schema": "KXTXR_RELEASES_V1",
+  "updated_at": "2026-09-26T16:21:00-06:00",
+  "artist": "KXTXR",
+  "releases": [
+    {
+      "id": "REM618",
+      "state": "EMITTED",
+      "function": "opening signal",
+      "released_at": "2026-06-11T18:18:00-06:00",
+      "local_audio": "/assets/KXTXR - REM 618 master final.wav",
+      "historical": "/historical/rem618/"
+    },
+    {
+      "id": "111",
+      "state": "QA_LOCK",
+      "function": "memory / calibration / transformation",
+      "public_experience": "/artist/",
+      "publication_date": "2026-11-21",
+      "local_audio": null
+    },
+    {
+      "id": "QUE_NO",
+      "state": "PRECAMPAIGN",
+      "function": "bridge / expansion / representation field",
+      "representation_engine": "/campaigns/que-no/representation-engine.json",
+      "local_audio": null
+    }
+  ],
+  "boundary": "A release state is declared from canonical project records; missing public audio remains null."
+}
