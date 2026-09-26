@@ -39,3 +39,56 @@
 }
 @media(max-width:560px){h2{font-size:clamp(48px,16vw,78px)}.hero-status b{font-size:28px}.current-field{grid-template-columns:1fr;gap:8px}.current-field>span{font-size:36px}.series button{min-height:105px}.series button b{writing-mode:horizontal-tb;transform:none;font-size:6px}.que-no-copy p{font-size:18px}.contact-routes{display:grid;grid-template-columns:1fr}.signal-orbit{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.grain,.scratch,.wave i,.signal-orbit,.nav>span:before{animation:none!important}.scratches{display:none}.hero-back,.hero-photo,.hero-echo{transform:none!important}.reveal{opacity:1;transform:none}}
+
+
+/* === KXTXR SYSTEM SURFACE V2 ============================================ */
+.source-stamp{position:relative;z-index:5;width:max-content;max-width:100%;margin:0 0 18px auto;padding:7px 9px;border:1px solid rgba(236,231,220,.11);font:6px/1.3 var(--mono);letter-spacing:.13em;color:rgba(236,231,220,.36);text-transform:uppercase}
+.source-stamp.dark{border-color:rgba(10,10,10,.18);color:rgba(10,10,10,.45)}
+.signal-field{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.76;mix-blend-mode:screen;pointer-events:none}
+.hero-architecture{position:absolute;inset:-3%;z-index:1;background:url('/assets/system/signal-architecture.svg') center/cover no-repeat;opacity:.72;transform:translate(var(--mx-back),var(--my-back)) scale(1.035);will-change:transform}
+.hero-ambient{position:absolute;inset:0;z-index:1;background:
+  radial-gradient(circle at 68% 37%,rgba(184,45,50,.19),transparent 18%),
+  radial-gradient(circle at 47% 50%,rgba(236,231,220,.045),transparent 28%),
+  linear-gradient(90deg,#050505 0 17%,transparent 36% 72%,#050505 93% 100%);
+pointer-events:none}
+.hero-portrait-shell{position:absolute;z-index:3;left:55%;top:50%;margin:0;width:min(44vw,720px);max-height:88vh;aspect-ratio:4/5;transform:translate(calc(-50% + var(--mx-actor)),calc(-50% + var(--my-actor)));will-change:transform;overflow:hidden;box-shadow:0 38px 90px rgba(0,0,0,.48);border:1px solid rgba(236,231,220,.08);background:#090908}
+.hero-portrait-shell:before{content:"";position:absolute;z-index:2;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.45),transparent 20% 74%,rgba(5,5,5,.3)),linear-gradient(0deg,rgba(5,5,5,.4),transparent 22% 78%,rgba(5,5,5,.16));pointer-events:none}
+.hero-portrait-shell:after{content:"";position:absolute;z-index:3;inset:0;background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(255,255,255,.018) 5px);mix-blend-mode:screen;pointer-events:none}
+.hero-portrait{display:block;width:100%;height:100%;object-fit:cover;object-position:center;image-rendering:auto;filter:contrast(1.05) saturate(.86) brightness(.82)}
+.hero-portrait-echo{position:absolute;z-index:2;left:58%;top:49%;width:min(44vw,720px);aspect-ratio:4/5;background:url('/assets/kxtxr/que-no-07-12-hero.png') center/cover no-repeat;filter:grayscale(1) contrast(1.4) brightness(.58) blur(.4px);mix-blend-mode:screen;opacity:.09;clip-path:polygon(44% 0,100% 0,100% 100%,28% 100%);transform:translate(calc(-50% + var(--mx-echo)),calc(-50% + var(--my-echo))) scale(1.025);will-change:transform;mask-image:url('/assets/system/signal-mask.svg');mask-size:100% 100%;mask-repeat:no-repeat}
+.hero .photo-wash{z-index:4;background:linear-gradient(90deg,#050505 0 12%,transparent 32% 75%,#050505 95%),linear-gradient(0deg,#050505 0,transparent 16% 83%,#050505 100%),radial-gradient(circle at 57% 42%,transparent 0 22%,rgba(0,0,0,.15) 48%,rgba(0,0,0,.8) 100%)}
+.hero .signal-orbit{z-index:5;left:58%;top:43%;width:min(32vw,500px)}
+.hero-status em{font-style:normal;font:6px/1.4 var(--mono);letter-spacing:.15em;color:rgba(236,231,220,.38);margin-top:7px}
+body[data-audio-active="1"] .hero-portrait-shell{box-shadow:0 38px 110px rgba(184,45,50,.13),0 38px 90px rgba(0,0,0,.48)}
+body[data-audio-active="1"] .signal-field{opacity:.94}
+
+.que-no-topology{position:absolute;z-index:-1;right:-5vw;top:7vh;width:min(72vw,1100px);height:auto;opacity:.34;filter:drop-shadow(0 0 24px rgba(184,45,50,.08));pointer-events:none}
+.que-no .field-console{box-shadow:0 45px 120px rgba(0,0,0,.58),0 0 0 1px rgba(184,45,50,.035)}
+.que-no .current-field:after{content:"OBSERVE → RETURN → MUTATE";position:absolute;right:20px;top:19px;font-size:6px;letter-spacing:.13em;color:rgba(236,231,220,.24)}
+.release-list article[data-hydrated="1"]:after{content:"SOURCE";position:absolute;right:0;top:8px;font-size:5px;letter-spacing:.13em;color:rgba(236,231,220,.2)}
+.field-data article{position:relative;overflow:hidden}.field-data article:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,var(--red),transparent);opacity:.45}
+
+@media(max-width:1100px){
+  .hero-portrait-shell,.hero-portrait-echo{left:58%;width:min(50vw,680px)}
+  .hero .signal-orbit{left:62%;width:42vw}
+}
+@media(max-width:900px){
+  .source-stamp{margin-left:0;margin-right:auto}
+  .hero-architecture{background-image:url('/assets/system/signal-architecture.svg');opacity:.55}
+  .hero-portrait-shell{left:64%;top:49%;width:min(78vw,610px);max-height:82vh}
+  .hero-portrait-echo{left:68%;top:48%;width:min(78vw,610px);opacity:.07}
+  .hero .photo-wash{background:linear-gradient(90deg,#050505 0 5%,transparent 32% 80%,#050505 100%),linear-gradient(0deg,#050505 0,transparent 17% 80%,#050505 100%)}
+  .hero .signal-orbit{left:66%;top:42%;width:64vw}
+  .que-no-topology{width:130vw;right:-52vw;top:8vh;opacity:.22}
+}
+@media(max-width:560px){
+  .signal-field{opacity:.52}
+  .hero-portrait-shell{left:64%;top:50%;width:86vw;max-height:75vh}
+  .hero-portrait-echo{left:70%;width:86vw}
+  .hero-status{top:11vh}
+  .hero-status em{display:none}
+  .que-no-topology{width:165vw;right:-80vw}
+}
+@media(prefers-reduced-motion:reduce){
+  .signal-field{display:none}.hero-architecture,.hero-portrait-shell,.hero-portrait-echo{transform:none!important}
+}
