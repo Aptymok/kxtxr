@@ -1,0 +1,63 @@
+{
+  "schema": "KXTXR_ASSET_REGISTRY_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-26T17:45:00-06:00",
+  "current": {
+    "campaign": "QUE NO",
+    "piece": "07/12",
+    "state": "MEMORY",
+    "hero": {
+      "id": "QUE_NO_07_12_IG_3",
+      "path": "/assets/kxtxr/que-no-07-12-hero.png",
+      "width": 1080,
+      "height": 1350,
+      "role": "BOUNDED_HUMAN_IDENTITY",
+      "max_css_width_px": 720,
+      "source_status": "DRIVE_SOURCE_OBSERVED_REPO_DERIVATIVE_PERSISTED"
+    }
+  },
+  "procedural": {
+    "architecture": "/assets/system/signal-architecture.svg",
+    "mask": "/assets/system/signal-mask.svg",
+    "que_no_topology": "/assets/system/que-no-topology.svg",
+    "signal_field": "WEBGL_RUNTIME",
+    "audio_reactivity": "WEB_AUDIO_RUNTIME"
+  },
+  "source_family": [
+    {
+      "id": "QUE_NO_07_12_IG_1",
+      "status": "OBSERVED_IN_DRIVE",
+      "repository_path": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "QUE_NO_07_12_IG_2",
+      "status": "OBSERVED_IN_DRIVE",
+      "repository_path": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "id": "QUE_NO_07_12_IG_3",
+      "status": "ACTIVE_IN_REPOSITORY",
+      "repository_path": "/assets/kxtxr/que-no-07-12-hero.png",
+      "width": 1080,
+      "height": 1350
+    }
+  ],
+  "deprecated": [
+    {
+      "path": "/assets/kxtxr/kxtxr-hero-generated.webp",
+      "width": 600,
+      "height": 400,
+      "reason": "insufficient resolution for viewport-scale identity use"
+    }
+  ],
+  "rules": [
+    "Raster human identity is bounded to intrinsic resolution.",
+    "Viewport-scale atmosphere is vector/procedural, not a stretched raster.",
+    "Changing campaign state should update this registry before public representation.",
+    "Missing assets remain missing; the UI uses declared fallbacks."
+  ]
+}
