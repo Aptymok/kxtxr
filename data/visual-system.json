@@ -1,0 +1,58 @@
+{
+  "schema": "KXTXR_VISUAL_SYSTEM_V1",
+  "updated_at": "2026-09-26T16:21:00-06:00",
+  "invariant": {
+    "identity": "KXTXR",
+    "human_presence": "Edwing / KXTXR",
+    "palette": [
+      "#050505",
+      "#ece7dc",
+      "#b82d32"
+    ],
+    "motifs": [
+      "signal",
+      "memory",
+      "return",
+      "film residue",
+      "technical trace",
+      "human/digital echo"
+    ]
+  },
+  "layers": [
+    {
+      "id": "field",
+      "technology": "WebGL fragment shader",
+      "function": "procedural signal atmosphere"
+    },
+    {
+      "id": "architecture",
+      "technology": "SVG/CSS vector grid",
+      "function": "infinite-resolution structural background"
+    },
+    {
+      "id": "human",
+      "technology": "high-resolution raster portrait",
+      "function": "recognizable embodied identity"
+    },
+    {
+      "id": "echo",
+      "technology": "CSS mask/blend/parallax",
+      "function": "digital residue"
+    },
+    {
+      "id": "type",
+      "technology": "HTML/CSS",
+      "function": "semantic/indexable content"
+    },
+    {
+      "id": "state",
+      "technology": "JSON hydration",
+      "function": "current campaign and canonical state"
+    }
+  ],
+  "performance": {
+    "reduced_motion": "disable WebGL motion/parallax",
+    "mobile": "lower shader resolution and bounded portrait scale"
+  },
+  "rule": "The wow layer must degrade gracefully; identity and content remain available without GPU effects."
+}
