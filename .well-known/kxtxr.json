@@ -1,0 +1,22 @@
+{
+  "schema": "KXTXR_IDENTITY_MANIFEST_V1",
+  "id": "https://kxtxr.vercel.app/#kxtxr",
+  "name": "KXTXR",
+  "type": "MusicGroup",
+  "canonical": "https://kxtxr.vercel.app/",
+  "discovery_mesh": "https://kxtxr.vercel.app/grimoire/discovery-mesh.json",
+  "state": "https://kxtxr.vercel.app/grimoire/ledger.json",
+  "current_campaign": "https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json",
+  "same_as": [
+    "https://open.spotify.com/artist/5Iwk9h7kNRB8GPNGeiRKGh",
+    "https://music.apple.com/mx/artist/kxtxr/6772383279",
+    "https://www.youtube.com/@kxtxrsignal"
+  ],
+  "source": "https://github.com/Aptymok/kxtxr",
+  "authority": {
+    "human": "Edwing",
+    "external_observer": "System Friction Institute",
+    "ai": "assisted only"
+  },
+  "updated_at": "2026-09-26T16:21:00-06:00"
+}
