@@ -30,6 +30,7 @@ Do not treat Instagram or TikTok as canonical identity edges until direct profil
 - /grimoire/discovery-mesh.json — identity/source graph
 - /grimoire/ledger.json — current public state
 - /data/site-manifest.json — what backs each public section
+- /data/system-map.json — section/source/technology/authority/fallback map
 - /data/releases.json — release lineage
 - /data/media-manifest.json — media provenance and usage limits
 - /data/visual-system.json — visual-system contract

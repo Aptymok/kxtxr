@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_SITE_MANIFEST_V2",
   "version": "2.0.0",
-  "updated_at": "2026-09-26T16:21:00-06:00",
+  "updated_at": "2026-09-26T17:39:00-06:00",
   "canonical_url": "https://kxtxr.vercel.app/",
   "posture": "AI_ASSISTED_HUMAN_GOVERNED_SFI_OBSERVED",
   "sections": [
@@ -48,5 +48,6 @@
       "source": "/data/contact.json"
     }
   ],
-  "rule": "PUBLIC UI MAY REPRESENT PERSISTED DATA; IT MUST NOT SYNTHESIZE MISSING FACTS."
+  "rule": "PUBLIC UI MAY REPRESENT PERSISTED DATA; IT MUST NOT SYNTHESIZE MISSING FACTS.",
+  "system_map": "/data/system-map.json"
 }
