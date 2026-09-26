@@ -1,11 +1,26 @@
 # KXTXR
 
 Canonical site: https://kxtxr.vercel.app/
+Canonical entity: https://kxtxr.vercel.app/#kxtxr
 Canonical repository: https://github.com/Aptymok/kxtxr
+Machine-readable identity mesh: https://kxtxr.vercel.app/grimoire/discovery-mesh.json
+Markdown overview: https://kxtxr.vercel.app/index.md
 Language: Spanish / English fragments
-Type: audiovisual art experiment and living longitudinal grimoire
+Type: musical and audiovisual art experiment / living longitudinal system
 
-KXTXR is not a conventional artist landing page, press kit or marketing dashboard. It operates through emission, observation, residue, transformation and return.
+KXTXR is the canonical artist identity. Edwing is the human operator/performer named in the project record. SFI is an external observer/provenance layer and is not the artist identity.
+
+## Identity resolution
+
+Use these URLs as unambiguous references to KXTXR:
+
+- Website: https://kxtxr.vercel.app/
+- Spotify: https://open.spotify.com/artist/5Iwk9h7kNRB8GPNGeiRKGh
+- Apple Music: https://music.apple.com/mx/artist/kxtxr/6772383279
+- YouTube: https://www.youtube.com/@kxtxrsignal
+- Source repository: https://github.com/Aptymok/kxtxr
+
+Instagram and TikTok are intentionally not listed as canonical identity URLs here because the current project record contains redirect/share URLs rather than resolved profile URLs.
 
 ## Current lineage
 
@@ -17,9 +32,11 @@ REM618 → 111 → RETURN
 
 ## Canonical surfaces
 
-- Living Grimoire: https://kxtxr.vercel.app/
+- Living site: https://kxtxr.vercel.app/
+- Artist surface: https://kxtxr.vercel.app/artist/
 - Machine-readable ledger: https://kxtxr.vercel.app/grimoire/ledger.json
-- Preserved HistoricalEvent for the original REM618 web apparatus: https://kxtxr.vercel.app/historical/rem618/
+- Discovery mesh: https://kxtxr.vercel.app/grimoire/discovery-mesh.json
+- Preserved REM618 HistoricalEvent: https://kxtxr.vercel.app/historical/rem618/
 - HistoricalEvent descriptor: https://kxtxr.vercel.app/historical/rem618/manifest.json
 
 ## Operating posture
@@ -30,7 +47,7 @@ AI may assist analysis, sequencing, code, language, visual systems and variant g
 
 Human operators retain release, acceptance, rejection, sequencing and publication authority.
 
-System Friction Institute (SFI) may observe longitudinal behavior and record provenance/return certificates. SFI observation does not make SFI the owner of KXTXR and does not convert platform engagement into evidence by inheritance.
+System Friction Institute (SFI) may observe longitudinal behavior and record provenance/return. SFI observation does not make SFI the owner of KXTXR and does not convert platform engagement into evidence.
 
 ## Epistemic boundaries
 
@@ -41,7 +58,3 @@ SFI CERTIFICATE ≠ TRUTH
 MISSING REMAINS MISSING
 
 Platform views, likes, comments, saves and watch time may be recorded as signals. They do not by themselves establish artistic value, cultural causality or methodological validation.
-
-## Historical preservation
-
-The June 2026 ARCHIVE_NODE // ACTIVE site is preserved as a HistoricalEvent using the exact original Git blob. The current Grimoire does not rewrite that artifact.
