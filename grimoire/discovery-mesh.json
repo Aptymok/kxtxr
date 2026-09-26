@@ -79,7 +79,7 @@
   "discovery_policy": {
     "crawl": "public surfaces intentionally crawlable",
     "ai_search": "OAI-SearchBot explicitly allowed",
-    "training": "GPTBot explicitly allowed by current project policy",
+    "training": "NOT_SEPARATELY_CONFIGURED; general robots rule currently allows crawling unless a bot-specific rule overrides it",
     "identity_rule": "sameAs is reserved for URLs that unambiguously identify KXTXR",
     "evidence_rule": "discovery and citation do not establish artistic value or causal impact"
   },
