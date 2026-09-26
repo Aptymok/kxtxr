@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_DISCOVERY_MESH_V1",
   "version": "1.0.0",
-  "updated_at": "2026-09-26T02:16:00-06:00",
+  "updated_at": "2026-09-26T05:45:00-06:00",
   "purpose": "Resolve KXTXR consistently across human search, web crawlers and multi-agent AI systems without collapsing artistic sovereignty into platform metrics.",
   "entity": {
     "id": "https://kxtxr.vercel.app/#kxtxr",
@@ -74,6 +74,10 @@
     {
       "url": "https://kxtxr.vercel.app/historical/rem618/manifest.json",
       "function": "historical provenance"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json",
+      "function": "current QUE NO representation definition"
     }
   ],
   "discovery_policy": {
