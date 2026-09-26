@@ -1,0 +1,166 @@
+{
+  "schema": "KXTXR_SYSTEM_MAP_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-26T17:39:00-06:00",
+  "purpose": "Machine-readable map of what each public KXTXR surface shows, what source backs it, what technology renders it, who has authority over it, and how it degrades when a source or advanced effect is unavailable.",
+  "invariant": "PUBLIC UI MAY REPRESENT PERSISTED DATA; IT MUST NOT SYNTHESIZE MISSING FACTS.",
+  "sections": [
+    {
+      "id": "inicio",
+      "public_role": "identity_entry",
+      "source": "/data/visual-system.json",
+      "assets": [
+        "/assets/kxtxr/que-no-07-12-hero.png",
+        "/assets/system/signal-architecture.svg",
+        "/assets/system/signal-mask.svg"
+      ],
+      "effects": [
+        "WebGL fragment signal field",
+        "Web Audio amplitude coupling",
+        "pointer parallax",
+        "CSS compositing/masks"
+      ],
+      "authority": "human-governed visual canon",
+      "fallback": "semantic HTML + vector/CSS atmosphere; GPU effects may disappear without loss of identity",
+      "index": true
+    },
+    {
+      "id": "musica",
+      "public_role": "release_lineage",
+      "source": "/data/releases.json",
+      "effects": [
+        "manifest hydration",
+        "repository audio playback"
+      ],
+      "authority": "release state from canonical project records",
+      "fallback": "static semantic release list",
+      "index": true
+    },
+    {
+      "id": "queno",
+      "public_role": "active_campaign",
+      "source": "/campaigns/que-no/representation-engine.json",
+      "assets": [
+        "/assets/system/que-no-topology.svg"
+      ],
+      "effects": [
+        "state hydration",
+        "representation sequence visualization"
+      ],
+      "authority": "human release/sequencing authority; RETURN may inform but not command authorship",
+      "fallback": "07/12–12/12 semantic sequence remains readable",
+      "index": true
+    },
+    {
+      "id": "live",
+      "public_role": "performance_evidence_surface",
+      "source": "/data/media-manifest.json",
+      "effects": [
+        "HTML5 video",
+        "cinematic hover treatment"
+      ],
+      "authority": "metadata-bound; no venue/date/person claims without verified metadata",
+      "fallback": "media remains present with LIMITED metadata status",
+      "index": true
+    },
+    {
+      "id": "proyecto",
+      "public_role": "identity_doctrine",
+      "source": "/grimoire/experiment.json",
+      "effects": [
+        "scroll reveal",
+        "semantic lineage"
+      ],
+      "authority": "project doctrine / human-governed",
+      "fallback": "static semantic doctrine",
+      "index": true
+    },
+    {
+      "id": "archivo",
+      "public_role": "persistent_memory",
+      "source": "/grimoire/ledger.json",
+      "related": [
+        "/grimoire/discovery-mesh.json",
+        "/grimoire/logbook.json"
+      ],
+      "effects": [
+        "JSON hydration",
+        "persistent source links"
+      ],
+      "authority": "versioned repository records",
+      "fallback": "missing remains explicitly missing",
+      "index": true
+    },
+    {
+      "id": "rider",
+      "public_role": "technical_boundary",
+      "source": "/data/rider.json",
+      "effects": [
+        "structured technical-state card"
+      ],
+      "authority": "publish only verified technical rider data",
+      "fallback": "NOT_PUBLISHED state",
+      "index": true
+    },
+    {
+      "id": "contacto",
+      "public_role": "verified_routes",
+      "source": "/data/contact.json",
+      "effects": [
+        "manifest-generated outbound routes"
+      ],
+      "authority": "verified canonical contact routes only",
+      "fallback": "no booking email is fabricated",
+      "index": true
+    },
+    {
+      "id": "artist",
+      "route": "/artist/",
+      "public_role": "cinematic_artist_experience",
+      "source": "scene/cue runtime in repository",
+      "effects": [
+        "audio/scroll cinematic runtime"
+      ],
+      "authority": "artist experience / human-governed",
+      "fallback": "navigable public surface",
+      "index": true
+    },
+    {
+      "id": "operator",
+      "route": "/edwing-registry/",
+      "public_role": "operational_observation",
+      "source": "/campaigns/que-no/representation-engine.json",
+      "effects": [
+        "local-first ingest",
+        "KRY internal heuristic",
+        "JSON export",
+        "optional backend email copy"
+      ],
+      "authority": "operator input; local entry is not canonical persistence",
+      "fallback": "local JSON export",
+      "index": false
+    },
+    {
+      "id": "historical-rem618",
+      "route": "/historical/rem618/",
+      "public_role": "historical_event",
+      "source": "historical preserved artifacts",
+      "effects": [
+        "static archive"
+      ],
+      "authority": "historical preservation; do not rewrite to fit current campaign",
+      "fallback": "static preserved event",
+      "index": true
+    }
+  ],
+  "discovery": {
+    "identity_graph": "/grimoire/discovery-mesh.json",
+    "compact_orientation": "/llms.txt",
+    "expanded_orientation": "/llms-full.txt",
+    "markdown_overview": "/index.md",
+    "stable_identity": "/.well-known/kxtxr.json",
+    "sitemap": "/sitemap.xml",
+    "rule": "DISCOVERY ≠ RANKING"
+  },
+  "rendering_rule": "Advanced effects are enhancement layers. Identity, text, sources and canonical relationships must remain reconstructible without WebGL, audio, motion or JavaScript."
+}
