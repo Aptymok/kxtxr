@@ -1,0 +1,78 @@
+{
+  "schema": "KXTXR_QUE_NO_REPRESENTATION_ENGINE_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-26T05:00:00-06:00",
+  "campaign": "QUE NO",
+  "current_piece": "07/12",
+  "canonical_emission_time": {
+    "local_time": "20:11",
+    "timezone": "America/Mexico_City",
+    "epistemic_class": "HYPOTHESIS",
+    "rule": "Hold initially so timing is not confounded with representation changes."
+  },
+  "pieces": [
+    {
+      "piece": "07/12",
+      "state": "MEMORY",
+      "objective": "identification + transmission",
+      "status": "READY",
+      "mutation_rule": "Keep time fixed; change at most one primary representation variable."
+    },
+    {
+      "piece": "08/12",
+      "state": "RETURN",
+      "objective": "let observed reception modify the field",
+      "status": "WAIT_RETURN_07",
+      "mutation_rule": "Use real 07/12 return only; do not fabricate reception."
+    },
+    {
+      "piece": "09/12",
+      "state": "EMITTER",
+      "objective": "associate work → KXTXR",
+      "status": "CONDITIONAL",
+      "mutation_rule": "Compare profile/search intent and transmission by representation."
+    },
+    {
+      "piece": "10/12",
+      "state": "EMBODIMENT",
+      "objective": "voice + body + performance",
+      "status": "CONDITIONAL",
+      "mutation_rule": "Observe retention/rewatch; preserve canonical identity."
+    },
+    {
+      "piece": "11/12",
+      "state": "INVOCATION",
+      "objective": "desire for access + sound recognition",
+      "status": "CONDITIONAL",
+      "mutation_rule": "Prepare conversion only when intent is observed."
+    },
+    {
+      "piece": "12/12",
+      "state": "APERTURA",
+      "objective": "listen + save + transmit",
+      "status": "CONDITIONAL",
+      "mutation_rule": "Transition from countdown to post-release RETURN."
+    }
+  ],
+  "kry": {
+    "name": "KXTXR Representation Yield",
+    "status": "INTERNAL_HEURISTIC",
+    "per_1000": true,
+    "weights": {
+      "shares_sends_per_reach": 0.3,
+      "substantive_comments_per_reach": 0.25,
+      "completion_rewatch_per_views": 0.2,
+      "profile_search_per_reach": 0.15,
+      "saves_per_reach": 0.1
+    },
+    "caveat": "KRY is an internal comparison indicator. It does not model or claim to know any platform recommendation algorithm."
+  },
+  "boundaries": [
+    "CANON ≠ EXPERIMENT",
+    "PUBLICATION ≠ EVIDENCE",
+    "ENGAGEMENT ≠ CAUSALITY",
+    "KRY ≠ PLATFORM ALGORITHM",
+    "LOCAL ENTRY ≠ CANONICAL PERSISTENCE",
+    "MISSING REMAINS MISSING"
+  ]
+}
