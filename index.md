@@ -21,9 +21,9 @@ Instagram and TikTok remain unresolved in the current source record because only
 
 ## Current state
 
-Lineage: REM618 → 111 → RETURN
+Lineage: REM618 → 111 → RETURN → QUE NO
 
-Current stage: RETURN.
+Current stage: QUE NO / PRECAMPAIGN.
 
 Persistent attractor: IDENTITY THROUGH TRANSFORMATION.
 
@@ -40,3 +40,10 @@ Signal grammar: EMISSION → RESIDUE → INTERVAL → MEMORY → TRANSFORMATION 
 ## Evidence boundary
 
 Publication is not evidence. Engagement is not causality. AI output is not authorial authority. Missing information remains missing.
+
+
+## QUE NO current field
+
+- Representation definition: https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json
+- Series: 07/12 MEMORY → 08/12 RETURN → 09/12 EMITTER → 10/12 EMBODIMENT → 11/12 INVOCATION → 12/12 APERTURA
+- KRY is an internal comparison heuristic; it is not a platform recommendation algorithm.

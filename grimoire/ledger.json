@@ -1,8 +1,8 @@
 {
   "schema": "KXTXR_GRIMOIRE_LEDGER_V2",
-  "updated_at": "2026-08-17T01:25:00-06:00",
+  "updated_at": "2026-09-26T05:30:00-06:00",
   "posture": "AI_ASSISTED_HUMAN_GOVERNED_SFI_OBSERVED",
-  "current_state": "RETURN_OPEN",
+  "current_state": "QUE_NO_PRECAMPAIGN",
   "axiom": "NO OPTIMICES. REGISTRA.",
   "experiment": "/grimoire/experiment.json",
   "memory_layers": {
@@ -92,6 +92,17 @@
           "state": "PREPARED"
         }
       ]
+    },
+    {
+      "id": "KXTXR-QUE-NO",
+      "emblem": "IV",
+      "label": "QUE NO",
+      "state": "PRECAMPAIGN",
+      "epistemic_class": "DECLARED",
+      "function": "Bridge / expansion / representation field before publication",
+      "representation_engine": "/campaigns/que-no/representation-engine.json",
+      "operator_surface": "/edwing-registry/",
+      "external_manifestations": []
     }
   ],
   "daily_folio": [
@@ -116,5 +127,6 @@
     "SFI CERTIFICATE ≠ TRUTH",
     "VISUALIZATION ≠ MEASUREMENT",
     "MISSING REMAINS MISSING"
-  ]
+  ],
+  "phase": "QUE NO"
 }

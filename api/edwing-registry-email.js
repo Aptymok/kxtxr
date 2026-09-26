@@ -34,17 +34,17 @@ export default async function handler(req, res) {
     }
 
     const latest = payload.latest_entry || {};
-    const subject = `[KXTXR.REGISTRY] ${latest.window_code || "REGISTRO"} // REM618 // Edwing`;
+    const subject = `[KXTXR.REGISTRY] ${latest.piece || latest.window_code || "REGISTRO"} // QUE NO // Edwing`;
 
     const jsonText = JSON.stringify(payload, null, 2);
     const attachmentBase64 = Buffer.from(jsonText, "utf8").toString("base64");
 
     const summary = [
-      "KXTXR.REGISTRY // EDWING",
+      "KXTXR.REGISTRY // QUE NO // EDWING",
       "",
-      `Ventana: ${latest.window_code || "N/A"}`,
-      `Perturbación: ${latest.perturbation || "N/A"}`,
-      `Decisión: ${latest.decision || "N/A"}`,
+      `Pieza: ${latest.piece || latest.window_code || "N/A"}`,
+      `Plataforma: ${latest.platform || "N/A"}`,
+      `Siguiente cambio: ${latest.next_change || "N/A"}`,
       "",
       "Cálculos:",
       JSON.stringify(payload.calculations || {}, null, 2),
@@ -65,7 +65,7 @@ export default async function handler(req, res) {
         text: summary,
         attachments: [
           {
-            filename: `kxtxr-edwing-${latest.window_code || "registry"}.json`,
+            filename: `kxtxr-que-no-${latest.piece || latest.window_code || "registry"}.json`,
             content: attachmentBase64
           }
         ]
