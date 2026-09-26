@@ -1,0 +1,23 @@
+{
+  "schema": "KXTXR_CONTACT_V1",
+  "updated_at": "2026-09-26T16:21:00-06:00",
+  "public_email": null,
+  "routes": [
+    {
+      "label": "Spotify",
+      "url": "https://open.spotify.com/artist/5Iwk9h7kNRB8GPNGeiRKGh",
+      "verified": true
+    },
+    {
+      "label": "Apple Music",
+      "url": "https://music.apple.com/mx/artist/kxtxr/6772383279",
+      "verified": true
+    },
+    {
+      "label": "YouTube",
+      "url": "https://www.youtube.com/@kxtxrsignal",
+      "verified": true
+    }
+  ],
+  "note": "No public booking email is published until a canonical verified address exists."
+}
