@@ -47,18 +47,28 @@ function renderMedia(data){
   const limited=(data?.live||[]).some(x=>x.metadata_status!=='VERIFIED');
   el.textContent=limited?'MEDIA PRESENT · DATE / VENUE / PERSON ATTRIBUTION REMAINS LIMITED UNTIL VERIFIED METADATA EXISTS.':'MEDIA METADATA VERIFIED.';
 }
+function renderAssets(data){
+  const hero=data?.current?.hero;if(!hero?.path)return;
+  const img=$('.hero-portrait'),echo=$('.hero-portrait-echo');
+  if(img&&img.getAttribute('src')!==hero.path)img.src=hero.path;
+  if(img&&hero.width&&hero.height){img.width=hero.width;img.height=hero.height}
+  if(echo)echo.style.backgroundImage='url("'+String(hero.path).replaceAll('"','')+'")';
+  const max=Math.min(760,Math.max(480,Number(hero.max_css_width_px)||720));
+  document.documentElement.style.setProperty('--hero-max',max+'px');
+  document.body.dataset.heroAsset=hero.id||'UNKNOWN';
+}
 async function hydrate(){
   const paths=[
     '/grimoire/ledger.json','/grimoire/experiment.json','/grimoire/logbook.json','/campaigns/que-no/representation-engine.json',
-    '/data/releases.json','/data/media-manifest.json','/data/contact.json','/data/rider.json','/data/visual-system.json','/data/site-manifest.json'
+    '/data/releases.json','/data/media-manifest.json','/data/contact.json','/data/rider.json','/data/visual-system.json','/data/site-manifest.json','/data/assets.json'
   ];
   const jobs=await Promise.allSettled(paths.map(json));
   const get=i=>jobs[i].status==='fulfilled'?jobs[i].value:null;
-  const ledger=get(0),experiment=get(1),logbook=get(2),campaign=get(3),releases=get(4),media=get(5),contact=get(6),rider=get(7),visual=get(8),site=get(9);
+  const ledger=get(0),experiment=get(1),logbook=get(2),campaign=get(3),releases=get(4),media=get(5),contact=get(6),rider=get(7),visual=get(8),site=get(9),assets=get(10);
   const p=safe(ledger?.phase||experiment?.current_phase?.name||ledger?.current_state).toUpperCase();
   if($('#phase')&&p)$('#phase').textContent=p.replaceAll('_',' ');
   if(campaign)renderCampaign(campaign);else $('#fieldConfig')&&($('#fieldConfig').textContent='SOURCE UNAVAILABLE');
-  renderReleases(releases);renderContact(contact);renderRider(rider);renderMedia(media);
+  renderReleases(releases);renderContact(contact);renderRider(rider);renderMedia(media);renderAssets(assets);
   const field=$('#fieldData');
   if(field){
     field.replaceChildren();
@@ -67,7 +77,7 @@ async function hydrate(){
     else field.append(text('p','NO PUBLIC RETURN PROMOTED WITHOUT CANONICAL DATA.'));
   }
   if($('#canon'))$('#canon').textContent=ledger&&site?'CANON / PERSISTENT / MANIFEST-BACKED':'CANON / SOURCE PARTIAL';
-  document.documentElement.dataset.systemBacked=site&&visual?'1':'0';
+  document.documentElement.dataset.systemBacked=site&&visual&&assets?'1':'0';
 }
 
 let audioCtx=null,analyser=null,mediaSource=null,freq=null,audioLevel=0;
