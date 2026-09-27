@@ -1,15 +1,47 @@
 {
   "schema": "KXTXR_MEDIA_MANIFEST_V1",
-  "updated_at": "2026-09-26T16:21:00-06:00",
+  "updated_at": "2026-09-26T19:16:00-06:00",
   "hero": {
     "canonical_current": "/assets/kxtxr/que-no-07-12-hero.png",
+    "canonical_mirror": "/assets/kxtxr/que-no/07-12/ig-03.png",
+    "source_record_name": "KXTXR_QUE_NO_07_12_IG_3.png",
     "intrinsic": {
       "width": 1080,
       "height": 1350
     },
     "usage": "foreground portrait / bounded scale",
-    "max_css_width_px": 760,
+    "max_css_width_px": 720,
     "do_not_use_as": "full-bleed desktop background",
+    "variants": [
+      {
+        "path": "/assets/kxtxr/que-no/07-12/ig-01.png",
+        "source_record_name": "KXTXR_QUE_NO_07_12_IG_1.png",
+        "intrinsic": {
+          "width": 1080,
+          "height": 1350
+        },
+        "role": "MEMORY_VARIANT"
+      },
+      {
+        "path": "/assets/kxtxr/que-no/07-12/ig-02.png",
+        "source_record_name": "KXTXR_QUE_NO_07_12_IG_2.png",
+        "intrinsic": {
+          "width": 1080,
+          "height": 1350
+        },
+        "role": "MEMORY_VARIANT"
+      }
+    ],
+    "atmosphere_source_master": {
+      "source_record_name": "KXTXR_QUE_NO_COVER_PROPOSAL_02_3000x3000.png",
+      "intrinsic": {
+        "width": 3000,
+        "height": 3000
+      },
+      "status": "EXTERNAL_SOURCE_REFERENCE",
+      "runtime": false,
+      "note": "Full-bleed runtime atmosphere is generated procedurally; this master informs art direction but is not treated as the canonical 07/12 cover."
+    },
     "previous_low_resolution": {
       "path": "/assets/kxtxr/kxtxr-hero-generated.webp",
       "width": 600,
@@ -31,7 +63,13 @@
   ],
   "queue_no_07_12": {
     "drive_master_observed": true,
-    "repo_derivative": "/assets/kxtxr/que-no-07-12-hero.png"
+    "asset_registry": "/data/assets.json",
+    "human_primary": "/assets/kxtxr/que-no/07-12/ig-03.png",
+    "variants": [
+      "/assets/kxtxr/que-no/07-12/ig-01.png",
+      "/assets/kxtxr/que-no/07-12/ig-02.png"
+    ]
   },
-  "rule": "Visual assets may be transformed for representation; provenance and identity boundaries remain explicit."
+  "rule": "Visual assets may be transformed for representation; provenance and identity boundaries remain explicit.",
+  "asset_registry": "/data/assets.json"
 }
