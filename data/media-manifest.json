@@ -1,14 +1,21 @@
 {
-  "schema": "KXTXR_MEDIA_MANIFEST_V1",
-  "updated_at": "2026-09-26T16:21:00-06:00",
+  "schema": "KXTXR_MEDIA_MANIFEST_V2",
+  "updated_at": "2026-09-26T17:39:00-06:00",
   "hero": {
-    "canonical_current": "/assets/kxtxr/que-no-07-12-hero.png",
+    "canonical_current": "/assets/kxtxr/que-no/07-12/ig-03.png",
+    "stable_alias": "/assets/kxtxr/que-no-07-12-hero.png",
     "intrinsic": {
       "width": 1080,
       "height": 1350
     },
-    "usage": "foreground portrait / bounded scale",
-    "max_css_width_px": 760,
+    "usage": "bounded human identity / 07/12 MEMORY",
+    "max_css_width_px": 540,
+    "atmosphere": "/assets/system/que-no-atmosphere.svg",
+    "variants": [
+      "/assets/kxtxr/que-no/07-12/ig-01.png",
+      "/assets/kxtxr/que-no/07-12/ig-02.png",
+      "/assets/kxtxr/que-no/07-12/ig-03.png"
+    ],
     "do_not_use_as": "full-bleed desktop background",
     "previous_low_resolution": {
       "path": "/assets/kxtxr/kxtxr-hero-generated.webp",
@@ -31,7 +38,10 @@
   ],
   "queue_no_07_12": {
     "drive_master_observed": true,
-    "repo_derivative": "/assets/kxtxr/que-no-07-12-hero.png"
+    "repository_family_persisted": true,
+    "active": "/assets/kxtxr/que-no/07-12/ig-03.png",
+    "registry": "/data/assets.json"
   },
-  "rule": "Visual assets may be transformed for representation; provenance and identity boundaries remain explicit."
+  "rule": "Visual assets may be transformed for representation; provenance and identity boundaries remain explicit.",
+  "version": "2.0.0"
 }
