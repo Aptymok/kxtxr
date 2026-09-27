@@ -151,3 +151,8 @@ QUE NO
 ```
 
 The next representation is allowed to change only when the observed RETURN warrants it.
+
+
+## Governed visual assets
+
+Current visual identity is declared in `/data/assets.json`. The active QUE NO 07/12 human layer is `/assets/kxtxr/que-no/07-12/ig-03.png`; IG_1 and IG_2 are persisted variants. Raster identity is bounded; viewport-scale depth is vector/procedural.
