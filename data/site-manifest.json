@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_SITE_MANIFEST_V2",
   "version": "2.0.0",
-  "updated_at": "2026-09-26T17:39:00-06:00",
+  "updated_at": "2026-09-26T19:16:00-06:00",
   "canonical_url": "https://kxtxr.vercel.app/",
   "posture": "AI_ASSISTED_HUMAN_GOVERNED_SFI_OBSERVED",
   "sections": [
@@ -9,8 +9,13 @@
       "id": "inicio",
       "role": "identity_entry",
       "source": "/data/visual-system.json",
-      "asset": "/assets/kxtxr/que-no-07-12-hero.png",
-      "fallback": "/assets/kxtxr/kxtxr-bg-desktop.webp"
+      "asset_primary": "/assets/kxtxr/que-no/07-12/ig-03.png",
+      "asset_alias": "/assets/kxtxr/que-no-07-12-hero.png",
+      "asset_variants": [
+        "/assets/kxtxr/que-no/07-12/ig-01.png",
+        "/assets/kxtxr/que-no/07-12/ig-02.png"
+      ],
+      "full_bleed": "procedural WebGL + SVG + CSS"
     },
     {
       "id": "musica",
@@ -49,5 +54,6 @@
     }
   ],
   "rule": "PUBLIC UI MAY REPRESENT PERSISTED DATA; IT MUST NOT SYNTHESIZE MISSING FACTS.",
-  "system_map": "/data/system-map.json"
+  "system_map": "/data/system-map.json",
+  "asset_registry": "/data/assets.json"
 }

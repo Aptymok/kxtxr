@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_SYSTEM_MAP_V1",
   "version": "1.0.0",
-  "updated_at": "2026-09-26T17:39:00-06:00",
+  "updated_at": "2026-09-26T19:16:00-06:00",
   "purpose": "Machine-readable map of what each public KXTXR surface shows, what source backs it, what technology renders it, who has authority over it, and how it degrades when a source or advanced effect is unavailable.",
   "invariant": "PUBLIC UI MAY REPRESENT PERSISTED DATA; IT MUST NOT SYNTHESIZE MISSING FACTS.",
   "sections": [
@@ -10,7 +10,9 @@
       "public_role": "identity_entry",
       "source": "/data/visual-system.json",
       "assets": [
-        "/assets/kxtxr/que-no-07-12-hero.png",
+        "/assets/kxtxr/que-no/07-12/ig-03.png",
+        "/assets/kxtxr/que-no/07-12/ig-01.png",
+        "/assets/kxtxr/que-no/07-12/ig-02.png",
         "/assets/system/signal-architecture.svg",
         "/assets/system/signal-mask.svg"
       ],
@@ -18,10 +20,12 @@
         "WebGL fragment signal field",
         "Web Audio amplitude coupling",
         "pointer parallax",
+        "SVG architecture",
+        "CSS procedural atmosphere",
         "CSS compositing/masks"
       ],
       "authority": "human-governed visual canon",
-      "fallback": "semantic HTML + vector/CSS atmosphere; GPU effects may disappear without loss of identity",
+      "fallback": "semantic HTML + SVG/CSS atmosphere + bounded primary portrait; no viewport-scale low-resolution raster dependency",
       "index": true
     },
     {
@@ -162,5 +166,6 @@
     "sitemap": "/sitemap.xml",
     "rule": "DISCOVERY ≠ RANKING"
   },
-  "rendering_rule": "Advanced effects are enhancement layers. Identity, text, sources and canonical relationships must remain reconstructible without WebGL, audio, motion or JavaScript."
+  "rendering_rule": "Advanced effects are enhancement layers. Identity, text, sources and canonical relationships must remain reconstructible without WebGL, audio, motion or JavaScript.",
+  "asset_registry": "/data/assets.json"
 }

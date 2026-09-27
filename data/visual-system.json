@@ -1,6 +1,6 @@
 {
   "schema": "KXTXR_VISUAL_SYSTEM_V1",
-  "updated_at": "2026-09-26T16:21:00-06:00",
+  "updated_at": "2026-09-26T19:16:00-06:00",
   "invariant": {
     "identity": "KXTXR",
     "human_presence": "Edwing / KXTXR",
@@ -22,27 +22,51 @@
     {
       "id": "field",
       "technology": "WebGL fragment shader",
-      "function": "procedural signal atmosphere"
+      "function": "procedural signal atmosphere",
+      "runtime": "enhancement"
     },
     {
       "id": "architecture",
       "technology": "SVG/CSS vector grid",
-      "function": "infinite-resolution structural background"
+      "function": "infinite-resolution structural background",
+      "asset": "/assets/system/signal-architecture.svg"
     },
     {
-      "id": "human",
+      "id": "atmosphere",
+      "technology": "CSS procedural compositing",
+      "function": "full-bleed depth without viewport-scale raster dependency",
+      "source_master_reference": "KXTXR_QUE_NO_COVER_PROPOSAL_02_3000x3000.png"
+    },
+    {
+      "id": "human_primary",
       "technology": "high-resolution raster portrait",
-      "function": "recognizable embodied identity"
+      "function": "recognizable embodied identity",
+      "asset": "/assets/kxtxr/que-no/07-12/ig-03.png",
+      "intrinsic": {
+        "width": 1080,
+        "height": 1350
+      },
+      "constraint": "bounded foreground only"
+    },
+    {
+      "id": "human_variants",
+      "technology": "high-resolution raster portraits",
+      "function": "MEMORY representation alternatives",
+      "assets": [
+        "/assets/kxtxr/que-no/07-12/ig-01.png",
+        "/assets/kxtxr/que-no/07-12/ig-02.png"
+      ]
     },
     {
       "id": "echo",
       "technology": "CSS mask/blend/parallax",
-      "function": "digital residue"
+      "function": "digital residue",
+      "mask": "/assets/system/signal-mask.svg"
     },
     {
       "id": "type",
-      "technology": "HTML/CSS",
-      "function": "semantic/indexable content"
+      "technology": "semantic HTML/CSS",
+      "function": "human-readable and indexable content"
     },
     {
       "id": "state",
@@ -51,8 +75,10 @@
     }
   ],
   "performance": {
-    "reduced_motion": "disable WebGL motion/parallax",
-    "mobile": "lower shader resolution and bounded portrait scale"
+    "reduced_motion": "disable WebGL motion/parallax while preserving identity and semantic content",
+    "mobile": "bounded portrait scale + lower GPU load",
+    "image_rule": "Never upscale the 1080×1350 human layer to full-bleed viewport coverage."
   },
-  "rule": "The wow layer must degrade gracefully; identity and content remain available without GPU effects."
+  "rule": "The wow layer must degrade gracefully; identity and content remain available without GPU effects. Full-screen depth is procedural/vector-first.",
+  "asset_registry": "/data/assets.json"
 }

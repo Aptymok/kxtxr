@@ -1,0 +1,100 @@
+{
+  "schema": "KXTXR_ASSET_REGISTRY_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-26T19:16:00-06:00",
+  "purpose": "Declare visual asset roles, dimensions, provenance class and runtime constraints so public representation can be reconstructed without relying on undocumented file choices.",
+  "current": {
+    "campaign": "QUE NO",
+    "piece": "07/12",
+    "state": "MEMORY"
+  },
+  "assets": [
+    {
+      "id": "QUE_NO_07_12_HUMAN_PRIMARY",
+      "path": "/assets/kxtxr/que-no-07-12-hero.png",
+      "mirror_path": "/assets/kxtxr/que-no/07-12/ig-03.png",
+      "source_record_name": "KXTXR_QUE_NO_07_12_IG_3.png",
+      "intrinsic": {
+        "width": 1080,
+        "height": 1350
+      },
+      "role": "human_primary",
+      "runtime": true,
+      "rule": "Bounded foreground identity. Never stretch to full-bleed desktop viewport."
+    },
+    {
+      "id": "QUE_NO_07_12_MEMORY_VARIANT_01",
+      "path": "/assets/kxtxr/que-no/07-12/ig-01.png",
+      "source_record_name": "KXTXR_QUE_NO_07_12_IG_1.png",
+      "intrinsic": {
+        "width": 1080,
+        "height": 1350
+      },
+      "role": "memory_variant",
+      "runtime_available": true
+    },
+    {
+      "id": "QUE_NO_07_12_MEMORY_VARIANT_02",
+      "path": "/assets/kxtxr/que-no/07-12/ig-02.png",
+      "source_record_name": "KXTXR_QUE_NO_07_12_IG_2.png",
+      "intrinsic": {
+        "width": 1080,
+        "height": 1350
+      },
+      "role": "memory_variant",
+      "runtime_available": true
+    },
+    {
+      "id": "QUE_NO_ATMOSPHERE_SOURCE_MASTER",
+      "source_record_name": "KXTXR_QUE_NO_COVER_PROPOSAL_02_3000x3000.png",
+      "intrinsic": {
+        "width": 3000,
+        "height": 3000
+      },
+      "role": "atmosphere_source_master",
+      "runtime": false,
+      "status": "EXTERNAL_SOURCE_REFERENCE",
+      "rule": "Not treated as the canonical 07/12 cover. Runtime full-bleed depth is generated procedurally so the site does not depend on this raster."
+    },
+    {
+      "id": "LEGACY_HERO_600",
+      "path": "/assets/kxtxr/kxtxr-hero-generated.webp",
+      "intrinsic": {
+        "width": 600,
+        "height": 400
+      },
+      "role": "legacy",
+      "runtime": false,
+      "status": "DEPRECATED_FOR_HERO",
+      "rule": "Must not be used as viewport-scale identity imagery."
+    },
+    {
+      "id": "SIGNAL_ARCHITECTURE",
+      "path": "/assets/system/signal-architecture.svg",
+      "role": "vector_architecture",
+      "runtime": true,
+      "scaling": "resolution_independent"
+    },
+    {
+      "id": "SIGNAL_MASK",
+      "path": "/assets/system/signal-mask.svg",
+      "role": "digital_echo_mask",
+      "runtime": true,
+      "scaling": "resolution_independent"
+    },
+    {
+      "id": "QUE_NO_TOPOLOGY",
+      "path": "/assets/system/que-no-topology.svg",
+      "role": "campaign_topology",
+      "runtime": true,
+      "scaling": "resolution_independent"
+    }
+  ],
+  "rendering_contract": [
+    "HUMAN RASTER = bounded identity layer",
+    "FULL-BLEED DEPTH = WebGL + SVG + CSS procedural atmosphere",
+    "VECTOR ARCHITECTURE = resolution independent",
+    "AUDIO REACTIVITY = enhancement only",
+    "MISSING ASSET ≠ SYNTHESIZED FACT"
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_DISCOVERY_MESH_V2",
   "version": "2.0.0",
-  "updated_at": "2026-09-26T17:39:00-06:00",
+  "updated_at": "2026-09-26T19:16:00-06:00",
   "purpose": "Resolve KXTXR consistently across human search, web crawlers, AI search and multi-agent systems by publishing explicit identity, state, source and authority edges. This improves reconstructibility; it does not guarantee ranking or recommendation.",
   "entity": {
     "id": "https://kxtxr.vercel.app/#kxtxr",
@@ -138,6 +138,10 @@
       "function": "section → source → technology → authority → fallback map"
     },
     {
+      "url": "https://kxtxr.vercel.app/data/assets.json",
+      "function": "visual asset roles, provenance classes and runtime constraints"
+    },
+    {
       "url": "https://kxtxr.vercel.app/data/releases.json",
       "function": "release lineage state"
     },
@@ -172,7 +176,7 @@
       "/llms-full.txt",
       "/index.md"
     ],
-    "image_policy": "large preview allowed on public root; canonical current image is high-resolution 07/12 asset",
+    "image_policy": "Public root uses a bounded 1080×1350 current human image for large preview. Viewport-scale depth is vector/procedural; the deprecated 600×400 hero is excluded from hero rendering.",
     "rule": "Discovery infrastructure clarifies identity and sources; it does not imply search-engine ranking, cultural value or platform recommendation."
   },
   "authority_and_boundaries": [
@@ -197,5 +201,16 @@
     "canonical_host": "https://kxtxr.vercel.app/",
     "last_pipeline_observation_date": "2026-09-26",
     "revision_rule": "Production revision is verified from GitHub/Vercel status before it is reported as deployed."
+  },
+  "visual_identity": {
+    "asset_registry": "https://kxtxr.vercel.app/data/assets.json",
+    "primary_human_asset": "https://kxtxr.vercel.app/assets/kxtxr/que-no/07-12/ig-03.png",
+    "public_alias": "https://kxtxr.vercel.app/assets/kxtxr/que-no-07-12-hero.png",
+    "runtime_depth": [
+      "WebGL signal field",
+      "SVG architecture",
+      "CSS procedural atmosphere"
+    ],
+    "boundary": "Visual discovery metadata describes representation; it does not establish artistic value or ranking."
   }
 }

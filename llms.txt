@@ -30,11 +30,19 @@ Do not treat Instagram or TikTok as canonical identity edges until direct profil
 - /grimoire/discovery-mesh.json — identity/source graph
 - /grimoire/ledger.json — current public state
 - /data/site-manifest.json — what backs each public section
+- /data/assets.json — current visual assets, roles, provenance classes and runtime constraints
 - /data/system-map.json — section/source/technology/authority/fallback map
 - /data/releases.json — release lineage
 - /data/media-manifest.json — media provenance and usage limits
 - /data/visual-system.json — visual-system contract
 - /campaigns/que-no/representation-engine.json — current campaign state
+
+
+## Current visual identity
+
+Primary human representation: /assets/kxtxr/que-no/07-12/ig-03.png
+Public hero alias: /assets/kxtxr/que-no-07-12-hero.png
+The former 600×400 hero asset is deprecated for viewport-scale rendering. Full-screen depth is produced by WebGL, SVG and CSS procedural layers.
 
 ## Authority
 

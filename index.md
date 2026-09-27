@@ -51,6 +51,7 @@ Each public section declares its backing source in `/data/site-manifest.json`.
 - `/data/releases.json` — release state.
 - `/data/media-manifest.json` — media provenance and use limits.
 - `/data/visual-system.json` — visual-system contract.
+- `/data/assets.json` — visual asset roles, variants, provenance classes and rendering constraints.
 - `/campaigns/que-no/representation-engine.json` — current campaign state.
 - `/.well-known/kxtxr.json` — stable compact identity manifest.
 - `/llms.txt` — compact AI/search orientation.
@@ -58,7 +59,7 @@ Each public section declares its backing source in `/data/site-manifest.json`.
 
 ## Visual system
 
-The public root uses a bounded high-resolution 07/12 raster portrait (1080×1350). The deprecated 600×400 hero is not used as a viewport-scale identity image. Full-screen depth is produced by SVG architecture, CSS compositing, a custom WebGL signal field, Web Audio input and a human/digital echo layer.
+The public root uses IG_3 as the bounded 07/12 human-primary portrait (1080×1350), with IG_1 and IG_2 retained as MEMORY variants. The deprecated 600×400 hero is excluded from viewport-scale rendering. Full-screen depth is produced by SVG architecture, CSS compositing, a custom WebGL signal field, Web Audio input and a human/digital echo layer.
 
 ## Evidence and discovery boundaries
 
