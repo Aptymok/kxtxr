@@ -56,6 +56,7 @@ Public section backing:
 4. /data/contact.json
 5. /data/rider.json
 6. /data/visual-system.json
+7. /data/assets.json — current visual asset registry and representation provenance
 
 Historical provenance:
 1. /historical/rem618/
@@ -73,7 +74,7 @@ Instagram and TikTok are not canonical sameAs edges until direct profile URLs ar
 
 ## Current visual representation
 
-The current public hero uses /assets/kxtxr/que-no-07-12-hero.png, observed as a 1080×1350 campaign asset. It is constrained to a bounded foreground portrait role and is not used as a full-screen desktop bitmap.
+The current public hero uses QUE_NO_07_12_IG_3 at /assets/kxtxr/que-no-07-12-hero.png, a 1080×1350 campaign asset declared by /data/assets.json. It is constrained to a bounded foreground portrait role and is not used as a full-screen desktop bitmap.
 
 The former /assets/kxtxr/kxtxr-hero-generated.webp is 600×400 and is deprecated for hero use.
 
