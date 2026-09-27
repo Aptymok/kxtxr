@@ -30,6 +30,7 @@ Do not treat Instagram or TikTok as canonical identity edges until direct profil
 - /grimoire/discovery-mesh.json — identity/source graph
 - /grimoire/ledger.json — current public state
 - /data/site-manifest.json — what backs each public section
+- /data/assets.json — active visual identity, variants, resolution and provenance
 - /data/system-map.json — section/source/technology/authority/fallback map
 - /data/releases.json — release lineage
 - /data/media-manifest.json — media provenance and usage limits
@@ -41,6 +42,10 @@ Do not treat Instagram or TikTok as canonical identity edges until direct profil
 AI ASSISTED / HUMAN GOVERNED / SFI OBSERVED
 
 Human operators retain release, acceptance, rejection, sequencing and publication authority. AI output does not become observed fact or autonomous authorial authority.
+
+## Current visual
+
+07/12 MEMORY uses `/assets/kxtxr/que-no/07-12/ig-03.png` as the bounded human-identity asset. The stable alias `/assets/kxtxr/que-no-07-12-hero.png` resolves to the same active representation. Viewport-scale depth uses SVG/WebGL; the deprecated 600×400 raster is not used as a full-screen hero.
 
 ## Boundaries
 

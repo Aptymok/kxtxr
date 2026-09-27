@@ -18,5 +18,7 @@
     "external_observer": "System Friction Institute",
     "ai": "assisted only"
   },
-  "updated_at": "2026-09-26T16:21:00-06:00"
+  "updated_at": "2026-09-26T17:39:00-06:00",
+  "asset_registry": "https://kxtxr.vercel.app/data/assets.json",
+  "current_visual": "https://kxtxr.vercel.app/assets/kxtxr/que-no/07-12/ig-03.png"
 }

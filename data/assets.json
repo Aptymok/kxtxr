@@ -1,0 +1,72 @@
+{
+  "schema": "KXTXR_ASSET_REGISTRY_V2",
+  "version": "2.0.0",
+  "updated_at": "2026-09-26T17:39:00-06:00",
+  "current": {
+    "campaign": "QUE NO",
+    "piece": "07/12",
+    "state": "MEMORY",
+    "hero": {
+      "stable_alias": "/assets/kxtxr/que-no-07-12-hero.png",
+      "canonical_asset": "/assets/kxtxr/que-no/07-12/ig-03.png",
+      "width": 1080,
+      "height": 1350,
+      "role": "BOUNDED_HUMAN_IDENTITY",
+      "max_css_width_px": 540,
+      "source_status": "DRIVE_SOURCE_OBSERVED_REPOSITORY_PERSISTED"
+    },
+    "atmosphere": {
+      "path": "/assets/system/que-no-atmosphere.svg",
+      "role": "VIEWPORT_SCALE_VECTOR_ATMOSPHERE",
+      "intrinsic": "SCALABLE_VECTOR",
+      "source_status": "REPOSITORY_GENERATED"
+    }
+  },
+  "family": [
+    {
+      "id": "QUE_NO_07_12_IG_1",
+      "path": "/assets/kxtxr/que-no/07-12/ig-01.png",
+      "width": 1080,
+      "height": 1350,
+      "status": "PERSISTED_VARIANT"
+    },
+    {
+      "id": "QUE_NO_07_12_IG_2",
+      "path": "/assets/kxtxr/que-no/07-12/ig-02.png",
+      "width": 1080,
+      "height": 1350,
+      "status": "PERSISTED_VARIANT"
+    },
+    {
+      "id": "QUE_NO_07_12_IG_3",
+      "path": "/assets/kxtxr/que-no/07-12/ig-03.png",
+      "width": 1080,
+      "height": 1350,
+      "status": "ACTIVE_CANONICAL_REPRESENTATION"
+    }
+  ],
+  "procedural": {
+    "atmosphere": "/assets/system/que-no-atmosphere.svg",
+    "architecture": "/assets/system/signal-architecture.svg",
+    "mask": "/assets/system/signal-mask.svg",
+    "topology": "/assets/system/que-no-topology.svg",
+    "signal_field": "WEBGL_RUNTIME",
+    "audio_reactivity": "WEB_AUDIO_RUNTIME"
+  },
+  "deprecated": [
+    {
+      "path": "/assets/kxtxr/kxtxr-hero-generated.webp",
+      "width": 600,
+      "height": 400,
+      "status": "DO_NOT_USE_FOR_VIEWPORT_SCALE",
+      "reason": "insufficient intrinsic resolution"
+    }
+  ],
+  "rules": [
+    "Raster human identity is bounded to 540 CSS px on wide screens so the 1080 px source is not enlarged beyond a 2x presentation target.",
+    "Viewport-scale depth is vector/procedural.",
+    "Stable alias and canonical asset must resolve to the same blob for the active representation.",
+    "Campaign changes update the registry before public representation.",
+    "Missing assets remain missing."
+  ]
+}
