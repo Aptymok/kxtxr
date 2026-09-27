@@ -30,6 +30,7 @@ Do not treat Instagram or TikTok as canonical identity edges until direct profil
 - /grimoire/discovery-mesh.json — identity/source graph
 - /grimoire/ledger.json — current public state
 - /data/site-manifest.json — what backs each public section
+- /data/assets.json — current visual asset registry and representation provenance
 - /data/releases.json — release lineage
 - /data/media-manifest.json — media provenance and usage limits
 - /data/visual-system.json — visual-system contract
@@ -48,3 +49,7 @@ ENGAGEMENT ≠ CAUSALITY
 DISCOVERY ≠ RANKING
 AI OUTPUT ≠ AUTHORIAL AUTHORITY
 MISSING REMAINS MISSING
+
+## Current visual representation
+
+Current human hero: QUE_NO_07_12_IG_3 at /assets/kxtxr/que-no-07-12-hero.png (1080×1350), bounded in CSS. Viewport-scale atmosphere is vector/procedural and audio-reactive; the 600×400 legacy hero is deprecated for viewport-scale use.
