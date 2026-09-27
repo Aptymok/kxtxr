@@ -1,6 +1,6 @@
 {
-  "schema": "KXTXR_VISUAL_SYSTEM_V1",
-  "updated_at": "2026-09-26T16:21:00-06:00",
+  "schema": "KXTXR_VISUAL_SYSTEM_V2",
+  "updated_at": "2026-09-26T17:39:00-06:00",
   "invariant": {
     "identity": "KXTXR",
     "human_presence": "Edwing / KXTXR",
@@ -22,37 +22,60 @@
     {
       "id": "field",
       "technology": "WebGL fragment shader",
-      "function": "procedural signal atmosphere"
+      "function": "procedural signal atmosphere",
+      "scale": "VIEWPORT"
     },
     {
       "id": "architecture",
       "technology": "SVG/CSS vector grid",
-      "function": "infinite-resolution structural background"
+      "function": "infinite-resolution structural background",
+      "asset": "/assets/system/signal-architecture.svg"
     },
     {
-      "id": "human",
-      "technology": "high-resolution raster portrait",
-      "function": "recognizable embodied identity"
+      "id": "atmosphere",
+      "technology": "SVG vector composition",
+      "function": "QUE NO full-bleed depth without raster scaling",
+      "asset": "/assets/system/que-no-atmosphere.svg"
+    },
+    {
+      "id": "human_primary",
+      "technology": "1080×1350 raster",
+      "function": "recognizable embodied identity",
+      "asset": "/assets/kxtxr/que-no/07-12/ig-03.png",
+      "max_css_width_px": 540
+    },
+    {
+      "id": "human_variants",
+      "technology": "1080×1350 raster family",
+      "function": "07/12 MEMORY representation variants",
+      "assets": [
+        "/assets/kxtxr/que-no/07-12/ig-01.png",
+        "/assets/kxtxr/que-no/07-12/ig-02.png"
+      ]
     },
     {
       "id": "echo",
       "technology": "CSS mask/blend/parallax",
-      "function": "digital residue"
+      "function": "digital residue",
+      "source": "human_primary"
     },
     {
       "id": "type",
-      "technology": "HTML/CSS",
-      "function": "semantic/indexable content"
+      "technology": "semantic HTML/CSS",
+      "function": "indexable human-readable content"
     },
     {
       "id": "state",
       "technology": "JSON hydration",
-      "function": "current campaign and canonical state"
+      "function": "campaign, asset and canonical state"
     }
   ],
   "performance": {
-    "reduced_motion": "disable WebGL motion/parallax",
-    "mobile": "lower shader resolution and bounded portrait scale"
+    "reduced_motion": "disable WebGL motion/parallax; retain semantic/vector identity",
+    "mobile": "bounded portrait below intrinsic scale; lower shader resolution",
+    "retina": "primary portrait capped at 540 CSS px on wide screens to target 2x display without enlarging the 1080 px raster"
   },
-  "rule": "The wow layer must degrade gracefully; identity and content remain available without GPU effects."
+  "rule": "Viewport-scale identity is vector/procedural. Raster human identity remains bounded. Advanced effects degrade without removing semantic content or source links.",
+  "version": "2.0.0",
+  "asset_registry": "/data/assets.json"
 }
