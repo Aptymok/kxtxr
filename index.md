@@ -47,6 +47,7 @@ Each public section declares its backing source in `/data/site-manifest.json`.
 - `/grimoire/discovery-mesh.json` — identity/source graph.
 - `/grimoire/ledger.json` — public state ledger.
 - `/data/site-manifest.json` — section → source map.
+- `/data/assets.json` — active visual identity, variants, intrinsic resolution, provenance and fallbacks.
 - `/data/system-map.json` — section → source → technology → authority → fallback map.
 - `/data/releases.json` — release state.
 - `/data/media-manifest.json` — media provenance and use limits.
@@ -58,7 +59,7 @@ Each public section declares its backing source in `/data/site-manifest.json`.
 
 ## Visual system
 
-The public root uses a bounded high-resolution 07/12 raster portrait (1080×1350). The deprecated 600×400 hero is not used as a viewport-scale identity image. Full-screen depth is produced by SVG architecture, CSS compositing, a custom WebGL signal field, Web Audio input and a human/digital echo layer.
+The public root uses `/assets/kxtxr/que-no/07-12/ig-03.png` (1080×1350) as a bounded 07/12 human-identity layer, capped at 540 CSS px on wide screens. IG_1 and IG_2 remain persisted variants. Viewport-scale depth is produced by scalable SVG architecture/atmosphere, WebGL and CSS compositing; the deprecated 600×400 raster is not used for viewport-scale identity.
 
 ## Evidence and discovery boundaries
 
