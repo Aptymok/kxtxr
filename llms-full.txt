@@ -91,3 +91,18 @@ SFI OBSERVATION ≠ ARTIST OWNERSHIP
 MISSING REMAINS MISSING
 
 Platform metrics may be recorded as signals, but do not independently establish artistic value, cultural causality or methodological truth.
+
+
+## Operational control plane
+
+/console/ is a noindex human-operated control and observation surface. It is not a new artist identity edge and must not be treated as public evidence merely because the route exists.
+
+Cycle:
+OBJECTIVE → CAMPAIGN → REPRESENTATION → PLATFORM_ACTION → OBSERVATION → EVIDENCE → REGIME_STATE → DECISION → RETURN
+
+/data/control-plane.json describes real connector classes and missing configuration.
+/data/regime-transition.json projects the SFI Regime Transition Program into KXTXR as an EXPERIMENTAL, uncalibrated observation contract.
+
+Instagram/TikTok are control surfaces only when a real social connector is configured. Spotify/Apple Music/Amazon Music artist analytics may enter through bounded export summaries when direct programmatic analytics are unavailable. Raw exports remain client-side by default.
+
+A KXTXR regime candidate is not a calibrated transition. Structured results sent to SFI remain DERIVED until the governed SFI evidence/RETURN/contrast/learning process establishes anything stronger.

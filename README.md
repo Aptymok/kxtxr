@@ -34,6 +34,31 @@ Interactive artist experience driven by 111, scroll/audio state, visual corpus a
 
 The sticker surface builds a selection manifest only. It does not simulate payment or fulfilment.
 
+### `/console/` · KXTXR Control Plane
+
+Private/noindex operational surface above the QUE NO Representation Field.
+
+The control plane separates two responsibilities:
+
+- **KXTXR Control Plane**: objective, campaign, representation, platform action, observation and human decision.
+- **SFI Evidence Plane**: structured result persistence, provenance, RETURN/contrast and later calibration boundaries.
+
+Social networks are modeled as controllable/observable connectors only when a real connector is configured. Streaming services are modeled primarily as observable surfaces: catalog APIs where available and artist-analytics CSV/export ingestion where direct analytics APIs are not available.
+
+Raw artist exports stay client-side in the initial implementation. Only sanitized summary measurements and provenance may be sent to SFI.
+
+```txt
+OBJECTIVE → CAMPAIGN → REPRESENTATION → PLATFORM ACTION
+→ OBSERVATION → EVIDENCE → REGIME STATE → DECISION → RETURN
+```
+
+The SFI Regime Transition projection is **EXPERIMENTAL**. The console may preserve a candidate or missing variables; it cannot self-declare a calibrated regime transition.
+
+```txt
+REGIME CANDIDATE ≠ CALIBRATED TRANSITION
+PLATFORM METRIC ≠ ARTISTIC VALUE
+```
+
 ### `/edwing-registry/` · QUE NO Representation Field
 
 Current local-first operator surface for the QUE NO pre-campaign series:
