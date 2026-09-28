@@ -28,6 +28,15 @@
       ]
     },
     {
+      "source": "/console/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    },
+    {
       "source": "/(data|grimoire|campaigns)/(.*)\\.json",
       "headers": [
         {
