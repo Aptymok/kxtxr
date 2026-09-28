@@ -1,0 +1,40 @@
+{
+  "schema": "KXTXR_SFI_REGIME_TRANSITION_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-27T21:51:00-06:00",
+  "source_program": "SFI Regime Transition Program",
+  "state": "EXPERIMENTAL",
+  "calibrated": false,
+  "purpose": "Detect candidate changes in the effective operating rules of the KXTXR audience/platform field using longitudinal configuration analysis rather than one universal threshold.",
+  "variables": [
+    {"id":"actor_composition","meaning":"composition of observed actors/interaction classes","source":"coded observed interactions","default":"MISSING"},
+    {"id":"human_agent_ratio","meaning":"human vs automated/agent-mediated participation when explicitly identifiable","source":"explicit provenance only","default":"MISSING"},
+    {"id":"latency","meaning":"time from exposure to meaningful observed return","source":"publication and observation timestamps","default":"MISSING"},
+    {"id":"semantic_convergence","meaning":"convergence of substantive responses around a shared interpretation","source":"coded response corpus","default":"MISSING"},
+    {"id":"novelty","meaning":"departure from a campaign-specific baseline","source":"longitudinal comparison","default":"MISSING"},
+    {"id":"selection_pressure","meaning":"change in what representations receive exposure/continuation","source":"platform distribution proxies; never direct algorithm knowledge","default":"MISSING"},
+    {"id":"feedback_loop_length","meaning":"time from observed return to representation mutation/decision","source":"campaign decision log","default":"MISSING"},
+    {"id":"attention","meaning":"bounded attention proxies such as completion, rewatch and saves","source":"platform metrics","default":"MISSING"},
+    {"id":"propagation","meaning":"transmission through shares/sends and cross-platform recurrence","source":"platform metrics + traceable cross-platform observations","default":"MISSING"},
+    {"id":"memory","meaning":"repeat recognition/search/profile return across windows","source":"longitudinal observations","default":"MISSING"},
+    {"id":"authority","meaning":"who actually selected, mutated or published the representation","source":"decision/provenance log","default":"HUMAN_GOVERNED"}
+  ],
+  "states": [
+    {"id":"BASELINE_MISSING","meaning":"No comparable baseline exists."},
+    {"id":"OBSERVING","meaning":"Signals exist but no regime-transition claim is warranted."},
+    {"id":"TRANSITION_CANDIDATE","meaning":"A persistent multivariable configuration shift is observed; calibration and rivals are still required."},
+    {"id":"CALIBRATION_REQUIRED","meaning":"Candidate must be contrasted against expected/contradiction signals and negative controls."},
+    {"id":"CALIBRATED_TRANSITION","meaning":"Reserved for SFI after observed return/contrast and governed calibration; the KXTXR console cannot self-declare it."}
+  ],
+  "candidate_gate": {
+    "minimum_comparable_windows": 2,
+    "minimum_observed_variables": 4,
+    "requires_baseline": true,
+    "requires_persistence": true,
+    "requires_rival_hypothesis": true,
+    "requires_negative_control": true,
+    "universal_numeric_threshold": null,
+    "rule": "No single engagement threshold declares regime change."
+  },
+  "sfi_boundary": "The console may emit a transition candidate and evidence bundle. SFI owns structured persistence, return/contrast and calibrated-learning boundaries."
+}
