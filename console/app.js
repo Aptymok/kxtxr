@@ -144,6 +144,41 @@ function assessRegime(envelope, priorEntries) {
   return 'OBSERVING';
 }
 
+function renderTrajectory() {
+  const svg = $('trajectory');
+  if (!svg) return;
+  const entries = getEntries().slice(-24);
+  if (!entries.length) {
+    svg.innerHTML = '<text x="24" y="110" fill="rgba(235,230,221,.38)" font-size="11">NO LONGITUDINAL WINDOWS YET</text>';
+    return;
+  }
+  const width = 720, height = 220, padX = 26, padY = 22;
+  const usableW = width - padX * 2, usableH = height - padY * 2;
+  const x = i => entries.length === 1 ? width / 2 : padX + (i / (entries.length - 1)) * usableW;
+  const y = v => padY + (1 - Math.max(0, Math.min(1, v ?? 0))) * usableH;
+  const normalizeKry = v => v == null ? null : Math.max(0, Math.min(1, Number(v) / 150));
+  const series = {
+    kry: entries.map(e => normalizeKry(e.kry)),
+    attention: entries.map(e => e.regimeVector?.attention ?? null),
+    propagation: entries.map(e => e.regimeVector?.propagation ?? null)
+  };
+  const pathFor = values => {
+    let d = '';
+    values.forEach((v,i) => {
+      if (v == null) return;
+      d += (d ? ' L ' : 'M ') + x(i).toFixed(1) + ' ' + y(v).toFixed(1);
+    });
+    return d;
+  };
+  const axes = [0,.25,.5,.75,1].map(v =>
+    '<line class="axis" x1="' + padX + '" x2="' + (width-padX) + '" y1="' + y(v) + '" y2="' + y(v) + '"></line>'
+  ).join('');
+  svg.innerHTML = axes +
+    '<path class="kryline" d="' + pathFor(series.kry) + '"></path>' +
+    '<path class="attentionline" d="' + pathFor(series.attention) + '"></path>' +
+    '<path class="propagationline" d="' + pathFor(series.propagation) + '"></path>';
+}
+
 function renderTimeline() {
   const entries = getEntries();
   $('localCount').textContent = entries.length + ' LOCAL';
@@ -156,6 +191,7 @@ function renderTimeline() {
         '</article>'
       ).join('')
     : '<div class="small">NO OBSERVATIONS RECORDED</div>';
+  renderTrajectory();
 }
 
 function buildEnvelope(metrics, kry, vector) {
@@ -251,6 +287,66 @@ function recordObservation() {
   return envelope;
 }
 
+async function socialAction(dryRun) {
+  const token = prompt('KXTXR control token (kept only for this request):');
+  if (!token) return;
+  const network = $('socialNetwork').value;
+  const media = $('socialMedia').value.split(/\r?\n/).map(v => v.trim()).filter(Boolean);
+  const payload = {
+    network,
+    instagramType: $('instagramType').value,
+    dateTime: $('socialDate').value,
+    timezone: $('socialTimezone').value.trim() || 'America/Mexico_City',
+    text: $('socialText').value.trim(),
+    media,
+    autoPublish: true,
+    draft: false,
+    dryRun
+  };
+  const button = dryRun ? $('socialPreviewBtn') : $('socialScheduleBtn');
+  button.disabled = true;
+  const prior = button.textContent;
+  button.textContent = dryRun ? 'VALIDATING…' : 'SENDING…';
+  try {
+    const response = await fetch('/api/kxtxr-social', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-kxtxr-control-token': token },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (response.ok) {
+      $('socialReceipt').textContent = dryRun
+        ? 'DRY RUN VALID · NO EXTERNAL WRITE'
+        : 'METRICOOL ACCEPTED PLATFORM ACTION';
+      if (!dryRun && result.evidenceCandidate) {
+        const entries = getEntries();
+        entries.push({
+          id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now()),
+          campaign: campaign?.campaign || 'QUE NO',
+          piece: campaign?.current_piece || '07/12',
+          platform: network === 'instagram' ? 'Instagram' : 'TikTok',
+          representation: $('representation').value.trim(),
+          observedAt: result.evidenceCandidate.observedAt || new Date().toISOString(),
+          signal: result.evidenceCandidate.statement,
+          regimeCandidate: 'OBSERVING',
+          regimeVector: {},
+          kry: null,
+          platformActionReceipt: result.result || null
+        });
+        saveEntries(entries);
+        renderTimeline();
+      }
+    } else {
+      $('socialReceipt').textContent = 'SOCIAL ACTION BLOCKED · ' + (result.error || response.status);
+    }
+  } catch {
+    $('socialReceipt').textContent = 'SOCIAL ACTION UNAVAILABLE';
+  } finally {
+    button.disabled = false;
+    button.textContent = prior;
+  }
+}
+
 async function persistToSfi() {
   const token = prompt('KXTXR control token (kept only for this request):');
   if (!token) return;
@@ -308,11 +404,20 @@ async function init() {
   renderConnectors();
   renderMetrics(currentMetrics());
   renderTimeline();
-  $('systemState').textContent = 'CONTROL MODEL LOADED';
+  const socialReady = Boolean(serverState?.connectors?.metricool?.schedulerEndpointReady);
+  $('socialState').textContent = socialReady ? 'SOCIAL EXECUTION READY' : 'NOT CONFIGURED';
+  $('socialScheduleBtn').disabled = !socialReady;
+  $('socialPreviewBtn').disabled = !socialReady;
+  $('systemState').textContent = socialReady ? 'CONTROL + SOCIAL MODEL LOADED' : 'CONTROL MODEL LOADED';
 }
 
 $('recordBtn').addEventListener('click', recordObservation);
 $('persistBtn').addEventListener('click', persistToSfi);
+$('socialPreviewBtn').addEventListener('click', () => socialAction(true));
+$('socialScheduleBtn').addEventListener('click', () => socialAction(false));
+$('socialNetwork').addEventListener('change', () => {
+  $('instagramType').disabled = $('socialNetwork').value !== 'instagram';
+});
 ['reach','views','completion','shares','comments','saves','profile','follows','latency']
   .forEach(id => $(id).addEventListener('input', () => renderMetrics(currentMetrics())));
 
