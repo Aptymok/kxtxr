@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_DISCOVERY_MESH_V2",
   "version": "2.0.0",
-  "updated_at": "2026-09-26T19:16:00-06:00",
+  "updated_at": "2026-09-27T21:51:00-06:00",
   "purpose": "Resolve KXTXR consistently across human search, web crawlers, AI search and multi-agent systems by publishing explicit identity, state, source and authority edges. This improves reconstructibility; it does not guarantee ranking or recommendation.",
   "entity": {
     "id": "https://kxtxr.vercel.app/#kxtxr",
@@ -110,6 +110,12 @@
       "url": "https://kxtxr.vercel.app/edwing-registry/",
       "class": "OPERATOR_FIELD",
       "index": false
+    },
+    {
+      "url": "https://kxtxr.vercel.app/console/",
+      "class": "OPERATOR_CONTROL_PLANE",
+      "index": false,
+      "source": "https://kxtxr.vercel.app/data/control-plane.json"
     }
   ],
   "machine_surfaces": [
@@ -164,13 +170,21 @@
     {
       "url": "https://kxtxr.vercel.app/campaigns/que-no/representation-engine.json",
       "function": "current QUE NO representation definition"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/control-plane.json",
+      "function": "control/observation connector contract and authority boundaries"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/regime-transition.json",
+      "function": "experimental KXTXR projection of the SFI Regime Transition Program"
     }
   ],
   "indexing": {
     "html": "Static semantic text remains available without JavaScript.",
     "json_ld": "MusicGroup + WebSite + WebPage graph on canonical root.",
     "sitemap": "https://kxtxr.vercel.app/sitemap.xml",
-    "robots": "public surfaces crawlable; operator field noindex",
+    "robots": "public identity surfaces crawlable; /console/ and /edwing-registry/ are operator surfaces with noindex",
     "llm_orientation": [
       "/llms.txt",
       "/llms-full.txt",
@@ -187,7 +201,8 @@
     "PUBLICATION ≠ EVIDENCE",
     "ENGAGEMENT ≠ CAUSALITY",
     "DISCOVERY ≠ RANKING",
-    "MISSING REMAINS MISSING"
+    "MISSING REMAINS MISSING",
+    "REGIME CANDIDATE ≠ CALIBRATED TRANSITION"
   ],
   "do_not_infer": [
     "unverified booking email",
