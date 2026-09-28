@@ -9,7 +9,8 @@ export default function handler(req, res) {
     generatedAt: new Date().toISOString(),
     connectors: {
       metricool: {
-        serverApiConfigured: Boolean(process.env.METRICOOL_USER_TOKEN && process.env.METRICOOL_USER_ID && process.env.METRICOOL_BLOG_ID),
+        serverApiConfigured: Boolean(process.env.METRICOOL_USER_TOKEN && process.env.METRICOOL_USER_ID && (process.env.METRICOOL_BLOG_ID || '7111220')),
+        schedulerEndpointReady: Boolean(process.env.METRICOOL_USER_TOKEN && process.env.METRICOOL_USER_ID),
         blogId: process.env.METRICOOL_BLOG_ID || '7111220',
         note: 'ChatGPT MCP connection is not the same as production server API configuration.'
       },

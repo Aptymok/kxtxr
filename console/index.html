@@ -39,6 +39,22 @@
   </section>
 
   <div class="pb stack">
+    <div class="ph inset"><span>Platform action</span><span id="socialState">NOT CONFIGURED</span></div>
+    <div class="notice">Social execution is human-governed. The browser never receives the Metricool API token. A write occurs only after Edwing submits a dated post through the KXTXR backend.</div>
+    <div class="grid2">
+      <label>Network<select id="socialNetwork"><option value="instagram">Instagram</option><option value="tiktok">TikTok</option></select></label>
+      <label>Instagram format<select id="instagramType"><option>POST</option><option>REEL</option><option>STORY</option><option>TRIAL_REEL</option></select></label>
+      <label>Publication date<input id="socialDate" type="datetime-local"></label>
+      <label>Timezone<input id="socialTimezone" value="America/Mexico_City"></label>
+    </div>
+    <label>Caption<textarea id="socialText" placeholder="Text that will actually be sent to the selected network."></textarea></label>
+    <label>Public non-expiring media URLs<textarea id="socialMedia" placeholder="One https:// URL per line. Media must be explicitly selected by the human operator."></textarea></label>
+    <div class="grid2">
+      <button class="btn" id="socialPreviewBtn">VALIDATE / DRY RUN</button>
+      <button class="btn primary" id="socialScheduleBtn">SCHEDULE / PUBLISH</button>
+    </div>
+    <div id="socialReceipt" class="small">NO PLATFORM ACTION YET</div>
+
     <div class="ph inset"><span>Platform observation</span><span id="localCount">0 LOCAL</span></div>
     <div class="grid2">
       <label>Platform<select id="platform"></select></label>
@@ -74,6 +90,11 @@
       <div class="metric"><span>ATTENTION PROXY</span><b id="attention">—</b></div>
       <div class="metric"><span>PROPAGATION PROXY</span><b id="propagation">—</b></div>
       <div class="metric"><span>REGIME COVERAGE</span><b id="coverage">0/11</b></div>
+    </div>
+    <div class="trajectory-card">
+      <div class="ph inset"><span>Field trajectory</span><span>LOCAL WINDOWS</span></div>
+      <svg id="trajectory" viewBox="0 0 720 220" role="img" aria-label="KXTXR local KRY, attention and propagation trajectory"></svg>
+      <div class="trajectory-legend"><span>KRY normalized</span><span>Attention</span><span>Propagation</span></div>
     </div>
   </div>
 </main>
