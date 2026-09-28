@@ -1,0 +1,93 @@
+{
+  "schema": "KXTXR_CONTROL_PLANE_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-27T21:51:00-06:00",
+  "purpose": "Operate KXTXR campaigns across controllable social surfaces and observable streaming surfaces while preserving evidence provenance, human authority and SFI return boundaries.",
+  "authority": {
+    "artist": "KXTXR",
+    "human_operator": "Edwing",
+    "observer": "System Friction Institute",
+    "ai": "analysis and recommendation only; no autonomous authorial authority"
+  },
+  "cycle": ["OBJECTIVE", "CAMPAIGN", "REPRESENTATION", "PLATFORM_ACTION", "OBSERVATION", "EVIDENCE", "REGIME_STATE", "DECISION", "RETURN"],
+  "connectors": [
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "class": "SOCIAL_CONTROL",
+      "control": true,
+      "observation": true,
+      "primary_adapter": "METRICOOL_API",
+      "direct_adapter": "META_INSTAGRAM_API",
+      "current_status": "UNCONFIGURED",
+      "capabilities": ["publish", "schedule", "insights", "comments", "messages"],
+      "requirements": ["professional creator/business account", "Metricool network connection or Meta app OAuth"]
+    },
+    {
+      "id": "tiktok",
+      "label": "TikTok",
+      "class": "SOCIAL_CONTROL",
+      "control": true,
+      "observation": true,
+      "primary_adapter": "METRICOOL_API",
+      "direct_adapter": "TIKTOK_CONTENT_POSTING_API",
+      "current_status": "UNCONFIGURED",
+      "capabilities": ["publish", "schedule", "video/photo metadata", "profile/video observation"],
+      "requirements": ["TikTok account connection", "Metricool network connection or audited direct TikTok client for public direct post"]
+    },
+    {
+      "id": "spotify",
+      "label": "Spotify",
+      "class": "STREAMING_OBSERVATION",
+      "control": false,
+      "observation": true,
+      "catalog_adapter": "SPOTIFY_WEB_API",
+      "analytics_adapter": "SPOTIFY_FOR_ARTISTS_CSV",
+      "current_status": "CATALOG_AVAILABLE_ANALYTICS_MANUAL_INGEST",
+      "capabilities": ["artist/catalog metadata", "links", "CSV stream/audience ingestion"],
+      "boundary": "Public Web API is not an artist-stream analytics API."
+    },
+    {
+      "id": "apple_music",
+      "label": "Apple Music",
+      "class": "STREAMING_OBSERVATION",
+      "control": false,
+      "observation": true,
+      "catalog_adapter": "APPLE_MUSIC_API",
+      "analytics_adapter": "APPLE_MUSIC_FOR_ARTISTS_CSV",
+      "current_status": "CATALOG_AVAILABLE_ANALYTICS_MANUAL_INGEST",
+      "capabilities": ["catalog metadata", "charts", "CSV plays/listeners/Shazam/radio ingestion"]
+    },
+    {
+      "id": "amazon_music",
+      "label": "Amazon Music",
+      "class": "STREAMING_OBSERVATION",
+      "control": false,
+      "observation": true,
+      "analytics_adapter": "AMAZON_MUSIC_FOR_ARTISTS_EXPORT",
+      "current_status": "ANALYTICS_MANUAL_INGEST",
+      "capabilities": ["artist analytics export ingestion"],
+      "boundary": "No public artist-control/stream analytics API is assumed."
+    },
+    {
+      "id": "sfi",
+      "label": "System Friction Institute",
+      "class": "EVIDENCE_PLANE",
+      "control": false,
+      "observation": true,
+      "primary_adapter": "SFI_EXTERNAL_AGENT_GATEWAY",
+      "current_status": "REQUIRES_SERVER_CREDENTIAL",
+      "capabilities": ["structured result persistence", "signal cycle", "return/contrast", "evidence provenance"],
+      "boundary": "Structured result is DERIVED and does not automatically become accepted evidence, canonical truth, RETURN, closure or promoted learning."
+    }
+  ],
+  "invariants": [
+    "CANON != EXPERIMENT",
+    "PUBLICATION != EVIDENCE",
+    "ENGAGEMENT != CAUSALITY",
+    "PLATFORM_METRIC != ARTISTIC_VALUE",
+    "REGIME_CANDIDATE != CALIBRATED_TRANSITION",
+    "AI_RECOMMENDATION != HUMAN_AUTHORITY",
+    "RAW_EXPORT != SFI_CANON"
+  ]
+}
