@@ -80,3 +80,12 @@ input:focus,textarea:focus,select:focus{border-color:var(--line2);box-shadow:0 0
   .shell{padding:8px}.top{grid-template-columns:1fr}.statusline{text-align:left}
   .grid2,.grid3,.metrics{grid-template-columns:1fr}.vrow{grid-template-columns:110px 1fr auto}
 }
+
+.trajectory-card{border:1px solid var(--line);background:rgba(0,0,0,.18);padding:14px;overflow:hidden}
+.trajectory-card .ph.inset{margin:-14px -14px 10px}
+#trajectory{display:block;width:100%;height:auto;min-height:190px}
+#trajectory .axis{stroke:rgba(235,230,221,.12);stroke-width:1}
+#trajectory .kryline,#trajectory .attentionline,#trajectory .propagationline{fill:none;stroke-width:2;vector-effect:non-scaling-stroke}
+#trajectory .kryline{stroke:#ece7dc}.trajectory-card .attentionline{stroke:#b82d32}.trajectory-card .propagationline{stroke:#8bbca1}
+#trajectory .point{stroke:none}.trajectory-legend{display:flex;flex-wrap:wrap;gap:18px;font-size:8px;color:var(--muted);letter-spacing:.11em;text-transform:uppercase}
+#socialReceipt{padding:8px 0;min-height:28px}
