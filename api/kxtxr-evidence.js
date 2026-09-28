@@ -50,7 +50,7 @@ export default async function handler(req, res) {
             metrics: p.metrics && typeof p.metrics === 'object' ? p.metrics : {},
             regimeVector: p.regimeVector && typeof p.regimeVector === 'object' ? p.regimeVector : {},
             regimeCandidate: String(p.regimeCandidate || 'OBSERVING').slice(0, 100),
-            kry: Number.isFinite(Number(p.kry)) ? Number(p.kry) : null
+            kry: p.kry == null ? null : (Number.isFinite(Number(p.kry)) ? Number(p.kry) : null)
           },
           measurementLimitations: Array.isArray(p.limitations) ? p.limitations.map(String).slice(0, 50) : []
         },
