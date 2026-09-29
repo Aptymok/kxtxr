@@ -106,3 +106,23 @@ OBJECTIVE → CAMPAIGN → REPRESENTATION → PLATFORM_ACTION → OBSERVATION �
 Instagram/TikTok are control surfaces only when a real social connector is configured. Spotify/Apple Music/Amazon Music artist analytics may enter through bounded export summaries when direct programmatic analytics are unavailable. Raw exports remain client-side by default.
 
 A KXTXR regime candidate is not a calibrated transition. Structured results sent to SFI remain DERIVED until the governed SFI evidence/RETURN/contrast/learning process establishes anything stronger.
+
+
+## Music field and knowledge plane
+
+/data/music-field.json contains the sanitized 2026-09-28 HIVE analysis of eight observed new WAV masters. It preserves per-track loudness/dynamics/stereo/spectral metrics, album-relative song functions, pairwise standardized distances, leave-one-out distinctiveness and relative negative spectral space.
+
+REM618, 111 and QUE NO are reference objects in this analysis; they are not part of the eight new HIVE masters. KYRIE | PHOSPHOROS is NOT_OBSERVED because no WAV was present in the supplied analysis set.
+
+/data/observation-schema.json defines the current adaptive observation field. AI may propose ADD / UPDATE / SUSPEND / DEPRECATE operations, but human authority governs operational activation.
+
+/data/knowledge-plane.json answers "how does KXTXR know this?" through explicit SOURCE → OBSERVATION → DERIVATION → INFERENCE → DECISION → ACTION → RETURN → CONTRAST relationships.
+
+/api/kxtxr-context hydrates compatible AI clients with music, observation, campaign, control, regime, discovery and provenance state in one versioned capsule.
+
+Boundaries:
+- audio relation is not artistic quality
+- spectral measurements do not intrinsically imply colors/images/meaning
+- platform metrics do not reveal recommendation algorithms
+- missing data remains missing
+- AI can propose site mutations, but human authority governs canon and publication
