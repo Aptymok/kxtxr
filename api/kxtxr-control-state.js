@@ -20,6 +20,15 @@ export default function handler(req, res) {
       },
       operator: {
         tokenConfigured: Boolean(process.env.KXTXR_CONTROL_TOKEN)
+      },
+      ai: {
+        configured: Boolean(process.env.OPENAI_API_KEY),
+        model: process.env.OPENAI_MODEL || 'gpt-5.6-luna',
+        boundary: 'Server-side only; browser never receives OPENAI_API_KEY.'
+      },
+      githubMutation: {
+        configured: Boolean(process.env.GITHUB_KXTXR_TOKEN),
+        mode: 'JSON_MANIFEST_PR_ONLY'
       }
     }
   });
