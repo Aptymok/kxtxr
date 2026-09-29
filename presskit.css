@@ -355,3 +355,18 @@ h2{font-size:clamp(54px,6.6vw,108px);line-height:.86;max-width:12ch}
   html{scroll-behavior:auto}
   .hero-architecture,.hero-ambient,.hero-portrait-shell,.hero-portrait-echo{transform:none!important}
 }
+
+
+/* === CINEMATIC CLEANUP PASS ============================================ */
+.grain{opacity:.035;animation-duration:.42s}
+.scratches{display:none!important}
+.edge{box-shadow:inset 0 0 72px rgba(0,0,0,.88);border:0}
+.edge:before,.edge:after{opacity:.055}
+.hero-architecture{opacity:.035}
+.que-no-topology{opacity:.025}
+.field-console-head span:last-child{opacity:.34}
+@media(max-width:760px){
+  .grain{opacity:.022}
+  .edge{box-shadow:inset 0 0 40px rgba(0,0,0,.82)}
+  .edge:before,.edge:after{display:none}
+}
