@@ -1,6 +1,6 @@
 {
   "schema": "KXTXR_VISUAL_SYSTEM_V1",
-  "updated_at": "2026-09-26T19:16:00-06:00",
+  "updated_at": "2026-09-28T19:42:00-06:00",
   "invariant": {
     "identity": "KXTXR",
     "human_presence": "Edwing / KXTXR",
@@ -76,9 +76,33 @@
   ],
   "performance": {
     "reduced_motion": "disable WebGL motion/parallax while preserving identity and semantic content",
-    "mobile": "bounded portrait scale + lower GPU load",
+    "mobile": "exact 100svh scene composition + lower GPU load + no decorative topology SVG",
     "image_rule": "Never upscale the 1080×1350 human layer to full-bleed viewport coverage."
   },
-  "rule": "The wow layer must degrade gracefully; identity and content remain available without GPU effects. Full-screen depth is procedural/vector-first.",
-  "asset_registry": "/data/assets.json"
+  "rule": "The public surface prioritizes cinematic hierarchy and negative space. Technical provenance remains machine-readable. Advanced effects are residue, never competing foreground layers.",
+  "asset_registry": "/data/assets.json",
+  "presentation": {
+    "version": "CINEMATIC_SHELL_V3",
+    "principle": "one dominant idea per viewport",
+    "desktop": {
+      "scene_height": "100svh",
+      "composition": "cinematic stage with negative space",
+      "simultaneous_visual_planes_max": 3,
+      "planes": [
+        "atmosphere",
+        "subject",
+        "interface"
+      ],
+      "technical_labels": "machine-readable, visually suppressed on public surface",
+      "vector_policy": "residue only; never a competing foreground layer"
+    },
+    "mobile": {
+      "scene_height": "exact 100svh",
+      "scroll_snap": "mandatory",
+      "composition": "one scene per screen",
+      "overflow_strategy": "bounded internal scroll or horizontal carousel inside the active scene",
+      "vector_policy": "hidden or nearly absent",
+      "safe_area": "env(safe-area-inset-*)"
+    }
+  }
 }
