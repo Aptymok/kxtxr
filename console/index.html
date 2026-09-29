@@ -115,6 +115,37 @@
 </aside>
 </div>
 
+<section class="panel ai-plane">
+  <div class="ph"><span>AI FIELD CURATOR</span><span id="aiState">UNCONFIGURED</span></div>
+  <div class="pb ai-layout">
+    <div class="stack">
+      <div class="notice">AI reads the KXTXR context capsule + local observation windows. It may analyze, propose observation-field mutations and prepare reversible site changes. It cannot establish canon, publish, or merge its own PR.</div>
+      <label>Operator instruction<textarea id="aiInstruction" placeholder="Example: Observe the current field and identify what we are failing to measure before 10/12."></textarea></label>
+      <div class="grid2">
+        <button class="btn" id="aiRunObserver">AI OBSERVER</button>
+        <button class="btn" id="aiRunCurator">CURATE FIELDS</button>
+        <button class="btn primary" id="aiRunSitePlan">PLAN SITE MUTATION</button>
+        <button class="btn" id="aiCreatePr">CREATE DRAFT PR</button>
+      </div>
+      <div class="small" id="aiReceipt">NO AI RUN YET</div>
+    </div>
+    <div class="card ai-result">
+      <div class="eyebrow">STRUCTURED OUTPUT</div>
+      <pre id="aiOutput">AI OUTPUT WILL APPEAR HERE.</pre>
+    </div>
+    <div class="stack">
+      <div class="card">
+        <div class="eyebrow">AUTHORITY</div>
+        <div class="small">OBSERVER = analysis only<br>FIELD CURATOR = schema proposals<br>SITE EDITOR = reversible plan / manifest patches<br>EDWING = artistic + publication authority<br>SFI = evidence / RETURN / calibration plane</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">PR BOUNDARY</div>
+        <div class="small">Only allowlisted JSON manifests can be applied automatically. HTML/CSS/JS remains PLAN_ONLY. PRs are drafts and require human review.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="panel music-plane">
   <div class="ph"><span>MUSIC FIELD / HIVE MASTER</span><span id="musicFieldState">LOADING</span></div>
   <div class="pb music-layout">
