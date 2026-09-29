@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_DISCOVERY_MESH_V2",
   "version": "2.0.0",
-  "updated_at": "2026-09-27T21:51:00-06:00",
+  "updated_at": "2026-09-28T18:31:00-06:00",
   "purpose": "Resolve KXTXR consistently across human search, web crawlers, AI search and multi-agent systems by publishing explicit identity, state, source and authority edges. This improves reconstructibility; it does not guarantee ranking or recommendation.",
   "entity": {
     "id": "https://kxtxr.vercel.app/#kxtxr",
@@ -178,6 +178,22 @@
     {
       "url": "https://kxtxr.vercel.app/data/regime-transition.json",
       "function": "experimental KXTXR projection of the SFI Regime Transition Program"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/music-field.json",
+      "function": "sanitized HIVE album metrics, song functions, relational distances and negative spectral space"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/observation-schema.json",
+      "function": "versioned adaptive field catalog for music, representation, RETURN and regime observation"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/knowledge-plane.json",
+      "function": "epistemic provenance map describing how KXTXR reconstructs claims"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/api/kxtxr-context",
+      "function": "unified machine context capsule for authorized/compatible AI clients"
     }
   ],
   "indexing": {
@@ -202,14 +218,18 @@
     "ENGAGEMENT ≠ CAUSALITY",
     "DISCOVERY ≠ RANKING",
     "MISSING REMAINS MISSING",
-    "REGIME CANDIDATE ≠ CALIBRATED TRANSITION"
+    "REGIME CANDIDATE ≠ CALIBRATED TRANSITION",
+    "AUDIO RELATION != ARTISTIC QUALITY",
+    "SOURCE != OBSERVATION != DERIVATION != INFERENCE"
   ],
   "do_not_infer": [
     "unverified booking email",
     "unverified Instagram profile URL",
     "unverified TikTok profile URL",
     "unverified technical rider",
-    "artistic value from engagement metrics"
+    "artistic value from engagement metrics",
+    "visual meaning directly from spectral measurements",
+    "unobserved KYRIE | PHOSPHOROS audio state"
   ],
   "deployment": {
     "pipeline": "GITHUB_TO_VERCEL_OBSERVED_OPERATIONAL",
