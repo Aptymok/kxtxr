@@ -1,0 +1,185 @@
+{
+  "schema": "KXTXR_OBSERVATION_SCHEMA_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-28T18:31:00-06:00",
+  "lifecycle": [
+    "CANDIDATE",
+    "ACTIVE",
+    "SUSPENDED",
+    "DEPRECATED"
+  ],
+  "mutation_rule": "AI may propose ADD/UPDATE/SUSPEND/DEPRECATE. Human authority accepts operational schema changes; evidence class and provenance remain explicit.",
+  "fields": [
+    {
+      "id": "sonic_function",
+      "plane": "MUSIC",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "music-field",
+      "meaning": "Operational role of a track inside the album field."
+    },
+    {
+      "id": "pairwise_distance",
+      "plane": "MUSIC",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "music-field",
+      "meaning": "Relational multivariate distance between songs; never artistic quality."
+    },
+    {
+      "id": "negative_spectral_space",
+      "plane": "MUSIC",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "music-field",
+      "meaning": "Bands under-occupied relative to ensemble mean."
+    },
+    {
+      "id": "body_visibility",
+      "plane": "REPRESENTATION",
+      "status": "ACTIVE",
+      "class": "DECLARED_OR_OBSERVED",
+      "source": "campaign/asset",
+      "meaning": "How much of Edwing is legible in the representation."
+    },
+    {
+      "id": "representation_density",
+      "plane": "REPRESENTATION",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "asset coding",
+      "meaning": "Relative informational/visual density of one emitted object."
+    },
+    {
+      "id": "platform_native_mutation",
+      "plane": "REPRESENTATION",
+      "status": "ACTIVE",
+      "class": "OBSERVED",
+      "source": "published asset",
+      "meaning": "Difference introduced for the native function of a platform."
+    },
+    {
+      "id": "attention",
+      "plane": "RETURN",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "platform metrics",
+      "meaning": "Bounded proxy from completion/rewatch/saves; not an algorithm score."
+    },
+    {
+      "id": "propagation",
+      "plane": "RETURN",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "platform metrics",
+      "meaning": "Transmission proxy from shares/sends and traceable recurrence."
+    },
+    {
+      "id": "memory",
+      "plane": "RETURN",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "longitudinal metrics",
+      "meaning": "Repeat recognition/search/profile return across windows."
+    },
+    {
+      "id": "identity_recognition",
+      "plane": "RETURN",
+      "status": "CANDIDATE",
+      "class": "DERIVED_FROM_QUALITATIVE_RETURN",
+      "source": "comments/search/return coding",
+      "meaning": "Explicit recognition of KXTXR or its motifs across independent observations.",
+      "gate": "Require repeated independent observations; one comment is insufficient."
+    },
+    {
+      "id": "returning_person",
+      "plane": "RETURN",
+      "status": "CANDIDATE",
+      "class": "OBSERVED_RELATION",
+      "source": "traceable return events",
+      "meaning": "A person returns across emissions or requests further contact.",
+      "gate": "Preserve privacy; store event identity minimally."
+    },
+    {
+      "id": "stream_conversion",
+      "plane": "RETURN",
+      "status": "CANDIDATE",
+      "class": "DERIVED",
+      "source": "social + streaming windows",
+      "meaning": "Curiosity appears to convert into listening/follow/save behavior.",
+      "gate": "Correlation only unless stronger causal design exists."
+    },
+    {
+      "id": "venue_interest",
+      "plane": "RETURN",
+      "status": "CANDIDATE",
+      "class": "OBSERVED_EVENT",
+      "source": "messages/contact",
+      "meaning": "Traceable interest in a live performance or venue contact."
+    },
+    {
+      "id": "collaboration_interest",
+      "plane": "RETURN",
+      "status": "CANDIDATE",
+      "class": "OBSERVED_EVENT",
+      "source": "messages/contact",
+      "meaning": "Traceable request or approach to work with KXTXR."
+    },
+    {
+      "id": "actor_composition",
+      "plane": "REGIME",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "coded interactions",
+      "meaning": "Composition of observed actor/interaction classes."
+    },
+    {
+      "id": "latency",
+      "plane": "REGIME",
+      "status": "ACTIVE",
+      "class": "OBSERVED_OR_DERIVED",
+      "source": "timestamps",
+      "meaning": "Time from exposure to meaningful observed return."
+    },
+    {
+      "id": "semantic_convergence",
+      "plane": "REGIME",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "coded response corpus",
+      "meaning": "Convergence of substantive responses around a shared interpretation."
+    },
+    {
+      "id": "novelty",
+      "plane": "REGIME",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "longitudinal comparison",
+      "meaning": "Departure from campaign-specific baseline."
+    },
+    {
+      "id": "selection_pressure",
+      "plane": "REGIME",
+      "status": "ACTIVE",
+      "class": "INFERRED_PROXY",
+      "source": "distribution observations",
+      "meaning": "Change in what representations receive exposure/continuation; never direct algorithm knowledge."
+    },
+    {
+      "id": "feedback_loop_length",
+      "plane": "REGIME",
+      "status": "ACTIVE",
+      "class": "DERIVED",
+      "source": "decision log",
+      "meaning": "Time from observed return to representation mutation/decision."
+    },
+    {
+      "id": "authority",
+      "plane": "REGIME",
+      "status": "ACTIVE",
+      "class": "OBSERVED_GOVERNANCE",
+      "source": "decision log",
+      "meaning": "Who selected, mutated or published the representation."
+    }
+  ]
+}

@@ -176,3 +176,41 @@ QUE NO
 ```
 
 The next representation is allowed to change only when the observed RETURN warrants it.
+
+
+## KXTXR Music Field
+
+The control console now includes a sanitized HIVE relational model derived from the 2026-09-28 album analysis.
+
+Machine sources:
+
+```txt
+/data/music-field.json
+/data/observation-schema.json
+/data/knowledge-plane.json
+/api/kxtxr-context
+```
+
+The music field contains eight observed new masters:
+
+```txt
+AELUDE
+BLVCK
+E.D.
+ESPINAS
+LUGAR LUNAR
+ODIO DECIRTELO
+REM3002 ACUSTICO
+YNLPC
+```
+
+REM618, 111 and QUE NO remain reference objects. KYRIE | PHOSPHOROS remains NOT_OBSERVED in the HIVE analysis because no WAV was supplied.
+
+KXTXR reconstructs knowledge through explicit provenance:
+
+```txt
+SOURCE → OBSERVATION → DERIVATION → INFERENCE
+→ DECISION → ACTION → RETURN → CONTRAST
+```
+
+A pairwise audio distance is a relational measurement, not an artistic score. A representation hypothesis is not canonical meaning. An AI proposal is not human authority.

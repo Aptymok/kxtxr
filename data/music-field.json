@@ -1,0 +1,457 @@
+{
+  "schema": "KXTXR_MUSIC_FIELD_V1",
+  "version": "1.0.0",
+  "observed_at": "2026-09-28",
+  "scope": {
+    "class": "HIVE_MASTER_ANALYSIS",
+    "statement": "Eight new WAV masters were measured and contrasted as one album field. REM618, 111 and QUE NO remain reference objects; KYRIE | PHOSPHOROS was not observed in the supplied WAV set.",
+    "source_ref": "DRIVE:KXTXR_HIVE_MASTER_ANALYSIS_2026-09-28",
+    "epistemic_class": "DERIVED_FROM_OBSERVED_AUDIO"
+  },
+  "hive_rule": "Protect the function of each song; constrain only the parts that damage the shared field. Do not force identical loudness, spectral tilt or dynamics.",
+  "album_invariants": [
+    "delivery safety around -1.2 to -1.4 dBFS true peak for the new masters",
+    "bounded low-frequency competition",
+    "difference with function is mutation; difference without function is noise",
+    "negative spectral space is part of the album field and should not be automatically filled"
+  ],
+  "global_observation": {
+    "dominant_energy": "Most ensemble energy is concentrated below 1 kHz.",
+    "negative_space": "Relative negative space increases above 4 kHz, especially above 10 kHz.",
+    "strongest_counterweight": "REM3002 ACUSTICO",
+    "dynamic_relief": [
+      "ESPINAS",
+      "LUGAR LUNAR"
+    ],
+    "related_low_mass_cluster": [
+      "AELUDE",
+      "BLVCK",
+      "ODIO DECIRTELO"
+    ],
+    "pressure_cluster": [
+      "YNLPC",
+      "E.D."
+    ]
+  },
+  "tracks": [
+    {
+      "id": "AELUDE",
+      "status": "OBSERVED_MASTER",
+      "function": "Low-frequency mass carrier; restrained so its sub/bass footprint does not mask the rest of the set.",
+      "metrics": {
+        "lufs_i": -12,
+        "lra": 2.8,
+        "true_peak_dbfs": -1.4,
+        "stereo_corr": 0.68,
+        "centroid_hz": 538,
+        "bands": {
+          "<60": 0.3044,
+          "60-200": 0.4916,
+          "200-1k": 0.0951,
+          "1-4k": 0.0768,
+          "4-10k": 0.0273,
+          ">10k": 0.0047
+        }
+      },
+      "relations": {
+        "leave_one_out": 0.6442578955908493,
+        "nearest": "BLVCK",
+        "nearest_distance": 0.3102244565988837,
+        "farthest": "REM3002 ACUSTICO",
+        "farthest_distance": 2.099417048728413
+      },
+      "negative_space": {
+        "<60": 0,
+        "60-200": 0.04347295196663442,
+        "200-1k": 0.9141085022866089,
+        "1-4k": 0,
+        "4-10k": 0,
+        ">10k": 0.04241854573495064
+      }
+    },
+    {
+      "id": "BLVCK",
+      "status": "OBSERVED_MASTER",
+      "function": "Dense bass anchor with moderate width; compact but not pushed as loud as YNLPC/E.D.",
+      "metrics": {
+        "lufs_i": -12,
+        "lra": 3.1,
+        "true_peak_dbfs": -1.4,
+        "stereo_corr": 0.72,
+        "centroid_hz": 530,
+        "bands": {
+          "<60": 0.2601,
+          "60-200": 0.5473,
+          "200-1k": 0.0936,
+          "1-4k": 0.0663,
+          "4-10k": 0.0264,
+          ">10k": 0.0064
+        }
+      },
+      "relations": {
+        "leave_one_out": 0.5462543919262548,
+        "nearest": "AELUDE",
+        "nearest_distance": 0.3102244565988837,
+        "farthest": "REM3002 ACUSTICO",
+        "farthest_distance": 2.0821032388710057
+      },
+      "negative_space": {
+        "<60": 0,
+        "60-200": 0,
+        "200-1k": 0.887008915525367,
+        "1-4k": 0.08639736800453529,
+        "4-10k": 0.004986453393119276,
+        ">10k": 0.021607263065747624
+      }
+    },
+    {
+      "id": "E.D.",
+      "status": "OBSERVED_MASTER",
+      "function": "Forward/energetic anchor; one of the hotter masters while retaining true-peak safety.",
+      "metrics": {
+        "lufs_i": -11.2,
+        "lra": 2.2,
+        "true_peak_dbfs": -1.3,
+        "stereo_corr": 0.592,
+        "centroid_hz": 551,
+        "bands": {
+          "<60": 0.2676,
+          "60-200": 0.4751,
+          "200-1k": 0.1295,
+          "1-4k": 0.097,
+          "4-10k": 0.0228,
+          ">10k": 0.008
+        }
+      },
+      "relations": {
+        "leave_one_out": 0.6972300625346813,
+        "nearest": "AELUDE",
+        "nearest_distance": 0.6070990652784044,
+        "farthest": "REM3002 ACUSTICO",
+        "farthest_distance": 1.9651460083847359
+      },
+      "negative_space": {
+        "<60": 0,
+        "60-200": 0.2984689707063781,
+        "200-1k": 0.6366600741128988,
+        "1-4k": 0,
+        "4-10k": 0.06103386190862529,
+        ">10k": 0.003837093257314708
+      }
+    },
+    {
+      "id": "ESPINAS",
+      "status": "OBSERVED_MASTER",
+      "function": "Dynamic relief valve; larger LRA and lower integrated loudness create breathing room.",
+      "metrics": {
+        "lufs_i": -13.2,
+        "lra": 4.5,
+        "true_peak_dbfs": -1.2,
+        "stereo_corr": 0.626,
+        "centroid_hz": 550,
+        "bands": {
+          "<60": 0.2563,
+          "60-200": 0.5114,
+          "200-1k": 0.1506,
+          "1-4k": 0.0401,
+          "4-10k": 0.0281,
+          ">10k": 0.0135
+        }
+      },
+      "relations": {
+        "leave_one_out": 0.9920437787585309,
+        "nearest": "BLVCK",
+        "nearest_distance": 1.0491570681238374,
+        "farthest": "REM3002 ACUSTICO",
+        "farthest_distance": 1.9257292147100027
+      },
+      "negative_space": {
+        "<60": 0,
+        "60-200": 0,
+        "200-1k": 0.3936786652449434,
+        "1-4k": 0.6063213347371196,
+        "4-10k": 0,
+        ">10k": 0
+      }
+    },
+    {
+      "id": "LUGAR LUNAR",
+      "status": "OBSERVED_MASTER",
+      "function": "Deep/sub-heavy spatial anchor; quieter and more dynamic so its low-end scale remains perceptible.",
+      "metrics": {
+        "lufs_i": -12.9,
+        "lra": 4.7,
+        "true_peak_dbfs": -1.2,
+        "stereo_corr": 0.612,
+        "centroid_hz": 496,
+        "bands": {
+          "<60": 0.3961,
+          "60-200": 0.2247,
+          "200-1k": 0.3072,
+          "1-4k": 0.0433,
+          "4-10k": 0.0186,
+          ">10k": 0.0102
+        }
+      },
+      "relations": {
+        "leave_one_out": 1.379276942392339,
+        "nearest": "ESPINAS",
+        "nearest_distance": 1.1041474383814482,
+        "farthest": "REM3002 ACUSTICO",
+        "farthest_distance": 2.2419561172811577
+      },
+      "negative_space": {
+        "<60": 0,
+        "60-200": 0.8741250219647366,
+        "200-1k": 0,
+        "1-4k": 0.09902349241540767,
+        "4-10k": 0.02685148561662584,
+        ">10k": 0
+      }
+    },
+    {
+      "id": "ODIO DECIRTELO",
+      "status": "OBSERVED_MASTER",
+      "function": "Mid-bass body and high mono-coherence; moderate loudness prevents it from occupying the whole center image.",
+      "metrics": {
+        "lufs_i": -12,
+        "lra": 4.5,
+        "true_peak_dbfs": -1.4,
+        "stereo_corr": 0.788,
+        "centroid_hz": 396,
+        "bands": {
+          "<60": 0.1961,
+          "60-200": 0.6306,
+          "200-1k": 0.105,
+          "1-4k": 0.0472,
+          "4-10k": 0.0155,
+          ">10k": 0.0056
+        }
+      },
+      "relations": {
+        "leave_one_out": 1.0527642118127616,
+        "nearest": "BLVCK",
+        "nearest_distance": 0.6889820448733354,
+        "farthest": "REM3002 ACUSTICO",
+        "farthest_distance": 2.477653572151493
+      },
+      "negative_space": {
+        "<60": 0.19907249555453113,
+        "60-200": 0,
+        "200-1k": 0.499335425721713,
+        "1-4k": 0.1974617312251706,
+        "4-10k": 0.08403498543123465,
+        ">10k": 0.020095362059961923
+      }
+    },
+    {
+      "id": "REM3002 ACUSTICO",
+      "status": "OBSERVED_MASTER",
+      "function": "Brightest and least sub-heavy object; spectral counterweight exposing upper-mid/air territory.",
+      "metrics": {
+        "lufs_i": -13.1,
+        "lra": 2.3,
+        "true_peak_dbfs": -1.4,
+        "stereo_corr": 0.266,
+        "centroid_hz": 1133,
+        "bands": {
+          "<60": 0.0014,
+          "60-200": 0.47,
+          "200-1k": 0.3667,
+          "1-4k": 0.0947,
+          "4-10k": 0.055,
+          ">10k": 0.0122
+        }
+      },
+      "relations": {
+        "leave_one_out": 1.9490981919428114,
+        "nearest": "ESPINAS",
+        "nearest_distance": 1.9257292147100027,
+        "farthest": "ODIO DECIRTELO",
+        "farthest_distance": 2.477653572151493
+      },
+      "negative_space": {
+        "<60": 0.8973499937981699,
+        "60-200": 0.10265000619778095,
+        "200-1k": 0,
+        "1-4k": 0,
+        "4-10k": 0,
+        ">10k": 0
+      }
+    },
+    {
+      "id": "YNLPC",
+      "status": "OBSERVED_MASTER",
+      "function": "Wide, bass-led impact object; hottest new-master loudness with conservative true peak.",
+      "metrics": {
+        "lufs_i": -10.8,
+        "lra": 2.3,
+        "true_peak_dbfs": -1.4,
+        "stereo_corr": 0.437,
+        "centroid_hz": 598,
+        "bands": {
+          "<60": 0.1023,
+          "60-200": 0.6118,
+          "200-1k": 0.1327,
+          "1-4k": 0.1262,
+          "4-10k": 0.0213,
+          ">10k": 0.0058
+        }
+      },
+      "relations": {
+        "leave_one_out": 1.2064558610689418,
+        "nearest": "E.D.",
+        "nearest_distance": 0.795227389972334,
+        "farthest": "LUGAR LUNAR",
+        "farthest_distance": 2.1164056491154435
+      },
+      "negative_space": {
+        "<60": 0.7157909908864916,
+        "60-200": 0,
+        "200-1k": 0.23626382916769467,
+        "1-4k": 0,
+        "4-10k": 0.03297393259262754,
+        ">10k": 0.0149712473472585
+      }
+    }
+  ],
+  "references": [
+    {
+      "id": "QUE NO",
+      "status": "REFERENCE_QA_LOCK",
+      "metrics": {
+        "lufs_i_approx": -10.9,
+        "true_peak_dbfs_approx": -1.5,
+        "lra_approx": 2.9
+      },
+      "rule": "Reference only; not remastered in HIVE cycle."
+    },
+    {
+      "id": "111",
+      "status": "REFERENCE_CANONICAL",
+      "metrics": {
+        "lufs_i_approx": -12.8,
+        "true_peak_dbfs_approx": -1,
+        "lra_approx": 3.3
+      },
+      "rule": "TRUEPEAK CORRECTED canonical reference; not remastered in HIVE cycle."
+    },
+    {
+      "id": "REM618",
+      "status": "REFERENCE_HISTORICAL_EXTREME",
+      "metrics": {
+        "lufs_i_approx": -5.9,
+        "true_peak_dbfs_approx": 1.8,
+        "lra_approx": 1.5
+      },
+      "rule": "Historical extreme; do not use as target loudness."
+    },
+    {
+      "id": "KYRIE | PHOSPHOROS",
+      "status": "NOT_OBSERVED",
+      "metrics": null,
+      "rule": "No WAV supplied in the HIVE analysis folder; preserve missingness."
+    }
+  ],
+  "pairwise_matrix": {
+    "order": [
+      "AELUDE",
+      "BLVCK",
+      "E.D.",
+      "ESPINAS",
+      "LUGAR LUNAR",
+      "ODIO DECIRTELO",
+      "REM3002 ACUSTICO",
+      "YNLPC"
+    ],
+    "values": [
+      [
+        0,
+        0.31,
+        0.607,
+        1.238,
+        1.434,
+        0.909,
+        2.099,
+        1.121
+      ],
+      [
+        0.31,
+        0,
+        0.669,
+        1.049,
+        1.435,
+        0.689,
+        2.082,
+        1.146
+      ],
+      [
+        0.607,
+        0.669,
+        0,
+        1.362,
+        1.539,
+        1.202,
+        1.965,
+        0.795
+      ],
+      [
+        1.238,
+        1.049,
+        1.362,
+        0,
+        1.104,
+        1.147,
+        1.926,
+        1.816
+      ],
+      [
+        1.434,
+        1.435,
+        1.539,
+        1.104,
+        0,
+        1.563,
+        2.242,
+        2.116
+      ],
+      [
+        0.909,
+        0.689,
+        1.202,
+        1.147,
+        1.563,
+        0,
+        2.478,
+        1.464
+      ],
+      [
+        2.099,
+        2.082,
+        1.965,
+        1.926,
+        2.242,
+        2.478,
+        0,
+        1.947
+      ],
+      [
+        1.121,
+        1.146,
+        0.795,
+        1.816,
+        2.116,
+        1.464,
+        1.947,
+        0
+      ]
+    ],
+    "meaning": "Standardized multivariate distance from loudness, LRA, stereo correlation, spectral centroid and six broad frequency-energy bands. Relational, not a quality score."
+  },
+  "representation_hypotheses": {
+    "rule": "Audio function may seed representation experiments, but audio measurements do not intrinsically dictate color, image or meaning.",
+    "pressure": "Test denser cuts or more frontal body visibility.",
+    "dynamic_relief": "Test longer durations, less saturated framing or more interval between stimuli.",
+    "spectral_outlier": "Test a representation that also departs from the visual core while preserving KXTXR invariants."
+  }
+}

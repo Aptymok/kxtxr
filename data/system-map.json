@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_SYSTEM_MAP_V1",
   "version": "1.0.0",
-  "updated_at": "2026-09-27T21:51:00-06:00",
+  "updated_at": "2026-09-28T18:31:00-06:00",
   "purpose": "Machine-readable map of what each public KXTXR surface shows, what source backs it, what technology renders it, who has authority over it, and how it degrades when a source or advanced effect is unavailable.",
   "invariant": "PUBLIC UI MAY REPRESENT PERSISTED DATA; IT MUST NOT SYNTHESIZE MISSING FACTS.",
   "sections": [
@@ -130,6 +130,26 @@
       "index": true
     },
     {
+      "id": "music-field",
+      "route": "/console/",
+      "public_role": "internal_music_relational_field",
+      "source": "/data/music-field.json",
+      "related": [
+        "/data/knowledge-plane.json",
+        "/data/observation-schema.json",
+        "/api/kxtxr-context"
+      ],
+      "effects": [
+        "track-function rendering",
+        "all-vs-all distance matrix",
+        "negative-space inspection",
+        "reference-object boundaries"
+      ],
+      "authority": "audio measurements and derived relations may inform experiments; they do not define artistic value or canonical visual meaning",
+      "fallback": "source metrics remain machine-readable when visualization is unavailable",
+      "index": false
+    },
+    {
       "id": "control-console",
       "route": "/console/",
       "public_role": "campaign_control_evidence_plane",
@@ -138,7 +158,11 @@
         "/data/regime-transition.json",
         "/campaigns/que-no/representation-engine.json",
         "/api/kxtxr-control-state",
-        "/api/kxtxr-evidence"
+        "/api/kxtxr-evidence",
+        "/data/music-field.json",
+        "/data/observation-schema.json",
+        "/data/knowledge-plane.json",
+        "/api/kxtxr-context"
       ],
       "effects": [
         "connector state projection",
@@ -146,7 +170,12 @@
         "local CSV summary ingest",
         "KRY internal heuristic",
         "experimental regime-vector projection",
-        "sanitized SFI structured-result persistence"
+        "sanitized SFI structured-result persistence",
+        "HIVE album field hydration",
+        "pairwise relational matrix",
+        "knowledge/provenance chain",
+        "adaptive observation schema",
+        "unified AI context capsule"
       ],
       "authority": "Edwing retains publication/representation authority; AI may analyze/recommend; SFI observes/persists structured evidence boundaries",
       "fallback": "local observation and export remain usable when external connectors are unconfigured",

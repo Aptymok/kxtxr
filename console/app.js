@@ -9,6 +9,10 @@ let campaign = null;
 let serverState = null;
 let csvSummary = null;
 let lastEnvelope = null;
+let musicField = null;
+let observationSchema = null;
+let knowledgePlane = null;
+let selectedTrackId = null;
 
 const getEntries = () => {
   try { return JSON.parse(localStorage.getItem(KEY) || '[]'); }
@@ -378,13 +382,101 @@ function parseCsvSummary(file, text) {
   return { name: file.name, rowCount: Math.max(0, lines.length - 1), headers };
 }
 
+
+function renderMusicTrack(id) {
+  const track = (musicField?.tracks || []).find(item => item.id === id);
+  if (!track) return;
+  selectedTrackId = track.id;
+  document.querySelectorAll('.track-btn').forEach(button => button.classList.toggle('active', button.dataset.track === track.id));
+  const m = track.metrics || {};
+  const bands = m.bands || {};
+  const neg = track.negative_space || {};
+  const maxBand = Math.max(...Object.values(bands).map(Number), .001);
+  const bandHtml = Object.entries(bands).map(([band,value]) =>
+    '<div class="band-row"><span>' + esc(band) + '</span><div class="bar"><i style="width:' + Math.round((Number(value)/maxBand)*100) + '%"></i></div><b>' + Number(value).toFixed(3) + '</b></div>'
+  ).join('');
+  const negativeTop = Object.entries(neg).sort((a,b) => Number(b[1])-Number(a[1])).slice(0,2).map(([band,value]) => band + ' ' + Math.round(Number(value)*100) + '%').join(' · ');
+  $('musicDetail').innerHTML =
+    '<div class="eyebrow">SELECTED TRACK / ' + esc(track.status) + '</div>' +
+    '<h3>' + esc(track.id) + '</h3>' +
+    '<p>' + esc(track.function) + '</p>' +
+    '<div class="music-metrics">' +
+      '<div><span>LUFS-I</span><b>' + esc(m.lufs_i) + '</b></div>' +
+      '<div><span>LRA</span><b>' + esc(m.lra) + '</b></div>' +
+      '<div><span>TRUE PEAK</span><b>' + esc(m.true_peak_dbfs) + '</b></div>' +
+      '<div><span>STEREO CORR</span><b>' + esc(m.stereo_corr) + '</b></div>' +
+      '<div><span>CENTROID</span><b>' + esc(m.centroid_hz) + ' Hz</b></div>' +
+      '<div><span>LEAVE-ONE-OUT</span><b>' + Number(track.relations?.leave_one_out || 0).toFixed(2) + '</b></div>' +
+    '</div>' +
+    '<div class="band-bars">' + bandHtml + '</div>' +
+    '<div class="small" style="margin-top:10px">Nearest: ' + esc(track.relations?.nearest) + ' (' + Number(track.relations?.nearest_distance || 0).toFixed(2) + ') · Farthest: ' + esc(track.relations?.farthest) + ' (' + Number(track.relations?.farthest_distance || 0).toFixed(2) + ')</div>' +
+    '<div class="small">Largest relative negative-space positions: ' + esc(negativeTop || 'N/D') + '</div>';
+}
+
+function renderMusicMatrix() {
+  const matrix = musicField?.pairwise_matrix;
+  if (!matrix || !$('musicMatrix')) return;
+  const order = matrix.order || [];
+  const values = matrix.values || [];
+  $('musicMatrix').innerHTML =
+    '<thead><tr><th></th>' + order.map(name => '<th>' + esc(name) + '</th>').join('') + '</tr></thead>' +
+    '<tbody>' + order.map((rowName,i) =>
+      '<tr><th>' + esc(rowName) + '</th>' +
+      (values[i] || []).map((value,j) => {
+        const n = Number(value);
+        const cls = i === j ? '' : n <= .8 ? 'near' : n >= 2 ? 'far' : '';
+        return '<td class="' + cls + '">' + n.toFixed(2) + '</td>';
+      }).join('') + '</tr>'
+    ).join('') + '</tbody>';
+}
+
+function renderKnowledgePlane() {
+  if (!$('knowledgeChain')) return;
+  $('knowledgeChain').innerHTML = (knowledgePlane?.sources || []).map(source =>
+    '<div class="knowledge-node"><b>' + esc(source.class) + ' · ' + esc(source.id) + '</b><span>' + esc(source.contains) + '<br>' + esc(source.status) + ' · ' + esc(source.ref) + '</span></div>'
+  ).join('');
+}
+
+function renderObservationSchema() {
+  if (!$('observationSchema')) return;
+  $('observationSchema').innerHTML = (observationSchema?.fields || []).map(field =>
+    '<div class="schema-item"><div><b>' + esc(field.id) + '</b><span>' + esc(field.plane) + ' · ' + esc(field.class) + '</span></div>' + badge(field.status) + '</div>'
+  ).join('');
+}
+
+function renderMusicField() {
+  if (!musicField) return;
+  const tracks = musicField.tracks || [];
+  const refs = musicField.references || [];
+  $('observedMasters').textContent = tracks.length;
+  $('referenceObjects').textContent = refs.filter(item => item.status !== 'NOT_OBSERVED').length;
+  $('missingMusic').textContent = refs.filter(item => item.status === 'NOT_OBSERVED').length;
+  $('counterweight').textContent = musicField.global_observation?.strongest_counterweight || '—';
+  $('hiveRule').textContent = musicField.hive_rule || '';
+  $('musicFieldState').textContent = 'HIVE ' + (musicField.observed_at || '');
+  $('musicTrackGrid').innerHTML =
+    tracks.map(track =>
+      '<button type="button" class="track-btn" data-track="' + esc(track.id) + '"><b>' + esc(track.id) + '</b><span>' + esc(track.function) + '</span></button>'
+    ).join('') +
+    refs.map(ref =>
+      '<button type="button" class="track-btn" disabled><b>' + esc(ref.id) + '</b><span>' + esc(ref.status) + '</span></button>'
+    ).join('');
+  renderMusicMatrix();
+  renderKnowledgePlane();
+  renderObservationSchema();
+  if (tracks.length) renderMusicTrack(tracks[0].id);
+}
+
 async function init() {
   try {
-    [control, regime, campaign, serverState] = await Promise.all([
+    [control, regime, campaign, serverState, musicField, observationSchema, knowledgePlane] = await Promise.all([
       fetch('/data/control-plane.json').then(response => response.json()),
       fetch('/data/regime-transition.json').then(response => response.json()),
       fetch('/campaigns/que-no/representation-engine.json').then(response => response.json()),
-      fetch('/api/kxtxr-control-state').then(response => response.json())
+      fetch('/api/kxtxr-control-state').then(response => response.json()),
+      fetch('/data/music-field.json').then(response => response.json()),
+      fetch('/data/observation-schema.json').then(response => response.json()),
+      fetch('/data/knowledge-plane.json').then(response => response.json())
     ]);
   } catch {
     $('systemState').textContent = 'SOURCE PARTIAL';
@@ -404,6 +496,7 @@ async function init() {
   renderConnectors();
   renderMetrics(currentMetrics());
   renderTimeline();
+  renderMusicField();
   const socialReady = Boolean(serverState?.connectors?.metricool?.schedulerEndpointReady);
   $('socialState').textContent = socialReady ? 'SOCIAL EXECUTION READY' : 'NOT CONFIGURED';
   $('socialScheduleBtn').disabled = !socialReady;
@@ -417,6 +510,10 @@ $('socialPreviewBtn').addEventListener('click', () => socialAction(true));
 $('socialScheduleBtn').addEventListener('click', () => socialAction(false));
 $('socialNetwork').addEventListener('change', () => {
   $('instagramType').disabled = $('socialNetwork').value !== 'instagram';
+});
+$('musicTrackGrid').addEventListener('click', event => {
+  const button = event.target.closest('[data-track]');
+  if (button && !button.disabled) renderMusicTrack(button.dataset.track);
 });
 ['reach','views','completion','shares','comments','saves','profile','follows','latency']
   .forEach(id => $(id).addEventListener('input', () => renderMetrics(currentMetrics())));

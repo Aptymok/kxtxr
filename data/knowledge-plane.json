@@ -1,0 +1,111 @@
+{
+  "schema": "KXTXR_KNOWLEDGE_PLANE_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-28T18:31:00-06:00",
+  "question": "How does KXTXR know what it claims to know?",
+  "answer": "By reconstructing each claim from a versioned source reference through explicit epistemic transformations. KXTXR does not treat a model output, publication, metric or narrative as truth merely because it exists.",
+  "chain": [
+    "SOURCE",
+    "OBSERVATION",
+    "DERIVATION",
+    "INFERENCE",
+    "DECISION",
+    "ACTION",
+    "RETURN",
+    "CONTRAST",
+    "LEARNING_CANDIDATE"
+  ],
+  "sources": [
+    {
+      "id": "HIVE_MASTER_AUDIO",
+      "class": "SOURCE",
+      "status": "OBSERVED",
+      "ref": "DRIVE:KXTXR_HIVE_MASTER_ANALYSIS_2026-09-28",
+      "contains": "Eight new WAV masters."
+    },
+    {
+      "id": "HIVE_METRICS",
+      "class": "OBSERVATION",
+      "status": "OBSERVED_DERIVED_MEASUREMENT",
+      "ref": "DRIVE:final_track_metrics.csv",
+      "contains": "LUFS-I, LRA, true peak, stereo correlation, centroid and band energy."
+    },
+    {
+      "id": "HIVE_RELATIONS",
+      "class": "DERIVATION",
+      "status": "DERIVED",
+      "ref": "DRIVE:pairwise_distance_matrix.csv + leave_one_out_positions.csv + negative_space_by_track.csv",
+      "contains": "Relational distances, distinctiveness and ensemble-relative negative spectral space."
+    },
+    {
+      "id": "HIVE_REPORT",
+      "class": "DERIVATION",
+      "status": "DERIVED",
+      "ref": "DRIVE:KXTXR_HIVE_MASTER_CONTRAST_REPORT_2026-09-28.md",
+      "contains": "Per-song function inside the hive and mastering boundaries."
+    },
+    {
+      "id": "RUCHE_DOC",
+      "class": "INFERENCE",
+      "status": "MIXED_OBSERVED_DERIVED_HYPOTHESIZED",
+      "ref": "DRIVE:Une histoire de ruche de KXTXR v0.1",
+      "contains": "Cross-layer genealogy from audio to representation, platform function and RETURN."
+    },
+    {
+      "id": "QUE_NO_ENGINE",
+      "class": "DECLARED_OPERATIONAL_STATE",
+      "status": "VERSIONED",
+      "ref": "REPO:/campaigns/que-no/representation-engine.json",
+      "contains": "Current campaign states and KRY boundary."
+    },
+    {
+      "id": "CONTROL_PLANE",
+      "class": "OPERATION",
+      "status": "VERSIONED",
+      "ref": "REPO:/data/control-plane.json",
+      "contains": "Connector classes, authority and evidence boundaries."
+    }
+  ],
+  "current_known": [
+    "Eight new masters have reproducible relational audio measurements.",
+    "The album field is not sonically homogeneous; each track has a distinct functional position.",
+    "REM3002 ACUSTICO is the strongest spectral counterweight in the new-master set.",
+    "ESPINAS and LUGAR LUNAR provide the largest macro-dynamic relief among the new masters.",
+    "AELUDE, BLVCK and ODIO DECIRTELO occupy related low/bass-heavy territory.",
+    "The ensemble leaves increasing negative spectral space above 4 kHz, especially above 10 kHz.",
+    "QUE NO, 111 and REM618 are reference objects in this analysis, not new HIVE masters.",
+    "KYRIE | PHOSPHOROS is not observed in the supplied WAV set.",
+    "At the time of the Ruche analysis, empirical campaign RETURN remained missing."
+  ],
+  "current_unknown": [
+    "Which representation consistently produces identity recognition across songs.",
+    "Whether increased human legibility causes search/listen behavior or only passive attention.",
+    "Which audio-to-representation hypotheses generalize beyond the current campaign.",
+    "Whether any apparent regime transition persists across comparable windows and negative controls."
+  ],
+  "ai_contract": {
+    "hydrate_from": [
+      "/data/music-field.json",
+      "/data/observation-schema.json",
+      "/data/control-plane.json",
+      "/data/regime-transition.json",
+      "/campaigns/que-no/representation-engine.json",
+      "/grimoire/discovery-mesh.json"
+    ],
+    "may": [
+      "summarize observed state",
+      "propose observation fields",
+      "generate rival hypotheses",
+      "propose site mutations",
+      "prepare GitHub patch/PR",
+      "prepare SFI structured result"
+    ],
+    "may_not": [
+      "rewrite artistic canon as fact",
+      "declare algorithm causality",
+      "declare calibrated regime transition",
+      "publish or alter masters without human authority",
+      "erase missingness"
+    ]
+  }
+}
