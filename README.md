@@ -103,6 +103,19 @@ The original REM618 operator surface is preserved unchanged at:
 
 It remains historical and must not be used for QUE NO.
 
+## Current temporal campaign state
+
+As of 2026-09-29, the public runtime keeps **10/12** active until the scheduled **11/12 · INVOCATION** publication at **21:00 America/Mexico_City**.
+
+The campaign definition separates schedule from evidence:
+
+```txt
+SCHEDULED ≠ PUBLISHED
+PUBLISHED ≠ RETURN
+```
+
+The frontend may promote 11/12 when the scheduled timestamp is reached, but that clock transition does not itself establish platform publication, reception or RETURN.
+
 ## QUE NO representation definition
 
 Machine-readable campaign definition:
