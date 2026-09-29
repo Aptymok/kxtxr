@@ -162,7 +162,10 @@
         "/data/music-field.json",
         "/data/observation-schema.json",
         "/data/knowledge-plane.json",
-        "/api/kxtxr-context"
+        "/api/kxtxr-context",
+        "/data/ai-governance.json",
+        "/api/kxtxr-ai",
+        "/api/kxtxr-ai-pr"
       ],
       "effects": [
         "connector state projection",
@@ -175,10 +178,35 @@
         "pairwise relational matrix",
         "knowledge/provenance chain",
         "adaptive observation schema",
-        "unified AI context capsule"
+        "unified AI context capsule",
+        "AI observer structured analysis",
+        "adaptive field-curation proposals",
+        "reversible site mutation plans",
+        "governed JSON-manifest draft PR creation"
       ],
-      "authority": "Edwing retains publication/representation authority; AI may analyze/recommend; SFI observes/persists structured evidence boundaries",
+      "authority": "Edwing retains artistic/publication authority; AI may observe/curate/propose and create draft manifest PRs only; SFI owns evidence/RETURN/calibration boundaries",
       "fallback": "local observation and export remain usable when external connectors are unconfigured",
+      "index": false
+    },
+    {
+      "id": "ai-curator",
+      "route": "/console/",
+      "public_role": "internal_ai_observer_curator_site_editor",
+      "source": "/data/ai-governance.json",
+      "related": [
+        "/api/kxtxr-context",
+        "/api/kxtxr-ai",
+        "/api/kxtxr-ai-pr",
+        "/data/observation-schema.json"
+      ],
+      "effects": [
+        "structured AI observation",
+        "field schema mutation proposals",
+        "site mutation plan",
+        "allowlisted JSON patch to draft PR"
+      ],
+      "authority": "AI proposal only; human approval required before draft PR creation and again before merge",
+      "fallback": "console remains fully usable without AI credentials",
       "index": false
     },
     {
