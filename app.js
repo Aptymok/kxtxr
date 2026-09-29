@@ -7,7 +7,13 @@ function makeScratches(){const root=$('#scratches');if(!root||reduced)return;for
 function text(tag,value){const n=document.createElement(tag);n.textContent=value;return n}
 function statusLabel(v){return String(v||'').replace('WAIT_RETURN_07','WAIT').replace('CONDITIONAL','COND.')}
 function renderCampaign(cfg){
-  const pieces=Array.isArray(cfg?.pieces)?cfg.pieces:[],current=cfg?.current_piece||pieces[0]?.piece||'07/12';
+  const pieces=Array.isArray(cfg?.pieces)?cfg.pieces:[];
+  const runtime=cfg?.runtime_state||{};
+  let current=runtime.active_piece||cfg?.current_piece||pieces[0]?.piece||'07/12';
+  if(runtime.next_piece&&runtime.next_publication_at){
+    const publishAt=Date.parse(runtime.next_publication_at);
+    if(Number.isFinite(publishAt)&&Date.now()>=publishAt) current=runtime.next_piece;
+  }
   const hit=pieces.find(p=>p.piece===current)||pieces[0];
   if(hit){
     $('#heroPiece')&&($('#heroPiece').textContent=hit.piece+' · '+hit.state);
