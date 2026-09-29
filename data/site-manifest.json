@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_SITE_MANIFEST_V2",
   "version": "2.0.0",
-  "updated_at": "2026-09-26T19:16:00-06:00",
+  "updated_at": "2026-09-28T19:42:00-06:00",
   "canonical_url": "https://kxtxr.vercel.app/",
   "posture": "AI_ASSISTED_HUMAN_GOVERNED_SFI_OBSERVED",
   "sections": [
@@ -15,45 +15,68 @@
         "/assets/kxtxr/que-no/07-12/ig-01.png",
         "/assets/kxtxr/que-no/07-12/ig-02.png"
       ],
-      "full_bleed": "procedural WebGL + SVG + CSS"
+      "full_bleed": "procedural WebGL + SVG + CSS",
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE"
     },
     {
       "id": "musica",
       "role": "release_lineage",
-      "source": "/data/releases.json"
+      "source": "/data/releases.json",
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE"
     },
     {
       "id": "queno",
       "role": "active_campaign",
-      "source": "/campaigns/que-no/representation-engine.json"
+      "source": "/campaigns/que-no/representation-engine.json",
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE"
     },
     {
       "id": "live",
       "role": "performance_evidence_surface",
-      "source": "/data/media-manifest.json"
+      "source": "/data/media-manifest.json",
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE"
     },
     {
       "id": "proyecto",
       "role": "identity_doctrine",
-      "source": "/grimoire/experiment.json"
+      "source": "/grimoire/experiment.json",
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE"
     },
     {
       "id": "archivo",
       "role": "persistent_memory",
-      "source": "/grimoire/ledger.json"
+      "source": "/grimoire/ledger.json",
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE"
     },
     {
       "id": "rider",
       "role": "technical_boundary",
-      "source": "/data/rider.json"
+      "source": "/data/rider.json",
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE"
     },
     {
       "id": "contacto",
       "role": "verified_routes",
-      "source": "/data/contact.json"
+      "source": "/data/contact.json",
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE"
     }
   ],
   "rule": "PUBLIC UI MAY REPRESENT PERSISTED DATA; IT MUST NOT SYNTHESIZE MISSING FACTS.",
   "system_map": "/data/system-map.json",
-  "asset_registry": "/data/assets.json"
+  "asset_registry": "/data/assets.json",
+  "presentation": {
+    "shell": "CINEMATIC_SHELL_V3",
+    "desktop": "100svh scenes / proximity snap / cinematic negative space",
+    "mobile": "100svh scenes / mandatory snap / internal bounded content",
+    "public_metadata": "minimal",
+    "machine_metadata": "preserved in manifests/discovery surfaces"
+  }
 }
