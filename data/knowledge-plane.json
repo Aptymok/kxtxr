@@ -90,7 +90,8 @@
       "/data/control-plane.json",
       "/data/regime-transition.json",
       "/campaigns/que-no/representation-engine.json",
-      "/grimoire/discovery-mesh.json"
+      "/grimoire/discovery-mesh.json",
+      "/data/ai-governance.json"
     ],
     "may": [
       "summarize observed state",
@@ -106,6 +107,12 @@
       "declare calibrated regime transition",
       "publish or alter masters without human authority",
       "erase missingness"
-    ]
+    ],
+    "execution": {
+      "observe": "/api/kxtxr-ai mode=observe",
+      "curate": "/api/kxtxr-ai mode=curate",
+      "site_plan": "/api/kxtxr-ai mode=site_plan",
+      "draft_pr": "/api/kxtxr-ai-pr; allowlisted JSON manifests only; explicit human approval; never auto-merge"
+    }
   }
 }
