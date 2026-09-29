@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_ASSET_REGISTRY_V1",
   "version": "1.0.0",
-  "updated_at": "2026-09-26T19:16:00-06:00",
+  "updated_at": "2026-09-29T15:35:00-06:00",
   "purpose": "Declare visual asset roles, dimensions, provenance class and runtime constraints so public representation can be reconstructed without relying on undocumented file choices.",
   "current": {
     "campaign": "QUE NO",
@@ -88,6 +88,39 @@
       "role": "campaign_topology",
       "runtime": true,
       "scaling": "resolution_independent"
+    },
+    {
+      "id": "QUE_NO_09_12_BACKGROUND",
+      "path": "/assets/kxtxr/que-no/09-12/bg-room.webp",
+      "role": "campaign_scene_background",
+      "runtime": true,
+      "piece": "09/12",
+      "provenance": "DRIVE:KXTXR/02_RELEASES/QUE_NO/PRERELEASE_PUBLICITY/280926_QUENO_09_10_PARALLAX_WEB"
+    },
+    {
+      "id": "QUE_NO_09_12_FIGURE",
+      "path": "/assets/kxtxr/que-no/09-12/figure.webp",
+      "role": "campaign_scene_foreground",
+      "runtime": true,
+      "piece": "09/12",
+      "provenance": "DRIVE:KXTXR/02_RELEASES/QUE_NO/PRERELEASE_PUBLICITY/280926_QUENO_09_10_PARALLAX_WEB"
+    },
+    {
+      "id": "QUE_NO_10_12_BACKGROUND",
+      "path": "/assets/kxtxr/que-no/10-12/bg-room.webp",
+      "role": "campaign_scene_background",
+      "runtime": true,
+      "piece": "10/12",
+      "provenance": "DRIVE:KXTXR/02_RELEASES/QUE_NO/PRERELEASE_PUBLICITY/280926_QUENO_09_10_PARALLAX_WEB"
+    },
+    {
+      "id": "QUE_NO_10_12_CASSETTE_RIBBON",
+      "path": "/assets/kxtxr/que-no/10-12/cassette-ribbon.webp",
+      "role": "campaign_scene_foreground",
+      "runtime": true,
+      "piece": "10/12",
+      "provenance": "DRIVE:KXTXR/02_RELEASES/QUE_NO/PRERELEASE_PUBLICITY/280926_QUENO_09_10_PARALLAX_WEB",
+      "continuity_rule": "May persist as visual residue into later QUE NO scenes; reuse does not change canonical campaign meaning."
     }
   ],
   "rendering_contract": [
