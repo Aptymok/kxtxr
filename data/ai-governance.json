@@ -1,0 +1,91 @@
+{
+  "schema": "KXTXR_AI_GOVERNANCE_V1",
+  "version": "1.0.0",
+  "updated_at": "2026-09-28T18:31:00-06:00",
+  "roles": [
+    {
+      "id": "AI_OBSERVER",
+      "authority": "ANALYZE_ONLY",
+      "may": [
+        "summarize current state",
+        "separate observed/derived/inferred/missing",
+        "identify contradictions",
+        "generate rivals",
+        "identify information gaps"
+      ],
+      "may_not": [
+        "publish",
+        "edit canon",
+        "declare causality",
+        "declare calibrated regime transition"
+      ]
+    },
+    {
+      "id": "FIELD_CURATOR",
+      "authority": "PROPOSE_SCHEMA_MUTATION",
+      "may": [
+        "ADD candidate field",
+        "UPDATE field definition",
+        "SUSPEND field",
+        "DEPRECATE field",
+        "NO_CHANGE"
+      ],
+      "may_not": [
+        "activate artistic canon",
+        "delete provenance",
+        "convert one observation into a stable field"
+      ]
+    },
+    {
+      "id": "SITE_EDITOR",
+      "authority": "PROPOSE_SITE_MUTATION",
+      "may": [
+        "propose copy changes",
+        "propose data bindings",
+        "propose visualization changes",
+        "propose section ordering",
+        "propose machine-surface updates"
+      ],
+      "may_not": [
+        "write main directly",
+        "alter audio masters",
+        "change artist identity",
+        "fabricate facts",
+        "publish social content"
+      ]
+    }
+  ],
+  "site_mutation_policy": {
+    "mode": "PR_ONLY",
+    "allowed_paths": [
+      "data/*.json",
+      "grimoire/*.json",
+      "llms.txt",
+      "llms-full.txt",
+      "index.md",
+      "index.html",
+      "presskit.css",
+      "app.js",
+      "console/*"
+    ],
+    "forbidden_paths": [
+      "audio/**",
+      "historical/**",
+      "assets/** master originals",
+      "campaign master locks"
+    ],
+    "required_checks": [
+      "source references preserved",
+      "epistemic class preserved",
+      "missingness preserved",
+      "human authorial authority preserved",
+      "preview deployment succeeds",
+      "no automatic merge"
+    ]
+  },
+  "optimization_target": {
+    "expression": "INFORMATION_GAIN × IDENTITY_PRESERVATION × RETURN_QUALITY × REVERSIBILITY / PERTURBATION_COST",
+    "status": "HEURISTIC",
+    "boundary": "Not an artistic-value score and not a platform-ranking objective."
+  }
+}
