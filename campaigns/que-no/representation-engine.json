@@ -1,9 +1,9 @@
 {
   "schema": "KXTXR_QUE_NO_REPRESENTATION_ENGINE_V1",
   "version": "1.0.0",
-  "updated_at": "2026-09-28T22:11:00-06:00",
+  "updated_at": "2026-09-29T15:35:00-06:00",
   "campaign": "QUE NO",
-  "current_piece": "07/12",
+  "current_piece": "10/12",
   "canonical_emission_time": {
     "local_time": "20:11",
     "timezone": "America/Mexico_City",
@@ -16,14 +16,16 @@
       "state": "MEMORY",
       "objective": "identification + transmission",
       "status": "READY",
-      "mutation_rule": "Keep time fixed; change at most one primary representation variable."
+      "mutation_rule": "Keep time fixed; change at most one primary representation variable.",
+      "publication_state": "PAST_OR_ACTIVE"
     },
     {
       "piece": "08/12",
       "state": "RETURN",
       "objective": "let observed reception modify the field",
       "status": "WAIT_RETURN_07",
-      "mutation_rule": "Use real 07/12 return only; do not fabricate reception."
+      "mutation_rule": "Use real 07/12 return only; do not fabricate reception.",
+      "publication_state": "PAST_OR_ACTIVE"
     },
     {
       "piece": "09/12",
@@ -38,7 +40,8 @@
         "source_ref": "DRIVE:KXTXR/02_RELEASES/QUE_NO/PRERELEASE_PUBLICITY/280926_QUENO_09_10_PARALLAX_WEB",
         "motion": "background slow / figure medium",
         "mobile": "FULL_VIEWPORT_SCENE"
-      }
+      },
+      "publication_state": "PAST_OR_ACTIVE"
     },
     {
       "piece": "10/12",
@@ -53,21 +56,25 @@
         "source_ref": "DRIVE:KXTXR/02_RELEASES/QUE_NO/PRERELEASE_PUBLICITY/280926_QUENO_09_10_PARALLAX_WEB",
         "motion": "background slow / cassette medium / ghost-tape fast",
         "mobile": "FULL_VIEWPORT_SCENE"
-      }
+      },
+      "publication_state": "ACTIVE_UNTIL_NEXT_PUBLICATION"
     },
     {
       "piece": "11/12",
       "state": "INVOCATION",
       "objective": "desire for access + sound recognition",
-      "status": "CONDITIONAL",
-      "mutation_rule": "Prepare conversion only when intent is observed."
+      "status": "SCHEDULED",
+      "mutation_rule": "Publish at the scheduled time; observe real RETURN after publication before changing the field.",
+      "publication_state": "SCHEDULED",
+      "publish_at": "2026-09-29T21:00:00-06:00"
     },
     {
       "piece": "12/12",
       "state": "APERTURA",
       "objective": "listen + save + transmit",
       "status": "CONDITIONAL",
-      "mutation_rule": "Transition from countdown to post-release RETURN."
+      "mutation_rule": "Transition from countdown to post-release RETURN.",
+      "publication_state": "FUTURE"
     }
   ],
   "kry": {
@@ -90,5 +97,12 @@
     "KRY ≠ PLATFORM ALGORITHM",
     "LOCAL ENTRY ≠ CANONICAL PERSISTENCE",
     "MISSING REMAINS MISSING"
-  ]
+  ],
+  "runtime_state": {
+    "active_piece": "10/12",
+    "next_piece": "11/12",
+    "next_publication_at": "2026-09-29T21:00:00-06:00",
+    "timezone": "America/Mexico_City",
+    "rule": "The public runtime may promote next_piece only when next_publication_at has been reached. Schedule is not publication evidence."
+  }
 }
