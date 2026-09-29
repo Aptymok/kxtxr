@@ -1,6 +1,6 @@
 {
   "schema": "KXTXR_VISUAL_SYSTEM_V1",
-  "updated_at": "2026-09-28T19:42:00-06:00",
+  "updated_at": "2026-09-28T22:11:00-06:00",
   "invariant": {
     "identity": "KXTXR",
     "human_presence": "Edwing / KXTXR",
@@ -72,6 +72,25 @@
       "id": "state",
       "technology": "JSON hydration",
       "function": "current campaign and canonical state"
+    },
+    {
+      "id": "que_no_09_10_parallax",
+      "technology": "WebP raster layers + CSS compositing + scroll/pointer parallax",
+      "function": "campaign scene depth for 09/12 and 10/12",
+      "assets": {
+        "09/12": [
+          "/assets/kxtxr/que-no/09-12/bg-room.webp",
+          "/assets/kxtxr/que-no/09-12/figure.webp"
+        ],
+        "10/12": [
+          "/assets/kxtxr/que-no/10-12/bg-room.webp",
+          "/assets/kxtxr/que-no/10-12/cassette-ribbon.webp"
+        ]
+      },
+      "source_ref": "DRIVE:280926_QUENO_09_10_PARALLAX_WEB",
+      "desktop": "foreground enlarged; pointer + scroll separation",
+      "mobile": "full-screen scene; reduced scroll-only parallax",
+      "boundary": "campaign imagery, not evidence"
     }
   ],
   "performance": {
