@@ -146,12 +146,25 @@ const revealObserver=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersec
 $$('.reveal').forEach(n=>revealObserver.observe(n));
 
 let tx=0,ty=0,cx=0,cy=0;
+const parallaxLayers=$('[data-parallax-depth]');
 addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5},{passive:true});
 function drift(){
   cx+=(tx-cx)*.045;cy+=(ty-cy)*.045;const r=document.documentElement.style;
   r.setProperty('--mx-back',(cx*-10).toFixed(2)+'px');r.setProperty('--my-back',(cy*-7).toFixed(2)+'px');
   r.setProperty('--mx-actor',(cx*14).toFixed(2)+'px');r.setProperty('--my-actor',(cy*8).toFixed(2)+'px');
   r.setProperty('--mx-echo',(cx*30).toFixed(2)+'px');r.setProperty('--my-echo',(cy*16).toFixed(2)+'px');
+
+  const mobile=innerWidth<=760,vh=Math.max(1,innerHeight);
+  parallaxLayers.forEach(layer=>{
+    const scene=layer.closest('.qn-parallax-scene');if(!scene)return;
+    const rect=scene.getBoundingClientRect();
+    const progress=(rect.top+rect.height*.5-vh*.5)/vh;
+    const depth=parseFloat(layer.dataset.parallaxDepth||'0');
+    const px=mobile?0:cx*depth*92;
+    const py=progress*depth*(mobile?-38:-96)+(mobile?0:cy*depth*36);
+    layer.style.setProperty('--parallax-x',px.toFixed(2)+'px');
+    layer.style.setProperty('--parallax-y',py.toFixed(2)+'px');
+  });
   requestAnimationFrame(drift);
 }
 makeWave();makeScratches();hydrate();sync();initSignalField();if(!reduced)drift();

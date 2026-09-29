@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_QUE_NO_REPRESENTATION_ENGINE_V1",
   "version": "1.0.0",
-  "updated_at": "2026-09-26T05:00:00-06:00",
+  "updated_at": "2026-09-28T22:11:00-06:00",
   "campaign": "QUE NO",
   "current_piece": "07/12",
   "canonical_emission_time": {
@@ -30,14 +30,30 @@
       "state": "EMITTER",
       "objective": "associate work → KXTXR",
       "status": "CONDITIONAL",
-      "mutation_rule": "Compare profile/search intent and transmission by representation."
+      "mutation_rule": "Compare profile/search intent and transmission by representation.",
+      "web_representation": {
+        "class": "PARALLAX_SCENE",
+        "background": "/assets/kxtxr/que-no/09-12/bg-room.webp",
+        "foreground": "/assets/kxtxr/que-no/09-12/figure.webp",
+        "source_ref": "DRIVE:KXTXR/02_RELEASES/QUE_NO/PRERELEASE_PUBLICITY/280926_QUENO_09_10_PARALLAX_WEB",
+        "motion": "background slow / figure medium",
+        "mobile": "FULL_VIEWPORT_SCENE"
+      }
     },
     {
       "piece": "10/12",
       "state": "EMBODIMENT",
       "objective": "voice + body + performance",
       "status": "CONDITIONAL",
-      "mutation_rule": "Observe retention/rewatch; preserve canonical identity."
+      "mutation_rule": "Observe retention/rewatch; preserve canonical identity.",
+      "web_representation": {
+        "class": "PARALLAX_SCENE",
+        "background": "/assets/kxtxr/que-no/10-12/bg-room.webp",
+        "foreground": "/assets/kxtxr/que-no/10-12/cassette-ribbon.webp",
+        "source_ref": "DRIVE:KXTXR/02_RELEASES/QUE_NO/PRERELEASE_PUBLICITY/280926_QUENO_09_10_PARALLAX_WEB",
+        "motion": "background slow / cassette medium / ghost-tape fast",
+        "mobile": "FULL_VIEWPORT_SCENE"
+      }
     },
     {
       "piece": "11/12",

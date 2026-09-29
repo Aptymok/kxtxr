@@ -1,7 +1,7 @@
 {
   "schema": "KXTXR_SITE_MANIFEST_V2",
   "version": "2.0.0",
-  "updated_at": "2026-09-28T19:42:00-06:00",
+  "updated_at": "2026-09-28T22:11:00-06:00",
   "canonical_url": "https://kxtxr.vercel.app/",
   "posture": "AI_ASSISTED_HUMAN_GOVERNED_SFI_OBSERVED",
   "sections": [
@@ -32,6 +32,30 @@
       "source": "/campaigns/que-no/representation-engine.json",
       "viewport": "100svh",
       "mobile_mode": "FULL_VIEWPORT_SCENE"
+    },
+    {
+      "id": "queno-09",
+      "role": "campaign_representation_parallax",
+      "source": "/campaigns/que-no/representation-engine.json",
+      "assets": [
+        "/assets/kxtxr/que-no/09-12/bg-room.webp",
+        "/assets/kxtxr/que-no/09-12/figure.webp"
+      ],
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE",
+      "nav_group": "QUE NO"
+    },
+    {
+      "id": "queno-10",
+      "role": "campaign_representation_parallax",
+      "source": "/campaigns/que-no/representation-engine.json",
+      "assets": [
+        "/assets/kxtxr/que-no/10-12/bg-room.webp",
+        "/assets/kxtxr/que-no/10-12/cassette-ribbon.webp"
+      ],
+      "viewport": "100svh",
+      "mobile_mode": "FULL_VIEWPORT_SCENE",
+      "nav_group": "QUE NO"
     },
     {
       "id": "live",
