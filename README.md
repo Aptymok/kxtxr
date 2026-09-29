@@ -214,3 +214,22 @@ SOURCE → OBSERVATION → DERIVATION → INFERENCE
 ```
 
 A pairwise audio distance is a relational measurement, not an artistic score. A representation hypothesis is not canonical meaning. An AI proposal is not human authority.
+
+
+## KXTXR AI Field Curator
+
+The operator console can host three governed AI roles when `OPENAI_API_KEY` is configured server-side:
+
+- **AI Observer** — analyzes the current KXTXR context and local RETURN windows while preserving observed / derived / inferred / missing partitions.
+- **Field Curator** — proposes ADD / UPDATE / SUSPEND / DEPRECATE / NO_CHANGE operations over the versioned observation schema.
+- **Site Editor** — proposes the smallest reversible site mutation that increases information gain without claiming artistic authority.
+
+Machine surfaces:
+
+```txt
+/data/ai-governance.json
+/api/kxtxr-ai
+/api/kxtxr-ai-pr
+```
+
+The draft-PR bridge can apply only allowlisted JSON-manifest add/replace operations. It requires explicit human approval and a server-side `GITHUB_KXTXR_TOKEN`. HTML/CSS/JS remain PLAN_ONLY. No AI-generated PR is auto-merged.

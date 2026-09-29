@@ -14,7 +14,8 @@ export default async function handler(req, res) {
     control: '/data/control-plane.json',
     regime: '/data/regime-transition.json',
     campaign: '/campaigns/que-no/representation-engine.json',
-    discovery: '/grimoire/discovery-mesh.json'
+    discovery: '/grimoire/discovery-mesh.json',
+    ai_governance: '/data/ai-governance.json'
   };
 
   try {

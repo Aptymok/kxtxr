@@ -194,6 +194,18 @@
     {
       "url": "https://kxtxr.vercel.app/api/kxtxr-context",
       "function": "unified machine context capsule for authorized/compatible AI clients"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/data/ai-governance.json",
+      "function": "AI observer/field-curator/site-editor authority and mutation policy"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/api/kxtxr-ai",
+      "function": "authenticated structured AI analysis/proposal endpoint"
+    },
+    {
+      "url": "https://kxtxr.vercel.app/api/kxtxr-ai-pr",
+      "function": "authenticated allowlisted JSON-manifest mutation to GitHub draft PR"
     }
   ],
   "indexing": {
@@ -220,7 +232,8 @@
     "MISSING REMAINS MISSING",
     "REGIME CANDIDATE ≠ CALIBRATED TRANSITION",
     "AUDIO RELATION != ARTISTIC QUALITY",
-    "SOURCE != OBSERVATION != DERIVATION != INFERENCE"
+    "SOURCE != OBSERVATION != DERIVATION != INFERENCE",
+    "AI SITE MUTATION = DRAFT PR, NEVER AUTO-MERGE"
   ],
   "do_not_infer": [
     "unverified booking email",

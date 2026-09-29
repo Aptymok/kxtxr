@@ -13,6 +13,7 @@ let musicField = null;
 let observationSchema = null;
 let knowledgePlane = null;
 let selectedTrackId = null;
+let lastAiRun = null;
 
 const getEntries = () => {
   try { return JSON.parse(localStorage.getItem(KEY) || '[]'); }
@@ -467,6 +468,86 @@ function renderMusicField() {
   if (tracks.length) renderMusicTrack(tracks[0].id);
 }
 
+
+async function runAiMode(mode) {
+  const token = prompt('KXTXR control token (kept only for this request):');
+  if (!token) return;
+  const buttons = [$('aiRunObserver'),$('aiRunCurator'),$('aiRunSitePlan'),$('aiCreatePr')].filter(Boolean);
+  buttons.forEach(button => button.disabled = true);
+  $('aiReceipt').textContent = 'AI ' + mode.toUpperCase() + ' RUNNING…';
+  $('aiOutput').textContent = 'ANALYZING CURRENT KXTXR CONTEXT…';
+
+  try {
+    const response = await fetch('/api/kxtxr-ai', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-kxtxr-control-token':token},
+      body:JSON.stringify({
+        mode,
+        instruction:$('aiInstruction').value.trim(),
+        selectedTrackId,
+        localObservations:getEntries().slice(-24)
+      })
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      $('aiReceipt').textContent = 'AI BLOCKED · ' + (result.error || response.status);
+      $('aiOutput').textContent = JSON.stringify(result,null,2);
+      return;
+    }
+    lastAiRun = result;
+    $('aiReceipt').textContent = 'AI ' + mode.toUpperCase() + ' COMPLETE · ' + (result.model || 'MODEL');
+    $('aiOutput').textContent = JSON.stringify(result.result,null,2);
+  } catch (error) {
+    $('aiReceipt').textContent = 'AI UNAVAILABLE';
+    $('aiOutput').textContent = String(error?.message || error);
+  } finally {
+    const aiReady = Boolean(serverState?.connectors?.ai?.configured);
+    $('aiRunObserver').disabled = !aiReady;
+    $('aiRunCurator').disabled = !aiReady;
+    $('aiRunSitePlan').disabled = !aiReady;
+    $('aiCreatePr').disabled = !(aiReady && serverState?.connectors?.githubMutation?.configured && lastAiRun?.mode === 'site_plan');
+  }
+}
+
+async function createAiDraftPr() {
+  if (!lastAiRun || lastAiRun.mode !== 'site_plan') {
+    $('aiReceipt').textContent = 'RUN SITE PLAN FIRST';
+    return;
+  }
+  const executable = (lastAiRun.result?.changes || []).filter(change => change.applyMode === 'JSON_PATCH' && (change.jsonPatch || []).length);
+  if (!executable.length) {
+    $('aiReceipt').textContent = 'PLAN HAS NO EXECUTABLE JSON PATCHES';
+    return;
+  }
+  const approved = confirm('Create a DRAFT GitHub PR with the allowlisted JSON manifest changes proposed by the AI? This will NOT merge automatically.');
+  if (!approved) return;
+  const token = prompt('KXTXR control token (kept only for this request):');
+  if (!token) return;
+
+  $('aiCreatePr').disabled = true;
+  $('aiReceipt').textContent = 'CREATING DRAFT PR…';
+  try {
+    const response = await fetch('/api/kxtxr-ai-pr', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-kxtxr-control-token':token},
+      body:JSON.stringify({approvedByHuman:true,plan:lastAiRun})
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      $('aiReceipt').textContent = 'PR BLOCKED · ' + (result.error || response.status);
+      $('aiOutput').textContent = JSON.stringify(result,null,2);
+      return;
+    }
+    $('aiReceipt').innerHTML = 'DRAFT PR CREATED · <a target="_blank" rel="noreferrer" href="' + esc(result.pullRequest?.url || '#') + '">OPEN PR #' + esc(result.pullRequest?.number || '') + ' →</a>';
+    $('aiOutput').textContent = JSON.stringify(result,null,2);
+  } catch (error) {
+    $('aiReceipt').textContent = 'PR CREATION FAILED';
+    $('aiOutput').textContent = String(error?.message || error);
+  } finally {
+    $('aiCreatePr').disabled = !(serverState?.connectors?.githubMutation?.configured && lastAiRun?.mode === 'site_plan');
+  }
+}
+
 async function init() {
   try {
     [control, regime, campaign, serverState, musicField, observationSchema, knowledgePlane] = await Promise.all([
@@ -498,16 +579,32 @@ async function init() {
   renderTimeline();
   renderMusicField();
   const socialReady = Boolean(serverState?.connectors?.metricool?.schedulerEndpointReady);
+  const aiReady = Boolean(serverState?.connectors?.ai?.configured);
+  const githubReady = Boolean(serverState?.connectors?.githubMutation?.configured);
   $('socialState').textContent = socialReady ? 'SOCIAL EXECUTION READY' : 'NOT CONFIGURED';
   $('socialScheduleBtn').disabled = !socialReady;
   $('socialPreviewBtn').disabled = !socialReady;
-  $('systemState').textContent = socialReady ? 'CONTROL + SOCIAL MODEL LOADED' : 'CONTROL MODEL LOADED';
+  $('aiState').textContent = aiReady ? ('READY · ' + (serverState?.connectors?.ai?.model || 'MODEL')) : 'UNCONFIGURED';
+  $('aiRunObserver').disabled = !aiReady;
+  $('aiRunCurator').disabled = !aiReady;
+  $('aiRunSitePlan').disabled = !aiReady;
+  $('aiCreatePr').disabled = true;
+  $('aiReceipt').textContent = aiReady
+    ? (githubReady ? 'AI READY · DRAFT PR BRIDGE READY' : 'AI READY · GITHUB PR BRIDGE UNCONFIGURED')
+    : 'OPENAI_API_KEY REQUIRED';
+  $('systemState').textContent = aiReady
+    ? (socialReady ? 'CONTROL + SOCIAL + AI MODEL LOADED' : 'CONTROL + AI MODEL LOADED')
+    : (socialReady ? 'CONTROL + SOCIAL MODEL LOADED' : 'CONTROL MODEL LOADED');
 }
 
 $('recordBtn').addEventListener('click', recordObservation);
 $('persistBtn').addEventListener('click', persistToSfi);
 $('socialPreviewBtn').addEventListener('click', () => socialAction(true));
 $('socialScheduleBtn').addEventListener('click', () => socialAction(false));
+$('aiRunObserver').addEventListener('click', () => runAiMode('observe'));
+$('aiRunCurator').addEventListener('click', () => runAiMode('curate'));
+$('aiRunSitePlan').addEventListener('click', () => runAiMode('site_plan'));
+$('aiCreatePr').addEventListener('click', createAiDraftPr);
 $('socialNetwork').addEventListener('change', () => {
   $('instagramType').disabled = $('socialNetwork').value !== 'instagram';
 });
