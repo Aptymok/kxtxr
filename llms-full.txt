@@ -126,3 +126,15 @@ Boundaries:
 - platform metrics do not reveal recommendation algorithms
 - missing data remains missing
 - AI can propose site mutations, but human authority governs canon and publication
+
+
+## Governed AI field curator
+
+/data/ai-governance.json defines AI_OBSERVER, FIELD_CURATOR and SITE_EDITOR roles.
+
+/api/kxtxr-ai accepts authenticated structured runs in observe, curate and site_plan modes. The AI must hydrate from /api/kxtxr-context and preserve epistemic partitions, missingness and human authority.
+
+/api/kxtxr-ai-pr is a separate authenticated mutation boundary. It may apply only allowlisted JSON-manifest add/replace patches to a new GitHub branch and open a draft PR after explicit human approval. It never merges automatically. HTML, CSS, JavaScript, audio masters and historical artifacts remain outside automatic mutation.
+
+AI PROPOSAL != HUMAN AUTHORITY.
+AI SITE MUTATION = DRAFT PR, NEVER AUTO-MERGE.
