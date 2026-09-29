@@ -106,14 +106,24 @@ function schemaFor(mode) {
         properties:{
           path:{type:'string'},
           action:{type:'string',enum:['UPDATE','ADD','NO_CHANGE']},
+          applyMode:{type:'string',enum:['JSON_PATCH','PLAN_ONLY']},
           purpose:{type:'string'},
           sourceRefs:{type:'array',items:{type:'string'}},
           exactFields:{type:'array',items:{type:'string'}},
           proposedContent:{type:'string'},
+          jsonPatch:{type:'array',items:{
+            type:'object',additionalProperties:false,
+            properties:{
+              op:{type:'string',enum:['add','replace']},
+              path:{type:'string'},
+              valueJson:{type:'string'}
+            },
+            required:['op','path','valueJson']
+          }},
           constraints:{type:'array',items:{type:'string'}},
           rollback:{type:'string'}
         },
-        required:['path','action','purpose','sourceRefs','exactFields','proposedContent','constraints','rollback']
+        required:['path','action','applyMode','purpose','sourceRefs','exactFields','proposedContent','jsonPatch','constraints','rollback']
       }},
       doNotChange:{type:'array',items:{type:'string'}},
       qa:{type:'array',items:{type:'string'}},
@@ -149,6 +159,8 @@ Every mutation requires evidence references, a rival explanation and a bounded t
 Role: SITE_EDITOR. Propose the smallest reversible site mutation that can increase information gain while preserving KXTXR identity.
 Produce a plan, not executable code. Do not write main. Do not alter masters, historical preserved artifacts or artist identity.
 Use only repo-relative paths allowed by the governance policy. Prefer data/manifest changes before visual churn.
+For JSON files that can be safely changed through the governed PR mechanism, set applyMode=JSON_PATCH and provide RFC6901-style pointer paths with only add/replace operations. Put each patch value as valid JSON text in valueJson.
+For HTML/CSS/JS or any change requiring freeform code, set applyMode=PLAN_ONLY and jsonPatch=[].
 Every proposed change must state source refs, exact fields, constraints and rollback.
 `;
 }
