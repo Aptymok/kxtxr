@@ -1,0 +1,125 @@
+{
+  "schema": "KXTXR_GRIMOIRE_SHELL_CONTENT_V1",
+  "menu": [
+    {
+      "id": "creation",
+      "label": "Creation",
+      "subtitle": "Genesis of Forms",
+      "sanskrit": {
+        "text": "सृष्टि",
+        "es_translation": "Creación",
+        "tooltip": "Origen, herida, forma y canon de KXTXR."
+      },
+      "runes": {
+        "text": "ᚲᚱᛖᚨᛏᛁᛟᚾ",
+        "es_translation": "Creación",
+        "tooltip": "Capa rúnica del nodo Creation."
+      }
+    },
+    {
+      "id": "field",
+      "label": "Field",
+      "subtitle": "Maps · Residue · Entropy",
+      "sanskrit": {
+        "text": "क्षेत्र",
+        "es_translation": "Campo",
+        "tooltip": "REM618, HistoricalEvent, residuo y campo."
+      },
+      "runes": {
+        "text": "ᚠᛁᛖᛚᛞ",
+        "es_translation": "Campo",
+        "tooltip": "Capa rúnica del nodo Field."
+      }
+    },
+    {
+      "id": "frecuency",
+      "label": "Frecuency",
+      "subtitle": "Waves · Pattern · Interval",
+      "sanskrit": {
+        "text": "आवृत्ति",
+        "es_translation": "Frecuencia",
+        "tooltip": "REM618 → 111 → RETURN → [?]."
+      },
+      "runes": {
+        "text": "ᚠᚱᛖᚲᚢᛖᚾᚲᛃ",
+        "es_translation": "Frecuencia",
+        "tooltip": "Capa rúnica del nodo Frecuency."
+      }
+    },
+    {
+      "id": "alchemical_lab",
+      "label": "Alchemical Lab",
+      "subtitle": "Elements · Reactions · Links",
+      "sanskrit": {
+        "text": "रसायन",
+        "es_translation": "Laboratorio alquímico",
+        "tooltip": "Conecta señales, objetos, símbolos, audio, notas y residuos."
+      },
+      "runes": {
+        "text": "ᚨᛚᚲᚺᛖᛗᛁᚲᚨᛚ ᛚᚨᛒ",
+        "es_translation": "Laboratorio alquímico",
+        "tooltip": "Capa rúnica del laboratorio."
+      }
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "subtitle": "Persistent Knowledge Register",
+      "sanskrit": {
+        "text": "स्मृति",
+        "es_translation": "Notas / memoria",
+        "tooltip": "Lo pensado, cambiado, persistido, descartado y descubierto."
+      },
+      "runes": {
+        "text": "ᚾᛟᛏᛖᛋ",
+        "es_translation": "Notas",
+        "tooltip": "Capa rúnica de Notes."
+      }
+    },
+    {
+      "id": "objects",
+      "label": "Objects",
+      "subtitle": "Artifacts · Relics · Store",
+      "sanskrit": {
+        "text": "वस्तु",
+        "es_translation": "Objetos",
+        "tooltip": "Artefactos físicos y digitales del Grimorio."
+      },
+      "runes": {
+        "text": "ᛟᛒᛃᛖᚲᛏᛋ",
+        "es_translation": "Objetos",
+        "tooltip": "Capa rúnica de Objects."
+      }
+    },
+    {
+      "id": "reconstructions",
+      "label": "Reconstructions",
+      "subtitle": "Future Fragments · Timelines",
+      "sanskrit": {
+        "text": "पुनर्निर्माण",
+        "es_translation": "Reconstrucciones",
+        "tooltip": "Posibles futuros, próximos eventos y líneas alternativas."
+      },
+      "runes": {
+        "text": "ᚱᛖᚲᛟᚾᛋᛏᚱᚢᚲᛏᛁᛟᚾᛋ",
+        "es_translation": "Reconstrucciones",
+        "tooltip": "Capa rúnica de Reconstructions."
+      }
+    },
+    {
+      "id": "t_minus",
+      "label": "[ T - 0.00001 ]",
+      "subtitle": "Before the Creation",
+      "sanskrit": {
+        "text": "पूर्व",
+        "es_translation": "Antes de la creación",
+        "tooltip": "Bio, motivación, atlas, algoritmos, esteganografía y pre-origen."
+      },
+      "runes": {
+        "text": "ᛏ - 0.00001",
+        "es_translation": "Antes del nodo",
+        "tooltip": "Notación del tiempo previo al nodo visible."
+      }
+    }
+  ]
+}
