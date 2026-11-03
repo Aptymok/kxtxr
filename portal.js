@@ -40,12 +40,44 @@ function archive(){const items=[['index','01 · REGISTROS'],['vault','02 · BÓV
   addHeading(content,'REGISTROS ARTÍSTICOS','LA HUELLA.','Buscar obras y archivos públicos existentes; nada de expedientes inventados.');const input=node('input','search');input.type='search';input.placeholder='Filtrar REM618, 111, QUE NO, PRESS…';input.setAttribute('aria-label','Buscar registros de archivo');const result=node('div');const render=()=>{const q=input.value.toLowerCase().trim();result.replaceChildren();const matches=archiveData.filter(x=>[x.code,x.title,x.kind].join(' ').toLowerCase().includes(q));if(!matches.length)result.append(node('p','','Sin coincidencias.'));for(const item of matches){const r=node('div','record');const left=node('div');left.append(node('span','micro',item.code),node('div','',item.title),node('small','',item.kind));r.append(left,elementLink('ABRIR ↗',item.url));result.append(r)}};input.addEventListener('input',render);content.append(input,result);render();
 }else{addHeading(content,'LA BÓVEDA / OBJETOS FÍSICOS','ARTEFACTOS.','La extensión física de la obra puede incluir ediciones, materiales y objetos. El catálogo existente no constituye una tienda de pago funcional.');const grid=node('div','content-grid');grid.append(panelTile('CORPUS VISUAL','65 / 65','El film del artista documenta un corpus audiovisual asociado a su narrativa.'),panelTile('STICKER SHOP','MANIFIESTO LOCAL','El módulo existente compone una selección sin procesar cobros.'),panelTile('PROCEDENCIA','IDENTIDAD ARTÍSTICA','Un objeto adquiere sentido por su vínculo con un lanzamiento y su autor.'),panelTile('TRANSPARENCIA','SIN COMPRAS FICTICIAS','No se muestran precios, existencias ni recibos sin un comercio real.'));content.append(grid);addActions(content,[['Explorar bóveda existente ↗','/artist/#stickerShop']]);}
 })}
-function memory(){const items=[['orientation','01 · ORIENTACIÓN'],['principles','02 · PRINCIPIOS'],['notes','03 · MEMORIA LOCAL']];selectTabs(items,'orientation',tab=>{content.replaceChildren();const paper=node('div','memory-box');content.append(paper);if(tab==='orientation'){
-  addHeading(paper,'ENTRADA HUMANA · NO ES UN JUEGO','UNA PUERTA ABIERTA.','KXTXR propone vincular una futura obra musical con un espacio de orientación para personas afectadas por ausencias sin cierre. La sección de casos reales todavía no está habilitada.');paper.append(node('div','notice','Esta demostración no recibe reportes de desaparición, pistas, fotografías de víctimas ni datos de contacto. No es un servicio de emergencias.'));const grid=node('div','content-grid');grid.append(panelTile('01','Desapariciones','Una situación que requiere instituciones competentes y protocolos específicos.'),panelTile('02','Memoria histórica','Preservación de testimonios y documentos con su contexto y procedencia.'),panelTile('03','Duelo y otras ausencias','Necesidades distintas que no deben confundirse con búsqueda activa.'),panelTile('04','Ayuda adecuada','Acceso voluntario a organismos verificables y apoyo profesional.'));paper.append(grid);addActions(paper,[['Comisión Nacional de Búsqueda ↗','https://comisionacionaldebusqueda.gob.mx/'],['Comisión Nacional de Derechos Humanos ↗','https://www.cndh.org.mx/']]);
-}else if(tab==='principles'){
-  addHeading(paper,'RESPONSABILIDAD / CUIDADO','LA MEMORIA NO ES UN ACERTIJO.','No se necesita una canción ni una cuenta para buscar orientación. El universo ficcional es independiente del tratamiento de situaciones reales.');const grid=node('div','content-grid');grid.append(panelTile('CONSENTIMIENTO','Participación protegida','Sólo con autorizaciones apropiadas, revisión humana y mecanismos de corrección y retiro.'),panelTile('IA','Asistencia con fuentes','No determina la verdad, no investiga autónomamente personas ni produce localizaciones.'),panelTile('SFI','Método y límites','Evaluación de fuentes, trazabilidad y separación entre datos y conjeturas.'),panelTile('ARTISTA','KXTXR sigue siendo KXTXR','El proyecto musical mantiene identidad y autonomía creativa.'));paper.append(grid);
-}else{addHeading(paper,'EXPERIMENTO LOCAL · PRIVADO','UNA NOTA PARA TI.','Este espacio permite guardar una reflexión personal únicamente en este navegador. No la publica ni la envía a ningún servidor. No introduzcas datos sensibles de terceros.');const t=node('textarea','local-note');t.placeholder='Escribe una nota privada sobre la música o el concepto de memoria…';t.value=localStorage.getItem('kxtxr_public_demo_note')||'';t.setAttribute('aria-label','Nota personal guardada sólo en este navegador');const status=node('p','','');const row=node('div','row-actions');const save=node('button','control','GUARDAR LOCALMENTE');const clear=node('button','control','BORRAR NOTA');save.addEventListener('click',()=>{localStorage.setItem('kxtxr_public_demo_note',t.value);status.textContent='Nota guardada en este navegador. No sincronizada.'});clear.addEventListener('click',()=>{localStorage.removeItem('kxtxr_public_demo_note');t.value='';status.textContent='Nota local eliminada.'});row.append(save,clear);paper.append(t,row,status)}
-})}
+function memory(){
+  const boardUrl='https://sfi-living-blackboard.hh8xnc46c6.chatgpt.site/';
+  const items=[['board','01 · TABLÓN'],['participation','02 · PARTICIPACIÓN'],['safety','03 · RESGUARDO']];
+  selectTabs(items,'board',tab=>{
+    content.replaceChildren();const paper=node('div','memory-box');content.append(paper);
+    if(tab==='board'){
+      addHeading(paper,'TABLÓN SOCIAL ORIGINAL · SFI LIVING BLACKBOARD','UN ESPACIO PARA CONECTAR ACCIONES.','Este es el Living Blackboard existente de SFI. La entrada KXTXR lo conecta como superficie independiente, sin copiar tarjetas privadas ni inventar resultados públicos.');
+      paper.append(node('p','','El tablón se consulta en su propio sitio. La participación requiere una identidad autenticada y permisos gestionados por el servicio del tablón; KXTXR no recopila ni guarda contraseñas.'));
+      addActions(paper,[['Abrir Living Blackboard ↗',boardUrl]]);
+      const grid=node('div','content-grid');
+      grid.append(
+        panelTile('CONSULTA','Leer lo publicado','El acceso al contenido depende de los permisos y de la visibilidad real del servicio.'),
+        panelTile('SEGUIMIENTO','Consultar avances','Las acciones, responsables, revisiones y resultados deben identificarse con fuentes y fecha cuando el servicio los ofrezca.'),
+        panelTile('PARTICIPACIÓN','Comentarios identificados','Comentar no es una función local de KXTXR: debe realizarse dentro de una sesión autenticada en el tablón.'),
+        panelTile('CUIDADO','Personas y derechos','No confundir iniciativas sociales con expedientes sensibles ni publicar información privada de terceros.')
+      );paper.append(grid);
+    }else if(tab==='participation'){
+      addHeading(paper,'IDENTIDAD Y PERMISOS','PARTICIPAR REQUIERE SESIÓN.','Para comentar, seguir una iniciativa o aportar evidencias, entra al Living Blackboard con una cuenta autorizada por su propio servicio.');
+      paper.append(node('div','notice','KXTXR no autentica cuentas SFI desde esta pantalla. No escribas contraseñas, testimonios sensibles ni datos de terceros en formularios de demostración. El inicio de sesión y los permisos de comentario/seguimiento deben verificarse en el servicio de destino.'));
+      const grid=node('div','content-grid');grid.append(
+        panelTile('01','Identifícate','Abre el sitio original y usa su mecanismo de acceso, si está disponible.'),
+        panelTile('02','Selecciona una iniciativa','Revisa la procedencia, el estado y las personas responsables antes de intervenir.'),
+        panelTile('03','Comenta o sigue','La operación sólo cuenta si el servicio confirma que fue guardada bajo tu identidad.'),
+        panelTile('04','Comprueba el resultado','Una acción enviada no acredita resolución. Busca seguimiento y resultados verificados.')
+      );paper.append(grid);
+      addActions(paper,[['Ir al tablón / Acceso ↗',boardUrl]]);
+    }else{
+      addHeading(paper,'PROTECCIÓN DE DATOS Y AUTORIDAD','SEPARAR PARTICIPACIÓN DE EVIDENCIA.','El acceso social no constituye una autorización para divulgar nombres, ubicaciones, denuncias, expedientes o información sensible.');
+      const grid=node('div','content-grid');grid.append(
+        panelTile('PÚBLICO','Difusión revisada','Sólo materiales con autorización, contexto y posibilidad de corrección.'),
+        panelTile('PRIVADO','Expedientes protegidos','Los casos reales requieren consentimiento, pertenencia y controles de acceso independientes.'),
+        panelTile('IA','Apoyo delimitado','Una sugerencia de IA no equivale a evidencia, resolución ni decisión institucional.'),
+        panelTile('SEGUIMIENTO','Hechos y retornos','Diferenciar comentario, compromiso, ejecución y resultado demostrado.')
+      );paper.append(grid);
+      addActions(paper,[['Consultar Living Blackboard ↗',boardUrl],['Recursos públicos de búsqueda ↗','https://comisionacionaldebusqueda.gob.mx/']]);
+    }
+  });
+}
 const renderers={music,universe,archive,memory};
 function openHub(key,trigger){if(!renderers[key])return;lastTrigger=trigger;active=key;const data=sources[key];$('#hubTitle').textContent=data.title;$('#hubMeta').textContent=data.meta;$('#hubOverline').textContent=data.over;$('#hubDesc').textContent=data.desc;renderers[key]();hub.inert=false;hub.classList.add('open');hub.setAttribute('aria-hidden','false');$('#announcer').textContent=`Se abrió ${data.title}`;window.history.replaceState(null,'',`#${key}`);window.setTimeout(()=>$('#closeHub').focus(),70)}
 function enterHub(key,trigger){if(active)return;if(key==='music'&&!reduced){flash.classList.remove('go');void flash.offsetWidth;flash.classList.add('go');task=window.setTimeout(()=>{flash.classList.remove('go');openHub(key,trigger)},310)}else{openHub(key,trigger)}}
