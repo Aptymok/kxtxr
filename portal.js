@@ -93,7 +93,7 @@ $$('[data-hub]').forEach(el=>{
     if(e.key==='Enter'||e.key===' '){e.preventDefault();requestedTab=el.dataset.tab||null;enterHub(el.dataset.hub,el)}
   });
 });$('#closeHub').addEventListener('click',closeHub);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeHub();if(e.key==='Tab'&&active){const focus=$$('button,a,input,textarea,audio',hub).filter(x=>!x.closest('[hidden]')&&!x.disabled&&x.getClientRects().length);if(!focus.length)return;const first=focus[0],last=focus.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
-function clock(){const date=new Date();$('#clock').textContent=`UTC ${date.toISOString().slice(11,19)}`;$('#hubClock').textContent=`● LOCAL / ${date.toISOString().slice(11,19)}`};clock();setInterval(clock,1000);
+function clock(){const date=new Date();const time=date.toISOString().slice(11,19);const sceneClock=$('#clock'),dialogClock=$('#hubClock');if(sceneClock)sceneClock.textContent=`UTC ${time}`;if(dialogClock)dialogClock.textContent=`● LOCAL / ${time}`};clock();setInterval(clock,1000);
 if(!reduced){world.addEventListener('pointermove',e=>{if(active)return;const x=e.clientX/window.innerWidth-.5,y=e.clientY/window.innerHeight-.5;world.style.setProperty('--px',`${-x*9}px`);world.style.setProperty('--py',`${-y*6}px`);world.style.setProperty('--gx',`${x*30}px`)},{passive:true})}
 if(['music','universe','archive','memory'].includes(location.hash.slice(1)))openHub(location.hash.slice(1),null);
 /* Scene-local interactions. They must not open an unrelated overlay when used. */
