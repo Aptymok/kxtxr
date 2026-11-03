@@ -1,27 +1,76 @@
 <!doctype html>
 <html lang="es"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0D0E10"><meta name="description" content="KXTXR: música, universo artístico y memoria. Una sola escena, múltiples experiencias.">
+<meta name="theme-color" content="#0D0E10"><meta name="description" content="KXTXR · Música, archivo, universo, memoria y presencia dentro de un portal interactivo.">
 <title>KXTXR · THE SIGNAL REMAINS</title>
-<link rel="preload" as="image" href="/assets/kxtxr/portal/portal-background.webp"><link rel="stylesheet" href="/portal.css">
-<script src="/portal.js" type="module"></script>
+<link rel="preload" as="image" href="/assets/kxtxr/portal/portal-background.webp">
+<link rel="stylesheet" href="/portal.css"><script src="/portal.js" type="module"></script>
 </head><body>
 <main class="world" id="world">
-  <div class="backdrop" aria-hidden="true"></div><div class="atmosphere" aria-hidden="true"></div>
-  <div class="chromatic" aria-hidden="true"></div><div class="scanlines" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
-  <header class="brand" aria-label="KXTXR"><img class="logo-official" src="/assets/kxtxr/kxtxr-logo-transparent.png" alt="KXTXR"><span>THE SIGNAL REMAINS · 6.18 MHz</span></header>
-  <div class="top-status" aria-hidden="true"><span>OBS_NODE / KXTXR</span><span id="clock">UTC --:--:--</span></div>
-  <button class="hotspot portal-target" data-hub="music" aria-label="Entrar al portal: música, videos y artista"><span class="portal-ring"></span><span class="portal-core"></span><span class="portal-caption">ENTRAR A LA SEÑAL <span>↗</span></span></button>
-  <button class="hotspot telemetry-target" data-hub="universe" aria-label="Abrir telemetría: universo y terminal"><span class="signal-grid" aria-hidden="true"></span><span class="zone-index">OBS / 02</span><strong>TELEMETRÍA</strong><small>UNIVERSO · TIMELINE · TERMINAL</small><span class="led"></span></button>
-  <button class="hotspot archive-target" data-hub="archive" aria-label="Abrir archivo y bóveda"><span class="zone-index">VAULT / 03</span><strong>ARCHIVO</strong><small>REM618 → 111 → QUE NO</small><span class="edge-arrow">↗</span></button>
-  <button class="hotspot memory-target" data-hub="memory" aria-label="Abrir el hub del SFI Living Blackboard y seguimiento social"><span class="zone-index">HUMAN / 04</span><strong>TABLÓN SOCIAL</strong><small>SFI · MEMORIA · SEGUIMIENTO</small><span class="edge-arrow">↗</span></button>
-  <div class="scene-foot"><span>FICCIÓN ≠ EVIDENCIA REAL</span><span>TOCA UN ELEMENTO PARA EXPLORAR</span><span>2026 / AGUASCALIENTES</span></div>
-  <div class="portal-flash" id="flash" aria-hidden="true"></div>
-  <section id="hub" class="hub" role="dialog" aria-modal="true" aria-labelledby="hubTitle" aria-hidden="true" inert>
-    <div class="hub-frame"><div class="hub-head"><span class="meta" id="hubMeta">KXTXR / SIGNAL</span><div class="hub-tools"><span class="hub-clock" id="hubClock">● LOCAL</span><button id="closeHub" class="close" aria-label="Cerrar y volver al portal">✕ <span>CERRAR</span></button></div></div>
-      <div class="hub-body"><aside class="hub-sidebar"><p class="hub-overline" id="hubOverline">ENTRADA / 01</p><h1 id="hubTitle">LA SEÑAL.</h1><p id="hubDesc"></p><div class="hub-rail" id="hubRail"></div><span class="micro-note">KXTXR · ARTISTA / UNIVERSO / MEMORIA</span></aside><div id="hubContent" class="hub-content"></div></div>
+<div class="backdrop" aria-hidden="true"></div><div class="atmosphere" aria-hidden="true"></div>
+<div class="chromatic" aria-hidden="true"></div><div class="scanlines" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+<header class="brand" aria-label="KXTXR"><img class="logo-official" src="/assets/kxtxr/kxtxr-logo-transparent.png" alt="KXTXR"><span>THE SIGNAL REMAINS · 6.18 / ARTISTIC SYMBOL</span></header>
+<div class="top-status" aria-hidden="true"><span>KXTXR / SIGNAL FIELD · 2026</span><span id="clock">UTC --:--:--</span></div>
+<svg class="signal-conduits" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+<defs><filter id="conduitGlow"><feGaussianBlur stdDeviation="2" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g stroke="#86b86d" stroke-width="1.25" fill="none" opacity=".71" filter="url(#conduitGlow)">
+<path d="M423 166 H488 L575 274 L660 333"/><path d="M423 376 H487 L574 415 L660 435"/><path d="M423 588 H482 L577 529 L655 501"/><path d="M423 790 H486 L560 680 L692 585"/>
+<path d="M1017 166 H958 L869 274 L780 333"/><path d="M1017 376 H961 L868 415 L780 435"/><path d="M1017 588 H963 L868 529 L785 501"/><path d="M1017 790 H958 L871 680 L748 585"/>
+</g><g fill="#cfff9f"><circle cx="575" cy="274" r="3"/><circle cx="574" cy="415" r="3"/><circle cx="577" cy="529" r="3"/><circle cx="560" cy="680" r="3"/><circle cx="869" cy="274" r="3"/><circle cx="868" cy="415" r="3"/><circle cx="868" cy="529" r="3"/><circle cx="871" cy="680" r="3"/></g>
+</svg>
+<div class="stage-reticle" aria-hidden="true"><i></i><b></b><em></em></div>
+<div class="scene-modules" aria-label="Hubs interactivos KXTXR">
+<div class="module-column left-column">
+  <article class="diegetic-panel panel-music" role="button" tabindex="0" data-hub="music" data-tab="listen" aria-label="Explorar música y artista de KXTXR">
+    <div class="panel-heading"><span class="panel-symbol">▥</span><strong>MUSIC</strong><span class="panel-meta"><i class="online-dot"></i> REM618 / LISTEN</span></div>
+    <div class="panel-content musical">
+      <div class="disc-art" aria-hidden="true"><span></span></div>
+      <div class="music-unit"><b>KXTXR — REM618</b><small>MASTER DISPONIBLE EN ARCHIVO</small><div class="micro-wave" aria-hidden="true"></div><div class="playback-row"><button type="button" class="micro-play" id="scenePlay" aria-label="Reproducir REM618">▶</button><span id="sceneAudioStatus">REPRODUCIR / PAUSAR</span><a href="/artist/" aria-label="Abrir film de KXTXR">FILM ↗</a></div></div>
     </div>
-  </section>
-  <span id="announcer" class="sr-only" aria-live="polite"></span>
-</main>
-</body></html>
+    <audio id="sceneAudio" preload="none" src="/assets/KXTXR%20-%20REM%20618%20master%20final.wav"></audio>
+  </article>
+  <article class="diegetic-panel panel-archive" role="button" tabindex="0" data-hub="archive" data-tab="index" aria-label="Explorar archivo de obras musicales">
+    <div class="panel-heading"><span class="panel-symbol">▱</span><strong>ARCHIVE</strong><span class="panel-meta">REGISTROS PÚBLICOS</span></div>
+    <div class="panel-content record-list">
+      <a href="/historical/rem618/"><span>01</span><b>REM618 · HISTORICAL</b><i>↗</i></a>
+      <a href="/artist/"><span>02</span><b>111 · SIGNAL FILM</b><i>↗</i></a>
+      <a href="/legacy/#queno"><span>03</span><b>QUE NO · FIELD</b><i>↗</i></a>
+      <a href="/legacy/#archivo"><span>04</span><b>GRIMOIRE / ARCHIVE</b><i>↗</i></a>
+    </div>
+  </article>
+  <article class="diegetic-panel panel-vault" role="button" tabindex="0" data-hub="archive" data-tab="vault" aria-label="Explorar bóveda artística">
+    <div class="panel-heading"><span class="panel-symbol">◇</span><strong>VAULT</strong><span class="panel-meta">OBJETOS / CORPUS</span></div>
+    <div class="panel-content vault-display"><div class="vault-symbol" aria-hidden="true"><span>◈</span><small>ARTIFACT</small></div><div class="vault-copy"><b>KXTXR / OBJETOS</b><p>Ediciones, vestigios y materiales del film.</p><span>CATÁLOGO · NO VENTA ACTIVA</span><a href="/artist/#stickerShop">EXPLORAR CORPUS ↗</a></div></div>
+  </article>
+  <article class="diegetic-panel panel-memory" role="button" tabindex="0" data-hub="memory" aria-label="Abrir SFI Living Blackboard y seguimiento social">
+    <div class="panel-heading"><span class="panel-symbol">◎</span><strong>MEMORY</strong><span class="panel-meta">TABLÓN SOCIAL · SFI</span></div>
+    <div class="panel-content memory-display"><div class="memory-mark" aria-hidden="true">∿</div><div><b>LIVING BLACKBOARD</b><p>Consulta, iniciativas y seguimiento. Participación sujeta a sesión y permisos.</p><a href="https://sfi-living-blackboard.hh8xnc46c6.chatgpt.site/" target="_blank" rel="noopener noreferrer">ABRIR TABLÓN ↗</a></div></div>
+  </article>
+</div>
+<div class="module-column right-column">
+  <article class="diegetic-panel panel-timeline" role="button" tabindex="0" data-hub="universe" data-tab="timeline" aria-label="Explorar cronología narrativa KXTXR">
+    <div class="panel-heading"><span class="panel-symbol">▤</span><strong>TIMELINE</strong><span class="panel-meta">RELATO / PROYECCIÓN</span></div>
+    <div class="panel-content timeline-display"><div class="time-track" id="timelineTrack"><span>1987</span><span>1998</span><span>2018</span><span>2026</span><span>2050*</span></div><div class="time-detail"><b id="timelinePreviewYear">2026 · OBSERVACIÓN</b><p id="timelinePreviewText">Año de referencia del proyecto. Las fechas narrativas no acreditan acontecimientos reales.</p></div></div>
+  </article>
+  <article class="diegetic-panel panel-live" role="button" tabindex="0" data-hub="music" data-tab="video" aria-label="Explorar material audiovisual del artista">
+    <div class="panel-heading"><span class="panel-symbol">◉</span><strong>LIVE</strong><span class="panel-meta"><i class="online-dot muted-dot"></i> MATERIAL ARCHIVADO</span></div>
+    <div class="panel-content live-display"><div class="live-preview"><video id="sceneLive" preload="none" playsinline muted poster="/assets/kxtxr/que-no-07-12-hero.png"><source src="/assets/stairwell-shadow-021.mp4" type="video/mp4"></video><span>FIELD VIDEO / ARCHIVE</span></div><div><b>PRESENCIA</b><p>Material de campo disponible. No es una transmisión en directo.</p><button type="button" id="sceneVideoToggle" aria-label="Reproducir video de archivo">▶ / PAUSA</button></div></div>
+  </article>
+  <article class="diegetic-panel panel-press" aria-label="Prensa y contacto KXTXR">
+    <div class="panel-heading"><span class="panel-symbol">▣</span><strong>PRESS</strong><span class="panel-meta">MEDIA / CONTACT</span></div>
+    <div class="panel-content press-list"><a href="/legacy/#contacto"><span>CONTACTO Y CANALES</span><i>↗</i></a><a href="/legacy/#rider"><span>RIDER · ESTADO ACTUAL</span><i>↗</i></a><a href="/artist/"><span>ARTIST · SIGNAL FILM</span><i>↗</i></a><a href="https://www.youtube.com/@kxtxrsignal" target="_blank" rel="noopener noreferrer"><span>YOUTUBE</span><i>↗</i></a></div>
+  </article>
+  <article class="diegetic-panel panel-terminal" role="button" tabindex="0" data-hub="universe" data-tab="terminal" aria-label="Explorar terminal narrativa">
+    <div class="panel-heading"><span class="panel-symbol">&gt;_</span><strong>TERMINAL</strong><span class="panel-meta"><i class="online-dot"></i> LOCAL / FICTION</span></div>
+    <div class="panel-content terminal-display"><div id="sceneTermLog" aria-live="polite">KXTXR / NARRATIVE TERMINAL<br>&gt; SCENE READY<br>&gt; TYPE HELP FOR COMMANDS</div><form id="sceneTermForm"><label class="sr-only" for="sceneTermInput">Comando narrativo</label><input id="sceneTermInput" autocomplete="off" spellcheck="false" placeholder="help / signal / archive…"><button type="submit" aria-label="Ejecutar comando">↵</button></form></div>
+  </article>
+</div>
+</div>
+<button class="portal-target" data-hub="music" data-tab="listen" aria-label="Abrir música desde el portal luminoso"><span class="portal-ring"></span><span class="portal-core"></span></button>
+<div class="scene-foot"><span>KXTXR · NO FICTITIOUS LIVE DATA</span><span>LOS OBJETOS SON LA NAVEGACIÓN</span><span>MEMORIA REAL ≠ FICCIÓN</span></div>
+<div class="portal-flash" id="flash" aria-hidden="true"></div>
+<section id="hub" class="hub" role="dialog" aria-modal="true" aria-labelledby="hubTitle" aria-hidden="true" inert>
+<div class="hub-frame"><div class="hub-head"><span class="meta" id="hubMeta">KXTXR / SIGNAL</span><div class="hub-tools"><span class="hub-clock" id="hubClock">● LOCAL</span><button id="closeHub" class="close" aria-label="Cerrar y volver al portal">✕ <span>CERRAR</span></button></div></div>
+<div class="hub-body"><aside class="hub-sidebar"><p class="hub-overline" id="hubOverline">ENTRADA / 01</p><h1 id="hubTitle">LA SEÑAL.</h1><p id="hubDesc"></p><div class="hub-rail" id="hubRail"></div><span class="micro-note">KXTXR · ARTISTA / UNIVERSO / MEMORIA</span></aside><div id="hubContent" class="hub-content"></div></div></div>
+</section><span id="announcer" class="sr-only" aria-live="polite"></span>
+</main></body></html>
