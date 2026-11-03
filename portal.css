@@ -11,3 +11,5 @@
 @media(max-width:600px){.logo-official{width:min(55vw,230px)}}
 @media(max-width:800px){.hub-body{grid-template-columns:1fr;overflow:auto}.hub-sidebar{overflow:visible;border-right:0;border-bottom:1px solid var(--edge)}.hub-sidebar h1{font-size:clamp(35px,8vw,64px);margin:13px 0}.hub-rail{display:flex;overflow-x:auto}.hub-rail button{flex:0 0 auto}.hub-content{overflow:visible}.micro-note{display:none}}
 @media(prefers-reduced-motion:reduce){.portal-ring,.portal-ring::before,.portal-ring::after,.wave i{animation:none!important}.backdrop{transition:none}.portal-flash.go{animation:none!important}}
+/* Living Blackboard is a spatial surface, not a conventional entry CTA. */
+.memory-target{border-left:3px solid var(--amber);background:linear-gradient(110deg,rgba(7,24,13,.83),rgba(13,14,16,.62));box-shadow:inset 0 0 30px rgba(82,109,97,.18),0 0 24px rgba(82,109,97,.1)}.memory-target::after{content:'';position:absolute;right:11px;top:11px;width:9px;height:9px;border-radius:50%;background:var(--phosphor);box-shadow:0 0 9px rgba(82,109,97,.6)}.memory-target:hover,.memory-target:focus-visible{border-left-color:var(--crt)}
