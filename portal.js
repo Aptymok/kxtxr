@@ -82,7 +82,7 @@ const renderers={music,universe,archive,memory};
 function openHub(key,trigger){if(!renderers[key])return;lastTrigger=trigger;active=key;const data=sources[key];$('#hubTitle').textContent=data.title;$('#hubMeta').textContent=data.meta;$('#hubOverline').textContent=data.over;$('#hubDesc').textContent=data.desc;renderers[key]();hub.inert=false;hub.classList.add('open');hub.setAttribute('aria-hidden','false');$('#announcer').textContent=`Se abrió ${data.title}`;window.history.replaceState(null,'',`#${key}`);window.setTimeout(()=>$('#closeHub').focus(),70)}
 function enterHub(key,trigger){if(active)return;if(key==='music'&&!reduced){flash.classList.remove('go');void flash.offsetWidth;flash.classList.add('go');task=window.setTimeout(()=>{flash.classList.remove('go');openHub(key,trigger)},310)}else{openHub(key,trigger)}}
 function closeHub(){if(task){clearTimeout(task);task=null}if(!active)return;hub.classList.remove('open');hub.setAttribute('aria-hidden','true');hub.inert=true;$$('audio',content).forEach(a=>a.pause());active=null;history.replaceState(null,'',location.pathname);lastTrigger?.focus();$('#announcer').textContent='Se cerró el módulo. Regresaste al portal.'}
-$('[data-hub]').forEach(el=>{
+$$('[data-hub]').forEach(el=>{
   el.addEventListener('click',e=>{
     if(e.target!==el&&e.target.closest('a,button,input,form,video,audio'))return;
     requestedTab=el.dataset.tab||null;
