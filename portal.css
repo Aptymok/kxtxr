@@ -67,3 +67,32 @@
 .world .hero-motion{filter:none}
 @media(max-width:1100px){.world .invisible-hubs{inset:8.1% 3% 10.4%;grid-template-columns:minmax(0,29.3%) minmax(0,29.3%);gap:0}}
 @media(max-width:700px){.world .invisible-hubs{inset:8.1% 1.5% 10.4%;grid-template-columns:minmax(0,33%) minmax(0,33%);gap:0}.world .cinematic-core-hitarea{top:49.5%;width:29vw}}
+
+/* LIVE HOLOGRAPHIC INSTRUMENTS: projected in existing video hotspots.
+   Instrument signals are fictional visuals, not medical or geographic measurements. */
+.world .invisible-hubs .holo-slot{overflow:visible;isolation:isolate}
+.world .invisible-hubs .holo-slot:hover,.world .invisible-hubs .holo-slot:focus-visible{background:transparent}
+.holo-screen{position:absolute;inset:3px;display:flex;flex-direction:column;overflow:hidden;border:1px solid rgba(89,237,119,.36);border-radius:2px;background:radial-gradient(ellipse at 50% 52%,rgba(18,97,61,.23),rgba(2,12,10,.87) 70%),rgba(1,10,8,.7);box-shadow:inset 0 0 28px rgba(20,173,91,.15),0 0 16px rgba(49,255,125,.24),0 0 55px rgba(13,238,82,.08);color:#9af8a8;transform:perspective(1100px) rotateY(var(--panel-tilt,0deg)) translateZ(0);text-align:left;pointer-events:none;transition:transform .32s,filter .3s}
+.holo-screen::before{content:"";position:absolute;z-index:3;inset:0;background:repeating-linear-gradient(180deg,transparent 0 4px,rgba(167,255,169,.05) 5px,transparent 6px);mix-blend-mode:screen;pointer-events:none}
+.holo-screen::after{content:"";position:absolute;z-index:3;inset:0;border:8px solid transparent;border-image:linear-gradient(135deg,rgba(179,252,150,.5),transparent 24%,transparent 76%,rgba(122,244,145,.5)) 1;pointer-events:none}
+.holo-slot:hover .holo-screen,.holo-slot:focus-visible .holo-screen{filter:brightness(1.37) saturate(1.25);transform:perspective(1100px) rotateY(0deg) scale(1.025)}
+.holo-topline,.holo-bottomline{display:flex;align-items:center;justify-content:space-between;gap:8px;position:relative;z-index:2;flex:none;padding:clamp(4px,.55vw,11px) clamp(7px,.85vw,15px);font-family:var(--mono);letter-spacing:.12em;white-space:nowrap;text-shadow:0 0 10px #41ff7790}
+.holo-topline{border-bottom:1px solid #75e89a55;font-size:clamp(8px,.87vw,15px)}
+.holo-topline b{font-weight:700}.holo-topline em{font-size:clamp(5px,.46vw,9px);font-style:normal;opacity:.65}
+.holo-bottomline{border-top:1px solid #75e89a55;font-size:clamp(5px,.53vw,10px);margin-top:auto}.holo-bottomline span{opacity:.65}
+.holo-ecg .ecg-svg{height:100%;min-height:0;width:100%;filter:drop-shadow(0 0 4px #71f88e);opacity:.94;flex:1}
+.ecg-trace{fill:none;stroke:#a7ff9c;stroke-width:2.1;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:116 40 70 60;animation:ecgRun 4.1s linear infinite}
+.ecg-halo{stroke:#4bff73;stroke-width:8;opacity:.24;filter:url(#ecg-glow)}
+@keyframes ecgRun{to{stroke-dashoffset:-286}}
+.holo-sonar .sonar-stage{position:relative;display:block;flex:1;min-height:0;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(73,255,124,.09),transparent 48%)}
+.sonar-rings{position:absolute;left:50%;top:50%;width:min(62%,20vh);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);border:1px solid #75f79a80;background:repeating-radial-gradient(circle at center,transparent 0 16%,rgba(119,240,147,.5) 16.25%,transparent 17%,transparent 32%);box-shadow:0 0 24px #18d45c30}
+.sonar-sweep{position:absolute;left:50%;top:50%;width:min(62%,20vh);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) rotate(0);background:conic-gradient(from 0deg,transparent 0 246deg,rgba(75,255,137,.06) 275deg,rgba(112,255,140,.36) 338deg,rgba(182,255,174,.68) 359deg,transparent 360deg);mask-image:radial-gradient(circle,black 68%,transparent 71%);animation:sonarSpin 5.7s linear infinite}
+.sonar-axis{position:absolute;background:#64dd8952}.sonar-x{height:1px;left:9%;right:9%;top:50%}.sonar-y{width:1px;top:5%;bottom:5%;left:50%}
+.sonar-contact{position:absolute;width:5px;height:5px;background:#c9ffd0;border-radius:50%;box-shadow:0 0 7px 3px #57ff89;animation:sonarPing 3s ease-in-out infinite}.contact-a{left:62%;top:31%}.contact-b{left:37%;top:61%;animation-delay:1s}.contact-c{left:72%;top:66%;animation-delay:2s}
+@keyframes sonarSpin{to{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes sonarPing{0%,100%{opacity:.25;transform:scale(.7)}48%{opacity:1;transform:scale(1.45)}}
+.holo-map .map-svg{height:100%;min-height:0;width:100%;flex:1;filter:drop-shadow(0 0 4px rgba(82,250,145,.55))}
+.holo-map .map-svg .map-points{animation:mapBreathe 3.2s ease-in-out infinite;transform-origin:center}
+@keyframes mapBreathe{50%{opacity:.48}}
+.holo-slot.holo-map .holo-screen{--panel-tilt:-1deg}.holo-slot.holo-sonar .holo-screen{--panel-tilt:1deg}
+@media(max-width:700px){.holo-topline{font-size:clamp(6px,1.45vw,10px);padding:3px 4px;letter-spacing:.015em}.holo-topline em{font-size:0}.holo-bottomline{font-size:clamp(5px,1.1vw,8px);padding:3px 4px;letter-spacing:0}.holo-bottomline span{display:none}.sonar-rings,.sonar-sweep{width:min(65%,13vh)}.holo-screen{inset:1px}.ecg-trace{stroke-width:1.6}}
+@media(prefers-reduced-motion:reduce){.ecg-trace,.sonar-sweep,.sonar-contact,.map-points{animation:none!important}.holo-screen{transition:none!important}}
